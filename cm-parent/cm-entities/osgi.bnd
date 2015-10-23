@@ -3,3 +3,6 @@
 #-----------------------------------------------------------------
 
 Bundle-Activator: ${bundle.namespace}.internal.InitActivator
+Meta-Persistence: META-INF/persistence.xml
+JPA-PersistenceUnits:cm-unit
+Import-Package:org.hibernate.proxy,javassist.util.proxy,*
