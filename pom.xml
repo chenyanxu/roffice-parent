@@ -7,9 +7,10 @@
     <groupId>cn.com.rexen.roffice</groupId>
     <artifactId>roffice-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
+        <globle.version>1.0.0-SNAPSHOT</globle.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-bundle-plugin.version>2.5.4</maven-bundle-plugin.version>
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
@@ -28,8 +29,20 @@
             <dependency>
                 <groupId>cn.com.rexen.kalix.poms</groupId>
                 <artifactId>poms-dm</artifactId>
-                <type>pom</type>
                 <version>${kalix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.rexen.kalix.core</groupId>
+                <artifactId>core-api</artifactId>
+                <version>${kalix.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.com.rexen.roffice.cm</groupId>
+                <artifactId>cm-entities</artifactId>
+                <version>${globle.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -38,11 +51,22 @@
         <dependency>
             <groupId>cn.com.rexen.kalix.poms</groupId>
             <artifactId>poms-dm</artifactId>
+            <version>${kalix.version}</version>
             <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.rexen.kalix.core</groupId>
+            <artifactId>core-api</artifactId>
         </dependency>
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -60,7 +84,6 @@
                     </instructions>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
@@ -99,4 +122,18 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>production</id>
+            <properties>
+                <db.name>postgres</db.name>
+                <db.datasource>jdbc/postgres</db.datasource>
+                <db.driver>org.postgresql.Driver</db.driver>
+                <db.datasourceClass>org.postgresql.jdbc2.optional.PoolingDataSource</db.datasourceClass>
+                <db.connectionURL>jdbc:postgresql://localhost:5432/kalix</db.connectionURL>
+                <db.username>postgres</db.username>
+                <db.password>1234</db.password>
+            </properties>
+        </profile>
+    </profiles>
 </project>

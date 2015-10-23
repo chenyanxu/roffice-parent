@@ -1,4 +1,4 @@
-package cn.com.rexen.roffice.cm.entities.internal;
+package cn.com.rexen.roffice.cm.api.internal;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
