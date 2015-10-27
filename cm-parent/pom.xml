@@ -15,5 +15,7 @@
     <modules>
         <module>cm-api</module>
         <module>cm-entities</module>
+        <module>cm-persist-jpa</module>
+        <module>cm-core</module>
     </modules>
 </project>

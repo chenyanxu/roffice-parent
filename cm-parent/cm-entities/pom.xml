@@ -16,11 +16,7 @@
         <bundle.symbolicName>cn.com.rexen.roffice.cm.entities</bundle.symbolicName>
         <bundle.namespace>${bundle.symbolicName}</bundle.namespace>
     </properties>
-    <dependencyManagement>
-        <dependencies>
 
-        </dependencies>
-    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.hibernate</groupId>

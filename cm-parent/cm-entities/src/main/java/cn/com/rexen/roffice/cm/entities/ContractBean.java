@@ -6,13 +6,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 
-/**
- * 销售合同.
+/**Contract Entity
+ * @author ：Chenyanxu
  */
 @Entity
 @Table(name = "cm_contract")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Contract extends PersistentEntity {
+public class ContractBean extends PersistentEntity {
     /**
      * 合同编号.
      */

@@ -1,9 +1,11 @@
-package cn.com.rexen.roffice.cm.entities.internal;
+package cn.com.rexen.roffice.cm.core.internal;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-/**BundleActivator for runtime initialize
+/**
+ * BundleActivator for runtime initialize
+ *
  * @author ：Chenyanxu
  */
 public class InitActivator implements BundleActivator {

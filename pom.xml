@@ -15,7 +15,8 @@
         <maven-bundle-plugin.version>2.5.4</maven-bundle-plugin.version>
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
         <kalix.version>1.0.0-SNAPSHOT</kalix.version>
-        <karaf.path>d:/java-develop/tools/apache-karaf-3.0.5/deploy</karaf.path>
+        <karaf.version>4.0.2</karaf.version>
+        <karaf.path>d:/java-develop/tools/apache-karaf-${karaf.version}/deploy</karaf.path>
         <bundle.symbolicName>define_in_child_module</bundle.symbolicName>
         <bundle.namespace>define_in_child_module</bundle.namespace>
     </properties>
@@ -38,10 +39,25 @@
                 <artifactId>core-api</artifactId>
                 <version>${kalix.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.com.rexen.kalix.core</groupId>
+                <artifactId>core-impl</artifactId>
+                <version>${kalix.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>cn.com.rexen.roffice.cm</groupId>
+                <artifactId>cm-api</artifactId>
+                <version>${globle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.rexen.roffice.cm</groupId>
                 <artifactId>cm-entities</artifactId>
+                <version>${globle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.rexen.roffice.cm</groupId>
+                <artifactId>cm-persist-jpa</artifactId>
                 <version>${globle.version}</version>
             </dependency>
         </dependencies>
@@ -96,7 +112,7 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <tasks>
+                            <target>
                                 <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
                                 <if>
                                     <available file="target/${project.artifactId}-${project.version}.jar"/>
@@ -108,7 +124,7 @@
                                         <echo>The file does not exist</echo>
                                     </else>
                                 </if>
-                            </tasks>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>

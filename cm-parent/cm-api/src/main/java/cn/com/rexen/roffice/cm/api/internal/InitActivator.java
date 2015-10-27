@@ -3,17 +3,17 @@ package cn.com.rexen.roffice.cm.api.internal;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-/**
- * Created by lenovo on 2015/10/23.
+/**BundleActivator for runtime initialize
+ * @author ：Chenyanxu
  */
 public class InitActivator implements BundleActivator {
     @Override
     public void start(BundleContext bundleContext) throws Exception {
-        System.out.println("START-->" + bundleContext.getBundle().getSymbolicName());
+        System.out.println("START-BUNDLE->" + bundleContext.getBundle());
     }
 
     @Override
     public void stop(BundleContext bundleContext) throws Exception {
-        System.out.println("STOP-->" + bundleContext.getBundle().getSymbolicName());
+        System.out.println("STOP--BUNDLE->" + bundleContext.getBundle());
     }
 }
