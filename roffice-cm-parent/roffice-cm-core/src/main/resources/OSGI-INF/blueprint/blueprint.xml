@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- default-activation="lazy" -->
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
+           http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+    <reference id="contractBeanDao" interface="cn.com.rexen.roffice.cm.api.dao.IContractBeanDao"/>
+    <bean id="contractBeanServiceImpl" class="cn.com.rexen.roffice.cm.core.ContractBeanServiceImpl">
+        <property name="dao" ref="contractBeanDao"/>
+    </bean>
+    <service id="contractBeanService" ref="contractBeanServiceImpl"
+             interface="cn.com.rexen.roffice.cm.api.biz.IContractBeanService"/>
+</blueprint>
+
