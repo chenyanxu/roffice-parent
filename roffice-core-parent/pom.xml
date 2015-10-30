@@ -15,6 +15,7 @@
     <name>Roffice :: Core - Parent</name>
     <modules>
         <module>roffice-core-web</module>
+        <module>roffice-core-extjs</module>
     </modules>
 
 </project>
