@@ -25,7 +25,7 @@
     <modules>
         <module>roffice-cm-parent</module>
         <module>roffice-core-parent</module>
-        <module>cm-parent</module>
+        <!--<module>cm-parent</module>-->
         <module>commons-parent</module>
         <module>code-generate</module>
     </modules>

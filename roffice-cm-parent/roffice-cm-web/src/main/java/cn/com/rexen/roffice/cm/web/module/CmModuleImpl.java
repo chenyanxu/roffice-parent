@@ -2,6 +2,7 @@ package cn.com.rexen.roffice.cm.web.module;
 
 import cn.com.rexen.core.api.web.IMenu;
 import cn.com.rexen.core.api.web.IModule;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class CmModuleImpl implements IModule {
 
     @Override
     public String getApplicationId() {
-        return "RofficeApplication";
+        return Const.APPLICATION_NAME;
     }
 
     @Override

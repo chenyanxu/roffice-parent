@@ -9,6 +9,21 @@ public class NewsMenuImpl implements IMenu {
     }
 
     @Override
+    public String getIconCls() {
+        return null;
+    }
+
+    @Override
+    public String getText() {
+        return null;
+    }
+
+    @Override
+    public String getRouteId() {
+        return null;
+    }
+
+    @Override
     public String getModuleId() {
         return "newsModule";
     }
@@ -24,11 +39,6 @@ public class NewsMenuImpl implements IMenu {
     }
 
     @Override
-    public String getTitle() {
-        return "审计管理";
-    }
-
-    @Override
     public String getDescription() {
         return null;
     }
@@ -36,11 +46,6 @@ public class NewsMenuImpl implements IMenu {
     @Override
     public String getIcon() {
         return "admin/resources/images/building.png";
-    }
-
-    @Override
-    public String getComponentClass() {
-        return "Kalix.news.view.News";
     }
 
     @Override

@@ -23,7 +23,7 @@ public class RofficeApplicationImpl implements IApplication {
 
     @Override
     public String getId() {
-        return "RofficeApplication";
+        return Const.APPLICATION_NAME;
     }
 
     @Override
