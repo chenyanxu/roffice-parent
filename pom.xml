@@ -8,6 +8,7 @@
     <artifactId>roffice-parent</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
+    <name>Roffice :: Parent</name>
 
     <properties>
         <globle.version>1.0.0-SNAPSHOT</globle.version>
@@ -22,6 +23,8 @@
     </properties>
 
     <modules>
+        <module>roffice-cm-parent</module>
+        <module>roffice-core-parent</module>
         <module>cm-parent</module>
         <module>commons-parent</module>
         <module>code-generate</module>
@@ -49,17 +52,22 @@
 
             <dependency>
                 <groupId>cn.com.rexen.roffice.cm</groupId>
-                <artifactId>cm-api</artifactId>
+                <artifactId>roffice-cm-api</artifactId>
                 <version>${globle.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.com.rexen.roffice.cm</groupId>
-                <artifactId>cm-entities</artifactId>
+                <artifactId>roffice-cm-entities</artifactId>
                 <version>${globle.version}</version>
             </dependency>
             <dependency>
                 <groupId>cn.com.rexen.roffice.cm</groupId>
-                <artifactId>cm-persist-jpa</artifactId>
+                <artifactId>roffice-cm-persist-jpa</artifactId>
+                <version>${globle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.com.rexen.roffice.cm</groupId>
+                <artifactId>roffice-cm-core</artifactId>
                 <version>${globle.version}</version>
             </dependency>
         </dependencies>
