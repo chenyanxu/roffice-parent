@@ -18,10 +18,6 @@
                 <description>Find all contracts</description>
                 <to uri="bean:contractBeanService?method=getAllEntity(${header.page},${header.limit})"/>
             </get>
-            <post id="route-getAllContract1" uri="/list1" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all contracts</description>
-                <to uri="bean:contractBeanService?method=getAllEntity()"/>
-            </post>
         </rest>
     </camelContext>
 </blueprint>
