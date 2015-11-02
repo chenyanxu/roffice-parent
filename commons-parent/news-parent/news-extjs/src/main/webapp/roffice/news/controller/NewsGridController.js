@@ -35,7 +35,7 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
     onAdd: function () {
         var view = Ext.create('kalix.roffice.news.view.NewsForm');
         var viewModel = view.lookupViewModel();
-
+        viewModel.set('rec', Ext.create('kalix.roffice.news.model.NewsModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
         viewModel.set('title', '新增新闻');
         view.show();
@@ -51,8 +51,6 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
         var selModel = grid.getSelectionModel();
         if (selModel.hasSelection()) {
             var rec = selModel.getSelection()[0].clone();
-            rec.set('password', '');
-
             var view = Ext.create('kalix.roffice.news.view.NewsForm');
             var viewModel = view.lookupViewModel();
 
