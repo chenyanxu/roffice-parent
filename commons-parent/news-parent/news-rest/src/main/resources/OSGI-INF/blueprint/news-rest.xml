@@ -13,7 +13,7 @@
         </restConfiguration>
 
         <!-- defines the rest services using the context-path /news -->
-        <rest path="/newss" consumes="application/json" produces="application/json">
+        <rest path="/newses" consumes="application/json" produces="application/json">
             <description>news rest service</description>
 
             <!-- this is a rest PUT to create an news -->
@@ -38,7 +38,7 @@
 
             <!-- this is a rest GET to find all news -->
             <get id="route-getAllNews" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all Newss</description>
+                <description>Find all Newses</description>
                 <to uri="bean:newsService?method=getAllEntity(${header.page},${header.limit})"/>
             </get>
 

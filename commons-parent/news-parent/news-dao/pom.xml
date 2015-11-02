@@ -12,7 +12,7 @@
 
     <artifactId>news-dao</artifactId>
     <packaging>bundle</packaging>
-    <name>roffice :: News - JPA</name>
+    <name>Roffice :: News - DAO</name>
     <description>News JPA</description>
 
     <properties>

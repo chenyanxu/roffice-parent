@@ -4,17 +4,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>cn.com.rexen.roffice.news</groupId>
-        <artifactId>modules.news</artifactId>
+        <artifactId>news-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>cn.com.rexen.roffice.news</groupId>
-    <artifactId>cn.com.rexen.roffice.news.extjs</artifactId>
+    <artifactId>news-extjs</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Kalix :: News - Extjs</name>
-    <description>Kalix :: News - Extjs</description>
+    <name>Roffice :: News - Extjs</name>
+    <description>Roffice :: News - Extjs</description>
     <packaging>bundle</packaging>
 
     <properties>

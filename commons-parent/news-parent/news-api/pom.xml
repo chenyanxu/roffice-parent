@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>news-api</artifactId>
-    <name>roffice :: News - API</name>
+    <name>Roffice :: News - API</name>
     <description>News API</description>
     <packaging>bundle</packaging>
 
