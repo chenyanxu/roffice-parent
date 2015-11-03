@@ -7,7 +7,7 @@
 Ext.define('kalix.roffice.news.view.NewsGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
-        'kalix.roffice.news.view.NewsViewModel',
+        'kalix.roffice.news.viewModel.NewsViewModel',
         'kalix.roffice.news.controller.NewsGridController',
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar'
@@ -101,10 +101,10 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
                     icon: '{delete_image_path}'
                 }
             }
-        ],
+        ]
 
         //需要验证权限后添加的按钮
-        verifyItems: []
+        //verifyItems: []
     },
 
     /*

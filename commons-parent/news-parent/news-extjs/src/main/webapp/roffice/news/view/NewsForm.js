@@ -10,7 +10,7 @@ Ext.define('kalix.roffice.news.view.NewsForm', {
     extend: 'Ext.window.Window',
     requires: [
         'kalix.view.components.common.FormPanel',
-        'kalix.roffice.news.view.NewsViewModel',
+        'kalix.roffice.news.viewModel.NewsViewModel',
         'kalix.roffice.news.controller.NewsFormController'
     ],
     alias: 'widget.NewsForm',

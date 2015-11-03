@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+    <reference id="chanceService" interface="cn.com.rexen.roffice.chance.api.biz.IChanceBeanService"/>
+    <camelContext id="chanceCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json"
+                           contextPath="/kalix/camel/rest" host="localhost"
+                           port="8181">
+            <dataFormatProperty key="prettyPrint" value="true"/>
+        </restConfiguration>
+
+        <!-- defines the rest services using the context-path /chance -->
+        <rest path="/chances" consumes="application/json" produces="application/json">
+            <description>chance rest service</description>
+
+            <!-- this is a rest PUT to create an chance -->
+            <post id="route-addChance" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
+                  outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a Chance</description>
+                <to uri="bean:chanceService?method=saveEntity"/>
+            </post>
+
+            <!-- this is a rest PUT to update a chance -->
+            <put id="route-updateChance" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
+                 outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Updates a Chance</description>
+                <to uri="bean:chanceService?method=updateEntity"/>
+            </put>
+
+            <!-- this is a rest DELETE to delete a chance -->
+            <delete id="route-deleteChance" outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Delete a Chance</description>
+                <to uri="bean:chanceService?method=deleteEntity(${header.id})"/>
+            </delete>
+
+            <!-- this is a rest GET to find all chance -->
+            <get id="route-getAllChance" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Chances</description>
+                <to uri="bean:chanceService?method=getAllEntity(${header.page},${header.limit})"/>
+            </get>
+
+            <!-- this is a rest GET to view a chance by the given id -->
+            <get id="route-getChance" uri="/{id}" outType="cn.com.rexen.roffice.chance.entities.ChanceBean">
+                <description>Find Chance by id</description>
+                <to uri="bean:chanceService?method=getEntity(${header.id})"/>
+            </get>
+
+        </rest>
+    </camelContext>
+</blueprint>

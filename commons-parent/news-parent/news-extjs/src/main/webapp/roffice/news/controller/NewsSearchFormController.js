@@ -5,9 +5,9 @@
  *         date:2015-6-18
  * @version 1.0.0
  */
-Ext.define('kalix.roffice.news.controller.NewsController', {
+Ext.define('kalix.roffice.news.controller.NewsSearchFormController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.newsController',
+    alias: 'controller.newsSearchFormController',
 
     requires: [
         'kalix.roffice.news.store.NewsStore'
