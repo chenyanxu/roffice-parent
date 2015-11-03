@@ -1,17 +1,16 @@
-package cn.com.rexen.roffice.cm.web.module;
+package cn.com.rexen.roffice.news.web.impl.module;
 
 import cn.com.rexen.core.api.web.IMenu;
 import cn.com.rexen.core.api.web.IModule;
 import cn.com.rexen.roffice.core.web.app.Const;
+import cn.com.rexen.roffice.news.web.impl.GeneralConst;
 
 import java.util.List;
 
 /**
- * Contract Management Module
- *
- * @author chenyanxu
+ * Created by sunlf on 2015/11/2.
  */
-public class CmModuleImpl implements IModule {
+public class CommonsModuleImpl implements IModule {
     @Override
     public List<IMenu> getMenus() {
         return null;
@@ -23,33 +22,38 @@ public class CmModuleImpl implements IModule {
     }
 
     @Override
-    public String getIconCls() {
-        return "x-fa fa-folder";
-    }
-
-    @Override
     public String getId() {
-        return "cmModule";
+        return GeneralConst.MODULE_NAME;
     }
 
     @Override
     public String getText() {
-        return "合同管理";
+        return "通用功能";
     }
 
     @Override
     public String getDescription() {
-        return "";
+        return "通用功能";
     }
 
     @Override
     public String getIcon() {
-        return null;
+        return "resources/images/computer.png";
     }
 
     @Override
     public String getRouteId() {
         return null;
+    }
+
+    @Override
+    public int getIndex() {
+        return 20;
+    }
+
+    @Override
+    public String getIconCls() {
+        return "right-icon x-fa fa-database";
     }
 
     @Override
@@ -63,12 +67,7 @@ public class CmModuleImpl implements IModule {
     }
 
     @Override
-    public int getIndex() {
-        return 0;
-    }
-
-    @Override
     public String getPermission() {
-        return null;
+        return "";
     }
 }

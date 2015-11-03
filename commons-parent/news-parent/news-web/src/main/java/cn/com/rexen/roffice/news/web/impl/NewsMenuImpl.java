@@ -10,27 +10,27 @@ public class NewsMenuImpl implements IMenu {
 
     @Override
     public String getIconCls() {
-        return null;
+        return "x-fa fa-cubes";
     }
 
     @Override
     public String getText() {
-        return null;
+        return "公司新闻";
     }
 
     @Override
     public String getRouteId() {
-        return null;
+        return "roffice/news";
     }
 
     @Override
     public String getModuleId() {
-        return "newsModule";
+        return GeneralConst.MODULE_NAME;
     }
 
     @Override
     public String getParentMenuId() {
-        return "newsMenu";
+        return null;
     }
 
     @Override
@@ -55,6 +55,6 @@ public class NewsMenuImpl implements IMenu {
 
     @Override
     public String getPermission() {
-        return "admin:newsModule:newsMenu:newsMenu";
+        return "";
     }
 }

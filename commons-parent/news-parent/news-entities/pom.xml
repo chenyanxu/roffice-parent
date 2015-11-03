@@ -10,7 +10,7 @@
 
     <artifactId>news-entities</artifactId>
     <packaging>bundle</packaging>
-    <name>roffice :: News - Entities</name>
+    <name>Roffice :: News - Entities</name>
     <description>News Entities</description>
 
 

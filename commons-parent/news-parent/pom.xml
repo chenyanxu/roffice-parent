@@ -28,7 +28,7 @@
         <module>news-core</module>
         <module>news-rest</module>
         <module>news-web</module>
-        <!--<module>news-extjs</module>-->
+        <module>news-extjs</module>
     </modules>
 
     <dependencyManagement>

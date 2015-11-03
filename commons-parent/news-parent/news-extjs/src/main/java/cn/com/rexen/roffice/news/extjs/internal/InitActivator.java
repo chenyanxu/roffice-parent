@@ -6,6 +6,7 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
+
 /**
  * Created by sunlf on 14-3-23.
  */
@@ -22,8 +23,9 @@ public class InitActivator implements BundleActivator {
         context = bundleContext;
 
         reference = bundleContext.getServiceReference(HttpService.class.getName());
-                HttpService httpService = (HttpService) bundleContext.getService(reference);
-                httpService.registerResources("/kalix/app/news", "/news", null);
+        HttpService httpService = (HttpService) bundleContext.getService(reference);
+        httpService.registerResources("/kalix/app/roffice/news", "/roffice/news", null);
+        httpService.registerResources("/kalix/roffice/news/resources/images", "/resources/images", null);
     }
 
     @Override
@@ -32,6 +34,6 @@ public class InitActivator implements BundleActivator {
         context = null;
 
         if (reference != null)
-                    bundleContext.ungetService(reference);
+            bundleContext.ungetService(reference);
     }
 }
