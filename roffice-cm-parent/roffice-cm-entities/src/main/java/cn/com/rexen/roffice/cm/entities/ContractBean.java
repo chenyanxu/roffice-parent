@@ -10,7 +10,7 @@ import java.util.Date;
  * @author ：Chenyanxu
  */
 @Entity
-@Table(name = "cm_contract")
+@Table(name = "roffice_contract")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class ContractBean extends PersistentEntity {
     /**

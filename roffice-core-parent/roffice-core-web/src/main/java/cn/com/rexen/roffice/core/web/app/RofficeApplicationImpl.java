@@ -38,7 +38,7 @@ public class RofficeApplicationImpl implements IApplication {
 
     @Override
     public String getIcon() {
-        return "resources/images/computer.png";
+        return "roffice/resources/images/office.png";
     }
 
     @Override

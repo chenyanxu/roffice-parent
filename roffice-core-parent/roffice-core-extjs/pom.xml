@@ -12,6 +12,7 @@
     <groupId>cn.com.rexen.roffice.core.extjs</groupId>
     <artifactId>roffice-core-extjs</artifactId>
     <packaging>bundle</packaging>
+    <name>Roffice :: Core - Extjs</name>
     <properties>
         <bundle.symbolicName>cn.com.rexen.roffice.core.extjs</bundle.symbolicName>
         <bundle.namespace>${bundle.symbolicName}</bundle.namespace>
