@@ -5,7 +5,7 @@
  *         date:2015-7-6
  * @version 1.0.0
  */
-Ext.define('kalix.roffice.news.view.NewsViewModel', {
+Ext.define('kalix.roffice.news.view.viewModel.NewsViewModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.newsViewModel',
     requires: [

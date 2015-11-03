@@ -13,9 +13,13 @@ import org.osgi.service.http.HttpService;
 public class InitActivator implements BundleActivator {
 
     private static final String BUNDLE_NAME = " Kalix News Extjs ";
+    public static final String KALIX_APP_ROFFICE_NEWS = "/kalix/app/roffice/news";
+    public static final String KALIX_ROFFICE_NEWS_RESOURCES_IMAGES = "/kalix/roffice/news/resources/images";
+
     private static BundleContext context;
     private static Logger logger = Logger.getLogger(InitActivator.class);
     private ServiceReference reference;
+    private HttpService httpService;
 
     @Override
     public void start(BundleContext bundleContext) throws Exception {
@@ -23,16 +27,19 @@ public class InitActivator implements BundleActivator {
         context = bundleContext;
 
         reference = bundleContext.getServiceReference(HttpService.class.getName());
-        HttpService httpService = (HttpService) bundleContext.getService(reference);
-        httpService.registerResources("/kalix/app/roffice/news", "/roffice/news", null);
-        httpService.registerResources("/kalix/roffice/news/resources/images", "/resources/images", null);
+        httpService = (HttpService) bundleContext.getService(reference);
+        httpService.registerResources(KALIX_APP_ROFFICE_NEWS, "/roffice/news", null);
+        httpService.registerResources(KALIX_ROFFICE_NEWS_RESOURCES_IMAGES, "/resources/images", null);
     }
 
     @Override
     public void stop(BundleContext bundleContext) throws Exception {
         SystemUtil.succeedPrintln(String.format("Stop %s bundle!!", BUNDLE_NAME));
         context = null;
-
+        if (httpService != null) {
+            httpService.unregister(KALIX_APP_ROFFICE_NEWS);
+            httpService.unregister(KALIX_ROFFICE_NEWS_RESOURCES_IMAGES);
+        }
         if (reference != null)
             bundleContext.ungetService(reference);
     }

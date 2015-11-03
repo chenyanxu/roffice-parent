@@ -34,9 +34,12 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
     ],
 
     validators: {
-        title: [{
-            type: 'presence',
-            message: '标题不能为空!'
+        title: [
+            {
+                type: 'length',
+                max: '20',
+                min: '4',
+                bothMessage: '长度不能小于4个字符，不能超过20个字符！'
         }
         ],
         content: [{

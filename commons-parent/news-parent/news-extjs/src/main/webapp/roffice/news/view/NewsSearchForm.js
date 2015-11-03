@@ -5,7 +5,7 @@
 Ext.define('kalix.roffice.news.view.NewsSearchForm', {
     extend: 'Ext.form.Panel',
     requires: [
-        'kalix.roffice.news.controller.NewsController'
+        'kalix.roffice.news.controller.NewsSearchFormController'
     ],
     alias: 'widget.newsSearchForm',
     xtype: 'newsSearchForm',
@@ -13,8 +13,6 @@ Ext.define('kalix.roffice.news.view.NewsSearchForm', {
     bodyPadding: 10,
     layout: 'column',
     margin: 10,
-    method: "POST",
-    url: 'login',
     items: [
         {
             xtype: 'textfield',
