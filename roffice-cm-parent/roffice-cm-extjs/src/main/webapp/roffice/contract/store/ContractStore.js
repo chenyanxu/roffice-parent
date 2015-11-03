@@ -1,9 +1,9 @@
 /**
  * @author chenyanxu
  */
-Ext.define('roffice.cm.contract.store.ContractStore', {
+Ext.define('kalix.roffice.contract.store.ContractStore', {
     extend: 'Ext.data.Store',
-    model: 'roffice.cm.contract.model.ContractModel',
+    model: 'kalix.roffice.contract.model.ContractModel',
     alias: 'store.contractStore',
     xtype: 'contractStore',
     storeId: "contractStore",
@@ -11,14 +11,8 @@ Ext.define('roffice.cm.contract.store.ContractStore', {
     pageSize: 10,
     proxy: {
         type: "ajax",
-        url: '/kalix/camel/rest/contracts/list',
+        url: '/kalix/camel/rest/contracts',
         paramsAsJson: true,
-        actionMethods: {
-            create: 'POST',
-            read: 'POST',
-            update: 'POST',
-            destroy: 'POST'
-        },
         reader: {
             type: "json",
             rootProperty: "data",

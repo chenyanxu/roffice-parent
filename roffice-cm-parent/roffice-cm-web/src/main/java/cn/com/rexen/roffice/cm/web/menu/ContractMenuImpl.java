@@ -48,7 +48,7 @@ public class ContractMenuImpl implements IMenu {
 
     @Override
     public String getRouteId() {
-        return null;
+        return "roffice/Contract";
     }
 
     @Override

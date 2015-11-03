@@ -1,5 +1,3 @@
-//todo 定义系统应用页面
-
 Ext.define('kalix.roffice.Main', {
     extend: 'Ext.container.Container',
     layout: 'vbox',

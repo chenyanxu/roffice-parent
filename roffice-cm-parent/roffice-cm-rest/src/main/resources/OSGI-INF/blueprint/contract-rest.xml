@@ -14,10 +14,16 @@
         </restConfiguration>
         <rest path="/contracts" consumes="application/json" produces="application/json">
             <!-- this is a rest GET to find all contracts -->
-            <get id="route-getAllContract" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData">
+            <get id="route-getAllContract" outType="cn.com.rexen.core.api.persistence.JsonData">
                 <description>Find all contracts</description>
                 <to uri="bean:contractBeanService?method=getAllEntity(${header.page},${header.limit})"/>
             </get>
+            <!-- this is a rest POST to add a contract-->
+            <post id="route-addContract" type="cn.com.rexen.roffice.cm.entities.ContractBean"
+                  outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a contract</description>
+                <to uri="bean:contractBeanService?method=saveEntity"/>
+            </post>
         </rest>
     </camelContext>
 </blueprint>
