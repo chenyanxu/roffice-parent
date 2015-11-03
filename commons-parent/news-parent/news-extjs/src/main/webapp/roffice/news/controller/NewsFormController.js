@@ -46,14 +46,20 @@ Ext.define('kalix.roffice.news.controller.NewsFormController', {
             model.modified = model.data;
             model.save({
                 failure: function (record, operation) {
-                    Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
                 },
                 success: function (record, operation) {
                     view.close();
-                    kalix.getApplication().getStore('newsStore').reload();
-                    kalix.core.Notify.success(res.msg, CONFIG.ALTER_TITLE_SUCCESS);
+                   kalix.getApplication().getStore('newsStore').reload();
                 },
                 callback: function (record, operation, success) {
+                    var res=Ext.JSON.decode(operation.getResponse().responseText);
+
+                    if(success) {
+                        kalix.core.Notify.success(res.msg, CONFIG.ALTER_TITLE_SUCCESS);
+                    }
+                    else{
+                        Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
+                    }
                 }
             });
             //Ext.Ajax.request({

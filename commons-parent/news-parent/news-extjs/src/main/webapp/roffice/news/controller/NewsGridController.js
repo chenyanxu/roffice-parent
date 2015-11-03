@@ -10,21 +10,33 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
     requires: [
         'kalix.core.Notify',
         'kalix.roffice.news.view.NewsForm',
-        'kalix.roffice.news.viewModel.NewsViewModel'
+        'kalix.roffice.news.model.NewsModel'
     ],
     alias: 'controller.newsGridController',
     /**
      * 查看操作.
      */
     onView: function (target, event) {
-        var grid = target.findParentByType('grid');
-        var selModel = grid.getSelectionModel();
-        if (selModel.hasSelection()) {
+        //var grid = target.findParentByType('grid');
+        //var selModel = grid.getSelectionModel();
+        //if (selModel.hasSelection()) {
+        //    var view = Ext.create('kalix.roffice.news.view.NewsViewForm');
+        //    var viewModel = view.lookupViewModel();
+        //    viewModel.set('rec', selModel.getSelection()[0]);
+        //    view.show();
+        //} else {
+        //    Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要查看的记录！");
+        //}
+        var viewModel=this.getViewModel();
+
+        if(viewModel.get('sel')) {
             var view = Ext.create('kalix.roffice.news.view.NewsViewForm');
-            var viewModel = view.lookupViewModel();
-            viewModel.set('rec', selModel.getSelection()[0]);
+
+            //view.lookupViewModel().set('rec',viewModel.get('rec'));
+            view.setViewModel(viewModel);
             view.show();
-        } else {
+        }
+        else{
             Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要查看的记录！");
         }
     },
@@ -33,11 +45,23 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
      * 打开新增操作.
      */
     onAdd: function () {
+        //var view = Ext.create('kalix.roffice.news.view.NewsForm');
+        //var viewModel = view.lookupViewModel();
+        //viewModel.set('rec', Ext.create('kalix.roffice.news.model.NewsModel'));
+        //viewModel.set('icon', viewModel.get('add_image_path'));
+        //viewModel.set('title', '新增新闻');
+        //view.show();
+        this.getView().setSelection(null);
+
+        var viewModel=this.getViewModel();
+        viewModel.set('sel',false);
+        //viewModel.set('rec',Ext.create('kalix.roffice.news.model.NewsModel'));
+        //viewModel.set('icon', viewModel.get('add_image_path'));
+        //viewModel.set('title', '新增新闻');
+
         var view = Ext.create('kalix.roffice.news.view.NewsForm');
-        var viewModel = view.lookupViewModel();
-        viewModel.set('rec', Ext.create('kalix.roffice.news.model.NewsModel'));
-        viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增新闻');
+
+        view.setViewModel(viewModel);
         view.show();
     },
     /**

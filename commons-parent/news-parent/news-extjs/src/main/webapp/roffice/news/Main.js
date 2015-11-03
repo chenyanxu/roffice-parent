@@ -8,7 +8,6 @@
 Ext.define('kalix.roffice.news.Main', {
     extend: 'Ext.container.Container',
     requires: [
-        'kalix.roffice.news.store.NewsStore',  //用户模型集合
         'kalix.roffice.news.view.NewsGrid',
         'kalix.roffice.news.view.NewsSearchForm'
     ],
@@ -20,10 +19,7 @@ Ext.define('kalix.roffice.news.Main', {
             xtype: 'newsGridPanel',
             id: 'newsGridPanel',
             title: '新闻列表',
-            margin: 10,
-            store: {
-                type: 'newsStore'
-            }
+            margin: 10
         }
     ]
 });

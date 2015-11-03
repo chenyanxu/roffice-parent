@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
         'kalix.roffice.news.viewModel.NewsViewModel',
         'kalix.roffice.news.controller.NewsGridController',
         'kalix.view.components.common.SecurityToolbar',
-        'kalix.view.components.common.PagingToolBar'
+        'kalix.view.components.common.PagingToolBar',
+        'kalix.roffice.news.store.NewsStore'
     ],
     alias: 'widget.newsGrid',
     xtype: 'newsGridPanel',
@@ -18,9 +19,15 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
     viewModel: 'newsViewModel',
     autoLoad: true,
     stripeRows: true,
-    /*viewConfig: {
-     forceFit: true,
-     },*/
+    store:{type:'newsStore'},
+    listeners:{
+        select:function(target,record,index,eOpts){
+            var vm=this.lookupViewModel();
+
+            vm.set('rec',record);
+            vm.set('sel',true);
+        }
+    },
     columns: [
         {
             xtype: "rownumberer",

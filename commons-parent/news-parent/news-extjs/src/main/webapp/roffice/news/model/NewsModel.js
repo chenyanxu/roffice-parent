@@ -18,7 +18,10 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
     },
     proxy: {
         type: "ajax",
-        url: '/kalix/camel/rest/newses'
+        url: '/kalix/camel/rest/newses',
+        reader: {
+            type: 'json'
+        }
     },
     fields: [{
         name: 'id',
