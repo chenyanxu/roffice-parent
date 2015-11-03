@@ -9,9 +9,17 @@
 
 Ext.define('kalix.roffice.news.model.NewsModel', {
     extend: 'Ext.data.Model',
+    constructor: function () {
+        this.callParent(arguments);
 
-    idProperty: '_id',
-
+        if (arguments.length == 0) {
+            this.set('id', '');
+        }
+    },
+    proxy: {
+        type: "ajax",
+        url: '/kalix/camel/rest/newses'
+    },
     fields: [{
         name: 'id',
         type: 'string'
@@ -40,7 +48,7 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
                 max: '20',
                 min: '4',
                 bothMessage: '长度不能小于4个字符，不能超过20个字符！'
-        }
+            }
         ],
         content: [{
             type: 'presence',
