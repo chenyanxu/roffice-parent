@@ -22,7 +22,6 @@ Ext.define('kalix.roffice.news.controller.NewsFormController', {
             return memo;
         }, {});
         model.set(modified);
-        viewModel.set('confirmPassword', '');
     },
 
     /**
