@@ -28,6 +28,16 @@ public class CmModuleImpl implements IModule {
     }
 
     @Override
+    public boolean isSelectable() {
+        return false;
+    }
+
+    @Override
+    public boolean isExpanded() {
+        return true;
+    }
+
+    @Override
     public String getId() {
         return "cmModule";
     }

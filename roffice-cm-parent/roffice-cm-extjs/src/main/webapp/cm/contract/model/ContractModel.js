@@ -2,7 +2,7 @@
  *  @author chenyanxu
  *
  */
-Ext.define("roffice.cm.model.ContractModel", {
+Ext.define("roffice.cm.contract.model.ContractModel", {
     extend: "Ext.data.Model",
     fields: [{
         name: "managerid",
