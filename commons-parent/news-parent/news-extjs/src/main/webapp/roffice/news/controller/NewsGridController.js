@@ -10,7 +10,7 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
     requires: [
         'kalix.core.Notify',
         'kalix.roffice.news.view.NewsForm',
-        'kalix.roffice.news.view.viewModel.NewsViewModel'
+        'kalix.roffice.news.viewModel.NewsViewModel'
     ],
     alias: 'controller.newsGridController',
     /**

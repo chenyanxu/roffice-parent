@@ -9,7 +9,7 @@ Ext.define('kalix.roffice.news.view.NewsSearchForm', {
     ],
     alias: 'widget.newsSearchForm',
     xtype: 'newsSearchForm',
-    controller: 'newsController',
+    controller: 'newsSearchFormController',
     bodyPadding: 10,
     layout: 'column',
     margin: 10,

@@ -16,7 +16,7 @@ import java.util.Date;
  * @修改备注：
  */
 @Entity
-@Table(name = "sys_news")
+@Table(name = "roffice_news")
 public class NewsBean extends PersistentEntity {
     @NotNull(message = "'标题'是必填项")
     private String title;   //标题
