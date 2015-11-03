@@ -6,4 +6,8 @@
         <bean class="cn.com.rexen.roffice.news.web.impl.NewsMenuImpl"/>
     </service>
 
+    <service interface="cn.com.rexen.core.api.web.IModule">
+        <bean class="cn.com.rexen.roffice.news.web.impl.module.CommonsModuleImpl"/>
+    </service>
+
 </blueprint>
