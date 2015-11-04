@@ -6,12 +6,26 @@ Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
     requires: [
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
-        'kalix.roffice.contract.controller.ContractGridPanelController'],
+        'kalix.roffice.contract.controller.ContractGridPanelController',
+        'kalix.roffice.contract.viewmodel.ContractViewModel',
+        'kalix.roffice.contract.store.ContractStore'],
     alias: 'widget.contractGridPanel',
     xtype: 'contractGridPanel',
     controller: 'contractGridPanelController',
     autoLoad: true,
     stripeRows: true,
+    viewModel: 'contractViewModel',
+    store: {
+        type: 'contractStore'
+    },
+    listeners: {
+        select: function (target, record, index, eOpts) {
+            var vm = this.lookupViewModel();
+
+            vm.set('rec', record);
+            vm.set('sel', true);
+        }
+    },
     columns: [
         {
             xtype: "rownumberer",
@@ -47,27 +61,27 @@ Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
                 text: '查看',
                 xtype: 'button',
                 //permission: 'admin:sysModule:permissionControl:userMenu:view',
-                icon: 'roffice/cm/resources/images/contract_view.png',
+                bind: {icon: '{view_image_path}'},
                 handler: 'onView'
             },
             {
                 text: '新增',
                 xtype: 'button',
                 //permission: 'admin:sysModule:permissionControl:userMenu:add',
-                icon: 'roffice/cm/resources/images/contract_add.png',
+                bind: {icon: '{add_image_path}'},
                 handler: 'onAdd'
             },
             {
                 text: '修改',
                 xtype: 'button',
                 // permission: 'admin:sysModule:permissionControl:userMenu:update',
-                icon: "roffice/cm/resources/images/contract_edit.png",
+                bind: {icon: '{edit_image_path}'},
                 handler: 'onEdit'
             }, {
                 text: '删除',
                 xtype: 'button',
                 // permission: 'admin:sysModule:permissionControl:userMenu:delete',
-                icon: "roffice/cm/resources/images/contract_delete.png",
+                bind: {icon: '{delete_image_path}'},
                 handler: 'onDelete'
             }
         ]

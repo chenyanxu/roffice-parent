@@ -8,7 +8,6 @@
 Ext.define('kalix.roffice.contract.Main', {
     extend: 'Ext.container.Container',
     requires: [
-        'kalix.roffice.contract.store.ContractStore',
         'kalix.roffice.contract.view.ContractGridPanel'
     ],
     items: [
@@ -16,10 +15,7 @@ Ext.define('kalix.roffice.contract.Main', {
             xtype: 'contractGridPanel',
             id: 'contractGridPanel',
             title: '合同列表',
-            margin: 10,
-            store: {
-                type: 'contractStore'
-            }
+            margin: 10
         }
     ]
 });

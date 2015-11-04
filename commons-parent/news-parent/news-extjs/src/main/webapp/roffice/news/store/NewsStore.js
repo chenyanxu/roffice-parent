@@ -7,6 +7,7 @@
  */
 Ext.define('kalix.roffice.news.store.NewsStore', {
     extend: 'Ext.data.Store',
+    requires: ['kalix.core.Notify'],
     model: 'kalix.roffice.news.model.NewsModel',
     alias: 'store.newsStore',
     xtype: 'newsStore',
@@ -21,7 +22,7 @@ Ext.define('kalix.roffice.news.store.NewsStore', {
             create: 'POST',
             read: 'GET',
             update: 'POST',
-            destroy: 'POST'
+            destroy: 'DELETE'
         },
         reader: {
             type: "json",
