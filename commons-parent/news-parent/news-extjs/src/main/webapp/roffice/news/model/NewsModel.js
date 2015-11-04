@@ -13,19 +13,26 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
         this.callParent(arguments);
 
         if (arguments.length == 0) {
-            this.set('id', '');
+            this.set('id', '-1');
         }
     },
     proxy: {
         type: "ajax",
         url: '/kalix/camel/rest/newses',
+        paramsAsJson: true,
+        actionMethods: {
+            create: 'POST',
+            read: 'GET',
+            update: 'PUT',
+            destroy: 'DELETE'
+        },
         reader: {
             type: 'json'
         }
     },
     fields: [{
         name: 'id',
-        type: 'int'
+        type: 'string'
     }, {
         name: 'title',
         type: 'string'
