@@ -20,7 +20,6 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
     /*viewConfig: {
      forceFit: true,
      },*/
-    //todo 在此修改grid显示列
     columns: [
         {
             xtype: "rownumberer",
@@ -35,29 +34,57 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
             flex: 1
             //width: 40
         }, {
-            text: '标题',
-            dataIndex: 'title',
+            text: '项目名称',
+            dataIndex: 'name',
             flex: 1
-            //width: 80
         }, {
-            text: '内容',
-            dataIndex: 'content',
-            flex: 3
-            //width: 60
-        }, {
-            text: '发布人',
-            dataIndex: 'publishPeople',
+            text: '营销负责人',
+            dataIndex: 'salerId',
             flex: 1
-            //width: 60
         }, {
-            text: '发布时间',
-            dataIndex: 'publishDate',
+            text: '项目类型',
+            dataIndex: 'type',
+            flex: 1
+        }, {
+            text: '所属行业',
+            dataIndex: 'industry',
+            flex: 1
+        }, {
+            text: '优先级',
+            dataIndex: 'level',
+            flex: 1
+        }, {
+            text: '预算额度',
+            dataIndex: 'budget',
+            flex: 1
+        }, {
+            text: '预计签单时间',
+            dataIndex: 'billDate',
+            xtype: 'datecolumn',
             flex: 1,
-            renderer: function (value) {
-                var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd hh:mm:ss");
-            }
-        },
+            format: 'Y-m-d'
+        }, {
+            text: '售前支持负责人',
+            dataIndex: 'supporterId',
+            flex: 1
+        }, /*{
+            text: '客户联系人姓名',
+            dataIndex: 'clientName',
+            flex: 1
+        }, {
+            text: '客户联系人电话',
+            dataIndex: 'clientPhone',
+            flex: 1
+         }, */{
+            text: '描述',
+            dataIndex: 'description',
+            flex: 1
+        }, {
+            text: '备注',
+            dataIndex: 'comment',
+            flex: 1
+        }
+
     ],
 
     tbar: {

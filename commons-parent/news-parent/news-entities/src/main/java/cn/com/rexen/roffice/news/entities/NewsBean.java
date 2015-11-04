@@ -2,8 +2,7 @@ package cn.com.rexen.roffice.news.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -23,6 +22,8 @@ public class NewsBean extends PersistentEntity {
     @NotNull(message = "'内容'是必填项")
     private String content; //内容
     private String publishPeople;//发布人
+    @Column
+    @Temporal(TemporalType.DATE)
     private Date publishDate;//发布时间
 
     public String getTitle() {

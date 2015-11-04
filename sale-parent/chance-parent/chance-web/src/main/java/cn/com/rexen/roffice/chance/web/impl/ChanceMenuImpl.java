@@ -10,12 +10,12 @@ public class ChanceMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return "chanceModule";
+        return SaleConst.MODULE_NAME;
     }
 
     @Override
     public String getParentMenuId() {
-        return "chanceMenu";
+        return null;
     }
 
     @Override
@@ -38,10 +38,6 @@ public class ChanceMenuImpl implements IMenu {
         return 0;
     }
 
-    @Override
-    public String getPermission() {
-        return "admin:chanceModule:chanceMenu:chanceMenu";
-    }
 
     @Override
     public String getIconCls() {
@@ -57,4 +53,10 @@ public class ChanceMenuImpl implements IMenu {
     public String getRouteId() {
         return "roffice/Chance";
     }
+
+    @Override
+    public String getPermission() {
+        return "";
+    }
+
 }
