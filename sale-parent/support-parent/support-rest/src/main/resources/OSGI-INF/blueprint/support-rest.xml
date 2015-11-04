@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+    <reference id="supportService" interface="cn.com.rexen.roffice.support.api.biz.ISupportBeanService"/>
+    <camelContext id="supportCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json"
+                           contextPath="/kalix/camel/rest" host="localhost"
+                           port="8181">
+            <dataFormatProperty key="prettyPrint" value="true"/>
+        </restConfiguration>
+
+        <!-- defines the rest services using the context-path /support -->
+        <rest path="/supports" consumes="application/json" produces="application/json">
+            <description>support rest service</description>
+
+            <!-- this is a rest PUT to create an support -->
+            <post id="route-addSupport" type="cn.com.rexen.roffice.support.entities.SupportBean"
+                  outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a Support</description>
+                <to uri="bean:supportService?method=saveEntity"/>
+            </post>
+
+            <!-- this is a rest PUT to update a support -->
+            <put id="route-updateSupport" type="cn.com.rexen.roffice.support.entities.SupportBean"
+                 outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Updates a Support</description>
+                <to uri="bean:supportService?method=updateEntity"/>
+            </put>
+
+            <!-- this is a rest DELETE to delete a support -->
+            <delete id="route-deleteSupport" outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Delete a Support</description>
+                <to uri="bean:supportService?method=deleteEntity(${header.id})"/>
+            </delete>
+
+            <!-- this is a rest GET to find all support -->
+            <get id="route-getAllSupport" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Supports</description>
+                <to uri="bean:supportService?method=getAllEntity(${header.page},${header.limit})"/>
+            </get>
+
+            <!-- this is a rest GET to view a support by the given id -->
+            <get id="route-getSupport" uri="/{id}" outType="cn.com.rexen.roffice.support.entities.SupportBean">
+                <description>Find Support by id</description>
+                <to uri="bean:supportService?method=getEntity(${header.id})"/>
+            </get>
+
+        </rest>
+    </camelContext>
+</blueprint>
