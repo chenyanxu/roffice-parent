@@ -17,11 +17,7 @@ Ext.define('kalix.roffice.news.controller.NewsFormController', {
         var viewModel = this.getViewModel();
         var model = viewModel.get('rec');
 
-        var modified = _.reduce(_.keys(model.getChanges()), function (memo, item) {
-            memo[item] = model.getModified(item);
-            return memo;
-        }, {});
-        model.set(modified);
+        model.set(model.modified);
     },
 
     /**
@@ -43,13 +39,14 @@ Ext.define('kalix.roffice.news.controller.NewsFormController', {
             //同时如果客户端更改了提交方式，服务端也要更改相关的 api
             //艹艹艹艹
             //todo 所有的异步提交都改为采用 request 方式进行提交
+
             model.modified = model.data;
             model.save({
                 failure: function (record, operation) {
                 },
                 success: function (record, operation) {
                     view.close();
-                   kalix.getApplication().getStore('newsStore').reload();
+                    kalix.getApplication().getStore('newsStore').reload();
                 },
                 callback: function (record, operation, success) {
                     var res=Ext.JSON.decode(operation.getResponse().responseText);
@@ -62,25 +59,7 @@ Ext.define('kalix.roffice.news.controller.NewsFormController', {
                     }
                 }
             });
-            //Ext.Ajax.request({
-            //    url: viewModel.get('url'),
-            //    method: 'POST',
-            //    params: model.toServerJSON(),
-            //    defaultPostHeader: 'application/json',
-            //    success: function (response, opts) {
-            //        var res = Ext.JSON.decode(response.responseText);
-            //        if (res.success) {
-            //            view.close();
-            //            kalix.getApplication().getStore('newsStore').reload();
-            //            kalix.core.Notify.success(res.msg, CONFIG.ALTER_TITLE_SUCCESS);
-            //        } else {
-            //            Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
-            //        }
-            //    },
-            //    failure: function (response, opts) {
-            //        Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
-            //    }
-            //});
+            view.close();
         } else {
             viewModel.set('validation', _.pick(model.getValidation().data, function (value, key, object) {
                 return value !== true;

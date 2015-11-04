@@ -9,8 +9,10 @@ Ext.define('kalix.roffice.news.Main', {
     extend: 'Ext.container.Container',
     requires: [
         'kalix.roffice.news.view.NewsGrid',
-        'kalix.roffice.news.view.NewsSearchForm'
+        'kalix.roffice.news.view.NewsSearchForm',
+        'kalix.roffice.news.viewModel.NewsViewModel'
     ],
+    viewModel: 'newsViewModel',
     items: [
         {
             title: '新闻查询',

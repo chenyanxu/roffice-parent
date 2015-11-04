@@ -7,7 +7,7 @@
 Ext.define('kalix.roffice.news.view.NewsGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
-        'kalix.roffice.news.viewModel.NewsViewModel',
+        //'kalix.roffice.news.viewModel.NewsViewModel',
         'kalix.roffice.news.controller.NewsGridController',
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
@@ -16,7 +16,7 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
     alias: 'widget.newsGrid',
     xtype: 'newsGridPanel',
     controller: 'newsGridController',
-    viewModel: 'newsViewModel',
+    //viewModel: 'newsViewModel',
     autoLoad: true,
     stripeRows: true,
     store:{type:'newsStore'},

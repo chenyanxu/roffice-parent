@@ -21,6 +21,6 @@ Ext.define('kalix.roffice.news.viewModel.NewsViewModel', {
         add_image_path: '/kalix/roffice/news/resources/images/news_add.png',
         view_image_path: '/kalix/roffice/news/resources/images/news_view.png',
         delete_image_path: '/kalix/roffice/news/resources/images/news_delete.png',
-        edit_image_path: '/kalix/roffice/news/resources/images/news_edit.png',
+        edit_image_path: '/kalix/roffice/news/resources/images/news_edit.png'
     }
 });

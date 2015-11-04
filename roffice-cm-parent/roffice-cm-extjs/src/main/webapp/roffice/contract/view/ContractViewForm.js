@@ -6,15 +6,12 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.news.view.NewsViewForm', {
+Ext.define('kalix.roffice.contract.view.ContractViewForm', {
     extend: 'Ext.window.Window',
-    requires: [
-        'kalix.roffice.news.controller.NewsFormController'
-    ],
-    alias: 'widget.newsViewForm',
+    requires: [],
+    alias: 'widget.contractViewForm',
     controller: 'newsFormController',
     xtype: "newsViewForm",
-
     width: 400,
     border: false,
     modal: true,

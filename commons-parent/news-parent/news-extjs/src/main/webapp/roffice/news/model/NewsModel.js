@@ -25,7 +25,7 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
     },
     fields: [{
         name: 'id',
-        type: 'string'
+        type: 'int'
     }, {
         name: 'title',
         type: 'string'
