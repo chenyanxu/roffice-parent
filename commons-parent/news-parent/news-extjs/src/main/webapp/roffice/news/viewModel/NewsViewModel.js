@@ -13,7 +13,8 @@ Ext.define('kalix.roffice.news.viewModel.NewsViewModel', {
     ],
     data: {
         url: '/kalix/camel/rest/newses',
-        rec: Ext.create('kalix.roffice.news.model.NewsModel'),
+        rec: null,
+        sel:false,
         validation: {},  //验证错误信息
         icon: '',
         title: '',
