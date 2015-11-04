@@ -62,10 +62,10 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
             xtype: 'datecolumn',      // the column type
             format: 'yyyy-MM-dd hh:mm:ss',
             flex: 1,
-            /*renderer: function (value) {
+            renderer: function (value) {
              var createDate = new Date(value);
              return createDate.format("yyyy-MM-dd hh:mm:ss");
-             }*/
+             }
         },
     ],
 

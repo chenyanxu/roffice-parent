@@ -7,14 +7,12 @@ Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
         'kalix.roffice.contract.controller.ContractGridPanelController',
-        'kalix.roffice.contract.viewmodel.ContractViewModel',
         'kalix.roffice.contract.store.ContractStore'],
     alias: 'widget.contractGridPanel',
     xtype: 'contractGridPanel',
     controller: 'contractGridPanelController',
     autoLoad: true,
     stripeRows: true,
-    viewModel: 'contractViewModel',
     store: {
         type: 'contractStore'
     },
@@ -38,18 +36,20 @@ Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
             dataIndex: 'id',
             hidden: true,
             flex: 1
-            //width: 40
         }, {
             text: '项目经理',
             dataIndex: 'managerId',
             flex: 1
-            //width: 80
         }, {
             text: '限售负责人',
             dataIndex: 'sellerId',
             flex: 1
-            //width: 60
+        }, {
+            text: '操作人',
+            dataIndex: 'userId',
+            flex: 1
         }
+
     ],
 
     tbar: {
@@ -127,6 +127,6 @@ Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
             }
         }
     }
-    ],
+    ]
 
 });

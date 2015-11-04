@@ -8,8 +8,10 @@
 Ext.define('kalix.roffice.contract.Main', {
     extend: 'Ext.container.Container',
     requires: [
-        'kalix.roffice.contract.view.ContractGridPanel'
+        'kalix.roffice.contract.view.ContractGridPanel',
+        'kalix.roffice.contract.viewmodel.ContractViewModel'
     ],
+    viewModel: 'contractViewModel',
     items: [
         {
             xtype: 'contractGridPanel',
