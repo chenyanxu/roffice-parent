@@ -67,7 +67,7 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
             text: '售前支持负责人',
             dataIndex: 'supporterId',
             flex: 1
-        }, {
+        }, /*{
             text: '客户联系人姓名',
             dataIndex: 'clientName',
             flex: 1
@@ -75,7 +75,7 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
             text: '客户联系人电话',
             dataIndex: 'clientPhone',
             flex: 1
-        }, {
+         }, */{
             text: '描述',
             dataIndex: 'description',
             flex: 1

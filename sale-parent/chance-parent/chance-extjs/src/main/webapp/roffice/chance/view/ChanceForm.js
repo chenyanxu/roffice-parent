@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
     requires: [
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.chance.viewModel.ChanceViewModel',
-        'kalix.roffice.chance.controller.ChanceFormController'
+        'kalix.roffice.chance.controller.ChanceFormController',
+        'kalix.admin.user.store.UserStore'
     ],
     alias: 'widget.ChanceForm',
     viewModel: 'chanceViewModel',
@@ -18,22 +19,25 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
     xtype: "chanceForm",
     layout: 'column',
     frame: true,
-    width: 600,
+    width: 800,
     border: false,
     modal: true,
     resizable: true,
+    padding: 10,
+    buttonAlign: 'center',
     bind: {
         icon: '{icon}',
         title: '{title}'
     },
-
     defaults: {
         layout: 'form',
-        xtype: 'container',
+        xtype: 'baseForm',
         defaultType: 'textfield',
-        style: 'width: 50%'
+        columnWidth: 0.5,
+        //border:false
     },
     items: [{
+
         items: [{
             fieldLabel: '项目名称',
             allowBlank: false,
@@ -46,6 +50,16 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             fieldLabel: '营销负责人',
             allowBlank: false,
             labelAlign: 'right',
+            xtype: 'combobox',
+            queryMode: 'remote',
+            valueField: 'name',
+            displayField: 'name',
+            queryParam: 'name',
+            minChars: 0,
+            store: {
+                type: 'userStore'
+            },
+            name: 'salerId',
             bind: {
                 activeError: '{validation.salerId}',
                 value: '{rec.salerId}'
@@ -60,6 +74,7 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             }
         }, {
             fieldLabel: '所属行业',
+
             //allowBlank: false,
             labelAlign: 'right',
             bind: {
@@ -69,7 +84,15 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         }, {
             fieldLabel: '优先级',
             //allowBlank: false,
+            xtype: 'combobox',
             labelAlign: 'right',
+            name: 'level',
+            store: [
+
+                ['高', '高'],
+                ['中', '中'],
+                ['低', '低']
+            ],
             bind: {
                 //activeError: '{validation.level}',
                 value: '{rec.level}'
@@ -109,6 +132,16 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
                 fieldLabel: '售前支持负责人',
                 //allowBlank: false,
                 labelAlign: 'right',
+                xtype: 'combobox',
+                queryMode: 'remote',
+                valueField: 'name',
+                displayField: 'name',
+                queryParam: 'name',
+                minChars: 0,
+                store: {
+                    type: 'userStore'
+                },
+                name: 'supporterId',
                 bind: {
                     activeError: '{validation.supporterId}',
                     value: '{rec.supporterId}'
@@ -148,12 +181,5 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         text: '重置',
         glyph: 'xf0e2@FontAwesome',
         handler: 'onReset'
-    }],
-    initComponent: function () {
-        this.on('beforeadd', function (me, field) {
-            if (!field.allowBlank)
-                field.beforeLabelTextTpl = '<span class="field-required" data-qtip="必填选项">*</span>';
-        });
-        this.callParent(arguments);
-    }
+    }]
 });
