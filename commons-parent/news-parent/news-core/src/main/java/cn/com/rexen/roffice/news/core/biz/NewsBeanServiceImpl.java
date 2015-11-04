@@ -25,13 +25,17 @@ public class NewsBeanServiceImpl extends GenericBizServiceImpl<INewsBeanDao, New
 
     @Override
     public void beforeSaveEntity(NewsBean entity, JsonStatus status) {
-        String userName = shiroService.getCurrentUserName();
-        Assert.notNull(userName, "用户名不能为空.");
-        if (StringUtils.isNotEmpty(userName)) {
-            entity.setPublishPeople(userName);
-            entity.setPublishDate(new Date());
+        //新增时候，记录操作人和时间
+        if (entity.getId() == -1) {
+            String userName = shiroService.getCurrentUserName();
+            Assert.notNull(userName, "用户名不能为空.");
+            if (StringUtils.isNotEmpty(userName)) {
+                entity.setPublishPeople(userName);
+                entity.setPublishDate(new Date());
+            }
         }
     }
+
 
     public NewsBeanServiceImpl() {
         super.init(NewsBean.class.getName());

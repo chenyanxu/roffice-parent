@@ -6,4 +6,8 @@
         <bean class="cn.com.rexen.roffice.chance.web.impl.ChanceMenuImpl"/>
     </service>
 
+    <service interface="cn.com.rexen.core.api.web.IModule">
+        <bean class="cn.com.rexen.roffice.chance.web.impl.module.ChanceModuleImpl"/>
+    </service>
+
 </blueprint>

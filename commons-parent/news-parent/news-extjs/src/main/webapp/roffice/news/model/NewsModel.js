@@ -26,7 +26,8 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
         type: 'string'
     }, {
         name: 'publishDate',
-        type: 'int'
+        type: 'date',
+        format: 'yyyy-MM-dd hh:mm:ss'
     }, {
         name: 'version',
         type: 'int'
@@ -54,6 +55,8 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
         'id',
         'title',
         'content',
+        'publishPeople',
+        'publishDate',
         'version'
     ],
 

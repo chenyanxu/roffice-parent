@@ -24,41 +24,88 @@ Ext.define('kalix.roffice.chance.view.ChanceViewForm', {
     bind: {
         icon: '{view_image_path}'
     },
-    //todo 在此修改查看字段
     items: [{
         xtype: 'form',
         defaultType: 'displayfield',
         bodyPadding: 10,
         buttonAlign: "center",
         items: [{
-            fieldLabel: '标题',
+            fieldLabel: '项目名称',
             labelAlign: 'right',
             bind: {
-                value: '{rec.title}'
+                value: '{rec.name}'
             }
         }, {
-            fieldLabel: '内容',
+            fieldLabel: '营销负责人',
             labelAlign: 'right',
             bind: {
-                value: '{rec.content}'
+                value: '{rec.salerId}'
             }
         }, {
-            fieldLabel: '发布人',
+            fieldLabel: '项目类型',
             labelAlign: 'right',
             bind: {
-                value: '{rec.publishPeople}'
+                value: '{rec.type}'
             }
         }, {
-            fieldLabel: '发布时间',
+            fieldLabel: '所属行业',
             labelAlign: 'right',
             bind: {
-                value: '{rec.publishDate}'
+                value: '{rec.industry}'
+            }
+        }, {
+            fieldLabel: '优先级',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.level}'
+            }
+        }, {
+            fieldLabel: '预算额度',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.budget}'
+            }
+        }, {
+            fieldLabel: '预计签单时间',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.billDate}'
             },
             renderer: function (value) {
                 var createDate = new Date(value);
                 return createDate.format("yyyy-MM-dd hh:mm:ss");
             }
-        },
+        }, {
+            fieldLabel: '售前支持负责人',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.supporterId}'
+            }
+        }, {
+            fieldLabel: '客户联系人姓名',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.clientName}'
+            }
+        }, {
+            fieldLabel: '客户联系人电话',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.clientPhone}'
+            }
+        }, {
+            fieldLabel: '描述',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.description}'
+            }
+        }, {
+            fieldLabel: '备注',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.comment}'
+            }
+        }
         ],
         buttons: [{
             text: '关闭',
