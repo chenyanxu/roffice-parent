@@ -48,18 +48,15 @@ Ext.define('kalix.roffice.travel.view.TravelGrid', {
             text: '出发时间',
             dataIndex: 'startDate',
             flex: 1,
-            renderer: function (value) {
-                var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd");
-            }
+            xtype: 'datecolumn',
+            format: 'Y-m-d'
         }, {
             text: '回程时间',
             dataIndex: 'endDate',
             flex: 1,
-            renderer: function (value) {
-                var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd");
-            }
+            xtype: 'datecolumn',
+            format: 'Y-m-d'
+
         }, {
             text: '结果评定人',
             dataIndex: 'resultPerson',

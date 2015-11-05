@@ -22,7 +22,9 @@ public class TravelBean extends PersistentEntity {
     private String name;//任务名称
     private String person;//出差人员
     private String target;//任务目标
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date startDate;//出发时间
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date endDate;//回程时间
     private String resultPerson;//结果评定人
     private String result;//完成情况
@@ -40,7 +42,6 @@ public class TravelBean extends PersistentEntity {
         return endDate;
     }
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
     public void setEndDate(Date endDate) {
         if (endDate != null) {
             this.endDate = new Date(endDate.getTime());
@@ -81,7 +82,6 @@ public class TravelBean extends PersistentEntity {
         this.resultPerson = resultPerson;
     }
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
     public Date getStartDate() {
         return startDate;
     }

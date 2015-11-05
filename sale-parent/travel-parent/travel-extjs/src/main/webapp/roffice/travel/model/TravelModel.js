@@ -24,12 +24,10 @@ Ext.define('kalix.roffice.travel.model.TravelModel', {
         type: 'string'
     }, {
         name: 'startDate',
-        type: 'date',
-        format: 'Y-m-d'
+        type: 'date'
     }, {
         name: 'endDate',
-        type: 'date',
-        format: 'Y-m-d'
+        type: 'date'
     }, {
         name: 'resultPerson',
         type: 'string'

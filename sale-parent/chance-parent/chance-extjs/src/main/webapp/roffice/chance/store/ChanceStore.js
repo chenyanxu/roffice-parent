@@ -14,11 +14,11 @@ Ext.define('kalix.roffice.chance.store.ChanceStore', {
     pageSize: 10,
     proxy: {
         type: "ajax",
-        url: '/kalix/camel/rest/chances',
+        url: '/kalix/camel/rest/chances/list',
         paramsAsJson: true,
         actionMethods: {
             create: 'POST',
-            read: 'GET',
+            read: 'POST',
             update: 'POST',
             destroy: 'POST'
         },

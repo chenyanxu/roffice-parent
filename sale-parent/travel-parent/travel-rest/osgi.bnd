@@ -3,5 +3,5 @@
 #-----------------------------------------------------------------
 
 Bundle-Activator: ${bundle.namespace}.internal.InitActivator
-Import-Package:cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,cn.com.rexen.roffice.travel.entities,*
+Import-Package:*,cn.com.rexen.roffice.travel.entities, cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,cn.com.rexen.roffice.travel.api.query
 Bundle-Category: Rexen  Roffice Travel
