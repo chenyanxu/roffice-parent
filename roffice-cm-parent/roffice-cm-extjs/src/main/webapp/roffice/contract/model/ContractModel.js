@@ -25,22 +25,29 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
             type: 'json'
         }
     },
-    fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
-        name: "managerId",
-        type: "string"
-    }, {
-        name: "sellerId",
-        type: "string"
-    }, {
-        name: 'userId',
-        type: 'string'
-    }, {
-        name: 'contractDate',
-        type: 'date',
-        dateFormat: 'Y-m-d'
-    }
+    fields: [
+        {name: 'id'},
+        {name: 'contractNumber'},
+        {name: 'partyA'},
+        {name: 'partyB'},
+        {name: 'projectName'},
+        {name: 'summoney'},
+        {name: 'grossProfit'},
+        {name: 'grossProfitRate'},
+        {name: 'receiveMoney'},
+        {name: 'receivables'},
+        {name: 'expectedCost'},
+        {name: 'guarantee'},
+        {name: 'managerId'},
+        {name: 'sellerId'},
+        {name: 'userId'},
+        {name: 'projectType'},
+        {name: 'contractStatus '},
+        {name: 'projectStatus'},
+        {name: 'archive'},
+        {name: 'contractDate', type: 'date', dateFormat: 'Y-m-d'},
+        {name: 'expireDate', type: 'date', dateFormat: 'Y-m-d'},
+        {name: 'archive_date', type: 'date', dateFormat: 'Y-m-d'},
+        {name: 'remark'}
     ]
 });
