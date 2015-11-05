@@ -4,7 +4,6 @@
 Ext.define('kalix.roffice.contract.store.ContractStore', {
     extend: 'Ext.data.Store',
     requires: ['kalix.core.Notify'],
-    model: 'kalix.roffice.contract.model.ContractModel',
     alias: 'store.contractStore',
     xtype: 'contractStore',
     storeId: "contractStore",

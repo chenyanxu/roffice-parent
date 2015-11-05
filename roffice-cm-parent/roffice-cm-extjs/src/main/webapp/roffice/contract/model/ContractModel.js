@@ -8,7 +8,7 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
         this.callParent(arguments);
 
         if (arguments.length == 0) {
-            this.set('id', '');
+            this.set('id', '0');
         }
     },
     proxy: {
@@ -37,6 +37,10 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
     }, {
         name: 'userId',
         type: 'string'
+    }, {
+        name: 'contractDate',
+        type: 'date',
+        dateFormat: 'Y-m-d'
     }
     ]
 });

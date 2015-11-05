@@ -1,7 +1,7 @@
 /**
  * @author chenyanxu
  */
-Ext.define('kalix.roffice.contract.viewmodel.ContractViewModel', {
+Ext.define('kalix.roffice.contract.viewModel.ContractViewModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.contractViewModel',
     data: {

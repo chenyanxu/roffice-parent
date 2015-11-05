@@ -7,7 +7,6 @@
 Ext.define('kalix.roffice.news.view.NewsGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
-        //'kalix.roffice.news.viewModel.NewsViewModel',
         'kalix.roffice.news.controller.NewsGridController',
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
@@ -60,12 +59,8 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
             text: '发布时间',
             dataIndex: 'publishDate',
             xtype: 'datecolumn',      // the column type
-            format: 'yyyy-MM-dd hh:mm:ss',
-            flex: 1,
-            renderer: function (value) {
-             var createDate = new Date(value);
-             return createDate.format("yyyy-MM-dd hh:mm:ss");
-             }
+            format: 'Y-m-d h:i:s',
+            flex: 1
         },
     ],
 
