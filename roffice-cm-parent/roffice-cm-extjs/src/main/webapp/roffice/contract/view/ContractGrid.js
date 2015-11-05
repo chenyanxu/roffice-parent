@@ -1,16 +1,18 @@
 /**
  * @author chenyanxu
  */
-Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
+Ext.define('kalix.roffice.contract.view.ContractGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
-        'kalix.roffice.contract.controller.ContractGridPanelController',
-        'kalix.roffice.contract.store.ContractStore'],
-    alias: 'widget.contractGridPanel',
-    xtype: 'contractGridPanel',
-    controller: 'contractGridPanelController',
+        'kalix.roffice.contract.controller.ContractGridController',
+        'kalix.roffice.contract.store.ContractStore',
+        'kalix.admin.user.store.UserStore'
+    ],
+    alias: 'widget.contractGrid',
+    xtype: 'contractGrid',
+    controller: 'contractGridController',
     autoLoad: true,
     stripeRows: true,
     store: {
@@ -37,9 +39,22 @@ Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
             hidden: true,
             flex: 1
         }, {
-            text: '项目经理',
-            dataIndex: 'managerId',
-            flex: 1
+            fieldLabel: '项目经理',
+            allowBlank: false,
+            labelAlign: 'right',
+            xtype: 'combobox',
+            queryMode: 'remote',
+            valueField: 'name',
+            displayField: 'name',
+            queryParam: 'name',
+            minChars: 0,
+            store: {
+                type: 'userStore'
+            },
+            name: 'managerId',
+            bind: {
+                value: '{rec.managerId}'
+            }
         }, {
             text: '限售负责人',
             dataIndex: 'sellerId',
@@ -48,7 +63,14 @@ Ext.define('kalix.roffice.contract.view.ContractGridPanel', {
             text: '操作人',
             dataIndex: 'userId',
             flex: 1
+        }, {
+            text: '签单日期',
+            dataIndex: 'contractDate',
+            xtype: 'datecolumn',
+            flex: 1,
+            format: 'Y-m-d'
         }
+
 
     ],
 

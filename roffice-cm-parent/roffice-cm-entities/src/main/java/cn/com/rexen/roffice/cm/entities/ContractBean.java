@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.cm.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,14 +17,14 @@ public class ContractBean extends PersistentEntity {
     /**
      * 合同编号.
      */
-    @Column(name = "constractNumber", length = 100)
-    private String constractNumber;
+    @Column(name = "contractNumber", length = 100)
+    private String contractNumber;
     /**
      * 签单日期.
      */
-    @Temporal(TemporalType.DATE)
-    @Column(name = "constractDate")
-    private Date constractDate;
+    @Column(name = "contractDate")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    private Date contractDate;
 
     /**
      * 甲方.
@@ -149,20 +150,20 @@ public class ContractBean extends PersistentEntity {
     @Column(name = "archive_date")
     private Date archive_date;
 
-    public String getConstractNumber() {
-        return constractNumber;
+    public String getContractNumber() {
+        return contractNumber;
     }
 
-    public void setConstractNumber(String constractNumber) {
-        this.constractNumber = constractNumber;
+    public void setContractNumber(String contractNumber) {
+        this.contractNumber = contractNumber;
     }
 
-    public Date getConstractDate() {
-        return constractDate;
+    public Date getContractDate() {
+        return contractDate;
     }
 
-    public void setConstractDate(Date constractDate) {
-        this.constractDate = constractDate;
+    public void setContractDate(Date contractDate) {
+        this.contractDate = contractDate;
     }
 
     public String getPartyA() {
