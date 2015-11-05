@@ -52,14 +52,11 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         }, {
             text: '签单日期',
             dataIndex: 'contractDate',
-            xtype: 'datecolumn',
+            //xtype: 'datecolumn',
             flex: 1,
-            format: 'Y-m-d'
+            //format: 'Y-m-d'
         }
-
-
     ],
-
     tbar: {
         xtype: 'securityToolbar',
 
