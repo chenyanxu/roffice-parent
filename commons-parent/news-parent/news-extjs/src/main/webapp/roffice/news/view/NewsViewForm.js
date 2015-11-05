@@ -51,11 +51,12 @@ Ext.define('kalix.roffice.news.view.NewsViewForm', {
             labelAlign: 'right',
             bind: {
                 value: '{rec.publishDate}'
-            },
-            renderer: function (value) {
-                var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd hh:mm:ss");
             }
+            //,
+            //renderer: function (value) {
+            //    var createDate = new Date(value);
+            //    return createDate.format("yyyy-MM-dd hh:mm:ss");
+            //}
         },
         ],
         buttons: [{

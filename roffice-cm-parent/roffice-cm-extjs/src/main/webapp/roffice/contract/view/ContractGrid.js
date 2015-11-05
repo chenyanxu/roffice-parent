@@ -7,8 +7,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
         'kalix.roffice.contract.controller.ContractGridController',
-        'kalix.roffice.contract.store.ContractStore',
-        'kalix.admin.user.store.UserStore'
+        'kalix.roffice.contract.store.ContractStore'
     ],
     alias: 'widget.contractGrid',
     xtype: 'contractGrid',
@@ -39,22 +38,9 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             hidden: true,
             flex: 1
         }, {
-            fieldLabel: '项目经理',
-            allowBlank: false,
-            labelAlign: 'right',
-            xtype: 'combobox',
-            queryMode: 'remote',
-            valueField: 'name',
-            displayField: 'name',
-            queryParam: 'name',
-            minChars: 0,
-            store: {
-                type: 'userStore'
-            },
-            name: 'managerId',
-            bind: {
-                value: '{rec.managerId}'
-            }
+            text: '项目经理',
+            dataIndex: 'managerId',
+            flex: 1
         }, {
             text: '限售负责人',
             dataIndex: 'sellerId',

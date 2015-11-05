@@ -11,7 +11,9 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
     requires: [
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.contract.controller.ContractFormController',
-        'kalix.roffice.contract.viewModel.ContractViewModel'
+        'kalix.roffice.contract.viewModel.ContractViewModel',
+        'kalix.admin.user.store.UserStore'
+
     ],
     alias: 'widget.contractForm',
     viewModel: 'contractViewModel',
@@ -56,7 +58,25 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             bind: {
                 value: '{rec.contractDate}'
             }
-        }
+        },
+            {
+                fieldLabel: '项目经理',
+                allowBlank: false,
+                labelAlign: 'right',
+                xtype: 'combobox',
+                queryMode: 'remote',
+                valueField: 'name',
+                displayField: 'name',
+                queryParam: 'name',
+                minChars: 0,
+                store: {
+                    type: 'userStore'
+                },
+                name: 'managerId',
+                bind: {
+                    value: '{rec.managerId}'
+                }
+            }
         ],
         buttons: [{
             text: '保存',
