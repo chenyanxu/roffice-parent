@@ -14,6 +14,13 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
     proxy: {
         type: "ajax",
         url: '/kalix/camel/rest/contracts',
+        paramsAsJson: true,
+        actionMethods: {
+            create: 'POST',
+            read: 'GET',
+            update: 'PUT',
+            destroy: 'DELETE'
+        },
         reader: {
             type: 'json'
         }
@@ -31,9 +38,5 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
         name: 'userId',
         type: 'string'
     }
-    ],
-    proxy: {
-        type: 'ajax',
-        url: '/kalix/camel/rest/contracts'
-    }
+    ]
 });

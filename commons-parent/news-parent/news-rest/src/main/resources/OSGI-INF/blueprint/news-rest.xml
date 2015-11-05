@@ -31,9 +31,15 @@
             </put>
 
             <!-- this is a rest DELETE to delete a news -->
-            <delete id="route-deleteNews" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <!--<delete id="route-deleteNews" outType="cn.com.rexen.core.api.biz.JsonStatus">-->
+                <!--<description>Delete a News</description>-->
+                <!--<to uri="bean:newsService?method=deleteEntity"/>-->
+            <!--</delete>-->
+
+            <delete id="route-deleteNews" type="cn.com.rexen.roffice.news.entities.NewsBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a News</description>
-                <to uri="bean:newsService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:newsService?method=deleteEntity"/>
             </delete>
 
             <!-- this is a rest GET to find all news -->

@@ -10,13 +10,12 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
     extend: 'Ext.window.Window',
     requires: [],
     alias: 'widget.contractViewForm',
-    controller: 'newsFormController',
     xtype: "newsViewForm",
     width: 400,
     border: false,
     modal: true,
     resizable: false,
-    title: '查看新闻',
+    title: '查看合同',
     bind: {
         icon: '{view_image_path}'
     },
@@ -26,34 +25,12 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
         bodyPadding: 10,
         buttonAlign: "center",
         items: [{
-            fieldLabel: '标题',
+            fieldLabel: '项目经理',
             labelAlign: 'right',
             bind: {
-                value: '{rec.title}'
+                value: '{rec.managerId}'
             }
-        }, {
-            fieldLabel: '内容',
-            labelAlign: 'right',
-            bind: {
-                value: '{rec.content}'
-            }
-        }, {
-            fieldLabel: '发布人',
-            labelAlign: 'right',
-            bind: {
-                value: '{rec.publishPeople}'
-            }
-        }, {
-            fieldLabel: '发布时间',
-            labelAlign: 'right',
-            bind: {
-                value: '{rec.publishDate}'
-            },
-            renderer: function (value) {
-                var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd hh:mm:ss");
-            }
-        },
+        }
         ],
         buttons: [{
             text: '关闭',

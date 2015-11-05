@@ -135,12 +135,6 @@ public class ContractBean extends PersistentEntity {
      */
     private long userId;
 
-    /**
-     * 录入时间(系统时间).
-     */
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "createdate")
-    private Date createdate;
 
     /**
      * 合同是否归档.
@@ -289,14 +283,6 @@ public class ContractBean extends PersistentEntity {
 
     public void setContractStatus(Integer contractStatus) {
         this.contractStatus = contractStatus;
-    }
-
-    public Date getCreatedate() {
-        return createdate;
-    }
-
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
     }
 
     public Boolean getArchive() {
