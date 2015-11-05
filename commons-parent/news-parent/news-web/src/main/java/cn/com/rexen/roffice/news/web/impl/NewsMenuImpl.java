@@ -10,7 +10,7 @@ public class NewsMenuImpl implements IMenu {
 
     @Override
     public String getIconCls() {
-        return "x-fa fa-cubes";
+        return "x-fa fa-newspaper-o";
     }
 
     @Override
@@ -57,4 +57,6 @@ public class NewsMenuImpl implements IMenu {
     public String getPermission() {
         return "";
     }
+
+
 }

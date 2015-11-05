@@ -14,11 +14,13 @@ Ext.define('kalix.roffice.travel.Main', {
     items: [
         {
             title: '出差记录查询',
+            iconCls: 'x-fa fa-search',
             xtype: 'travelSearchForm'
         }, {
             xtype: 'travelGridPanel',
             id: 'travelGridPanel',
             title: '出差记录列表',
+            iconCls: 'x-fa fa-car',
             margin: 10,
             store: {
                 type: 'travelStore'

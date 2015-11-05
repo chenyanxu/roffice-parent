@@ -47,7 +47,7 @@ public class TravelMenuImpl implements IMenu {
     //todo change iconcls
     @Override
     public String getIconCls() {
-        return "x-fa fa-cubes";
+        return "x-fa fa-car";
     }
 
     @Override
@@ -59,4 +59,6 @@ public class TravelMenuImpl implements IMenu {
     public String getRouteId() {
         return "roffice/Travel";
     }
+
+
 }

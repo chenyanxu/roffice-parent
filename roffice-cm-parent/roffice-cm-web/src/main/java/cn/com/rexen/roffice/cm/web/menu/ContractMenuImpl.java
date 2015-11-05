@@ -60,4 +60,6 @@ public class ContractMenuImpl implements IMenu {
     public String getPermission() {
         return null;
     }
+
+
 }

@@ -41,7 +41,7 @@ public class ChanceMenuImpl implements IMenu {
 
     @Override
     public String getIconCls() {
-        return "x-fa fa-cubes";
+        return "x-fa fa-cutlery";
     }
 
     @Override
@@ -58,5 +58,6 @@ public class ChanceMenuImpl implements IMenu {
     public String getPermission() {
         return "";
     }
+
 
 }

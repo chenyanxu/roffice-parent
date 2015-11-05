@@ -1,10 +1,10 @@
 package cn.com.rexen.roffice.travel.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -19,42 +19,86 @@ import java.util.Date;
 @Entity
 @Table(name = "roffice_travel")
 public class TravelBean extends PersistentEntity {
-    @NotNull(message = "'标题'是必填项")
-    private String title;   //标题
-    @NotNull(message = "'内容'是必填项")
-    private String content; //内容
-    private String publishPeople;//发布人
-    private Date publishDate;//发布时间
+    private String name;//任务名称
+    private String person;//出差人员
+    private String target;//任务目标
+    private Date startDate;//出发时间
+    private Date endDate;//回程时间
+    private String resultPerson;//结果评定人
+    private String result;//完成情况
+    private String comment;//备注
 
-    public String getTitle() {
-        return title;
+    public String getComment() {
+        return comment;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public String getContent() {
-        return content;
+    public Date getEndDate() {
+        return endDate;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
+    public void setEndDate(Date endDate) {
+        if (endDate != null) {
+            this.endDate = new Date(endDate.getTime());
+        } else {
+            this.endDate = null;
+        }
     }
 
-    public String getPublishPeople() {
-        return publishPeople;
+    public String getName() {
+        return name;
     }
 
-    public void setPublishPeople(String publishPeople) {
-        this.publishPeople = publishPeople;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getPublishDate() {
-        return publishDate;
+    public String getPerson() {
+        return person;
     }
 
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+    public void setPerson(String person) {
+        this.person = person;
+    }
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public String getResultPerson() {
+        return resultPerson;
+    }
+
+    public void setResultPerson(String resultPerson) {
+        this.resultPerson = resultPerson;
+    }
+
+    @JsonFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        if (startDate != null) {
+            this.startDate = new Date(startDate.getTime());
+        } else {
+            this.startDate = null;
+        }
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
     }
 }

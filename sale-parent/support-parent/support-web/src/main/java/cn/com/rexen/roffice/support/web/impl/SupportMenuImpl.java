@@ -38,11 +38,9 @@ public class SupportMenuImpl implements IMenu {
         return 0;
     }
 
-
-    //todo change iconcls
     @Override
     public String getIconCls() {
-        return "x-fa fa-cubes";
+        return "x-fa fa-support";
     }
 
     @Override
@@ -55,9 +53,10 @@ public class SupportMenuImpl implements IMenu {
         return "roffice/Support";
     }
 
-    //todo add permission
     @Override
     public String getPermission() {
         return "";
     }
+
+
 }

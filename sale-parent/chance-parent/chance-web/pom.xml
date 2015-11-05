@@ -13,7 +13,7 @@
 
     <artifactId>chance-web</artifactId>
     <packaging>bundle</packaging>
-    <name>Kalix :: Chance - Web</name>
+    <name>Roffice :: Chance - Web</name>
     <description>Chance Web Service</description>
 
     <properties>

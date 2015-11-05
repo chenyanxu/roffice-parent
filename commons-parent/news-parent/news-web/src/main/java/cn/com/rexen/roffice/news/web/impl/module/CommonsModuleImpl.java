@@ -53,7 +53,7 @@ public class CommonsModuleImpl implements IModule {
 
     @Override
     public String getIconCls() {
-        return "right-icon x-fa fa-database";
+        return "right-icon x-fa fa-tags";
     }
 
     @Override

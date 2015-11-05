@@ -60,4 +60,6 @@ public class BillMenuImpl implements IMenu {
     public String getPermission() {
         return null;
     }
+
+
 }

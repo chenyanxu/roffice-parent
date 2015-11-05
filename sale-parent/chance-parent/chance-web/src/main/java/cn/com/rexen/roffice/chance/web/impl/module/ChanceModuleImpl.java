@@ -43,7 +43,7 @@ public class ChanceModuleImpl implements IModule {
 
     @Override
     public String getRouteId() {
-        return null;
+        return "pages-parent";
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ChanceModuleImpl implements IModule {
 
     @Override
     public String getIconCls() {
-        return "right-icon x-fa fa-database";
+        return "right-icon x-fa fa-coffee";
     }
 
     @Override

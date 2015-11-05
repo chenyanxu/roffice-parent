@@ -10,30 +10,38 @@ Ext.define('kalix.roffice.travel.model.TravelModel', {
     extend: 'Ext.data.Model',
 
     idProperty: '_id',
-    //todo 在此修改模型定义
     fields: [{
         name: 'id',
         type: 'string'
     }, {
-        name: 'title',
+        name: 'name',
         type: 'string'
     }, {
-        name: 'content',
+        name: 'person',
         type: 'string'
     }, {
-        name: 'publishPeople',
+        name: 'target',
         type: 'string'
     }, {
-        name: 'publishDate',
-        type: 'int'
+        name: 'startDate',
+        type: 'date',
+        format: 'Y-m-d'
     }, {
-        name: 'version',
-        type: 'int'
-    }
-    ],
-    //todo 在此修改模型验证提示信息
+        name: 'endDate',
+        type: 'date',
+        format: 'Y-m-d'
+    }, {
+        name: 'resultPerson',
+        type: 'string'
+    }, {
+        name: 'result',
+        type: 'string'
+    }, {
+        name: 'comment',
+        type: 'string'
+    }],
     validators: {
-        title: [
+        name: [
             {
                 type: 'length',
                 max: '20',
@@ -41,9 +49,9 @@ Ext.define('kalix.roffice.travel.model.TravelModel', {
                 bothMessage: '长度不能小于4个字符，不能超过20个字符！'
             }
         ],
-        content: [{
+        person: [{
             type: 'presence',
-            message: '内容不能为空!'
+            message: '出差人员不能为空!'
         }
         ],
     },
@@ -51,8 +59,14 @@ Ext.define('kalix.roffice.travel.model.TravelModel', {
     //需要提交给服务端的模型 key
     serverKeys: [
         'id',
-        'title',
-        'content',
+        'name',
+        'person',
+        'target',
+        'startDate',
+        'endDate',
+        'resultPerson',
+        'result',
+        'comment',
         'version'
     ],
 

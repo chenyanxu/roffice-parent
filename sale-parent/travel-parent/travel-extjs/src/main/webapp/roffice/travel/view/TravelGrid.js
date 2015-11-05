@@ -20,7 +20,6 @@ Ext.define('kalix.roffice.travel.view.TravelGrid', {
     /*viewConfig: {
      forceFit: true,
      },*/
-    //todo 在此修改grid显示列
     columns: [
         {
             xtype: "rownumberer",
@@ -33,30 +32,46 @@ Ext.define('kalix.roffice.travel.view.TravelGrid', {
             dataIndex: 'id',
             hidden: true,
             flex: 1
-            //width: 40
         }, {
-            text: '标题',
-            dataIndex: 'title',
+            text: '任务名称',
+            dataIndex: 'name',
             flex: 1
-            //width: 80
         }, {
-            text: '内容',
-            dataIndex: 'content',
-            flex: 3
-            //width: 60
-        }, {
-            text: '发布人',
-            dataIndex: 'publishPeople',
+            text: '出差人员',
+            dataIndex: 'person',
             flex: 1
-            //width: 60
         }, {
-            text: '发布时间',
-            dataIndex: 'publishDate',
+            text: '任务目标',
+            dataIndex: 'target',
+            flex: 1
+        }, {
+            text: '出发时间',
+            dataIndex: 'startDate',
             flex: 1,
             renderer: function (value) {
                 var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd hh:mm:ss");
+                return createDate.format("yyyy-MM-dd");
             }
+        }, {
+            text: '回程时间',
+            dataIndex: 'endDate',
+            flex: 1,
+            renderer: function (value) {
+                var createDate = new Date(value);
+                return createDate.format("yyyy-MM-dd");
+            }
+        }, {
+            text: '结果评定人',
+            dataIndex: 'resultPerson',
+            flex: 1
+        }, {
+            text: '完成情况',
+            dataIndex: 'result',
+            flex: 1
+        }, {
+            text: '备注',
+            dataIndex: 'comment',
+            flex: 1
         },
     ],
 
