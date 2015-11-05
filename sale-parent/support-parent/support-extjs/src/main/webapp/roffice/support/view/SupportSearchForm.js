@@ -14,15 +14,14 @@ Ext.define('kalix.roffice.support.view.SupportSearchForm', {
     bodyPadding: 10,
     layout: 'column',
     margin: 10,
-    //todo 在此修改查询条件
     items: [
         {
             xtype: 'textfield',
-            fieldLabel: '标题',
+            fieldLabel: '项目名称',
             labelAlign: 'right',
             labelWidth: 60,
             width: 200,
-            name: 'title'
+            name: 'name'
         },
         {
             xtype: 'button',

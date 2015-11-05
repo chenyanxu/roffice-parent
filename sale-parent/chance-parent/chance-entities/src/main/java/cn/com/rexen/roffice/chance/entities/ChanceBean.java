@@ -24,6 +24,7 @@ public class ChanceBean extends PersistentEntity {
     private String industry;    //所属行业（数据字典）
     private String level;    //优先级
     private String budget;    //预算额度
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date billDate;    //预计签单时间
     private String supporterId;    //售前支持负责人
     private String clientName;    //客户联系人姓名
@@ -31,7 +32,7 @@ public class ChanceBean extends PersistentEntity {
     private String description;    //项目机会描述
     private String comment;    //备注
 
-    @JsonFormat(pattern = "yyyy-MM-dd'T'hh:mm:ss")
+
     public Date getBillDate() {
         return billDate;
     }

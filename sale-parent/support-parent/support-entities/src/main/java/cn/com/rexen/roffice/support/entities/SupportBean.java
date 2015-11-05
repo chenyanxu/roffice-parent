@@ -1,10 +1,10 @@
 package cn.com.rexen.roffice.support.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -19,42 +19,135 @@ import java.util.Date;
 @Entity
 @Table(name = "roffice_support")
 public class SupportBean extends PersistentEntity {
-    @NotNull(message = "'标题'是必填项")
-    private String title;   //标题
-    @NotNull(message = "'内容'是必填项")
-    private String content; //内容
-    private String publishPeople;//发布人
-    private Date publishDate;//发布时间
+    private String name; //项目名称
+    private String saler; //营销负责人
+    private String type;    //项目类型（数据字典）
+    private String industry;    //所属行业（数据字典）
+    private String level;    //优先级
+    private String budget;    //预算额度
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    private Date billDate;    //预计交付时间
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    private Date startDate;    //预计开始时间
+    private String supporter;    //售前支持负责人
+    private String supportPerson;    //售前支持人员
+    private String subSystem; //包含子系统
+    private String comment;    //备注
+    private long chanceId; //项目机会id
 
-    public String getTitle() {
-        return title;
+    //    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    public Date getBillDate() {
+        return billDate;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setBillDate(Date billDate) {
+        this.billDate = billDate;
+        /*if (billDate != null) {
+            this.billDate = new Date(billDate.getTime());
+        } else {
+            this.billDate = null;
+        }*/
     }
 
-    public String getContent() {
-        return content;
+    public String getBudget() {
+        return budget;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setBudget(String budget) {
+        this.budget = budget;
     }
 
-    public String getPublishPeople() {
-        return publishPeople;
+    public long getChanceId() {
+        return chanceId;
     }
 
-    public void setPublishPeople(String publishPeople) {
-        this.publishPeople = publishPeople;
+    public void setChanceId(long chanceId) {
+        this.chanceId = chanceId;
     }
 
-    public Date getPublishDate() {
-        return publishDate;
+    public String getComment() {
+        return comment;
     }
 
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getIndustry() {
+        return industry;
+    }
+
+    public void setIndustry(String industry) {
+        this.industry = industry;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSaler() {
+        return saler;
+    }
+
+    public void setSaler(String saler) {
+        this.saler = saler;
+    }
+
+    //    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        /*if (startDate != null) {
+            this.startDate = new Date(startDate.getTime());
+        } else {
+            this.startDate = null;
+        }*/
+        this.startDate = startDate;
+    }
+
+    public String getSubSystem() {
+        return subSystem;
+    }
+
+    public void setSubSystem(String subSystem) {
+        this.subSystem = subSystem;
+    }
+
+    public String getSupporter() {
+        return supporter;
+    }
+
+    public void setSupporter(String supporter) {
+        this.supporter = supporter;
+    }
+
+    public String getSupportPerson() {
+        return supportPerson;
+    }
+
+    public void setSupportPerson(String supportPerson) {
+        this.supportPerson = supportPerson;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

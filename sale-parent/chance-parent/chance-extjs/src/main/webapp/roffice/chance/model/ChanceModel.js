@@ -35,8 +35,8 @@ Ext.define('kalix.roffice.chance.model.ChanceModel', {
     }, {
         name: 'billDate',//预计签单时间
         /*type:'string'*/
-        type: 'date',
-        format: 'Y-m-d'
+        type: 'date'
+        //dateFormat: 'Y-m-d'
     }, {
         name: 'supporterId',//售前支持负责人
         type: 'string'

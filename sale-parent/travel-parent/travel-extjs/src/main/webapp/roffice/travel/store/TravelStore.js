@@ -14,11 +14,11 @@ Ext.define('kalix.roffice.travel.store.TravelStore', {
     pageSize: 10,
     proxy: {
         type: "ajax",
-        url: '/kalix/camel/rest/travels',
+        url: '/kalix/camel/rest/travels/list',
         paramsAsJson: true,
         actionMethods: {
             create: 'POST',
-            read: 'GET',
+            read: 'POST',
             update: 'POST',
             destroy: 'POST'
         },
