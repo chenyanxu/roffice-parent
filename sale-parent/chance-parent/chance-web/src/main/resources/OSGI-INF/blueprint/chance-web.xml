@@ -7,7 +7,7 @@
     </service>
 
     <service interface="cn.com.rexen.core.api.web.IModule">
-        <bean class="cn.com.rexen.roffice.chance.web.impl.module.ChanceModuleImpl"/>
+        <bean class="cn.com.rexen.roffice.chance.web.impl.module.SaleModuleImpl"/>
     </service>
 
 </blueprint>

@@ -2,7 +2,6 @@ package cn.com.rexen.roffice.chance.web.impl.module;
 
 import cn.com.rexen.core.api.web.IMenu;
 import cn.com.rexen.core.api.web.IModule;
-import cn.com.rexen.roffice.chance.web.impl.SaleConst;
 import cn.com.rexen.roffice.core.web.app.Const;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
 /**
  * Created by sunlf on 2015/11/2.
  */
-public class ChanceModuleImpl implements IModule {
+public class SaleModuleImpl implements IModule {
     @Override
     public List<IMenu> getMenus() {
         return null;
@@ -23,17 +22,17 @@ public class ChanceModuleImpl implements IModule {
 
     @Override
     public String getId() {
-        return SaleConst.MODULE_NAME;
+        return Const.SALE_MODULE_ID;
     }
 
     @Override
     public String getText() {
-        return "售前服务";
+        return Const.SALE_MODULE_TEXT;
     }
 
     @Override
     public String getDescription() {
-        return "售前服务";
+        return Const.SALE_MODULE_TEXT;
     }
 
     @Override
@@ -43,17 +42,17 @@ public class ChanceModuleImpl implements IModule {
 
     @Override
     public String getRouteId() {
-        return "pages-parent";
+        return Const.SALE_MODULE_ROUTE_ID;
     }
 
     @Override
     public int getIndex() {
-        return 20;
+        return Const.SALE_MODULE_INDEX;
     }
 
     @Override
     public String getIconCls() {
-        return "right-icon x-fa fa-coffee";
+        return Const.SALE_MODULE_ICON_CLASS;
     }
 
     @Override
@@ -68,6 +67,6 @@ public class ChanceModuleImpl implements IModule {
 
     @Override
     public String getPermission() {
-        return "";
+        return Const.SALE_MODULE_PERMISSION;
     }
 }

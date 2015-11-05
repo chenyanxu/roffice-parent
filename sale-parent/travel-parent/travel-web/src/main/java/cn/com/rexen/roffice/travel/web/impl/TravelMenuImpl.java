@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.travel.web.impl;
 
 import cn.com.rexen.core.api.web.IMenu;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 public class TravelMenuImpl implements IMenu {
     @Override
@@ -10,7 +11,7 @@ public class TravelMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return "saleModule";
+        return Const.SALE_MODULE_ID;
     }
 
     @Override
@@ -20,12 +21,12 @@ public class TravelMenuImpl implements IMenu {
 
     @Override
     public String getId() {
-        return "travelMenu";
+        return Const.TRAVEL_MENU_ID;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return Const.TRAVEL_MENU_ID;
     }
 
     @Override
@@ -35,29 +36,27 @@ public class TravelMenuImpl implements IMenu {
 
     @Override
     public int getIndex() {
-        return 0;
+        return Const.TRAVEL_MENU_INDEX;
     }
 
-    //todo add permission
     @Override
     public String getPermission() {
-        return "";
+        return Const.TRAVEL_MENU_PERMISSION;
     }
 
-    //todo change iconcls
     @Override
     public String getIconCls() {
-        return "x-fa fa-car";
+        return Const.TRAVEL_MENU_ICON_CLASS;
     }
 
     @Override
     public String getText() {
-        return "出差记录";
+        return Const.TRAVEL_MENU_TEXT;
     }
 
     @Override
     public String getRouteId() {
-        return "roffice/Travel";
+        return Const.TRAVEL_MENU_ROUTE_ID;
     }
 
 

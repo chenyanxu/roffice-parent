@@ -20,7 +20,7 @@ Ext.define('kalix.roffice.deploy.Main', {
             xtype: 'deployGridPanel',
             id: 'deployGridPanel',
             title: '实施项目列表',
-            iconCls: 'x-fa fa-search',
+            iconCls: 'x-fa fa-cube',
             margin: 10,
             store: {
                 type: 'deployStore'

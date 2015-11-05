@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.support.web.impl;
 
 import cn.com.rexen.core.api.web.IMenu;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 public class SupportMenuImpl implements IMenu {
     @Override
@@ -10,7 +11,7 @@ public class SupportMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return "saleModule";
+        return Const.SALE_MODULE_ID;
     }
 
     @Override
@@ -20,12 +21,12 @@ public class SupportMenuImpl implements IMenu {
 
     @Override
     public String getId() {
-        return "supportMenu";
+        return Const.SUPPORT_MENU_ID;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return Const.SUPPORT_MENU_ID;
     }
 
     @Override
@@ -35,27 +36,27 @@ public class SupportMenuImpl implements IMenu {
 
     @Override
     public int getIndex() {
-        return 0;
+        return Const.SUPPORT_MENU_INDEX;
     }
 
     @Override
     public String getIconCls() {
-        return "x-fa fa-support";
+        return Const.SUPPORT_MENU_ICON_CLASS;
     }
 
     @Override
     public String getText() {
-        return "项目支持";
+        return Const.SUPPORT_MENU_TEXT;
     }
 
     @Override
     public String getRouteId() {
-        return "roffice/Support";
+        return Const.SUPPORT_MENU_ROUTE_ID;
     }
 
     @Override
     public String getPermission() {
-        return "";
+        return Const.SUPPORT_MENU_PERMISSION;
     }
 
 

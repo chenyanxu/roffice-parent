@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.chance.web.impl;
 
 import cn.com.rexen.core.api.web.IMenu;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 public class ChanceMenuImpl implements IMenu {
     @Override
@@ -10,7 +11,7 @@ public class ChanceMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return SaleConst.MODULE_NAME;
+        return Const.SALE_MODULE_ID;
     }
 
     @Override
@@ -20,12 +21,12 @@ public class ChanceMenuImpl implements IMenu {
 
     @Override
     public String getId() {
-        return "chanceMenu";
+        return Const.CHANCE_MENU_ID;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return Const.CHANCE_MENU_ID;
     }
 
     @Override
@@ -35,28 +36,28 @@ public class ChanceMenuImpl implements IMenu {
 
     @Override
     public int getIndex() {
-        return 0;
+        return Const.CHANCE_MENU_INDEX;
     }
 
 
     @Override
     public String getIconCls() {
-        return "x-fa fa-cutlery";
+        return Const.CHANCE_MENU_ICON_CLASS;
     }
 
     @Override
     public String getText() {
-        return "项目机会";
+        return Const.CHANCE_MENU_TEXT;
     }
 
     @Override
     public String getRouteId() {
-        return "roffice/Chance";
+        return Const.CHANCE_MENU_ROUTE_ID;
     }
 
     @Override
     public String getPermission() {
-        return "";
+        return Const.CHANCE_MENU_PERMISSION;
     }
 
 

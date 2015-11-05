@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.deploy.web.impl;
 
 import cn.com.rexen.core.api.web.IMenu;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 public class DeployMenuImpl implements IMenu {
     @Override
@@ -10,7 +11,7 @@ public class DeployMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return "saleModule";
+        return Const.SALE_MODULE_ID;
     }
 
     @Override
@@ -20,12 +21,12 @@ public class DeployMenuImpl implements IMenu {
 
     @Override
     public String getId() {
-        return "deployMenu";
+        return Const.DEPLOY_MENU_ID;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return Const.DEPLOY_MENU_ID;
     }
 
     @Override
@@ -35,28 +36,26 @@ public class DeployMenuImpl implements IMenu {
 
     @Override
     public int getIndex() {
-        return 0;
+        return Const.DEPLOY_MENU_INDEX;
     }
 
-    //todo add permission
     @Override
     public String getPermission() {
-        return "";
+        return Const.DEPLOY_MENU_PERMISSION;
     }
 
-    //todo change iconcls
     @Override
     public String getIconCls() {
-        return "x-fa fa-cubes";
+        return Const.DEPLOY_MENU_ICON_CLASS;
     }
 
     @Override
     public String getText() {
-        return "实施项目";
+        return Const.DEPLOY_MENU_TEXT;
     }
 
     @Override
     public String getRouteId() {
-        return "roffice/Deploy";
+        return Const.DEPLOY_MENU_ROUTE_ID;
     }
 }
