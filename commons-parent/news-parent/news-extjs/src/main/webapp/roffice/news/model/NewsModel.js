@@ -13,7 +13,7 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
         this.callParent(arguments);
 
         if (arguments.length == 0) {
-            this.set('id', '-1');
+            this.set('id', '0');
         }
     },
     proxy: {
@@ -45,7 +45,7 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
     }, {
         name: 'publishDate',
         type: 'date',
-        format: 'yyyy-MM-dd hh:mm:ss'
+        dateFormat: 'Y-m-d'
     }, {
         name: 'version',
         type: 'int'
@@ -66,20 +66,5 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
             message: '内容不能为空!'
         }
         ],
-    },
-
-    //需要提交给服务端的模型 key
-    serverKeys: [
-        'id',
-        'title',
-        'content',
-        'publishPeople',
-        'publishDate',
-        'version'
-    ],
-
-    //需要提交给服务端的 JSON 数据
-    toServerJSON: function () {
-        return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
     }
 });
