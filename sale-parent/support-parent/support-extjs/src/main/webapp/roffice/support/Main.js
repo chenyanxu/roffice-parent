@@ -14,11 +14,13 @@ Ext.define('kalix.roffice.support.Main', {
     items: [
         {
             title: '项目支持查询',
+            iconCls: 'x-fa fa-search',
             xtype: 'supportSearchForm'
         }, {
             xtype: 'supportGridPanel',
             id: 'supportGridPanel',
             title: '项目支持列表',
+            iconCls: 'x-fa fa-support',
             margin: 10,
             store: {
                 type: 'supportStore'

@@ -14,11 +14,13 @@ Ext.define('kalix.roffice.chance.Main', {
     items: [
         {
             title: '项目机会查询',
+            iconCls: 'x-fa fa-search',
             xtype: 'chanceSearchForm'
         }, {
             xtype: 'chanceGridPanel',
             id: 'chanceGridPanel',
             title: '项目机会列表',
+            iconCls: 'x-fa fa-cutlery',
             margin: 10,
             store: {
                 type: 'chanceStore'

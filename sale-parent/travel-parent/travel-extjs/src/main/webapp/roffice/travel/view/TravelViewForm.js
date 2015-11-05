@@ -31,34 +31,62 @@ Ext.define('kalix.roffice.travel.view.TravelViewForm', {
         bodyPadding: 10,
         buttonAlign: "center",
         items: [{
-            fieldLabel: '标题',
+            fieldLabel: '任务名称',
             labelAlign: 'right',
             bind: {
-                value: '{rec.title}'
+                value: '{rec.name}'
             }
         }, {
-            fieldLabel: '内容',
+            fieldLabel: '出差人员',
             labelAlign: 'right',
             bind: {
-                value: '{rec.content}'
+                value: '{rec.person}'
             }
         }, {
-            fieldLabel: '发布人',
+            fieldLabel: '任务目标',
             labelAlign: 'right',
             bind: {
-                value: '{rec.publishPeople}'
+                value: '{rec.target}'
             }
         }, {
-            fieldLabel: '发布时间',
+            fieldLabel: '出发时间',
             labelAlign: 'right',
             bind: {
-                value: '{rec.publishDate}'
+                value: '{rec.startDate}'
             },
             renderer: function (value) {
                 var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd hh:mm:ss");
+                return createDate.format("yyyy-MM-dd");
             }
-        },
+        }, {
+            fieldLabel: '回程时间',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.endDate}'
+            },
+            renderer: function (value) {
+                var createDate = new Date(value);
+                return createDate.format("yyyy-MM-dd");
+            }
+        }, {
+            fieldLabel: '结果评定人',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.resultPerson}'
+            }
+        }, {
+            fieldLabel: '完成情况',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.result}'
+            }
+        }, {
+            fieldLabel: '备注',
+            labelAlign: 'right',
+            bind: {
+                value: '{rec.comment}'
+            }
+        }
         ],
         buttons: [{
             text: '关闭',
