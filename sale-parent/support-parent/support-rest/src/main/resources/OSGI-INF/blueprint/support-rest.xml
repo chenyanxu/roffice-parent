@@ -48,6 +48,13 @@
                 <to uri="bean:supportService?method=getEntity(${header.id})"/>
             </get>
 
+            <!-- this is a rest GET to find all support by name -->
+            <post id="route-getAllSupportByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
+                  type="cn.com.rexen.roffice.support.api.query.SupportDTO">
+                <description>Find all Support by Name</description>
+                <to uri="bean:supportService?method=getAllEntityByQuery"/>
+            </post>
+
         </rest>
     </camelContext>
 </blueprint>

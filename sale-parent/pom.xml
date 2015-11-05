@@ -19,5 +19,6 @@
         <module>chance-parent</module>
         <module>travel-parent</module>
         <module>support-parent</module>
+        <module>deploy-parent</module>
     </modules>
 </project>

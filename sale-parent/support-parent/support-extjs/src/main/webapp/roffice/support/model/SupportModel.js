@@ -91,9 +91,6 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
 
     //需要提交给服务端的 JSON 数据
     toServerJSON: function () {
-        Ext.JSON.encodeDate = function (d) {
-            return Ext.Date.format(d, '"Y-m-d h:i:s"');
-        };
         return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
     }
 });

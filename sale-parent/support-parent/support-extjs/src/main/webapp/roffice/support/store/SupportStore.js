@@ -14,11 +14,11 @@ Ext.define('kalix.roffice.support.store.SupportStore', {
     pageSize: 10,
     proxy: {
         type: "ajax",
-        url: '/kalix/camel/rest/supports',
+        url: '/kalix/camel/rest/supports/list',
         paramsAsJson: true,
         actionMethods: {
             create: 'POST',
-            read: 'GET',
+            read: 'POST',
             update: 'POST',
             destroy: 'POST'
         },
