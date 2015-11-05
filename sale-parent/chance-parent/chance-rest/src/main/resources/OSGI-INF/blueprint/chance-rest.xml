@@ -48,6 +48,13 @@
                 <to uri="bean:chanceService?method=getEntity(${header.id})"/>
             </get>
 
+            <!-- this is a rest GET to find all chance by name -->
+            <post id="route-getAllChanceByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
+                  type="cn.com.rexen.roffice.chance.api.query.ChanceDTO">
+                <description>Find all Chance by Name</description>
+                <to uri="bean:chanceService?method=getAllEntityByQuery"/>
+            </post>
+
         </rest>
     </camelContext>
 </blueprint>
