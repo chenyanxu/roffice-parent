@@ -11,31 +11,42 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
     requires: [
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.contract.controller.ContractFormController',
-        'kalix.roffice.contract.viewModel.ContractViewModel',
-        'kalix.admin.user.store.UserStore'
-
+        'kalix.roffice.contract.viewModel.ContractViewModel'
     ],
     alias: 'widget.contractForm',
     viewModel: 'contractViewModel',
     controller: 'contractFormController',
     xtype: "contractForm",
-    width: 400,
     border: false,
     modal: true,
     resizable: false,
+    buttonAlign: 'center',
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
+    },
+    width: 800,
     bind: {
         icon: '{icon}',
         title: '{title}'
     },
     items: [{
         xtype: 'baseForm',
+        flex: 1,
         items: [
+            //{
+            //    fieldLabel: '合同编号',
+            //    labelAlign: 'right',
+            //    allowBlank: false,
+            //    bind: {
+            //        value: '{rec.contractNumber}'
+            //    }
+            //},
             {
-                fieldLabel: '合同编号',
+                fieldLabel: '项目名称',
                 labelAlign: 'right',
-                allowBlank: false,
                 bind: {
-                    value: '{rec.contractNumber}'
+                    value: '{rec.projectName}'
                 }
             },
             {
@@ -50,13 +61,6 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 labelAlign: 'right',
                 bind: {
                     value: '{rec.partyB}'
-                }
-            },
-            {
-                fieldLabel: '项目名称',
-                labelAlign: 'right',
-                bind: {
-                    value: '{rec.projectName}'
                 }
             },
             {
@@ -100,7 +104,12 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 bind: {
                     value: '{rec.expectedCost}'
                 }
-            },
+            }
+        ]
+    }, {
+        xtype: 'baseForm',
+        flex: 1,
+        items: [
             {
                 fieldLabel: '质保期(年)',
                 labelAlign: 'right',
@@ -109,113 +118,20 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 }
             },
             {
-                fieldLabel: '项目经理',
-                allowBlank: false,
-                labelAlign: 'right',
-                xtype: 'combobox',
-                queryMode: 'remote',
-                valueField: 'name',
-                displayField: 'name',
-                queryParam: 'name',
-                minChars: 0,
-                store: {
-                    type: 'userStore'
-                },
-                name: 'managerId',
-                bind: {
-                    value: '{rec.managerId}'
-                }
-            }, {
-                fieldLabel: '销售负责人',
-                allowBlank: false,
-                labelAlign: 'right',
-                xtype: 'combobox',
-                queryMode: 'remote',
-                valueField: 'name',
-                displayField: 'name',
-                queryParam: 'name',
-                minChars: 0,
-                store: {
-                    type: 'userStore'
-                },
-                name: 'sellerId',
-                bind: {
-                    value: '{rec.sellerId}'
-                }
-            }, {
-                fieldLabel: '操作人',
-                allowBlank: false,
-                labelAlign: 'right',
-                xtype: 'combobox',
-                queryMode: 'remote',
-                valueField: 'name',
-                displayField: 'name',
-                queryParam: 'name',
-                minChars: 0,
-                store: {
-                    type: 'userStore'
-                },
-                name: 'userId',
-                bind: {
-                    value: '{rec.userId}'
-                }
-            },
-            {
-                fieldLabel: '项目类型',
-                allowBlank: false,
-                labelAlign: 'right',
-                xtype: 'combobox',
-                queryMode: 'local',
-                valueField: 'name',
-                displayField: 'name',
-                minChars: 0,
-                store:{
-                data:[
-                    {'name':'软件'},
-                    {'name':'系统集成'},
-                    {'name':'服务'}
-                ]},
-                name: 'projectType',
-                bind: {
-                    value: '{rec.projectType}'
-                }
-            },
-            {
-                fieldLabel: '项目实施状态',
-                allowBlank: false,
-                labelAlign: 'right',
-                xtype: 'combobox',
-                queryMode: 'local',
-                valueField: 'name',
-                displayField: 'name',
-                minChars: 0,
-                store:{
-                data:[
-                    {'name':'已验收'},
-                    {'name':'正在实施'},
-                    {'name':'未实施'},
-                    {'name':'已完结'}
-                ]},
-                name: 'projectStatus',
-                bind: {
-                    value: '{rec.projectStatus}'
-                }
-            },
-            {
                 fieldLabel: '合同状态',
                 allowBlank: false,
                 labelAlign: 'right',
                 xtype: 'combobox',
-                queryMode: 'local',
-                valueField: 'name',
+                editable: false,
+                valueField: 'key',
                 displayField: 'name',
-                minChars: 0,
                 store:{
-                data:[
-                    {'name':'草稿'},
-                    {'name':'进行中'},
-                    {'name':'完成'}
-                ]},
+                    data: [
+                        {'name': '草稿', 'key': 0},
+                        {'name': '进行中', 'key': 1},
+                        {'name': '完成', 'key': 2}
+                    ]
+                },
                 name: 'contractStatus',
                 bind: {
                     value: '{rec.contractStatus}'
@@ -226,23 +142,35 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 allowBlank: false,
                 labelAlign: 'right',
                 xtype: 'combobox',
-                queryMode: 'local',
+                editable: false,
                 valueField: 'key',
                 displayField: 'name',
-                minChars: 0,
                 store:{
-                data:[
-                    {'name':'是','key':true},
-                    {'name':'否','key':false}
-                ]},
+                    data: [
+                        {'name': '是', 'key': true},
+                        {'name': '否', 'key': false}
+                    ]
+                },
                 name: 'archive',
                 bind: {
                     value: '{rec.archive}'
                 }
             },
             {
+                fieldLabel: '合同归档日期',
+                labelAlign: 'right',
+                editable: false,
+                xtype: 'datefield',
+                format: 'Y-m-d',
+                bind: {
+                    value: '{rec.archive_date}',
+                    disabled: '{!rec.archive}'
+                }
+            },
+            {
                 fieldLabel: '签单日期',
                 labelAlign: 'right',
+                editable: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -253,6 +181,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             {
                 fieldLabel: '过期日期',
                 labelAlign: 'right',
+                editable: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -261,25 +190,25 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             }
             ,
             {
-                fieldLabel: '合同归档日期',
+                fieldLabel: '备注',
                 labelAlign: 'right',
-                xtype: 'datefield',
-                format: 'Y-m-d',
+                xtype: 'textarea',
                 bind: {
-                    value: '{rec.archive_date}'
+                    value: '{rec.remark}'
                 }
             }
-        ],
-        buttons: [{
-            text: '保存',
-            glyph: 'xf0c7@FontAwesome',
-            handler: 'onSave'
-        }, {
-            text: '重置',
-            glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
-        }
         ]
+    }
+    ]
+    ,
+    buttons: [{
+        text: '保存',
+        glyph: 'xf0c7@FontAwesome',
+        handler: 'onSave'
+    }, {
+        text: '重置',
+        glyph: 'xf0e2@FontAwesome',
+        handler: 'onReset'
     }
     ]
 });

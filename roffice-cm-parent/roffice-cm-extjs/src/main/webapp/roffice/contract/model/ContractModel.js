@@ -28,9 +28,10 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
     fields: [
         {name: 'id'},
         {name: 'contractNumber'},
+        {name: 'projectId'},
+        {name: 'projectName'},
         {name: 'partyA'},
         {name: 'partyB'},
-        {name: 'projectName'},
         {name: 'summoney'},
         {name: 'grossProfit'},
         {name: 'grossProfitRate'},
@@ -38,16 +39,12 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
         {name: 'receivables'},
         {name: 'expectedCost'},
         {name: 'guarantee'},
-        {name: 'managerId'},
-        {name: 'sellerId'},
+        {name: 'contractStatus', defaultValue: 1},
         {name: 'userId'},
-        {name: 'projectType'},
-        {name: 'contractStatus '},
-        {name: 'projectStatus'},
-        {name: 'archive'},
-        {name: 'contractDate', type: 'date', dateFormat: 'Y-m-d'},
-        {name: 'expireDate', type: 'date', dateFormat: 'Y-m-d'},
-        {name: 'archive_date', type: 'date', dateFormat: 'Y-m-d'},
+        {name: 'archive', defaultValue: false},
+        {name: 'archive_date', type: 'date', dateFormat: 'Y-m-d h:i:s'},
+        {name: 'contractDate', type: 'date', dateFormat: 'Y-m-d h:i:s'},
+        {name: 'expireDate', type: 'date', dateFormat: 'Y-m-d h:i:s'},
         {name: 'remark'}
     ]
 });
