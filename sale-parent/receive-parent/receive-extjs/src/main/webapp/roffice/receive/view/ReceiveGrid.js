@@ -20,7 +20,6 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
     /*viewConfig: {
      forceFit: true,
      },*/
-    //todo 在此修改grid显示列
     columns: [
         {
             xtype: "rownumberer",
@@ -34,30 +33,39 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
             hidden: true,
             flex: 1
         }, {
-            text: '标题',
-            dataIndex: 'title',
-            flex: 1
-        }, {
-            text: '名称',
-            dataIndex: 'name',
-            flex: 1
-        },
-        {
-            text: '内容',
-            dataIndex: 'content',
-            flex: 3
-        }, {
-            text: '发布人',
-            dataIndex: 'publishPeople',
-            flex: 1
-        }, {
-            text: '发布时间',
-            dataIndex: 'publishDate',
+            text: '回款日期',
+            dataIndex: 'receiveDate',
             flex: 1,
             xtype: 'datecolumn',
             format: 'Y-m-d'
+        }, {
+            text: '回款金额',
+            dataIndex: 'money',
+            flex: 1
+        }, {
+            text: '合同id',
+            dataIndex: 'contractId',
+            flex: 1
         },
-    ],
+        {
+            text: '备注',
+            dataIndex: 'comment',
+            flex: 3
+        },
+        {
+            text: '最后修改人',
+            dataIndex: 'updateBy',
+            flex: 1
+        },
+        {
+            text: '最后修改时间',
+            dataIndex: 'updateDate',
+            flex: 2,
+            renderer: function (value) {
+                var createDate = new Date(value);
+                return createDate.format("yyyy-MM-dd hh:mm:ss");
+            }
+        }],
 
     tbar: {
         xtype: 'securityToolbar',

@@ -27,7 +27,8 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
         type: 'string'
     }, {
         name: 'level',//优先级
-        type: 'string'
+        type: 'string',
+        defaultValue: '中'
     }, {
         name: 'budget',//预算额度
         type: 'string'
@@ -49,6 +50,9 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
         name: 'subSystem',//包含子系统
         type: 'string'
     }, {
+        name: 'chanceId',//包含子系统
+        type: 'int'
+    }, {
         name: 'comment',//备注
         type: 'string'
     }, {
@@ -67,8 +71,11 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
         saler: [{
             type: 'presence',
             message: '内容不能为空!'
-        }
-        ],
+        }],
+        chanceId: [{
+            type: 'presence',
+            message: '项目机会不能为空!'
+        }]
     },
 
     //需要提交给服务端的模型 key
@@ -85,6 +92,7 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
         'supporter',
         'supportPerson',
         'subSystem',
+        'chanceId',
         'comment',
         'version'
     ],

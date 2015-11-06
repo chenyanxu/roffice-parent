@@ -59,7 +59,7 @@ Ext.define('Kalix.<pomName>.controller.<beanName>GridController', {
          var <pomName>Model = Ext.create("Kalix.<pomName>.model.<beanName>Model", {
          id: rec.data.id,
          text: rec.data.text,
-         content: rec.data.content,
+         comment: rec.data.comment,
          });*/
         //var grid = this.lookupReference('fooGrid');
         //this.setCurrent<beanName>(record);

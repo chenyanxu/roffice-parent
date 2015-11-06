@@ -28,7 +28,8 @@ Ext.define('kalix.roffice.chance.model.ChanceModel', {
         type: 'string'
     }, {
         name: 'level',//优先级
-        type: 'string'
+        type: 'string',
+        defaultValue: '中'
     }, {
         name: 'budget',//预算额度
         type: 'string'

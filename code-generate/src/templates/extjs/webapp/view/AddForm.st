@@ -42,7 +42,7 @@ Ext.define('Kalix.<pomName>.view.<beanName>AddForm', {
         {
             fieldLabel: '内容',
             id: 'contentId',
-            name: 'content',
+            name: 'comment',
             xtype: 'textarea',
             allowBlank: false,
             blankText: '内容不能为空!',

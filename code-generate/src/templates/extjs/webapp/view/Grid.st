@@ -23,10 +23,10 @@ Ext.define('Kalix.<pomName>.view.<beanName>Grid', {
     columns: [
         {text: '编号', dataIndex: 'id', width: 40},
         {text: '标题', dataIndex: 'text', width: 80},
-        {text: '内容', dataIndex: 'content', width: 100},
+        {text: '内容', dataIndex: 'comment', width: 100},
         {text: '发布人', dataIndex: 'publishPeople', width: 60},
         {
-            text: '创建日期', dataIndex: 'publishDate', width: 120, renderer: function (value) {
+            text: '创建日期', dataIndex: 'beginDate', width: 120, renderer: function (value) {
             var createDate = new Date(value);
             return createDate.format("yyyy-MM-dd hh:mm:ss");
         }

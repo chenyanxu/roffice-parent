@@ -25,43 +25,46 @@ Ext.define('kalix.roffice.receive.view.ReceiveForm', {
         icon: '{icon}',
         title: '{title}'
     },
-    //todo 在此修改表单
     items: [{
         xtype: 'baseForm',
-        items: [{
-            fieldLabel: '名称',
-            labelAlign: 'right',
-            allowBlank: false,
-            bind: {
-                activeError: '{validation.name}',
-                value: '{rec.name}'
-            }
-        },
+        items: [
             {
-                fieldLabel: '标题',
-                labelAlign: 'right',
-                allowBlank: false,
-                bind: {
-                    activeError: '{validation.title}',
-                    value: '{rec.title}'
-                }
-            }, {
-                fieldLabel: '内容',
-                labelAlign: 'right',
-                allowBlank: false,
-                xtype: 'textarea',
-                bind: {
-                    activeError: '{validation.content}',
-                    value: '{rec.content}'
-                }
-            }, {
-                fieldLabel: '发布时间',
+                fieldLabel: '回款日期',
                 labelAlign: 'right',
                 allowBlank: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
-                    value: '{rec.publishDate}'
+                    activeError: '{validation.receiveDate}',
+                    value: '{rec.receiveDate}'
+                }
+            },
+            {
+                fieldLabel: '回款金额(万元)',
+                labelAlign: 'right',
+                xtype: 'numberfield',
+                allowBlank: false,
+                bind: {
+                    activeError: '{validation.money}',
+                    value: '{rec.money}'
+                }
+            },
+            {
+                fieldLabel: '合同ID',
+                labelAlign: 'right',
+                //allowBlank: false,
+                bind: {
+                    //activeError: '{validation.contractId}',
+                    value: '{rec.contractId}'
+                }
+            }, {
+                fieldLabel: '备注',
+                labelAlign: 'right',
+                allowBlank: false,
+                xtype: 'textarea',
+                bind: {
+                    activeError: '{validation.comment}',
+                    value: '{rec.comment}'
                 }
             }],
         buttons: [{

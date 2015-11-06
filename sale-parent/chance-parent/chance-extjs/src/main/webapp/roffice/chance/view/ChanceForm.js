@@ -96,12 +96,12 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             bind: {
                 //activeError: '{validation.level}',
                 value: '{rec.level}'
-            },
+            }/*,
             listeners: {
                 afterrender: function (rec) {
                     Ext.getCmp('level').setValue("中");
                 }
-            }
+             }*/
         }, {
             fieldLabel: '项目机会描述',
             //allowBlank: false,

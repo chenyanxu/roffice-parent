@@ -14,15 +14,22 @@ Ext.define('kalix.roffice.receive.view.ReceiveSearchForm', {
     bodyPadding: 10,
     layout: 'column',
     margin: 10,
-    //todo 在此修改查询条件
     items: [
         {
-            xtype: 'textfield',
-            fieldLabel: '名称',
+            xtype: 'datefield',
+            fieldLabel: '回款开始日期',
             labelAlign: 'right',
-            labelWidth: 60,
-            width: 200,
-            name: 'name'
+            labelWidth: 100,
+            width: 250,
+            name: 'beginDate'
+        },
+        {
+            xtype: 'datefield',
+            fieldLabel: '回款结束日期',
+            labelAlign: 'right',
+            labelWidth: 100,
+            width: 250,
+            name: 'endDate'
         },
         {
             xtype: 'button',
@@ -30,6 +37,13 @@ Ext.define('kalix.roffice.receive.view.ReceiveSearchForm', {
             margin: '0 0 0 10',
             handler: 'onSearch',
             glyph: 'xf002@FontAwesome',
+        },
+        {
+            xtype: 'button',
+            text: '重置',
+            margin: '0 0 0 10',
+            glyph: 'xf0e2@FontAwesome',
+            handler: 'onReset'
         }
     ]
 });

@@ -88,7 +88,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
             labelAlign: 'right',
             name: 'level',
             store: [
-
                 ['高', '高'],
                 ['中', '中'],
                 ['低', '低']
@@ -96,6 +95,24 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
             bind: {
                 //activeError: '{validation.level}',
                 value: '{rec.level}'
+            }
+        }, {
+            fieldLabel: '项目机会',
+            allowBlank: false,
+            labelAlign: 'right',
+            xtype: 'combobox',
+            queryMode: 'remote',
+            valueField: 'id',
+            displayField: 'name',
+            queryParam: 'name',
+            minChars: 0,
+            store: {
+                type: 'chanceStore'
+            },
+            name: 'chanceId',
+            bind: {
+                activeError: '{validation.chanceId}',
+                value: '{rec.chanceId}'
             }
         }, {
             fieldLabel: '包含子系统',

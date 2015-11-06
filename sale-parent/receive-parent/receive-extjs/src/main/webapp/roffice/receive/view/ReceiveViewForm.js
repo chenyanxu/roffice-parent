@@ -24,7 +24,6 @@ Ext.define('kalix.roffice.receive.view.ReceiveViewForm', {
     bind: {
         icon: '{view_image_path}'
     },
-    //todo 在此修改查看字段
     items: [{
         xtype: 'form',
         defaultType: 'displayfield',
@@ -32,41 +31,53 @@ Ext.define('kalix.roffice.receive.view.ReceiveViewForm', {
         buttonAlign: "center",
         items: [
             {
-                fieldLabel: '名称',
-                labelAlign: 'right',
-                bind: {
-                    value: '{rec.name}'
-                }
-            },
-            {
-                fieldLabel: '标题',
-                labelAlign: 'right',
-                bind: {
-                    value: '{rec.title}'
-                }
-            }, {
-                fieldLabel: '内容',
-                labelAlign: 'right',
-                bind: {
-                    value: '{rec.content}'
-                }
-            }, {
-                fieldLabel: '发布人',
-                labelAlign: 'right',
-                bind: {
-                    value: '{rec.publishPeople}'
-                }
-            }, {
-                fieldLabel: '发布时间',
+                fieldLabel: '回款日期',
                 labelAlign: 'right',
                 format: 'Y-m-d',
                 bind: {
-                    value: '{rec.publishDate}'
+                    value: '{rec.receiveDate}'
                 },
                 renderer: function (value) {
                     var createDate = new Date(value);
                     return createDate.format("yyyy-MM-dd");
-                }],
+                }
+            },
+            {
+                fieldLabel: '回款金额',
+                labelAlign: 'right',
+                bind: {
+                    value: '{rec.money}'
+                }
+            },
+            {
+                fieldLabel: '合同Id',
+                labelAlign: 'right',
+                bind: {
+                    value: '{rec.contractId}'
+                }
+            }, {
+                fieldLabel: '备注',
+                labelAlign: 'right',
+                bind: {
+                    value: '{rec.comment}'
+                }
+            }, {
+                fieldLabel: '最后修改人',
+                labelAlign: 'right',
+                bind: {
+                    value: '{rec.updateBy}'
+                }
+            }, {
+                fieldLabel: '最后修改时间',
+                labelAlign: 'right',
+                bind: {
+                    value: '{rec.updateDate}'
+                },
+                renderer: function (value) {
+                    var createDate = new Date(value);
+                    return createDate.format("yyyy-MM-dd hh:mm:ss");
+                }
+            }],
         buttons: [{
             text: '关闭',
             glyph: 'xf00d@FontAwesome',

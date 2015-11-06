@@ -20,7 +20,7 @@ Ext.define('kalix.roffice.receive.Main', {
             xtype: 'receiveGridPanel',
             id: 'receiveGridPanel',
             title: '项目回款列表',
-            iconCls: 'x-fa fa-search',
+            iconCls: 'x-fa fa-repeat',
             margin: 10,
             store: {
                 type: 'receiveStore'

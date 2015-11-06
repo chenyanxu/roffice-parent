@@ -21,9 +21,9 @@ public class <beanName>Bean extends PersistentEntity {
     @NotNull(message = "'标题'是必填项")
     private String text;   //标题
     @NotNull(message = "'内容'是必填项")
-    private String content; //内容
+    private String comment; //内容
     private String publishPeople;//发布人
-    private Date publishDate;//发布时间
+    private Date beginDate;//发布时间
 
     public String getTitle() {
         return text;
@@ -34,11 +34,11 @@ public class <beanName>Bean extends PersistentEntity {
     }
 
     public String getContent() {
-        return content;
+        return comment;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setContent(String comment) {
+        this.comment = comment;
     }
 
     public String getPublishPeople() {
@@ -50,10 +50,10 @@ public class <beanName>Bean extends PersistentEntity {
     }
 
     public Date getPublishDate() {
-        return publishDate;
+        return beginDate;
     }
 
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+    public void setPublishDate(Date beginDate) {
+        this.beginDate = beginDate;
     }
 }

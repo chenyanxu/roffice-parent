@@ -10,58 +10,65 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
     extend: 'Ext.data.Model',
 
     idProperty: '_id',
-    //todo 在此修改模型定义
+
     fields: [{
         name: 'id',
         type: 'string'
     }, {
-        name: 'title',
+        name: 'money',
+        type: 'float'
+    }, {
+        name: 'comment',
         type: 'string'
     }, {
-        name: 'name',
-        type: 'string'
+        name: 'contractId',
+        type: 'int'
     }, {
-        name: 'content',
-        type: 'string'
-    }, {
-        name: 'publishPeople',
-        type: 'string'
-    }, {
-        name: 'publishDate',
+        name: 'receiveDate',
         type: 'date'
+    }, {
+        name: 'beginDate',
+        type: 'date'
+    }, {
+        name: 'endDate',
+        type: 'date'
+    }, {
+        name: 'updateBy',
+        type: 'string'
+    }, {
+        name: 'updateDate',
+        type: 'int'
     }, {
         name: 'version',
         type: 'int'
     }
     ],
-    //todo 在此修改模型验证提示信息
     validators: {
-        title: [
-            {
-                type: 'length',
-                max: '20',
-                min: '4',
-                bothMessage: '长度不能小于4个字符，不能超过20个字符！'
-            }
-        ],
-        content: [{
+        comment: [{
             type: 'presence',
             message: '内容不能为空!'
         }
         ],
-        name: [{
+        money: [{
             type: 'presence',
-            message: '名称不能为空!'
-        }]
+            message: '金额不能为空!'
+        }],
+        receiveDate: [{
+            type: 'presence',
+            message: '内容不能为空!'
+        }
+        ],
     },
 
     //需要提交给服务端的模型 key
     serverKeys: [
         'id',
-        'title',
-        'name',
-        'publishDate',
-        'content',
+        'money',
+        'receiveDate',
+        'contractId',
+        'beginDate',
+        'endDate',
+        'comment',
         'version'
     ],
 

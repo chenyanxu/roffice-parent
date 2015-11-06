@@ -15,6 +15,7 @@ import javax.persistence.criteria.Root;
 import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.SingularAttribute;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,16 +39,28 @@ public class ReceiveBeanDaoImpl extends GenericDao<ReceiveBean, Long> implements
         ReceiveDTO receiveDto = (ReceiveDTO) queryDTO;
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<ReceiveBean> criteriaQuery = criteriaBuilder.createQuery(ReceiveBean.class);
-        Root<ReceiveBean> from = criteriaQuery.from(ReceiveBean.class);
-        EntityType<ReceiveBean> bean_ = from.getModel(); //实体元数据
+        Root<ReceiveBean> root = criteriaQuery.from(ReceiveBean.class);
+        EntityType<ReceiveBean> bean_ = root.getModel(); //实体元数据
         List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-        if (receiveDto.getName() != null && !receiveDto.getName().trim().isEmpty()) {
-            SingularAttribute<ReceiveBean, String> name = (SingularAttribute<ReceiveBean, String>) bean_.getSingularAttribute("name");
-            predicatesList.add(criteriaBuilder.like(from.get(name), "%" + receiveDto.getName() + "%"));
+        /*if (receiveDto.getComment() != null && !receiveDto.getComment().trim().isEmpty()) {
+            SingularAttribute<ReceiveBean, String> comment = (SingularAttribute<ReceiveBean, String>) bean_.getSingularAttribute("comment");
+            predicatesList.add(criteriaBuilder.like(root.get(comment), "%" + receiveDto.getComment() + "%"));
+        }*/
+        if (receiveDto.getBeginDate() != null) {
+            SingularAttribute<ReceiveBean, Date> comment = (SingularAttribute<ReceiveBean, Date>) bean_.getSingularAttribute("receiveDate");
+//            ParameterExpression<Date> param = criteriaBuilder.parameter(Date.class, "receiveDate");
+            predicatesList.add(criteriaBuilder.greaterThanOrEqualTo(root.get(comment), receiveDto.getBeginDate()));
         }
+
+        if (receiveDto.getEndDate() != null) {
+            SingularAttribute<ReceiveBean, Date> comment = (SingularAttribute<ReceiveBean, Date>) bean_.getSingularAttribute("receiveDate");
+//            ParameterExpression<Date> param = criteriaBuilder.parameter(Date.class, "receiveDate");
+            predicatesList.add(criteriaBuilder.lessThanOrEqualTo(root.get(comment), receiveDto.getEndDate()));
+        }
+
         criteriaQuery.where(predicatesList.toArray(new Predicate[predicatesList.size()]));
-        CriteriaQuery select = criteriaQuery.select(from);
+        CriteriaQuery select = criteriaQuery.select(root);
         return select;
     }
 }
