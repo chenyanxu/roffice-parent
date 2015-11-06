@@ -26,7 +26,7 @@ public class SupportMenuImpl implements IMenu {
 
     @Override
     public String getDescription() {
-        return Const.SUPPORT_MENU_ID;
+        return Const.SUPPORT_MENU_TEXT;
     }
 
     @Override

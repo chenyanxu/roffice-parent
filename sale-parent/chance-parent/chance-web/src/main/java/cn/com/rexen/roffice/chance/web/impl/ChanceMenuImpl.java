@@ -26,7 +26,7 @@ public class ChanceMenuImpl implements IMenu {
 
     @Override
     public String getDescription() {
-        return Const.CHANCE_MENU_ID;
+        return Const.CHANCE_MENU_TEXT;
     }
 
     @Override
