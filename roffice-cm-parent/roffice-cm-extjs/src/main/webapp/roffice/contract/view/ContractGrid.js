@@ -37,24 +37,95 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             dataIndex: 'id',
             hidden: true,
             flex: 1
-        }, {
-            text: '项目经理',
-            dataIndex: 'managerId',
+        },
+        {
+            text: '合同编号',
+            dataIndex: 'contractNumber',
+            flex: 1
+        },
+        {
+            text: '项目名称',
+            dataIndex: 'projectName',
             flex: 1
         }, {
-            text: '限售负责人',
-            dataIndex: 'sellerId',
+            text: '甲方',
+            dataIndex: 'partyA',
             flex: 1
         }, {
-            text: '操作人',
-            dataIndex: 'userId',
+            text: '乙方',
+            dataIndex: 'partyB',
             flex: 1
-        }, {
+        },
+        {
+            text: '合同金额',
+            dataIndex: 'summoney',
+            flex: 1
+        },
+        {
+            text: '合同毛利',
+            dataIndex: 'grossProfit',
+            flex: 1
+        },
+        {
+            text: '合同利润率',
+            dataIndex: 'grossProfitRate',
+            flex: 1
+        },
+        {
+            text: '已收回款项',
+            dataIndex: 'receiveMoney',
+            flex: 1
+        },
+        {
+            text: '应收款项',
+            dataIndex: 'receivables',
+            flex: 1
+        },
+        {
+            text: '预计采购成本',
+            dataIndex: 'expectedCost',
+            flex: 1
+        },
+        {
+            text: '质保期(年)',
+            dataIndex: 'guarantee',
+            flex: 1
+        },
+        {
+            text: '合同状态',
+            xtype: 'templatecolumn',
+            tpl: '<tpl switch="contractStatus"><tpl case="0">草稿<tpl case="1">进行中<tpl case="2">完成</tpl>',
+            flex: 1
+        },
+        {
             text: '签单日期',
             dataIndex: 'contractDate',
-            //xtype: 'datecolumn',
+            xtype: 'datecolumn',
             flex: 1,
-            //format: 'Y-m-d'
+            format: 'Y-m-d'
+        }
+        ,
+        {
+            text: '过期日期',
+            dataIndex: 'expireDate',
+            xtype: 'datecolumn',
+            flex: 1,
+            format: 'Y-m-d'
+        },
+        {
+            text: '是否归档',
+            trueText: '是',
+            falseText: '否',
+            xtype: 'booleancolumn',
+            dataIndex: 'archive',
+            flex: 1
+        },
+        {
+            text: '归档日期',
+            dataIndex: 'archive_date',
+            xtype: 'datecolumn',
+            flex: 1,
+            format: 'Y-m-d'
         }
     ],
     tbar: {

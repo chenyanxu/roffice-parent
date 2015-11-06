@@ -24,6 +24,11 @@
                 <description>Create a contract</description>
                 <to uri="bean:contractBeanService?method=saveEntity"/>
             </post>
+            <delete id="route-removeContract" type="cn.com.rexen.roffice.cm.entities.ContractBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a contract</description>
+                <to uri="bean:contractBeanService?method=removeEntity"/>
+            </delete>
         </rest>
     </camelContext>
 </blueprint>

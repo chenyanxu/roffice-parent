@@ -39,7 +39,7 @@
             <delete id="route-deleteNews" type="cn.com.rexen.roffice.news.entities.NewsBean"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a News</description>
-                <to uri="bean:newsService?method=deleteEntity"/>
+                <to uri="bean:newsService?method=removeEntity"/>
             </delete>
 
             <!-- this is a rest GET to find all news -->
