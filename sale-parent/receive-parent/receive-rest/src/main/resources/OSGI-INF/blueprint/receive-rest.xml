@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <reference id="receiveService" interface="cn.com.rexen.roffice.receive.api.biz.IReceiveBeanService"/>
+
+    <camelContext id="receiveCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json"
+                           contextPath="/kalix/camel/rest" host="localhost"
+                           port="8181">
+            <dataFormatProperty key="prettyPrint" value="true"/>
+        </restConfiguration>
+
+        <!-- defines the rest services using the context-path /receive -->
+        <rest path="/receives" consumes="application/json" produces="application/json">
+            <description>receive rest service</description>
+
+            <!-- this is a rest PUT to create an receive -->
+            <post id="route-addReceive" type="cn.com.rexen.roffice.receive.entities.ReceiveBean"
+                  outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a Receive</description>
+                <to uri="bean:receiveService?method=saveEntity"/>
+            </post>
+
+            <!-- this is a rest PUT to update a receive -->
+            <put id="route-updateReceive" type="cn.com.rexen.roffice.receive.entities.ReceiveBean"
+                 outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Updates a Receive</description>
+                <to uri="bean:receiveService?method=updateEntity"/>
+            </put>
+
+            <!-- this is a rest DELETE to delete a receive -->
+            <delete id="route-deleteReceive" outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Delete a Receive</description>
+                <to uri="bean:receiveService?method=deleteEntity(${header.id})"/>
+            </delete>
+
+            <!-- this is a rest GET to find all receive -->
+            <get id="route-getAllReceive" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Receives</description>
+                <to uri="bean:receiveService?method=getAllEntity(${header.page},${header.limit})"/>
+            </get>
+
+            <!-- this is a rest GET to view a receive by the given id -->
+            <get id="route-getReceive" uri="/{id}" outType="cn.com.rexen.roffice.receive.entities.ReceiveBean">
+                <description>Find Receive by id</description>
+                <to uri="bean:receiveService?method=getEntity(${header.id})"/>
+            </get>
+
+            <!-- this is a rest GET to find all receive by name -->
+            <post id="route-getAllReceiveByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
+                  type="cn.com.rexen.roffice.receive.api.query.ReceiveDTO">
+                <description>Find all Receive by Name</description>
+                <to uri="bean:receiveService?method=getAllEntityByQuery"/>
+            </post>
+
+        </rest>
+    </camelContext>
+</blueprint>

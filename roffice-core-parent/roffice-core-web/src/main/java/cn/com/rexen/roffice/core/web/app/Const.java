@@ -13,6 +13,13 @@ public class Const {
     public static final int SALE_MODULE_INDEX = 10;
     public static final String SALE_MODULE_ICON_CLASS = "right-icon x-fa fa-coffee";
     public static final String SALE_MODULE_PERMISSION = "";
+    //交付模块常量
+    public static final String DEPLOY_MODULE_ID = "deployModule";
+    public static final String DEPLOY_MODULE_TEXT = "项目交付";
+    public static final String DEPLOY_MODULE_ROUTE_ID = "pages-parent";
+    public static final int DEPLOY_MODULE_INDEX = 20;
+    public static final String DEPLOY_MODULE_ICON_CLASS = "right-icon x-fa fa-th";
+    public static final String DEPLOY_MODULE_PERMISSION = "";
     //出差记录菜单常量
     public static final String TRAVEL_MENU_ID = "travelMenu";
     public static final String TRAVEL_MENU_TEXT = "出差记录";
@@ -29,7 +36,7 @@ public class Const {
     public static final int SUPPORT_MENU_INDEX = 20;
     //项目机会菜单常量
     public static final String CHANCE_MENU_ID = "chanceMenu";
-    public static final String CHANCE_MENU_TEXT = "实施项目";
+    public static final String CHANCE_MENU_TEXT = "项目机会";
     public static final String CHANCE_MENU_ROUTE_ID = "roffice/Chance";
     public static final String CHANCE_MENU_ICON_CLASS = "x-fa fa-cutlery";
     public static final String CHANCE_MENU_PERMISSION = "";
@@ -38,8 +45,24 @@ public class Const {
     public static final String DEPLOY_MENU_ID = "deployMenu";
     public static final String DEPLOY_MENU_TEXT = "实施项目";
     public static final String DEPLOY_MENU_ROUTE_ID = "roffice/Deploy";
-    public static final String DEPLOY_MENU_ICON_CLASS = "x-fa fa-cubes";
+    public static final String DEPLOY_MENU_ICON_CLASS = "x-fa fa-indent";
     public static final String DEPLOY_MENU_PERMISSION = "";
     public static final int DEPLOY_MENU_INDEX = 30;
+
+    //项目管理菜单常量
+    public static final String PROJECT_MENU_ID = "projectMenu";
+    public static final String PROJECT_MENU_TEXT = "项目管理";
+    public static final String PROJECT_MENU_ROUTE_ID = "roffice/Project";
+    public static final String PROJECT_MENU_ICON_CLASS = "x-fa fa-table";
+    public static final String PROJECT_MENU_PERMISSION = "";
+    public static final int PROJECT_MENU_INDEX = 60;
+
+    //项目回款菜单常量
+    public static final String RECEIVE_MENU_ID = "receiveMenu";
+    public static final String RECEIVE_MENU_TEXT = "项目回款";
+    public static final String RECEIVE_MENU_ROUTE_ID = "roffice/Receive";
+    public static final String RECEIVE_MENU_ICON_CLASS = "x-fa fa-repeat";
+    public static final String RECEIVE_MENU_PERMISSION = "";
+    public static final int RECEIVE_MENU_INDEX = 20;
 
 }

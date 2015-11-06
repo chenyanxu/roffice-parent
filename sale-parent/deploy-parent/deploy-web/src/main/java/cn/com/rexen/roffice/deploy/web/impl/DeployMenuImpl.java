@@ -11,7 +11,7 @@ public class DeployMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return Const.SALE_MODULE_ID;
+        return Const.DEPLOY_MODULE_ID;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class DeployMenuImpl implements IMenu {
 
     @Override
     public String getDescription() {
-        return Const.DEPLOY_MENU_ID;
+        return Const.DEPLOY_MENU_TEXT;
     }
 
     @Override

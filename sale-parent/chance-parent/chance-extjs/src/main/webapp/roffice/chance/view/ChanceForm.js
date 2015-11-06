@@ -85,10 +85,10 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             fieldLabel: '优先级',
             //allowBlank: false,
             xtype: 'combobox',
+            id: 'level',
             labelAlign: 'right',
             name: 'level',
             store: [
-
                 ['高', '高'],
                 ['中', '中'],
                 ['低', '低']
@@ -96,6 +96,11 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             bind: {
                 //activeError: '{validation.level}',
                 value: '{rec.level}'
+            },
+            listeners: {
+                afterrender: function (rec) {
+                    Ext.getCmp('level').setValue("中");
+                }
             }
         }, {
             fieldLabel: '项目机会描述',
