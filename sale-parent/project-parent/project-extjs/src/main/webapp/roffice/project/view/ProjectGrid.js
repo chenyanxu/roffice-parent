@@ -20,7 +20,6 @@ Ext.define('kalix.roffice.project.view.ProjectGrid', {
     /*viewConfig: {
      forceFit: true,
      },*/
-    //todo 在此修改grid显示列
     columns: [
         {
             xtype: "rownumberer",
@@ -34,28 +33,42 @@ Ext.define('kalix.roffice.project.view.ProjectGrid', {
             hidden: true,
             flex: 1
         }, {
-            text: '标题',
-            dataIndex: 'title',
+            text: '项目编号',
+            dataIndex: 'no',
             flex: 1
         }, {
             text: '名称',
             dataIndex: 'name',
             flex: 1
         }, {
-            text: '内容',
-            dataIndex: 'content',
-            flex: 3
-        }, {
-            text: '发布人',
-            dataIndex: 'publishPeople',
+            text: '项目经理',
+            dataIndex: 'manager',
             flex: 1
         }, {
-            text: '发布时间',
-            dataIndex: 'publishDate',
+            text: '营销负责人',
+            dataIndex: 'salePerson',
+            flex: 1
+        }, {
+            text: '立项时间',
+            dataIndex: 'setupDate',
             flex: 1,
             xtype: 'datecolumn',
             format: 'Y-m-d'
-        },
+        }, {
+            text: '交付负责人',
+            dataIndex: 'deployPerson',
+            flex: 1
+        }, {
+            text: '交付时间',
+            dataIndex: 'deployDate',
+            flex: 1,
+            xtype: 'datecolumn',
+            format: 'Y-m-d'
+        }, {
+            text: '实施状态',
+            dataIndex: 'status',
+            flex: 1
+        }
     ],
 
     tbar: {

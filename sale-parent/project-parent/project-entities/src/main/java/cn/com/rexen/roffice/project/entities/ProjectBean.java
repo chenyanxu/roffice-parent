@@ -15,7 +15,6 @@ import java.util.Date;
  * @修改时间：
  * @修改备注：
  */
-//todo 修改模型定义
 @Entity
 @Table(name = "roffice_project")
 public class ProjectBean extends PersistentEntity {
@@ -36,6 +35,7 @@ public class ProjectBean extends PersistentEntity {
     private String description; //    项目描述
     private String comment; //    备注
     private long chanceId; //    项目机会
+    //todo 合同
     private long contractId;// 合同id
     private String manager; //    项目经理
     private String status; //    项目实施状态
