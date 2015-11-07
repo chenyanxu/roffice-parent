@@ -19,7 +19,7 @@ Ext.define('kalix.roffice.news.view.NewsViewForm', {
     border: false,
     modal: true,
     resizable: false,
-    title: '查看新闻',
+    title: '查看公司新闻',
     bind: {
         icon: '{view_image_path}'
     },

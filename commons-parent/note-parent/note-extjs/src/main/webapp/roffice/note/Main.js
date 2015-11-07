@@ -1,5 +1,5 @@
 /**
- * 公司通知首页
+ * 公司公告首页
  *
  * @author
  * @version 1.0.0
@@ -13,13 +13,13 @@ Ext.define('kalix.roffice.note.Main', {
     ],
     items: [
         {
-            title: '公司通知查询',
+            title: '公司公告查询',
             iconCls: 'x-fa fa-search',
             xtype: 'noteSearchForm'
         }, {
             xtype: 'noteGridPanel',
             id: 'noteGridPanel',
-            title: '公司通知列表',
+            title: '公司公告列表',
             iconCls: 'x-fa fa-comment',
             margin: 10,
             store: {

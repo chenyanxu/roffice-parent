@@ -1,5 +1,5 @@
 /**
- * 公司通知查看表单
+ * 公司公告查看表单
  *
  * @author
  * @version 1.0.0
@@ -20,7 +20,7 @@ Ext.define('kalix.roffice.note.view.NoteViewForm', {
     border: false,
     modal: true,
     resizable: false,
-    title: '查看公司通知',
+    title: '查看公司公告',
     bind: {
         icon: '{view_image_path}'
     },

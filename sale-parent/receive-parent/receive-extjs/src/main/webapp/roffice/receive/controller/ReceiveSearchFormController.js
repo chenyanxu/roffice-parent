@@ -23,5 +23,5 @@ Ext.define('kalix.roffice.receive.controller.ReceiveSearchFormController', {
     },
     onReset: function () {
         this.getView().reset();
-    },
+    }
 });

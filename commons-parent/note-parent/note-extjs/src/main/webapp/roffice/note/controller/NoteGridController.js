@@ -1,5 +1,5 @@
 /**
- * 公司通知表格控制器
+ * 公司公告表格控制器
  *
  * @author
  * @version 1.0.0
@@ -36,7 +36,7 @@ Ext.define('kalix.roffice.note.controller.NoteGridController', {
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.note.model.NoteModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增公司通知');
+        viewModel.set('title', '新增公司公告');
         view.show();
     },
     /**
@@ -55,7 +55,7 @@ Ext.define('kalix.roffice.note.controller.NoteGridController', {
 
             viewModel.set('rec', rec);
             viewModel.set('icon', viewModel.get('edit_image_path'));
-            viewModel.set('title', '修改公司通知');
+            viewModel.set('title', '修改公司公告');
             view.show();
         } else {
             Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要编辑的记录！");

@@ -43,7 +43,10 @@ Ext.define('kalix.roffice.receive.view.ReceiveSearchForm', {
             text: '重置',
             margin: '0 0 0 10',
             glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
-        }
-    ]
+            listeners: {
+                click: function () {
+                    this.up('form').getForm().reset();
+                }
+            }
+        }]
 });

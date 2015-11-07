@@ -1,5 +1,5 @@
 /**
- * 公司通知表格
+ * 公司公告表格
  * @author
  * @version 1.0.0
  */
@@ -22,12 +22,12 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
      forceFit: true,
      },*/
     columns: [
-        {
-            xtype: "rownumberer",
-            text: "行号",
-            width: 50,
-            align: 'center'
-        },
+        /*{
+         xtype: "rownumberer",
+         text: "行号",
+         width: 50,
+         align: 'center'
+         },*/
         {
             text: '编号',
             dataIndex: 'id',
@@ -37,7 +37,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             text: '星级',
             xtype: 'widgetcolumn',
             flex: 1,
-            disabled: true,
+            //disabled: true,
             //stopSelection :false,
             dataIndex: 'rating',
             //focusable: false,
@@ -68,11 +68,11 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             dataIndex: 'name',
             flex: 1
         },
-        {
+        /*{
             text: '内容',
             dataIndex: 'content',
             flex: 3
-        }, {
+         },*/ {
             text: '发布人',
             dataIndex: 'publishPeople',
             flex: 1
@@ -84,6 +84,19 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             format: 'Y-m-d h:i:s'
         },
     ],
+    plugins: [{
+        ptype: 'rowexpander',
+        rowBodyTpl: new Ext.XTemplate(
+            '<p><b>内容:</b> {content}</p>',
+            {
+                formatChange: function (v) {
+                    var color = v >= 0 ? 'green' : 'red';
+                    return '<span style="color: ' + color + ';">' + Ext.util.Format.usMoney(v) + '</span>';
+                }
+            })
+    }],
+    collapsible: true,
+    animCollapse: true,
 
     tbar: {
         xtype: 'securityToolbar',

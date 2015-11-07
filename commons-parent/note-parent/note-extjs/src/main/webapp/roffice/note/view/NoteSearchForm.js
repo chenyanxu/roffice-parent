@@ -1,5 +1,5 @@
 /**
- * 公司通知查询表单
+ * 公司公告查询表单
  * @author
  * @version 1.0.0
  */
@@ -14,11 +14,10 @@ Ext.define('kalix.roffice.note.view.NoteSearchForm', {
     bodyPadding: 10,
     layout: 'column',
     margin: 10,
-    //todo 在此修改查询条件
     items: [
         {
             xtype: 'textfield',
-            fieldLabel: '名称',
+            fieldLabel: '标题',
             labelAlign: 'right',
             labelWidth: 60,
             width: 200,
@@ -30,6 +29,17 @@ Ext.define('kalix.roffice.note.view.NoteSearchForm', {
             margin: '0 0 0 10',
             handler: 'onSearch',
             glyph: 'xf002@FontAwesome',
+        },
+        {
+            xtype: 'button',
+            text: '重置',
+            margin: '0 0 0 10',
+            glyph: 'xf0e2@FontAwesome',
+            listeners: {
+                click: function () {
+                    this.up('form').getForm().reset();
+                }
+            }
         }
     ]
 });
