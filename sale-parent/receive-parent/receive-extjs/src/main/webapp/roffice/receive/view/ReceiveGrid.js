@@ -41,7 +41,17 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
         }, {
             text: '回款金额',
             dataIndex: 'money',
-            flex: 1
+            flex: 1,
+            //formatter: 'usMoney',
+            renderer: function (val) {
+                var out = Ext.util.Format.number(val, '0.00');
+                if (val > 0) {
+                    return '<span style="color:' + "#73b51e" + ';">' + out + '</span>';
+                } else if (val < 0) {
+                    return '<span style="color:' + "#cf4c35" + ';">' + out + '</span>';
+                }
+                return out;
+            },
         }, {
             text: '合同id',
             dataIndex: 'contractId',
@@ -124,11 +134,10 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
         border: false,
         padding: 0,
         listeners: {
-            afterrender: function (c, obj) {
+            beforerender: function (c, obj) {
                 this.setConfig('store', kalix.getApplication().getStore('receiveStore'));
             }
         }
-    }
-    ],
+    }]
 
 });

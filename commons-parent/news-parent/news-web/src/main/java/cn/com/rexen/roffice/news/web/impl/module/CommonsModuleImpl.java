@@ -3,7 +3,6 @@ package cn.com.rexen.roffice.news.web.impl.module;
 import cn.com.rexen.core.api.web.IMenu;
 import cn.com.rexen.core.api.web.IModule;
 import cn.com.rexen.roffice.core.web.app.Const;
-import cn.com.rexen.roffice.news.web.impl.GeneralConst;
 
 import java.util.List;
 
@@ -23,17 +22,17 @@ public class CommonsModuleImpl implements IModule {
 
     @Override
     public String getId() {
-        return GeneralConst.MODULE_NAME;
+        return Const.COMMONS_MODULE_ID;
     }
 
     @Override
     public String getText() {
-        return "通用功能";
+        return Const.COMMONS_MODULE_TEXT;
     }
 
     @Override
     public String getDescription() {
-        return "通用功能";
+        return Const.COMMONS_MODULE_TEXT;
     }
 
     @Override
@@ -43,17 +42,17 @@ public class CommonsModuleImpl implements IModule {
 
     @Override
     public String getRouteId() {
-        return null;
+        return Const.COMMONS_MODULE_ROUTE_ID;
     }
 
     @Override
     public int getIndex() {
-        return 20;
+        return Const.COMMONS_MODULE_INDEX;
     }
 
     @Override
     public String getIconCls() {
-        return "right-icon x-fa fa-tags";
+        return Const.COMMONS_MODULE_ICON_CLASS;
     }
 
     @Override
@@ -68,6 +67,6 @@ public class CommonsModuleImpl implements IModule {
 
     @Override
     public String getPermission() {
-        return "";
+        return Const.COMMONS_MODULE_PERMISSION;
     }
 }

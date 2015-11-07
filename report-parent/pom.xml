@@ -10,13 +10,17 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>cn.com.rexen.roffice.commons</groupId>
-    <artifactId>commons-parent</artifactId>
+    <groupId>cn.com.rexen.roffice.report</groupId>
+    <artifactId>report-parent</artifactId>
     <packaging>pom</packaging>
-    <name>Roffice :: Commons - Parent</name>
+    <name>Roffice :: Report - Parent</name>
 
     <modules>
-        <module>news-parent</module>
-        <module>note-parent</module>
+        <module>chance-parent</module>
+        <!--<module>travel-parent</module>
+        <module>support-parent</module>
+        <module>deploy-parent</module>
+        <module>project-parent</module>
+        <module>receive-parent</module>-->
     </modules>
 </project>

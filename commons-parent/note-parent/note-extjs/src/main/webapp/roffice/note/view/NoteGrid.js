@@ -1,0 +1,151 @@
+/**
+ * 公司通知表格
+ * @author
+ * @version 1.0.0
+ */
+Ext.define('kalix.roffice.note.view.NoteGrid', {
+    extend: 'Ext.grid.Panel',
+    requires: [
+        'kalix.roffice.note.viewModel.NoteViewModel',
+        'kalix.roffice.note.controller.NoteGridController',
+        'kalix.view.components.common.SecurityToolbar',
+        'kalix.view.components.common.PagingToolBar'
+    ],
+    alias: 'widget.noteGrid',
+    xtype: 'noteGridPanel',
+    controller: 'noteGridController',
+    viewModel: 'noteViewModel',
+    autoLoad: true,
+    stripeRows: true,
+    reference: 'employeeGrid',
+    /*viewConfig: {
+     forceFit: true,
+     },*/
+    columns: [
+        {
+            xtype: "rownumberer",
+            text: "行号",
+            width: 50,
+            align: 'center'
+        },
+        {
+            text: '编号',
+            dataIndex: 'id',
+            hidden: true,
+            flex: 1
+        }, {
+            text: '星级',
+            xtype: 'widgetcolumn',
+            flex: 1,
+            disabled: true,
+            //stopSelection :false,
+            dataIndex: 'rating',
+            //focusable: false,
+            widget: {
+                xtype: 'rating',
+                style: 'color: orange;',
+                overStyle: 'color: red;',
+                /*bind: {
+                 disabled:'{!employeeGrid.selection}'
+                 }*/
+                focusable: false,
+                listeners: {
+                    change: function (picker, value) {
+                        console.log('Rating ' + value);
+                        console.log('Rating new value is ' + value + ' ,olde value is ' + this.getValue());
+
+                    },
+                    onclick: function (event) {
+                        var value = this.valueFromEvent(event);
+                        console.log('Rating new value is ' + value + ' ,olde value is ' + this.getValue());
+                        this.setValue(value);
+                    },
+                }
+            },
+
+        }, {
+            text: '标题',
+            dataIndex: 'name',
+            flex: 1
+        },
+        {
+            text: '内容',
+            dataIndex: 'content',
+            flex: 3
+        }, {
+            text: '发布人',
+            dataIndex: 'publishPeople',
+            flex: 1
+        }, {
+            text: '发布时间',
+            dataIndex: 'publishDate',
+            flex: 1,
+            xtype: 'datecolumn',
+            format: 'Y-m-d h:i:s'
+        },
+    ],
+
+    tbar: {
+        xtype: 'securityToolbar',
+
+        //无需授权的按钮
+        items: [
+            {
+                text: '查看',
+                xtype: 'button',
+                permission: 'admin:sysModule:permissionControl:noteMenu:view',
+                handler: 'onView',
+                bind: {
+                    icon: '{view_image_path}'
+                }
+            },
+            {
+                text: '新增',
+                xtype: 'button',
+                permission: 'admin:sysModule:permissionControl:noteMenu:add',
+                handler: 'onAdd',
+                bind: {
+                    icon: '{add_image_path}'
+                }
+            },
+            {
+                text: '修改',
+                xtype: 'button',
+                permission: 'admin:sysModule:permissionControl:noteMenu:update',
+                handler: 'onEdit',
+                bind: {
+                    icon: '{edit_image_path}'
+                }
+            }, {
+                text: '删除',
+                xtype: 'button',
+                permission: 'admin:sysModule:permissionControl:noteMenu:delete',
+                handler: 'onDelete',
+                bind: {
+                    icon: '{delete_image_path}'
+                }
+            }
+        ]
+
+        //需要验证权限后添加的按钮
+        //verifyItems: []
+    },
+
+    /*
+     grid 组件不自动绑定与 grid 相关的翻页工具条的 store 配置项
+     需要手动指定工具条的 store
+     */
+    bbar: [{
+        id: 'note-pagingtoolbar',
+        xtype: 'pagingToolBarComponent',
+        border: false,
+        padding: 0,
+        listeners: {
+            afterrender: function (c, obj) {
+                this.setConfig('store', kalix.getApplication().getStore('noteStore'));
+            }
+        }
+    }
+    ]
+
+});

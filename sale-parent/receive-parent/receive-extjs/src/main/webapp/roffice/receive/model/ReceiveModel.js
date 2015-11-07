@@ -66,8 +66,8 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
         'money',
         'receiveDate',
         'contractId',
-        'beginDate',
-        'endDate',
+        //'beginDate',
+        //'endDate',
         'comment',
         'version'
     ],
