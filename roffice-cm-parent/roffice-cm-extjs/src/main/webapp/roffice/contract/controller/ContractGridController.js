@@ -13,9 +13,11 @@ Ext.define('kalix.roffice.contract.controller.ContractGridController', {
 
         if (viewModel.get('sel')) {
             var view = Ext.create('kalix.roffice.contract.view.ContractViewForm');
+            var vm=view.lookupViewModel();
 
-            view.lookupViewModel().set('rec', viewModel.get('rec').clone());
-            view.lookupViewModel().set('view_image_path', viewModel.get('view_image_path'))
+            vm.set('rec', viewModel.get('rec'));
+            vm.set('icon', viewModel.get('view_image_path'));
+            vm.set('title', '查看合同');
             view.show();
         }
         else {

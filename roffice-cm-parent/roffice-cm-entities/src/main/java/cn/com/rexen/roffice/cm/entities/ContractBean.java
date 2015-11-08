@@ -2,6 +2,8 @@ package cn.com.rexen.roffice.cm.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
@@ -15,7 +17,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "roffice_contract")
-@Inheritance(strategy = InheritanceType.JOINED)
+@DynamicInsert
+@DynamicUpdate
 public class ContractBean extends PersistentEntity {
     /**
      * 合同编号.
@@ -69,10 +72,6 @@ public class ContractBean extends PersistentEntity {
      * 合同状态(0:草稿 1:进行中 2:完成 ).
      */
     private Integer contractStatus = 1;
-    /**
-     * 操作人.
-     */
-    private long userId;
     /**
      * 合同是否归档.
      */
@@ -239,13 +238,5 @@ public class ContractBean extends PersistentEntity {
 
     public void setArchive_date(Date archive_date) {
         this.archive_date = archive_date;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
     }
 }
