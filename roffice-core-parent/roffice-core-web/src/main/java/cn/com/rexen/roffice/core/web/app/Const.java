@@ -6,6 +6,31 @@ package cn.com.rexen.roffice.core.web.app;
  */
 public class Const {
     public static final String APPLICATION_NAME = "roffice";
+
+    //通用模块常量
+    public static final String COMMONS_MODULE_ID = "commonsModule";
+    public static final String COMMONS_MODULE_TEXT = "通用功能";
+    public static final String COMMONS_MODULE_ROUTE_ID = "pages-parent";
+    public static final int COMMONS_MODULE_INDEX = 0;
+    public static final String COMMONS_MODULE_ICON_CLASS = "right-icon x-fa fa-tag";
+    public static final String COMMONS_MODULE_PERMISSION = "";
+
+    //公司新闻模块常量
+    public static final String NEWS_MENU_ID = "newsMenu";
+    public static final String NEWS_MENU_TEXT = "公司新闻";
+    public static final String NEWS_MENU_ROUTE_ID = "roffice/News";
+    public static final int NEWS_MENU_INDEX = 0;
+    public static final String NEWS_MENU_ICON_CLASS = "x-fa fa-newspaper-o";
+    public static final String NEWS_MENU_PERMISSION = "";
+
+    //公司公告模块常量
+    public static final String NOTE_MENU_ID = "noteMenu";
+    public static final String NOTE_MENU_TEXT = "公司公告";
+    public static final String NOTE_MENU_ROUTE_ID = "roffice/Note";
+    public static final int NOTE_MENU_INDEX = 10;
+    public static final String NOTE_MENU_ICON_CLASS = "x-fa fa-comment";
+    public static final String NOTE_MENU_PERMISSION = "";
+
     //售前模块常量
     public static final String SALE_MODULE_ID = "saleModule";
     public static final String SALE_MODULE_TEXT = "售前服务";

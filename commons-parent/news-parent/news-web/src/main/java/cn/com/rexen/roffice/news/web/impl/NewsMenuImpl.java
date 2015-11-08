@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.news.web.impl;
 
 import cn.com.rexen.core.api.web.IMenu;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 public class NewsMenuImpl implements IMenu {
     @Override
@@ -9,23 +10,8 @@ public class NewsMenuImpl implements IMenu {
     }
 
     @Override
-    public String getIconCls() {
-        return "x-fa fa-newspaper-o";
-    }
-
-    @Override
-    public String getText() {
-        return "公司新闻";
-    }
-
-    @Override
-    public String getRouteId() {
-        return "roffice/news";
-    }
-
-    @Override
     public String getModuleId() {
-        return GeneralConst.MODULE_NAME;
+        return Const.COMMONS_MODULE_ID;
     }
 
     @Override
@@ -35,12 +21,12 @@ public class NewsMenuImpl implements IMenu {
 
     @Override
     public String getId() {
-        return "newsMenu";
+        return Const.NEWS_MENU_ID;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return Const.NEWS_MENU_TEXT;
     }
 
     @Override
@@ -50,13 +36,28 @@ public class NewsMenuImpl implements IMenu {
 
     @Override
     public int getIndex() {
-        return 0;
+        return Const.NEWS_MENU_INDEX;
+    }
+
+
+    @Override
+    public String getIconCls() {
+        return Const.NEWS_MENU_ICON_CLASS;
+    }
+
+    @Override
+    public String getText() {
+        return Const.NEWS_MENU_TEXT;
+    }
+
+    @Override
+    public String getRouteId() {
+        return Const.NEWS_MENU_ROUTE_ID;
     }
 
     @Override
     public String getPermission() {
-        return "";
+        return Const.NEWS_MENU_PERMISSION;
     }
-
 
 }

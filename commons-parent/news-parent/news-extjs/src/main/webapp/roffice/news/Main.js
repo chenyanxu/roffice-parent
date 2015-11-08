@@ -15,13 +15,13 @@ Ext.define('kalix.roffice.news.Main', {
     viewModel: 'newsViewModel',
     items: [
         {
-            title: '新闻查询',
+            title: '公司新闻查询',
             iconCls: 'x-fa fa-search',
             xtype: 'newsSearchForm'
         }, {
             xtype: 'newsGridPanel',
             id: 'newsGridPanel',
-            title: '新闻列表',
+            title: '公司新闻列表',
             iconCls: 'x-fa fa-newspaper-o',
             margin: 10
         }

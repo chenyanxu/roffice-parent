@@ -28,12 +28,12 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
         }
     },
     columns: [
-        {
+        /*{
             xtype: "rownumberer",
             text: "行号",
             width: 50,
             align: 'center'
-        },
+         },*/
         {
             text: '编号',
             dataIndex: 'id',
@@ -45,12 +45,12 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
             dataIndex: 'title',
             flex: 1
             //width: 80
-        }, {
+        }, /*{
             text: '内容',
             dataIndex: 'content',
             flex: 3
             //width: 60
-        }, {
+         },*/ {
             text: '发布人',
             dataIndex: 'publishPeople',
             flex: 1
@@ -63,6 +63,19 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
             flex: 1
         },
     ],
+    plugins: [{
+        ptype: 'rowexpander',
+        rowBodyTpl: new Ext.XTemplate(
+            '<p><b>内容:</b> {content}</p>',
+            {
+                formatChange: function (v) {
+                    var color = v >= 0 ? 'green' : 'red';
+                    return '<span style="color: ' + color + ';">' + Ext.util.Format.usMoney(v) + '</span>';
+                }
+            })
+    }],
+    collapsible: true,
+    animCollapse: true,
 
     tbar: {
         xtype: 'securityToolbar',

@@ -44,7 +44,7 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
         viewModel.set('sel', false);
         vm.set('rec', Ext.create('kalix.roffice.news.model.NewsModel'));
         vm.set('icon', viewModel.get('add_image_path'));
-        vm.set('title', '新增新闻');
+        vm.set('title', '新增公司新闻');
         view.show();
     },
     /**
@@ -65,7 +65,7 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
             viewModel.set('sel', false);
             vm.set('rec', viewModel.get('rec'));
             vm.set('icon', viewModel.get('edit_image_path'));
-            vm.set('title', '修改新闻');
+            vm.set('title', '修改公司新闻');
             view.show();
         }
         else {

@@ -10,58 +10,95 @@ Ext.define('kalix.roffice.project.model.ProjectModel', {
     extend: 'Ext.data.Model',
 
     idProperty: '_id',
-    //todo 在此修改模型定义
     fields: [{
         name: 'id',
         type: 'string'
     }, {
-        name: 'title',
+        name: 'no',
         type: 'string'
     }, {
         name: 'name',
         type: 'string'
     }, {
-        name: 'content',
+        name: 'salePerson',
         type: 'string'
     }, {
-        name: 'publishPeople',
+        name: 'industry',
         type: 'string'
     }, {
-        name: 'publishDate',
+        name: 'level',
+        type: 'string'
+    }, {
+        name: 'budget',
+        type: 'float'
+    }, {
+        name: 'setupDate',
         type: 'date'
+    }, {
+        name: 'deployDate',
+        type: 'date'
+    }, {
+        name: 'deployPerson',
+        type: 'string'
+    }, {
+        name: 'client',
+        type: 'string'
+    }, {
+        name: 'clientPhone',
+        type: 'string'
+    }, {
+        name: 'description',
+        type: 'string'
+    }, {
+        name: 'comment',
+        type: 'string'
+    }, {
+        name: 'chanceId',
+        type: 'int'
+    }, {
+        name: 'manager',
+        type: 'string'
+    }, {
+        name: 'status',
+        type: 'string'
     }, {
         name: 'version',
         type: 'int'
-    }
-    ],
-    //todo 在此修改模型验证提示信息
+    }],
     validators: {
-        title: [
-            {
-                type: 'length',
-                max: '20',
-                min: '4',
-                bothMessage: '长度不能小于4个字符，不能超过20个字符！'
-            }
-        ],
-        content: [{
+        no: [{
             type: 'presence',
-            message: '内容不能为空!'
-        }
-        ],
+            message: '编号不能为空!'
+        }],
         name: [{
             type: 'presence',
             message: '名称不能为空!'
+        }],
+        manager: [{
+            type: 'presence',
+            message: '项目经理不能为空!'
         }]
     },
 
     //需要提交给服务端的模型 key
     serverKeys: [
         'id',
-        'title',
+        'no',
         'name',
-        'publishDate',
-        'content',
+        'salePerson',
+        'industry',
+        'level',
+        'budget',
+        'setupDate',
+        'deployDate',
+        'deployPerson',
+        'client',
+        'clientPhone',
+        'description',
+        'comment',
+        'chanceId',
+        'manager',
+        'status',
         'version'
     ],
 

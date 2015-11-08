@@ -17,5 +17,6 @@
 
     <modules>
         <module>news-parent</module>
+        <module>note-parent</module>
     </modules>
 </project>

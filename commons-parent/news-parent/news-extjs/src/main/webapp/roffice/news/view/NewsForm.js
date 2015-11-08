@@ -54,8 +54,6 @@ Ext.define('kalix.roffice.news.view.NewsForm', {
             text: '重置',
             glyph: 'xf0e2@FontAwesome',
             handler: 'onReset'
-        }
-        ]
-    }
-    ]
+        }]
+    }]
 });
