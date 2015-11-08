@@ -12,7 +12,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.contract.controller.ContractFormController',
         'kalix.roffice.contract.viewModel.ContractViewModel',
-        'kalix.roffice.contract.store.DictContractStatusStore'
+        'kalix.admin.dict.store.DictStore'
     ],
     alias: 'widget.contractForm',
     viewModel: 'contractViewModel',
@@ -120,8 +120,15 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 queryMode: 'remote',
                 valueField: 'value',
                 displayField: 'label',
-                queryParam:'',
-                store: {type:'dictContractStatusStore'},
+                //store: {type:'dictContractStatusStore'},
+                store: {
+                    type: 'dictStore',
+                    filters: [
+                        function (item) {
+                            return item.get('type')=='contractStatus';
+                        }
+                    ]
+                },
                 name: 'contractStatus',
                 bind: {
                     value: '{rec.contractStatus}'
