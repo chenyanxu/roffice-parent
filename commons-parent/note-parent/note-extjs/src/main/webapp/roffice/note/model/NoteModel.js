@@ -29,7 +29,8 @@ Ext.define('kalix.roffice.note.model.NoteModel', {
         type: 'string'
     }, {
         name: 'publishDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d h:i:s'
     }, {
         name: 'version',
         type: 'int'

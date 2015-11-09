@@ -6,6 +6,7 @@
 Ext.define('kalix.roffice.chance.view.ChanceGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
+        'Ext.grid.plugin.Exporter',
         'kalix.roffice.chance.viewModel.ChanceViewModel',
         'kalix.roffice.chance.controller.ChanceGridController',
         'kalix.view.components.common.SecurityToolbar',
@@ -17,6 +18,7 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
     viewModel: 'chanceViewModel',
     autoLoad: true,
     stripeRows: true,
+    collapsible: true,
     /*viewConfig: {
      forceFit: true,
      },*/
@@ -60,9 +62,9 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
         }, {
             text: '预计签单时间',
             dataIndex: 'billDate',
-            xtype: 'datecolumn',
+            //xtype: 'datecolumn',
             flex: 1,
-            format: 'Y-m-d'
+            formatter: 'date("Y-m-d")'
         }, {
             text: '售前支持负责人',
             dataIndex: 'supporterId',
@@ -150,5 +152,21 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
         }
     }
     ],
+    plugins: [
+        {
+            ptype: 'gridexporter'
+        }],
+
+    header: {
+        itemPosition: 1, // after title before collapse tool
+        items: [{
+            ui: 'default-toolbar',
+            xtype: 'button',
+            text: '导出',
+            iconCls: 'x-fa fa-file-excel-o',
+            handler: 'exportToExcel'
+        }]
+
+    }
 
 });

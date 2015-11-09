@@ -59,6 +59,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             store: {
                 type: 'userStore'
             },
+            forceSelection: true,
             name: 'manager',
             bind: {
                 activeError: '{validation.manager}',
@@ -77,6 +78,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             store: {
                 type: 'userStore'
             },
+            forceSelection: true,
             name: 'salePerson',
             bind: {
                 //activeError: '{validation.salePerson}',
@@ -113,6 +115,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             id: 'level',
             labelAlign: 'right',
             name: 'level',
+            forceSelection: true,
             store: [
                 ['高', '高'],
                 ['中', '中'],
@@ -183,6 +186,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                     store: {
                         type: 'userStore'
                     },
+                    forceSelection: true,
                     name: 'deployPerson',
                     bind: {
                         //activeError: '{validation.deployPerson}',
@@ -200,6 +204,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                     fieldLabel: '项目机会',
                     //allowBlank: false,
                     labelAlign: 'right',
+                    forceSelection: true,
                     xtype: 'combobox',
                     queryMode: 'remote',
                     valueField: 'id',
@@ -233,5 +238,11 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         text: '重置',
         glyph: 'xf0e2@FontAwesome',
         handler: 'onReset'
-    }]
+    }],
+
+    listeners: {
+        beforeclose: function (button) {
+
+        }
+    }
 });

@@ -14,6 +14,7 @@ Ext.define('kalix.roffice.chance.view.ChanceSearchForm', {
     bodyPadding: 10,
     layout: 'column',
     margin: 10,
+    collapsible: true,
     items: [
         {
             xtype: 'textfield',

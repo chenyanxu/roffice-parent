@@ -2,6 +2,8 @@ package cn.com.rexen.roffice.news.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -18,6 +20,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "roffice_news")
+@DynamicInsert
+@DynamicUpdate
 public class NewsBean extends PersistentEntity {
     @NotNull(message = "'标题'是必填项")
     private String title;   //标题

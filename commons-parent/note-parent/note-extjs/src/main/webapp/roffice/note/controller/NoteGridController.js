@@ -101,6 +101,12 @@ Ext.define('kalix.roffice.note.controller.NoteGridController', {
         } else {
             Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要删除的记录！");
         }
-    }
+    },
+    exportToExcel: function () {
+        this.getView().saveDocumentAs({
+            title: '公司公告',
+            fileName: 'excelExport.xls'
+        });
+    },
 
 });
