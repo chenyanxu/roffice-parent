@@ -11,13 +11,16 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.chance.viewModel.ChanceViewModel',
         'kalix.roffice.chance.controller.ChanceFormController',
-        'kalix.admin.user.store.UserStore'
+        'kalix.admin.user.component.UserComboBox'
     ],
     alias: 'widget.ChanceForm',
     viewModel: 'chanceViewModel',
     controller: 'chanceFormController',
     xtype: "chanceForm",
-    layout: 'column',
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
+    },
     frame: true,
     width: 800,
     border: false,
@@ -33,7 +36,8 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         layout: 'form',
         xtype: 'baseForm',
         defaultType: 'textfield',
-        columnWidth: 0.5,
+        flex: 1
+        //columnWidth: 0.5,
         //border:false
     },
     items: [{
@@ -48,18 +52,8 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             }
         }, {
             fieldLabel: '营销负责人',
-            allowBlank: false,
-            labelAlign: 'right',
-            xtype: 'combobox',
-            queryMode: 'remote',
-            valueField: 'name',
-            displayField: 'name',
-            queryParam: 'name',
-            minChars: 0,
-            store: {
-                type: 'userStore'
-            },
-            name: 'salerId',
+            xtype: 'userCombobox',
+            valueField: 'salerId',
             bind: {
                 activeError: '{validation.salerId}',
                 value: '{rec.salerId}'
@@ -135,18 +129,8 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
                 }
             }, {
                 fieldLabel: '售前支持负责人',
-                //allowBlank: false,
-                labelAlign: 'right',
-                xtype: 'combobox',
-                queryMode: 'remote',
-                valueField: 'name',
-                displayField: 'name',
-                queryParam: 'name',
-                minChars: 0,
-                store: {
-                    type: 'userStore'
-                },
-                name: 'supporterId',
+                xtype: 'userCombobox',
+                valueField: 'supporterId',
                 bind: {
                     activeError: '{validation.supporterId}',
                     value: '{rec.supporterId}'

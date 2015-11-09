@@ -20,7 +20,6 @@ Ext.define('kalix.roffice.deploy.view.DeployGrid', {
     /*viewConfig: {
      forceFit: true,
      },*/
-    //todo 在此修改grid显示列
     columns: [
         {
             xtype: "rownumberer",
@@ -34,28 +33,31 @@ Ext.define('kalix.roffice.deploy.view.DeployGrid', {
             hidden: true,
             flex: 1
         }, {
-            text: '标题',
-            dataIndex: 'title',
+            text: '项目编号',
+            dataIndex: 'no',
             flex: 1
         }, {
-            text: '内容',
-            dataIndex: 'content',
-            flex: 2
-        }, {
-            text: '名称',
+            text: '项目名称',
             dataIndex: 'name',
-            flex: 2
-        }, {
-            text: '发布人',
-            dataIndex: 'publishPeople',
             flex: 1
         }, {
-            text: '发布时间',
-            dataIndex: 'publishDate',
+            text: '交付负责人',
+            dataIndex: 'deployPerson',
+            flex: 1
+        }, {
+            text: '合同金额',
+            dataIndex: 'budget',
             flex: 1,
-            xtype: 'datecolumn',
-            format: 'Y-m-d'
-        },
+            renderer: function (val) {
+                var out = Ext.util.Format.number(val, '0.00');
+                out = '￥' + out + '万元';
+                return out;
+            },
+        }, {
+            text: '回款情况',
+            dataIndex: 'receiveInfo',
+            flex: 1,
+        }
     ],
 
     tbar: {
