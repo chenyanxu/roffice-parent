@@ -11,12 +11,12 @@ Ext.define('kalix.roffice.contract.store.ContractStore', {
     autoLoad: true,
     pageSize: 10,
     proxy: {
-        type: "ajax",
-        url: '/kalix/camel/rest/contracts/list',
+        type: "rest",
+        url: '/kalix/camel/rest/contracts',
         paramsAsJson: true,
         actionMethods: {
             create: 'POST',
-            read: 'POST',
+            read: 'GET',
             update: 'PUT',
             destroy: 'DELETE'
         },

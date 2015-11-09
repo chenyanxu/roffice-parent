@@ -13,10 +13,9 @@
                            port="8181">
         </restConfiguration>
         <rest path="/contracts" consumes="application/json" produces="application/json">
-            <!-- this is a rest GET to find all contracts -->
             <get id="route-getAllContract" outType="cn.com.rexen.core.api.persistence.JsonData">
                 <description>Find all contracts</description>
-                <to uri="bean:contractBeanService?method=getAllEntity(${header.page},${header.limit})"/>
+                <to uri="bean:contractBeanService?method=getAllEntityByCustomQuery(${header.page},${header.limit},${header.contractNumber})"/>
             </get>
             <!-- this is a rest POST to add a contract-->
             <post id="route-addContract" type="cn.com.rexen.roffice.cm.entities.ContractBean"
@@ -24,8 +23,13 @@
                 <description>Create a contract</description>
                 <to uri="bean:contractBeanService?method=saveEntity"/>
             </post>
-            <!-- this is a rest PUT to update a news -->
-            <put id="route-contractNews" type="cn.com.rexen.roffice.cm.entities.ContractBean"
+        </rest>
+        <rest path="/contracts/{id}" consumes="application/json" produces="application/json">
+            <get id="route-getContract" outType="cn.com.rexen.roffice.cm.entities.ContractBean">
+                <description>Find News by id</description>
+                <to uri="bean:contractBeanService?method=getEntity(${header.id})"/>
+            </get>
+            <put id="route-updateContract" type="cn.com.rexen.roffice.cm.entities.ContractBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a News</description>
                 <to uri="bean:contractBeanService?method=updateEntity"/>
@@ -35,12 +39,6 @@
                 <description>Create a contract</description>
                 <to uri="bean:contractBeanService?method=removeEntity"/>
             </delete>
-            <!-- this is a rest GET to find all travel by name -->
-            <post id="route-getAllContractByNumber" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.cm.api.query.ContractDto">
-                <description>Find all Travel by Name</description>
-                <to uri="bean:contractBeanService?method=getAllEntityByQuery"/>
-            </post>
         </rest>
     </camelContext>
 </blueprint>

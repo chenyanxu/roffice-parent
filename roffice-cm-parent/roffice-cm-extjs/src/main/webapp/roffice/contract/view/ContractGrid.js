@@ -11,7 +11,10 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
     ],
     alias: 'widget.contractGrid',
     xtype: 'contractGrid',
-    controller: 'contractGridController',
+    controller: {
+        type: 'contractGridController',
+        storeId: 'contractStore'
+    },
     autoLoad: true,
     stripeRows: true,
     store: {
@@ -94,7 +97,9 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         {
             text: '合同状态',
             xtype: 'templatecolumn',
-            tpl: '<tpl switch="contractStatus"><tpl case="0">草稿<tpl case="1">进行中<tpl case="2">完成</tpl>',
+            //data:
+            //tpl: '<tpl switch="contractStatus"><tpl case="\'0\'">草稿<tpl case="1">进行中<tpl case="2">完成</tpl>',
+            tpl: "<tpl>22</tpl>",
             flex: 1
         },
         {

@@ -12,7 +12,7 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
         }
     },
     proxy: {
-        type: "ajax",
+        type: "rest",
         url: '/kalix/camel/rest/contracts',
         paramsAsJson: true,
         actionMethods: {

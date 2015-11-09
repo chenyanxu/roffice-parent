@@ -7,35 +7,20 @@
  */
 
 Ext.define('kalix.roffice.contract.view.ContractForm', {
-    extend: 'Ext.window.Window',
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
-        'kalix.roffice.contract.controller.ContractFormController',
+        'kalix.controller.BaseFormController',
         'kalix.roffice.contract.viewModel.ContractViewModel',
-        'kalix.admin.dict.store.DictStore'
+        'kalix.admin.dict.store.DictNoPageStore',
+        'kalix.view.components.common.DictFormCombobox'
     ],
     alias: 'widget.contractForm',
     viewModel: 'contractViewModel',
-    controller: 'contractFormController',
+    controller: {
+        type: 'baseFormController',
+        storeId: 'contractStore'
+    },
     xtype: "contractForm",
-    border: false,
-    modal: true,
-    resizable: false,
-    buttonAlign: 'center',
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
-    },
-    width: 800,
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
-    },
-    defaults: {
-        layout: 'form',
-        xtype: 'baseForm',
-        flex: 1
-    },
     items: [{
         items: [
             {
@@ -115,24 +100,38 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 fieldLabel: '合同状态',
                 allowBlank: false,
                 labelAlign: 'right',
-                xtype: 'combobox',
+                xtype: 'dictFormCombobox',
+                //xtype: 'combobox',
                 editable: false,
-                queryMode: 'remote',
-                valueField: 'value',
-                displayField: 'label',
-                //store: {type:'dictContractStatusStore'},
-                store: {
-                    type: 'dictStore',
-                    filters: [
-                        function (item) {
-                            return item.get('type')=='contractStatus';
-                        }
-                    ]
-                },
+                //queryMode: 'local',
+                //valueField: 'value',
+                //displayField: 'label',
+                //dictType:'contractStatus',
                 name: 'contractStatus',
                 bind: {
                     value: '{rec.contractStatus}'
+                },
+                store: {
+                    data: [
+                        {'value': '1', 'label': '123'}
+                    ]
+
+
                 }
+
+                //,
+                //listeners:{
+                //    beforerender:function(){
+                //        var store=kalix.getApplication().getStore('dictNoPageStore');
+                //        var tempStore=Ext.create('Ext.data.Store');
+                //
+                //        tempStore.setData(store.getData());
+                //        tempStore.filter('type','contractStatus');
+                //        this.setStore(tempStore);
+                //
+                //        return true;
+                //    }
+                //}
             },
             {
                 fieldLabel: '是否归档',
@@ -211,5 +210,5 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
     ,
     listeners: {
         close: 'onClose'
-    },
+    }
 });

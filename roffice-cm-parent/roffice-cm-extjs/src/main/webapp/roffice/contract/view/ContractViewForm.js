@@ -7,36 +7,18 @@
  */
 
 Ext.define('kalix.roffice.contract.view.ContractViewForm', {
-    extend: 'Ext.window.Window',
-    requires: ['kalix.view.components.common.FormPanel',
+    extend: 'kalix.view.components.common.BaseWindow',
+    requires: [
         'kalix.roffice.contract.viewModel.ContractViewModel',
-        'kalix.roffice.contract.store.DictContractStatusStore'
+        'kalix.admin.dict.store.DictNoPageStore'
     ],
     alias: 'widget.contractViewForm',
     xtype: "newsViewForm",
     viewModel: 'contractViewModel',
-    width: 800,
-    border: false,
-    modal: true,
-    resizable: false,
-    buttonAlign: 'center',
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
-    },
-    bind: {
-        title:'{title}',
-        icon: '{icon}'
-    },
-    defaults: {
-        layout: 'form',
-        xtype: 'baseForm',
-        flex:1,
-        defaults:{readOnly:true}
-    },
     items: [{
         //xtype: 'baseForm',
         //flex: 1,
+        defaults: {readOnly: true},
         items: [
             {
                 fieldLabel: '合同编号',
@@ -112,6 +94,7 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
     }, {
         //xtype: 'baseForm',
         //flex: 1,
+        defaults: {readOnly: true},
         items: [
             {
                 fieldLabel: '质保期(年)',
@@ -129,11 +112,18 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
                 queryMode: 'remote',
                 valueField: 'value',
                 displayField: 'label',
-                queryParam:'',
-                store: {type:'dictContractStatusStore'},
+                store: {
+                    type: 'dictNoPageStore',
+                },
                 name: 'contractStatus',
                 bind: {
                     value: '{rec.contractStatus}'
+                },
+                listeners: {
+                    beforerender: function () {
+                        this.getStore().filter('type', 'contractStatus');
+                        return true;
+                    }
                 }
             },
             {

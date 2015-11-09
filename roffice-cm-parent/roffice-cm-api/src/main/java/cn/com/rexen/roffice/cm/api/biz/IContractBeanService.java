@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.cm.api.biz;
 
 import cn.com.rexen.core.api.biz.IBizService;
+import cn.com.rexen.core.api.persistence.JsonData;
 import cn.com.rexen.roffice.cm.entities.ContractBean;
 
 /**
@@ -9,5 +10,5 @@ import cn.com.rexen.roffice.cm.entities.ContractBean;
  * @author ：Chenyanxu
  */
 public interface IContractBeanService extends IBizService<ContractBean> {
-
+    JsonData getAllEntityByCustomQuery(int page, int limit, String contractNumber);
 }
