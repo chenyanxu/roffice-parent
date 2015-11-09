@@ -11,9 +11,8 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
     requires: [
         'kalix.controller.BaseFormController',
         'kalix.roffice.contract.viewModel.ContractViewModel',
-        'kalix.admin.dict.store.DictNoPageStore',
-        'kalix.view.components.common.DictFormCombobox'
-    ],
+        'kalix.admin.dict.component.DictFormCombobox'
+        ],
     alias: 'widget.contractForm',
     viewModel: 'contractViewModel',
     controller: {
@@ -25,63 +24,54 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
         items: [
             {
                 fieldLabel: '项目名称',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.projectName}'
                 }
             },
             {
                 fieldLabel: '甲方',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.partyA}'
                 }
             },
             {
                 fieldLabel: '乙方',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.partyB}'
                 }
             },
             {
                 fieldLabel: '合同金额',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.summoney}'
                 }
             },
             {
                 fieldLabel: '合同毛利',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.grossProfit}'
                 }
             },
             {
                 fieldLabel: '合同利润',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.grossProfitRate}'
                 }
             },
             {
                 fieldLabel: '已收回款项',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.receiveMoney}'
                 }
             },
             {
                 fieldLabel: '应收款项',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.receivables}'
                 }
             },
             {
                 fieldLabel: '预计采购成本',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.expectedCost}'
                 }
@@ -91,52 +81,23 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
         items: [
             {
                 fieldLabel: '质保期(年)',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.guarantee}'
                 }
             },
             {
                 fieldLabel: '合同状态',
-                allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'dictFormCombobox',
-                //xtype: 'combobox',
-                editable: false,
-                //queryMode: 'local',
-                //valueField: 'value',
-                //displayField: 'label',
-                //dictType:'contractStatus',
+                dictType:'contractStatus',
                 name: 'contractStatus',
                 bind: {
                     value: '{rec.contractStatus}'
-                },
-                store: {
-                    data: [
-                        {'value': '1', 'label': '123'}
-                    ]
-
-
                 }
-
-                //,
-                //listeners:{
-                //    beforerender:function(){
-                //        var store=kalix.getApplication().getStore('dictNoPageStore');
-                //        var tempStore=Ext.create('Ext.data.Store');
-                //
-                //        tempStore.setData(store.getData());
-                //        tempStore.filter('type','contractStatus');
-                //        this.setStore(tempStore);
-                //
-                //        return true;
-                //    }
-                //}
             },
             {
                 fieldLabel: '是否归档',
                 allowBlank: false,
-                labelAlign: 'right',
+                
                 xtype: 'combobox',
                 editable: false,
                 valueField: 'key',
@@ -154,7 +115,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             },
             {
                 fieldLabel: '合同归档日期',
-                labelAlign: 'right',
+                
                 editable: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
@@ -165,7 +126,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             },
             {
                 fieldLabel: '签单日期',
-                labelAlign: 'right',
+                
                 editable: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
@@ -176,7 +137,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             ,
             {
                 fieldLabel: '过期日期',
-                labelAlign: 'right',
+                
                 editable: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
@@ -187,7 +148,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             ,
             {
                 fieldLabel: '备注',
-                labelAlign: 'right',
+                
                 xtype: 'textarea',
                 bind: {
                     value: '{rec.remark}'
