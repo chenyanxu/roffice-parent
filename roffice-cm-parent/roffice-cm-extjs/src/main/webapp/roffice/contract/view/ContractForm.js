@@ -11,7 +11,8 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
     requires: [
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.contract.controller.ContractFormController',
-        'kalix.roffice.contract.viewModel.ContractViewModel'
+        'kalix.roffice.contract.viewModel.ContractViewModel',
+        'kalix.admin.dict.store.DictStore'
     ],
     alias: 'widget.contractForm',
     viewModel: 'contractViewModel',
@@ -30,18 +31,13 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
         icon: '{icon}',
         title: '{title}'
     },
-    items: [{
+    defaults: {
+        layout: 'form',
         xtype: 'baseForm',
-        flex: 1,
+        flex: 1
+    },
+    items: [{
         items: [
-            //{
-            //    fieldLabel: '合同编号',
-            //    labelAlign: 'right',
-            //    allowBlank: false,
-            //    bind: {
-            //        value: '{rec.contractNumber}'
-            //    }
-            //},
             {
                 fieldLabel: '项目名称',
                 labelAlign: 'right',
@@ -107,8 +103,6 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             }
         ]
     }, {
-        xtype: 'baseForm',
-        flex: 1,
         items: [
             {
                 fieldLabel: '质保期(年)',
@@ -123,13 +117,16 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 labelAlign: 'right',
                 xtype: 'combobox',
                 editable: false,
-                valueField: 'key',
-                displayField: 'name',
-                store:{
-                    data: [
-                        {'name': '草稿', 'key': 0},
-                        {'name': '进行中', 'key': 1},
-                        {'name': '完成', 'key': 2}
+                queryMode: 'remote',
+                valueField: 'value',
+                displayField: 'label',
+                //store: {type:'dictContractStatusStore'},
+                store: {
+                    type: 'dictStore',
+                    filters: [
+                        function (item) {
+                            return item.get('type')=='contractStatus';
+                        }
                     ]
                 },
                 name: 'contractStatus',
@@ -145,7 +142,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
                 editable: false,
                 valueField: 'key',
                 displayField: 'name',
-                store:{
+                store: {
                     data: [
                         {'name': '是', 'key': true},
                         {'name': '否', 'key': false}
@@ -211,4 +208,8 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
         handler: 'onReset'
     }
     ]
+    ,
+    listeners: {
+        close: 'onClose'
+    },
 });

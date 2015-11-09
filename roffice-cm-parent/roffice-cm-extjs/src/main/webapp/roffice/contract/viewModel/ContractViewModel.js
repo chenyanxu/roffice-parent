@@ -11,11 +11,6 @@ Ext.define('kalix.roffice.contract.viewModel.ContractViewModel', {
         validation: {},  //验证错误信息
         icon: '',
         title: '',
-        contractStatusStore: [
-            {'name': '草稿', 'key': 0},
-            {'name': '进行中', 'key': 1},
-            {'name': '完成', 'key': 2}
-        ],
         add_image_path: '/kalix/roffice/cm/resources/images/contract_add.png',
         view_image_path: '/kalix/roffice/cm/resources/images/contract_view.png',
         delete_image_path: '/kalix/roffice/cm/resources/images/contract_delete.png',

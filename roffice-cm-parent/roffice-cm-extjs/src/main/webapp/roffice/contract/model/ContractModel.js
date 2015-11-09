@@ -8,7 +8,7 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
         this.callParent(arguments);
 
         if (arguments.length == 0) {
-            this.set('id', '0');
+            this.set('id', 0);
         }
     },
     proxy: {
@@ -39,12 +39,13 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
         {name: 'receivables'},
         {name: 'expectedCost'},
         {name: 'guarantee'},
-        {name: 'contractStatus', defaultValue: 1},
+        {name: 'contractStatus', defaultValue: '1',type:'string'},
         {name: 'userId'},
         {name: 'archive', defaultValue: false},
         {name: 'archive_date', type: 'date', dateFormat: 'Y-m-d h:i:s'},
         {name: 'contractDate', type: 'date', dateFormat: 'Y-m-d h:i:s'},
         {name: 'expireDate', type: 'date', dateFormat: 'Y-m-d h:i:s'},
-        {name: 'remark'}
+        {name: 'remark'},
+        {name: 'version'}
     ]
 });

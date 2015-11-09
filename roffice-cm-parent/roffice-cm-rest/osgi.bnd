@@ -3,4 +3,4 @@
 #-----------------------------------------------------------------
 
 Bundle-Activator: ${bundle.namespace}.internal.InitActivator
-Import-Package:cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,cn.com.rexen.roffice.cm.entities,*
+Import-Package:cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,cn.com.rexen.roffice.cm.entities,cn.com.rexen.roffice.cm.api.query,*
