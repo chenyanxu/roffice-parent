@@ -58,4 +58,5 @@ Ext.define('kalix.roffice.project.controller.ProjectFormController', {
             }));
         }
     },
+
 });

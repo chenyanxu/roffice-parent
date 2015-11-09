@@ -1,12 +1,9 @@
 package cn.com.rexen.roffice.deploy.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import java.util.Date;
 
 /**
  * @类描述：
@@ -21,13 +18,56 @@ import java.util.Date;
 @Table(name = "roffice_deploy")
 public class DeployBean extends PersistentEntity {
     private String name;//项目名称
-    @NotNull(message = "'标题'是必填项")
-    private String title;   //标题
-    @NotNull(message = "'内容'是必填项")
-    private String content; //内容
-    private String publishPeople;//发布人
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
-    private Date publishDate;//发布时间
+    private String no;//项目编号
+    private String status; //    项目状态
+
+    private String deployPerson; //    交付负责人
+    private String budget;    //合同金额
+    private String receiveInfo;//回款情况
+
+    private String salePerson; //    营销负责人
+    private String member;//项目组成员
+
+    private String plan; //    交付计划
+
+    private String finishInfo; //    计划完成情况
+
+    private String problem; //    问题与风险
+    private String measure; //    风险对应措施
+    private long projectId; //    项目id
+    private String comment; //备注
+
+    public String getBudget() {
+        return budget;
+    }
+
+    public void setBudget(String budget) {
+        this.budget = budget;
+    }
+
+    public String getDeployPerson() {
+        return deployPerson;
+    }
+
+    public void setDeployPerson(String deployPerson) {
+        this.deployPerson = deployPerson;
+    }
+
+    public String getFinishInfo() {
+        return finishInfo;
+    }
+
+    public void setFinishInfo(String finishInfo) {
+        this.finishInfo = finishInfo;
+    }
+
+    public String getMember() {
+        return member;
+    }
+
+    public void setMember(String member) {
+        this.member = member;
+    }
 
     public String getName() {
         return name;
@@ -37,35 +77,75 @@ public class DeployBean extends PersistentEntity {
         this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getNo() {
+        return no;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNo(String no) {
+        this.no = no;
     }
 
-    public String getContent() {
-        return content;
+    public String getPlan() {
+        return plan;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setPlan(String plan) {
+        this.plan = plan;
     }
 
-    public String getPublishPeople() {
-        return publishPeople;
+    public String getProblem() {
+        return problem;
     }
 
-    public void setPublishPeople(String publishPeople) {
-        this.publishPeople = publishPeople;
+    public void setProblem(String problem) {
+        this.problem = problem;
     }
 
-    public Date getPublishDate() {
-        return publishDate;
+    public long getProjectId() {
+        return projectId;
     }
 
-    public void setPublishDate(Date publishDate) {
-        this.publishDate = publishDate;
+    public void setProjectId(long projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getReceiveInfo() {
+        return receiveInfo;
+    }
+
+    public void setReceiveInfo(String receiveInfo) {
+        this.receiveInfo = receiveInfo;
+    }
+
+    public String getSalePerson() {
+        return salePerson;
+    }
+
+    public void setSalePerson(String salePerson) {
+        this.salePerson = salePerson;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getMeasure() {
+        return measure;
+    }
+
+    public void setMeasure(String measure) {
+        this.measure = measure;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }

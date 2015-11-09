@@ -6,6 +6,7 @@
 Ext.define('kalix.roffice.note.view.NoteGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
+        'Ext.grid.plugin.Exporter',
         'kalix.roffice.note.viewModel.NoteViewModel',
         'kalix.roffice.note.controller.NoteGridController',
         'kalix.view.components.common.SecurityToolbar',
@@ -17,7 +18,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
     viewModel: 'noteViewModel',
     autoLoad: true,
     stripeRows: true,
-    reference: 'employeeGrid',
+    //reference: 'employeeGrid',
     /*viewConfig: {
      forceFit: true,
      },*/
@@ -81,10 +82,14 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             dataIndex: 'publishDate',
             flex: 1,
             xtype: 'datecolumn',
-            format: 'Y-m-d h:i:s'
+            formatter: 'date("Y-m-d h:i:s")'
         },
     ],
-    plugins: [{
+    plugins: [
+        {
+            ptype: 'gridexporter'
+        },
+        {
         ptype: 'rowexpander',
         rowBodyTpl: new Ext.XTemplate(
             '<p><b>内容:</b> {content}</p>',
@@ -159,6 +164,15 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             }
         }
     }
-    ]
+    ],
+    header: {
+        itemPosition: 1, // after title before collapse tool
+        items: [{
+            ui: 'default-toolbar',
+            xtype: 'button',
+            text: 'Export to Excel',
+            handler: 'exportToExcel'
+        }]
+    }
 
 });

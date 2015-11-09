@@ -50,11 +50,7 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
             //formatter: 'usMoney',
             renderer: function (val) {
                 var out = Ext.util.Format.number(val, '0.00');
-                if (val > 0) {
-                    return '<span style="color:' + "#73b51e" + ';">' + out + '</span>';
-                } else if (val < 0) {
-                    return '<span style="color:' + "#cf4c35" + ';">' + out + '</span>';
-                }
+                out = '￥' + out + '万元';
                 return out;
             },
         }, {

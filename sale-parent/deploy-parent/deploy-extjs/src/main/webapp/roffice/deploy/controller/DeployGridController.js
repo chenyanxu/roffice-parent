@@ -101,6 +101,13 @@ Ext.define('kalix.roffice.deploy.controller.DeployGridController', {
         } else {
             Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要删除的记录！");
         }
-    }
+    },
+
+
+    //element: 'el', //bind to the underlying el property on the panel
+
+
+
+
 
 });

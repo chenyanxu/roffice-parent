@@ -10,60 +10,83 @@ Ext.define('kalix.roffice.deploy.model.DeployModel', {
     extend: 'Ext.data.Model',
 
     idProperty: '_id',
-    //todo 在此修改模型定义
     fields: [{
         name: 'id',
         type: 'string'
     }, {
-        name: 'title',
+        name: 'no',
         type: 'string'
-    },
-        {
-            name: 'name',
-            type: 'string'
-        },
-        {
-            name: 'content',
-            type: 'string'
-        }, {
-            name: 'publishPeople',
-            type: 'string'
-        }, {
-            name: 'publishDate',
-            type: 'date'
-        }, {
-            name: 'version',
-            type: 'int'
-        }
-    ],
-    //todo 在此修改模型验证提示信息
+    }, {
+        name: 'name',
+        type: 'string'
+    }, {
+        name: 'status',
+        type: 'string'
+    }, {
+        name: 'deployPerson',
+        type: 'string'
+    }, {
+        name: 'budget',
+        type: 'float'
+    }, {
+        name: 'receiveInfo',
+        type: 'string'
+    }, {
+        name: 'salePerson',
+        type: 'string'
+    }, {
+        name: 'member',
+        type: 'string'
+    }, {
+        name: 'plan',
+        type: 'string'
+    }, {
+        name: 'finishInfo',
+        type: 'string'
+    }, {
+        name: 'problem',
+        type: 'string'
+    }, {
+        name: 'measure',
+        type: 'string'
+    }, {
+        name: 'projectId',
+        type: 'int',
+    }, {
+        name: 'comment',
+        type: 'string',
+    }, {
+        name: 'version',
+        type: 'int'
+    }],
     validators: {
-        title: [
-            {
-                type: 'length',
-                max: '20',
-                min: '4',
-                bothMessage: '长度不能小于4个字符，不能超过20个字符！'
-            }],
-        content: [{
+        no: [{
             type: 'presence',
-            message: '内容不能为空!'
-        }
-        ],
+            message: '编号不能为空!'
+        }],
         name: [{
             type: 'presence',
             message: '名称不能为空!'
-        }
-        ]
+        }]
     },
 
     //需要提交给服务端的模型 key
     serverKeys: [
         'id',
-        'title',
+        'no',
         'name',
-        'content',
-        'publishDate',
+        'status',
+        'deployPerson',
+        'budget',
+        'receiveInfo',
+        'salePerson',
+        'member',
+        'plan',
+        'finishInfo',
+        'problem',
+        'measure',
+        'projectId',
+        'comment',
         'version'
     ],
 

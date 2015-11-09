@@ -11,7 +11,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.project.viewModel.ProjectViewModel',
         'kalix.roffice.project.controller.ProjectFormController',
-        'kalix.admin.user.store.UserStore',
+        'kalix.admin.user.component.UserComboBox',
         'kalix.roffice.chance.store.ChanceStore'
     ],
     alias: 'widget.ProjectForm',
@@ -19,7 +19,10 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
     controller: 'projectFormController',
     xtype: "projectForm",
 
-    layout: 'column',
+    layout: {
+        type: 'hbox',
+        align: 'stretch'
+    },
     frame: true,
     width: 800,
     border: false,
@@ -35,7 +38,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         layout: 'form',
         xtype: 'baseForm',
         defaultType: 'textfield',
-        columnWidth: 0.5,
+        flex: 1
         //border:false
     },
     items: [{
@@ -49,16 +52,8 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             }
         }, {
             fieldLabel: '项目经理',
-            labelAlign: 'right',
-            xtype: 'combobox',
-            queryMode: 'remote',
+            xtype: 'userCombobox',
             valueField: 'name',
-            displayField: 'name',
-            queryParam: 'name',
-            minChars: 0,
-            store: {
-                type: 'userStore'
-            },
             name: 'manager',
             bind: {
                 activeError: '{validation.manager}',
@@ -66,17 +61,8 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             }
         }, {
             fieldLabel: '营销负责人',
-            //allowBlank: false,
-            labelAlign: 'right',
-            xtype: 'combobox',
-            queryMode: 'remote',
+            xtype: 'userCombobox',
             valueField: 'name',
-            displayField: 'name',
-            queryParam: 'name',
-            minChars: 0,
-            store: {
-                type: 'userStore'
-            },
             name: 'salePerson',
             bind: {
                 //activeError: '{validation.salePerson}',
@@ -113,6 +99,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             id: 'level',
             labelAlign: 'right',
             name: 'level',
+            forceSelection: true,
             store: [
                 ['高', '高'],
                 ['中', '中'],
@@ -172,17 +159,8 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                     }
                 }, {
                     fieldLabel: '交付负责人',
-                    //allowBlank: false,
-                    labelAlign: 'right',
-                    xtype: 'combobox',
-                    queryMode: 'remote',
-                    valueField: 'name',
-                    displayField: 'name',
-                    queryParam: 'name',
-                    minChars: 0,
-                    store: {
-                        type: 'userStore'
-                    },
+                    xtype: 'userCombobox',
+                    valueField: 'id',
                     name: 'deployPerson',
                     bind: {
                         //activeError: '{validation.deployPerson}',
@@ -200,6 +178,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                     fieldLabel: '项目机会',
                     //allowBlank: false,
                     labelAlign: 'right',
+                    forceSelection: true,
                     xtype: 'combobox',
                     queryMode: 'remote',
                     valueField: 'id',
@@ -233,5 +212,11 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         text: '重置',
         glyph: 'xf0e2@FontAwesome',
         handler: 'onReset'
-    }]
+    }],
+
+    listeners: {
+        beforeclose: function (button) {
+
+        }
+    }
 });
