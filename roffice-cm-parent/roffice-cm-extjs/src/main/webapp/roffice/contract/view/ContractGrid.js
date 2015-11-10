@@ -7,7 +7,8 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
         'kalix.roffice.contract.controller.ContractGridController',
-        'kalix.roffice.contract.store.ContractStore'
+        'kalix.roffice.contract.store.ContractStore',
+        'kalix.admin.dict.component.DictGridColumn'
     ],
     alias: 'widget.contractGrid',
     xtype: 'contractGrid',
@@ -96,11 +97,38 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         },
         {
             text: '合同状态',
-            xtype: 'templatecolumn',
-            //data:
-            //tpl: '<tpl switch="contractStatus"><tpl case="\'0\'">草稿<tpl case="1">进行中<tpl case="2">完成</tpl>',
-            tpl: "<tpl>22</tpl>",
+            xtype: 'dictGridColumn',
+            dictType: 'contractStatus',
             flex: 1
+
+            //listeners:{
+            //    beforerender:function(){
+            //        var store=kalix.getApplication().getStore('dictNoPageStore');
+            //
+            //        store.filter('type',this.dictType);
+            //
+            //        var data=store.getData().clone().items;
+            //
+            //        if(data.length>0){
+            //            var tplStr='';
+            //
+            //            for(var idx=0;idx<data.length;++idx){
+            //                var tempValue=data[idx].data.value;
+            //                var tempLabel=data[idx].data.label;
+            //
+            //                tplStr+='<tpl if="'+this.dictType+'=='+tempValue+'">'+tempLabel+'</tpl>'
+            //            }
+            //
+            //            var tpl = new Ext.XTemplate(tplStr);
+            //            this.tpl=tpl;
+            //        }
+            //        else{
+            //            this.tpl="<tpl>{"+this.dictType+"}</tpl>"
+            //        }
+            //
+            //        return true;
+            //    }
+            //}
         },
         {
             text: '签单日期',
