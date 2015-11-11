@@ -99,6 +99,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             text: '合同状态',
             xtype: 'dictGridColumn',
             dictType: 'contractStatus',
+            dataIndex: 'contractStatus',
             flex: 1
 
             //listeners:{
