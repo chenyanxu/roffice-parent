@@ -54,7 +54,7 @@
             <post id="route-getAllProjectByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
                   type="cn.com.rexen.roffice.project.api.query.ProjectDTO">
                 <description>Find all Project by Name</description>
-                <to uri="bean:projectService?method=getAllEntityByQuery"/>
+                <to uri="bean:projectService?method=getAllByNativeQuery"/>
             </post>
 
         </rest>

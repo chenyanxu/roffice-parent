@@ -1,43 +1,16 @@
 package cn.com.rexen.roffice.project.entities;
 
-import cn.com.rexen.core.api.persistence.PersistentEntity;
+import cn.com.rexen.core.api.web.model.BaseDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @类描述：
- * @创建人：
- * @创建时间：
- * @修改人：
- * @修改时间：
- * @修改备注：
+ * Created by sunlf on 2015/11/11.
+ * 组合查询返回结果类
  */
-@SqlResultSetMapping(
-        name = "cn.com.rexen.roffice.project.entities.ResultDTO",
-        /*columns={
-                @ColumnResult(name="id"),
-                @ColumnResult(name="no"),
-                @ColumnResult(name="chanceName"),
-                @ColumnResult(name="setupDate")
-        }*/
-        classes = {
-                @ConstructorResult(
-                        targetClass = ResultDTO.class,
-                        columns = {
-                                @ColumnResult(name = "id", type = Long.class),
-                                @ColumnResult(name = "no", type = String.class),
-                                @ColumnResult(name = "chanceName", type = String.class),
-                                @ColumnResult(name = "setupDate", type = Date.class)
-                        }
-                )
-        }
-)
-@Entity
-@Table(name = "roffice_project")
-public class ProjectBean extends PersistentEntity {
 
+public class ResultDTO extends BaseDTO {
     private String no;//项目编号
     private String salePerson; //    营销负责人
     private String industry; //    所属行业
@@ -54,12 +27,19 @@ public class ProjectBean extends PersistentEntity {
     private String description; //    项目描述
     private String comment; //    备注
     private long chanceId; //    项目机会
-    //todo 合同
     private long contractId;// 合同id
     private String manager; //    项目经理
     private String status; //    项目实施状态
-    //    项目合同
+    //join name
+    private String chanceName;
+    private String contractName;
 
+    public ResultDTO(Long id, String no, String chanceName, Date setupDate) {
+        this.setId(String.valueOf(id));
+        this.chanceName = chanceName;
+        this.no = no;
+        this.setupDate = setupDate;
+    }
 
     public String getBudget() {
         return budget;
@@ -75,6 +55,14 @@ public class ProjectBean extends PersistentEntity {
 
     public void setChanceId(long chanceId) {
         this.chanceId = chanceId;
+    }
+
+    public String getChanceName() {
+        return chanceName;
+    }
+
+    public void setChanceName(String chanceName) {
+        this.chanceName = chanceName;
     }
 
     public String getClient() {
@@ -99,6 +87,22 @@ public class ProjectBean extends PersistentEntity {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    public long getContractId() {
+        return contractId;
+    }
+
+    public void setContractId(long contractId) {
+        this.contractId = contractId;
+    }
+
+    public String getContractName() {
+        return contractName;
+    }
+
+    public void setContractName(String contractName) {
+        this.contractName = contractName;
     }
 
     public Date getDeployDate() {

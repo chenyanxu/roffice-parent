@@ -13,4 +13,5 @@ import cn.com.rexen.roffice.project.entities.ProjectBean;
  */
 public interface IProjectBeanDao extends IGenericDao<ProjectBean, Long> {
     //在此添加新的DAO方法
+
 }

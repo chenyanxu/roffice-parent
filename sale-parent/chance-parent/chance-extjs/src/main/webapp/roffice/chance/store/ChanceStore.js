@@ -12,6 +12,7 @@ Ext.define('kalix.roffice.chance.store.ChanceStore', {
     storeId: "chanceStore",
     autoLoad: true,
     pageSize: 10,
+    baseUrl: '/kalix/camel/rest/chances/',
     proxy: {
         type: "ajax",
         url: '/kalix/camel/rest/chances/list',
@@ -27,5 +28,12 @@ Ext.define('kalix.roffice.chance.store.ChanceStore', {
             rootProperty: "data",
             totalProperty: 'totalCount'
         }
+    },
+    load: function (options) {
+        if (options.chanceId) {
+            this.proxy.url = this.baseUrl + options.chanceId;
+            this.proxy.actionMethods.read = "GET";
+        }
+        this.callParent(arguments);
     }
 });

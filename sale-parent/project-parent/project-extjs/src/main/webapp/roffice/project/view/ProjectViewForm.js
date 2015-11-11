@@ -33,14 +33,12 @@ Ext.define('kalix.roffice.project.view.ProjectViewForm', {
         xtype: 'baseForm',
         defaultType: 'textfield',
         columnWidth: 0.5,
-        readOnly: true
+        //readOnly: true
         //border:false
     },
 
     items: [{
-        fieldDefaults: {
-            readOnly: true
-        },
+        defaults: {readOnly: true},
         items: [
             {
                 fieldLabel: '项目名称',
@@ -137,9 +135,7 @@ Ext.define('kalix.roffice.project.view.ProjectViewForm', {
             }]
     },
         {
-            fieldDefaults: {
-                readOnly: true
-            },
+            defaults: {readOnly: true},
             items: [
                 {
                     fieldLabel: '项目编号',

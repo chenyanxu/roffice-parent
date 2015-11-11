@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.project.view.ProjectGrid', {
         'kalix.roffice.project.controller.ProjectGridController',
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
-        'kalix.roffice.chance.store.ChanceStore'
+        'kalix.roffice.chance.store.ChanceStore',
+        'kalix.admin.dict.component.DictGridColumn'
     ],
     alias: 'widget.projectGrid',
     xtype: 'projectGridPanel',
@@ -67,19 +68,23 @@ Ext.define('kalix.roffice.project.view.ProjectGrid', {
             format: 'Y-m-d'
         }, {
             text: '实施状态',
+            xtype: 'dictGridColumn',
+            dictType: 'contractStatus',
             dataIndex: 'status',
             flex: 1
         }, {
             text: '项目机会',
-            dataIndex: 'chanceId',
+            //xtype:'columntemplate',
+            dataIndex: 'chanceName',
             flex: 1,
-            renderer: function (chanceId) {
-                var store = kalix.getApplication().getStore('chanceStore');
-                console.log(store);
-                store.load();
+            /*renderer: function (chanceId) {
+             var store = Ext.create('store.chanceStore');
+             //console.log(store);
+             store.load({'chanceId':chanceId});
+             //console.log(store);
                 return store.getById(chanceId).get('name');
                 //return "￥"+chanceId;
-            }
+             }*/
         }
 
     ],

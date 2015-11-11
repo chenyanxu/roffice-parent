@@ -1,6 +1,8 @@
 package cn.com.rexen.roffice.project.api.biz;
 
 import cn.com.rexen.core.api.biz.IBizService;
+import cn.com.rexen.core.api.persistence.JsonData;
+import cn.com.rexen.core.api.web.model.QueryDTO;
 import cn.com.rexen.roffice.project.entities.ProjectBean;
 
 /**
@@ -13,4 +15,6 @@ import cn.com.rexen.roffice.project.entities.ProjectBean;
  */
 public interface IProjectBeanService extends IBizService<ProjectBean> {
     //在此添加新的业务方法
+    //通过nativeSQL获得数据
+    JsonData getAllByNativeQuery(QueryDTO queryDTO);
 }

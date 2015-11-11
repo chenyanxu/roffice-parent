@@ -42,9 +42,7 @@ Ext.define('kalix.roffice.deploy.view.DeployViewForm', {
     },
 
     items: [{
-        fieldDefaults: {
-            readOnly: true
-        },
+        defaults: {readOnly: true},
         items: [{
             fieldLabel: '项目名称',
             allowBlank: false,
@@ -102,9 +100,7 @@ Ext.define('kalix.roffice.deploy.view.DeployViewForm', {
         }]
     },
         {
-            fieldDefaults: {
-                readOnly: true
-            },
+            defaults: {readOnly: true},
             items: [
                 {
                     fieldLabel: '所属项目',

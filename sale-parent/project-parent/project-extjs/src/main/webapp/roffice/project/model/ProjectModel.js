@@ -56,6 +56,9 @@ Ext.define('kalix.roffice.project.model.ProjectModel', {
         name: 'chanceId',
         type: 'int',
     }, {
+        name: 'chanceName',
+        type: 'string',
+    }, {
         name: 'manager',
         type: 'string'
     }, {
