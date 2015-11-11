@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.cm.web.menu;
 
 import cn.com.rexen.core.api.web.IMenu;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 /**
  * @author chenyanxu
@@ -43,7 +44,7 @@ public class ContractMenuImpl implements IMenu {
 
     @Override
     public String getIcon() {
-        return null;
+        return Const.APPLICATION_NAME;
     }
 
     @Override
