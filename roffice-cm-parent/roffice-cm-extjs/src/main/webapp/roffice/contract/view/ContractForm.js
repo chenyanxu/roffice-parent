@@ -11,7 +11,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
     requires: [
         'kalix.controller.BaseFormController',
         'kalix.roffice.contract.viewModel.ContractViewModel',
-        'kalix.admin.dict.component.DictFormCombobox'
+        'kalix.admin.dict.component.DictCombobox'
         ],
     alias: 'widget.contractForm',
     viewModel: 'contractViewModel',
@@ -87,7 +87,7 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
             },
             {
                 fieldLabel: '合同状态',
-                xtype: 'dictFormCombobox',
+                xtype: 'dictCombobox',
                 dictType:'contractStatus',
                 name: 'contractStatus',
                 bind: {
