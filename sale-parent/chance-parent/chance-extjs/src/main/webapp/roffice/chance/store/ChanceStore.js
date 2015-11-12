@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.chance.store.ChanceStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     model: 'kalix.roffice.chance.model.ChanceModel',
     alias: 'store.chanceStore',
     xtype: 'chanceStore',

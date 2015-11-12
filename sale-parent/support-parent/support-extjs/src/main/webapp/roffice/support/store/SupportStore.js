@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.support.store.SupportStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     model: 'kalix.roffice.support.model.SupportModel',
     alias: 'store.supportStore',
     xtype: 'supportStore',

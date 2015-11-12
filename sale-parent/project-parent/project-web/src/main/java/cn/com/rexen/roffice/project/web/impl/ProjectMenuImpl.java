@@ -31,7 +31,7 @@ public class ProjectMenuImpl implements IMenu {
 
     @Override
     public String getIcon() {
-        return Const.APPLICATION_NAME;
+        return null;
     }
 
     @Override

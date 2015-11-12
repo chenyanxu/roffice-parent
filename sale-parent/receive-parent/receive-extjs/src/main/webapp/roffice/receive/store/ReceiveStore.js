@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.receive.store.ReceiveStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     model: 'kalix.roffice.receive.model.ReceiveModel',
     alias: 'store.receiveStore',
     xtype: 'receiveStore',

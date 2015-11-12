@@ -6,7 +6,7 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.news.store.NewsStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     requires: ['kalix.core.Notify'],
     alias: 'store.newsStore',
     xtype: 'newsStore',

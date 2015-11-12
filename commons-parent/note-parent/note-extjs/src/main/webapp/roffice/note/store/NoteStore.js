@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.note.store.NoteStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     model: 'kalix.roffice.note.model.NoteModel',
     alias: 'store.noteStore',
     xtype: 'noteStore',

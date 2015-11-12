@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.deploy.store.DeployStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     model: 'kalix.roffice.deploy.model.DeployModel',
     alias: 'store.deployStore',
     xtype: 'deployStore',

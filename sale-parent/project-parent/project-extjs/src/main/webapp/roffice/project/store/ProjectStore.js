@@ -5,7 +5,7 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.project.store.ProjectStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     model: 'kalix.roffice.project.model.ProjectModel',
     alias: 'store.projectStore',
     xtype: 'projectStore',

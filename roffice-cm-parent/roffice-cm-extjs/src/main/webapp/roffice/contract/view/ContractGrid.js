@@ -227,7 +227,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
      需要手动指定工具条的 store
      */
     bbar: [{
-        id: 'workgroup-pagingtoolbar',
+        id: 'contract-pagingtoolbar',
         xtype: 'pagingToolBarComponent',
         border: false,
         padding: 0,

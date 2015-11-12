@@ -2,7 +2,7 @@
  * @author chenyanxu
  */
 Ext.define('kalix.roffice.contract.store.ContractStore', {
-    extend: 'Ext.data.Store',
+    extend: 'kalix.store.BaseStore',
     requires: ['kalix.core.Notify'],
     alias: 'store.contractStore',
     model:'kalix.roffice.contract.model.ContractModel',
