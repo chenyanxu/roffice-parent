@@ -16,20 +16,35 @@ import java.util.Date;
  */
 @SqlResultSetMapping(
         name = "cn.com.rexen.roffice.project.entities.ResultDTO",
-        /*columns={
-                @ColumnResult(name="id"),
-                @ColumnResult(name="no"),
-                @ColumnResult(name="chanceName"),
-                @ColumnResult(name="setupDate")
-        }*/
         classes = {
                 @ConstructorResult(
                         targetClass = ResultDTO.class,
                         columns = {
                                 @ColumnResult(name = "id", type = Long.class),
+                                @ColumnResult(name = "createBy", type = String.class),
+                                @ColumnResult(name = "creationDate", type = Date.class),
+                                @ColumnResult(name = "updateBy", type = String.class),
+                                @ColumnResult(name = "updateDate", type = Date.class),
+                                @ColumnResult(name = "version_", type = Long.class),
+                                @ColumnResult(name = "budget", type = String.class),
+                                @ColumnResult(name = "chanceId", type = Long.class),
+                                @ColumnResult(name = "client", type = String.class),
+                                @ColumnResult(name = "clientPhone", type = String.class),
+                                @ColumnResult(name = "comment", type = String.class),
+                                @ColumnResult(name = "contractId", type = Long.class),
+                                @ColumnResult(name = "deployDate", type = Date.class),
+                                @ColumnResult(name = "deployPerson", type = String.class),
+                                @ColumnResult(name = "description", type = String.class),
+                                @ColumnResult(name = "industry", type = String.class),
+                                @ColumnResult(name = "level", type = String.class),
+                                @ColumnResult(name = "manager", type = String.class),
+                                @ColumnResult(name = "name", type = String.class),
                                 @ColumnResult(name = "no", type = String.class),
+                                @ColumnResult(name = "salePerson", type = String.class),
+                                @ColumnResult(name = "setupDate", type = Date.class),
+                                @ColumnResult(name = "status", type = String.class),
                                 @ColumnResult(name = "chanceName", type = String.class),
-                                @ColumnResult(name = "setupDate", type = Date.class)
+//                                @ColumnResult(name = "contractName", type = String.class),
                         }
                 )
         }

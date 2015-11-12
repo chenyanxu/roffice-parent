@@ -162,7 +162,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 }, {
                     fieldLabel: '交付负责人',
                     xtype: 'userCombobox',
-                    valueField: 'id',
                     name: 'deployPerson',
                     bind: {
                         //activeError: '{validation.deployPerson}',

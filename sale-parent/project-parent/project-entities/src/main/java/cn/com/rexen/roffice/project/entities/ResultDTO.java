@@ -34,11 +34,26 @@ public class ResultDTO extends BaseDTO {
     private String chanceName;
     private String contractName;
 
-    public ResultDTO(Long id, String no, String chanceName, Date setupDate) {
-        this.setId(String.valueOf(id));
+    public ResultDTO(Long id, String createBy, Date creationDate, String updateBy, Date updateDate, Long version, String budget, Long chanceId, String client, String clientPhone, String comment, Long contractId, Date deployDate, String deployPerson, String description, String industry, String level, String manager, String name, String no, String salePerson, Date setupDate, String status, String chanceName) {
+        super(String.valueOf(id), createBy, creationDate, updateBy, updateDate, version);
+        this.budget = budget;
+        this.chanceId = chanceId;
         this.chanceName = chanceName;
+        this.client = client;
+        this.clientPhone = clientPhone;
+        this.comment = comment;
+        this.contractId = contractId;
+        this.deployDate = deployDate;
+        this.deployPerson = deployPerson;
+        this.description = description;
+        this.industry = industry;
+        this.level = level;
+        this.manager = manager;
+        this.name = name;
         this.no = no;
+        this.salePerson = salePerson;
         this.setupDate = setupDate;
+        this.status = status;
     }
 
     public String getBudget() {
