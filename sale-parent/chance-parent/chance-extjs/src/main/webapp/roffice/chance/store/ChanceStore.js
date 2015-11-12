@@ -30,10 +30,10 @@ Ext.define('kalix.roffice.chance.store.ChanceStore', {
         }
     },
     load: function (options) {
-        if (options.chanceId) {
-            this.proxy.url = this.baseUrl + options.chanceId;
-            this.proxy.actionMethods.read = "GET";
-        }
+        /*if (options.chanceId) {
+         this.proxy.url = this.baseUrl + options.chanceId;
+         this.proxy.actionMethods.read = "GET";
+         }*/
         this.callParent(arguments);
     }
 });
