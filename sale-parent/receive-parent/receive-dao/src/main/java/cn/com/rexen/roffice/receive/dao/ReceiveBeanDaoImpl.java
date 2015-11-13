@@ -33,7 +33,6 @@ public class ReceiveBeanDaoImpl extends GenericDao<ReceiveBean, Long> implements
         super.setEntityManager(em);
     }
 
-    //todo add custom query
     @Override
     public CriteriaQuery buildCriteriaQuery(QueryDTO queryDTO) {
         ReceiveDTO receiveDto = (ReceiveDTO) queryDTO;

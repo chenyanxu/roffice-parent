@@ -8,14 +8,13 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * @类描述：
+ * @类描述：项目合同回款
  * @创建人：
  * @创建时间：
  * @修改人：
  * @修改时间：
  * @修改备注：
  */
-//todo 修改模型定义
 @Entity
 @Table(name = "roffice_receive")
 public class ReceiveBean extends PersistentEntity {

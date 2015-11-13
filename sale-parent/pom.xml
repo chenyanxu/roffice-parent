@@ -22,5 +22,6 @@
         <module>deploy-parent</module>
         <module>project-parent</module>
         <module>receive-parent</module>
+        <module>pay-parent</module>
     </modules>
 </project>

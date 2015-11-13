@@ -75,8 +75,6 @@ Ext.define('kalix.roffice.receive.view.ReceiveForm', {
             text: '重置',
             glyph: 'xf0e2@FontAwesome',
             handler: 'onReset'
-        }
-        ]
-    }
-    ]
+        }]
+    }]
 });
