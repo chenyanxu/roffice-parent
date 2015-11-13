@@ -53,7 +53,7 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         }, {
             fieldLabel: '营销负责人',
             xtype: 'userCombobox',
-            valueField: 'salerId',
+            name: 'salerId',
             bind: {
                 activeError: '{validation.salerId}',
                 value: '{rec.salerId}'
@@ -130,7 +130,7 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             }, {
                 fieldLabel: '售前支持负责人',
                 xtype: 'userCombobox',
-                valueField: 'supporterId',
+                name: 'supporterId',
                 bind: {
                     activeError: '{validation.supporterId}',
                     value: '{rec.supporterId}'

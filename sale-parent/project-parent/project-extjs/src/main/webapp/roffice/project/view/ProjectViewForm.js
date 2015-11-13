@@ -9,7 +9,8 @@ Ext.define('kalix.roffice.project.view.ProjectViewForm', {
     extend: 'Ext.window.Window',
     requires: [
         'kalix.roffice.project.viewModel.ProjectViewModel',
-        'kalix.roffice.project.controller.ProjectFormController'
+        'kalix.roffice.project.controller.ProjectFormController',
+        'kalix.admin.dict.component.DictCombobox'
     ],
     alias: 'widget.projectViewForm',
     viewModel: 'projectViewModel',
@@ -147,8 +148,9 @@ Ext.define('kalix.roffice.project.view.ProjectViewForm', {
                     }
                 }, {
                     fieldLabel: '项目状态',
-                    //allowBlank: false,
-                    labelAlign: 'right',
+                    xtype: 'dictCombobox',
+                    dictType: 'contractStatus',
+                    name: 'status',
                     bind: {
                         //activeError: '{validation.status}',
                         value: '{rec.status}'
