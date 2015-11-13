@@ -7,6 +7,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/ds)</jta-data-source>
         <class>cn.com.rexen.roffice.cm.entities.ContractBean</class>
+        <class>cn.com.rexen.roffice.cm.entities.InvoiceBean</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.archive.autodetection" value="class"/>
@@ -15,5 +16,4 @@
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
-
 </persistence>
