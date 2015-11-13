@@ -1,23 +1,23 @@
 /**
- * 采购付款查询表单
+ * 设备发票查询表单
  * @author
  * @version 1.0.0
  */
-Ext.define('kalix.roffice.pay.view.PaySearchForm', {
+Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceSearchForm', {
     extend: 'Ext.form.Panel',
     requires: [
-        'kalix.roffice.pay.controller.PaySearchFormController'
+        'kalix.roffice.purchaseinvoice.controller.PurchaseInvoiceSearchFormController'
     ],
-    alias: 'widget.paySearchForm',
-    xtype: 'paySearchForm',
-    controller: 'paySearchFormController',
+    alias: 'widget.purchaseinvoiceSearchForm',
+    xtype: 'purchaseinvoiceSearchForm',
+    controller: 'purchaseinvoiceSearchFormController',
     bodyPadding: 10,
     layout: 'column',
     margin: 10,
     items: [
         {
             xtype: 'datefield',
-            fieldLabel: '付款开始日期',
+            fieldLabel: '发票开始日期',
             labelAlign: 'right',
             labelWidth: 100,
             width: 250,
@@ -25,7 +25,7 @@ Ext.define('kalix.roffice.pay.view.PaySearchForm', {
         },
         {
             xtype: 'datefield',
-            fieldLabel: '付款结束日期',
+            fieldLabel: '发票结束日期',
             labelAlign: 'right',
             labelWidth: 100,
             width: 250,

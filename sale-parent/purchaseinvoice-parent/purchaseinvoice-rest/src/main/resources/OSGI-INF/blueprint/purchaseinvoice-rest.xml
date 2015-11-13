@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <reference id="purchaseinvoiceService"
+               interface="cn.com.rexen.roffice.purchaseinvoice.api.biz.IPurchaseInvoiceBeanService"/>
+
+    <camelContext id="purchaseinvoiceCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json"
+                           contextPath="/kalix/camel/rest" host="localhost"
+                           port="8181">
+            <dataFormatProperty key="prettyPrint" value="true"/>
+        </restConfiguration>
+
+        <!-- defines the rest services using the context-path /purchaseinvoice -->
+        <rest path="/purchaseinvoices" consumes="application/json" produces="application/json">
+            <description>purchaseinvoice rest service</description>
+
+            <!-- this is a rest PUT to create an purchaseinvoice -->
+            <post id="route-addPurchaseInvoice" type="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean"
+                  outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a PurchaseInvoice</description>
+                <to uri="bean:purchaseinvoiceService?method=saveEntity"/>
+            </post>
+
+            <!-- this is a rest PUT to update a purchaseinvoice -->
+            <put id="route-updatePurchaseInvoice"
+                 type="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean"
+                 outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Updates a PurchaseInvoice</description>
+                <to uri="bean:purchaseinvoiceService?method=updateEntity"/>
+            </put>
+
+            <!-- this is a rest DELETE to delete a purchaseinvoice -->
+            <delete id="route-deletePurchaseInvoice" outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Delete a PurchaseInvoice</description>
+                <to uri="bean:purchaseinvoiceService?method=deleteEntity(${header.id})"/>
+            </delete>
+
+            <!-- this is a rest GET to find all purchaseinvoice -->
+            <get id="route-getAllPurchaseInvoice" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all PurchaseInvoices</description>
+                <to uri="bean:purchaseinvoiceService?method=getAllEntity(${header.page},${header.limit})"/>
+            </get>
+
+            <!-- this is a rest GET to view a purchaseinvoice by the given id -->
+            <get id="route-getPurchaseInvoice" uri="/{id}"
+                 outType="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean">
+                <description>Find PurchaseInvoice by id</description>
+                <to uri="bean:purchaseinvoiceService?method=getEntity(${header.id})"/>
+            </get>
+
+            <!-- this is a rest GET to find all purchaseinvoice by name -->
+            <post id="route-getAllPurchaseInvoiceByName" uri="/list"
+                  outType="cn.com.rexen.core.api.persistence.JsonData"
+                  type="cn.com.rexen.roffice.purchaseinvoice.api.query.PurchaseInvoiceDTO">
+                <description>Find all PurchaseInvoice by Name</description>
+                <to uri="bean:purchaseinvoiceService?method=getAllEntityByQuery"/>
+            </post>
+
+        </rest>
+    </camelContext>
+</blueprint>

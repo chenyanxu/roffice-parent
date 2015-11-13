@@ -90,12 +90,20 @@ public class Const {
     public static final String RECEIVE_MENU_PERMISSION = "";
     public static final int RECEIVE_MENU_INDEX = 20;
 
-    //项目回款菜单常量
+    //采购设备付款菜单常量
     public static final String PAY_MENU_ID = "payMenu";
     public static final String PAY_MENU_TEXT = "采购付款";
     public static final String PAY_MENU_ROUTE_ID = "roffice/Pay";
     public static final String PAY_MENU_ICON_CLASS = "x-fa fa-cc-visa";
     public static final String PAY_MENU_PERMISSION = "";
     public static final int PAY_MENU_INDEX = 30;
+
+    //设备发票菜单常量
+    public static final String PURCHASE_INVOICE_MENU_ID = "purchaseInvoiceMenu";
+    public static final String PURCHASE_INVOICE_MENU_TEXT = "设备发票";
+    public static final String PURCHASE_INVOICE_MENU_ROUTE_ID = "roffice/PurchaseInvoice";
+    public static final String PURCHASE_INVOICE_MENU_ICON_CLASS = "x-fa fa-copy";
+    public static final String PURCHASE_INVOICE_MENU_PERMISSION = "";
+    public static final int PURCHASE_INVOICE_MENU_INDEX = 30;
 
 }
