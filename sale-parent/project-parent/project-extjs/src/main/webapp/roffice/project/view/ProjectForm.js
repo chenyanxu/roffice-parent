@@ -54,7 +54,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         }, {
             fieldLabel: '项目经理',
             xtype: 'userCombobox',
-            valueField: 'name',
+            //valueField: 'name',
             name: 'manager',
             bind: {
                 activeError: '{validation.manager}',
@@ -63,7 +63,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         }, {
             fieldLabel: '营销负责人',
             xtype: 'userCombobox',
-            valueField: 'name',
+            //valueField: 'name',
             name: 'salePerson',
             bind: {
                 //activeError: '{validation.salePerson}',
@@ -162,7 +162,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 }, {
                     fieldLabel: '交付负责人',
                     xtype: 'userCombobox',
-                    name: 'deployPerson',
+                    //name: 'deployPerson',
                     bind: {
                         //activeError: '{validation.deployPerson}',
                         value: '{rec.deployPerson}'

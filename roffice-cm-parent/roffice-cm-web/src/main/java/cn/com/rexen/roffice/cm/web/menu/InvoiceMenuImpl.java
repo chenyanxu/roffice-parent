@@ -5,7 +5,7 @@ import cn.com.rexen.core.api.web.IMenu;
 /**
  * @author chenyanxu
  */
-public class BillMenuImpl implements IMenu {
+public class InvoiceMenuImpl implements IMenu {
     @Override
     public boolean isLeaf() {
         return true;
@@ -48,7 +48,7 @@ public class BillMenuImpl implements IMenu {
 
     @Override
     public String getRouteId() {
-        return "roffice/Bill";
+        return "roffice/Invoice";
     }
 
     @Override
