@@ -5,7 +5,7 @@ import cn.com.rexen.core.api.web.IMenu;
 /**
  * @author chenyanxu
  */
-public class InvoiceMenuImpl implements IMenu {
+public class ContractDetailMenuImpl implements IMenu {
     @Override
     public boolean isLeaf() {
         return true;
@@ -28,12 +28,12 @@ public class InvoiceMenuImpl implements IMenu {
 
     @Override
     public String getId() {
-        return "invoiceMenu";
+        return "contractDetailMenu";
     }
 
     @Override
     public String getText() {
-        return "合同发票";
+        return "合同清单";
     }
 
     @Override
@@ -48,12 +48,12 @@ public class InvoiceMenuImpl implements IMenu {
 
     @Override
     public String getRouteId() {
-        return "roffice/Invoice";
+        return "roffice/ContractDetail";
     }
 
     @Override
     public int getIndex() {
-        return 1;
+        return 2;
     }
 
     @Override

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- default-activation="lazy" -->
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0
+           http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+           http://camel.apache.org/schema/blueprint
+           http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+    <reference id="invoiceBeanService" interface="cn.com.rexen.roffice.cm.api.biz.IInvoiceBeanService"/>
+    <camelContext id="cm-rest-invoice" xmlns="http://camel.apache.org/schema/blueprint">
+        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
+                           port="8181">
+        </restConfiguration>
+        <rest path="/invoices" consumes="application/json" produces="application/json">
+            <get id="route-getAllInvoice" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all invoices</description>
+                <to uri="bean:invoiceBeanService?method=getAllEntityByCustomQuery(${header.page},${header.limit},${header.invoiceNo})"/>
+            </get>
+            <!-- this is a rest POST to add a invoice-->
+            <post id="route-addInvoice" type="cn.com.rexen.roffice.cm.entities.InvoiceBean"
+                  outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a invoice</description>
+                <to uri="bean:invoiceBeanService?method=saveEntity"/>
+            </post>
+        </rest>
+        <rest path="/invoices/{id}" consumes="application/json" produces="application/json">
+            <get id="route-getInvoice" outType="cn.com.rexen.roffice.cm.entities.InvoiceBean">
+                <description>Find News by id</description>
+                <to uri="bean:invoiceBeanService?method=getEntity(${header.id})"/>
+            </get>
+            <put id="route-updateInvoice" type="cn.com.rexen.roffice.cm.entities.InvoiceBean"
+                 outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Updates a News</description>
+                <to uri="bean:invoiceBeanService?method=updateEntity"/>
+            </put>
+            <delete id="route-removeInvoice" type="cn.com.rexen.roffice.cm.entities.InvoiceBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
+                <description>Create a invoice</description>
+                <to uri="bean:invoiceBeanService?method=removeEntity"/>
+            </delete>
+        </rest>
+    </camelContext>
+</blueprint>
+

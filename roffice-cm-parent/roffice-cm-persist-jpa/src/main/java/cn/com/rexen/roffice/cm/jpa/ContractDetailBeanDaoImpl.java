@@ -1,9 +1,9 @@
 package cn.com.rexen.roffice.cm.jpa;
 
 import cn.com.rexen.core.api.web.model.QueryDTO;
-import cn.com.rexen.roffice.cm.api.dao.IContractBeanDao;
-import cn.com.rexen.roffice.cm.api.query.ContractDto;
-import cn.com.rexen.roffice.cm.entities.ContractBean;
+import cn.com.rexen.roffice.cm.api.dao.IContractDetailBeanDao;
+import cn.com.rexen.roffice.cm.api.query.ContractDetailDto;
+import cn.com.rexen.roffice.cm.entities.ContractDetailBean;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -19,19 +19,19 @@ import java.util.List;
  *
  * @author ：Chenyanxu
  */
-public class ContractBeanDaoImpl extends BaseCmDao<ContractBean, Long> implements IContractBeanDao {
+public class ContractDetailBeanDaoImpl extends BaseCmDao<ContractDetailBean, Long> implements IContractDetailBeanDao {
     @Override
     public CriteriaQuery buildCriteriaQuery(QueryDTO queryDTO) {
-        ContractDto contractDto = (ContractDto)queryDTO;
+        ContractDetailDto dto = (ContractDetailDto)queryDTO;
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<ContractBean> criteriaQuery = criteriaBuilder.createQuery(ContractBean.class);
-        Root<ContractBean> from = criteriaQuery.from(ContractBean.class);
-        EntityType<ContractBean> contractBean_ = from.getModel(); //实体元数据
+        CriteriaQuery<ContractDetailBean> criteriaQuery = criteriaBuilder.createQuery(ContractDetailBean.class);
+        Root<ContractDetailBean> from = criteriaQuery.from(ContractDetailBean.class);
+        EntityType<ContractDetailBean> bean_ = from.getModel(); //实体元数据
         List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-        if (contractDto.getContractNumber() != null && !contractDto.getContractNumber().trim().isEmpty()) {
-            SingularAttribute<ContractBean, String> contractNumber = (SingularAttribute<ContractBean, String>) contractBean_.getSingularAttribute("contractNumber");
-            predicatesList.add(criteriaBuilder.like(from.get(contractNumber), "%" + contractDto.getContractNumber() + "%"));
+        if (dto.getName() != null && !dto.getName().trim().isEmpty()) {
+            SingularAttribute<ContractDetailBean, String> attr = (SingularAttribute<ContractDetailBean, String>) bean_.getSingularAttribute("name");
+            predicatesList.add(criteriaBuilder.like(from.get(attr), "%" + dto.getName() + "%"));
         }
 
         criteriaQuery.where(predicatesList.toArray(new Predicate[predicatesList.size()]));

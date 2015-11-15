@@ -79,17 +79,17 @@ public class ContractBean extends PersistentEntity {
     /**
      * 合同归档日期.
      */
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone ="GMT+8")
     private Date archive_date;
     /**
      * 过期日期.
      */
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone ="GMT+8")
     private Date expireDate;
     /**
      * 签单日期.
      */
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone ="GMT+8")
     private Date contractDate;
     /**
      * 备注.

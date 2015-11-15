@@ -7,11 +7,28 @@
            http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
     <reference id="shiroService" interface="cn.com.rexen.core.api.security.IShiroService"/>
     <reference id="contractBeanDao" interface="cn.com.rexen.roffice.cm.api.dao.IContractBeanDao"/>
+    <reference id="invoiceBeanDao" interface="cn.com.rexen.roffice.cm.api.dao.IInvoiceBeanDao"/>
+    <reference id="contractDetailBeanDao" interface="cn.com.rexen.roffice.cm.api.dao.IContractDetailBeanDao"/>
+
     <bean id="contractBeanServiceImpl" class="cn.com.rexen.roffice.cm.core.ContractBeanServiceImpl">
         <property name="dao" ref="contractBeanDao"/>
         <property name="shiroService" ref="shiroService"/>
     </bean>
     <service id="contractBeanService" ref="contractBeanServiceImpl"
              interface="cn.com.rexen.roffice.cm.api.biz.IContractBeanService"/>
+
+    <bean id="invoiceBeanServiceImpl" class="cn.com.rexen.roffice.cm.core.InvoiceBeanServiceImpl">
+        <property name="dao" ref="invoiceBeanDao"/>
+        <property name="shiroService" ref="shiroService"/>
+    </bean>
+    <service id="invoiceBeanService" ref="invoiceBeanServiceImpl"
+             interface="cn.com.rexen.roffice.cm.api.biz.IInvoiceBeanService"/>
+
+    <bean id="contractDetailBeanServiceImpl" class="cn.com.rexen.roffice.cm.core.ContractDetailBeanServiceImpl">
+        <property name="dao" ref="contractDetailBeanDao"/>
+        <property name="shiroService" ref="shiroService"/>
+    </bean>
+    <service id="contractDetailBeanService" ref="contractDetailBeanServiceImpl"
+             interface="cn.com.rexen.roffice.cm.api.biz.IContractDetailBeanService"/>
 </blueprint>
 

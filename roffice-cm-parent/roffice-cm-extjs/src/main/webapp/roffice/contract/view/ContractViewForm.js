@@ -13,7 +13,7 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
         'kalix.admin.dict.component.DictCombobox'
     ],
     alias: 'widget.contractViewForm',
-    xtype: "newsViewForm",
+    xtype: "contractViewForm",
     viewModel: 'contractViewModel',
     items: [{
         defaults: {readOnly: true},
@@ -127,6 +127,7 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
                 fieldLabel: '签单日期',
                 
                 xtype: 'datefield',
+                editable:false,
                 format: 'Y-m-d',
                 bind: {
                     value: '{rec.contractDate}'

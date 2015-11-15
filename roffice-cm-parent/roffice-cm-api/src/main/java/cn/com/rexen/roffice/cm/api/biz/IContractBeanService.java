@@ -10,5 +10,5 @@ import cn.com.rexen.roffice.cm.entities.ContractBean;
  * @author ：Chenyanxu
  */
 public interface IContractBeanService extends IBizService<ContractBean> {
-    JsonData getAllEntityByCustomQuery(int page, int limit, String contractNumber);
+    JsonData getAllEntityByCustomQuery(int page, int limit, String invoideNo);
 }

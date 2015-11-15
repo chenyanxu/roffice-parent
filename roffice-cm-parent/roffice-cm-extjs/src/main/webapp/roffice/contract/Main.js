@@ -1,9 +1,4 @@
 /**
- * 用户组件
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
  */
 Ext.define('kalix.roffice.contract.Main', {
     extend: 'Ext.container.Container',
@@ -23,5 +18,14 @@ Ext.define('kalix.roffice.contract.Main', {
             title: '合同列表',
             margin: 10
         }
-    ]
+    ],
+    listeners:{
+        render:function(target,eOpts){
+            var store=kalix.getApplication().getStore('contractStore');
+
+            store.on('beforeload', function (store, opts,target) {
+                Ext.apply(store.proxy.extraParams, target.items.getAt(0).getForm().getFieldValues());
+            },this,target);
+        }
+    }
 });

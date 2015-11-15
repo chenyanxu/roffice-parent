@@ -1,12 +1,12 @@
 /**
  * @author chenyanxu
  */
-Ext.define('kalix.roffice.contract.controller.ContractSearchFormController', {
+Ext.define('kalix.roffice.invoice.controller.InvoiceSearchFormController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.contractSearchFormController',
+    alias: 'controller.invoiceSearchFormController',
     onSearch: function (target, event) {
         var form = target.findParentByType('form').getForm();
-        var store = kalix.getApplication().getStore('contractStore');
+        var store = kalix.getApplication().getStore('invoiceStore');
 
         store.currentPage=1;
         //store.on('beforeload', function (store, options) {
