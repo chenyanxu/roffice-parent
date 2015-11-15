@@ -63,4 +63,14 @@ public class NewsBean extends PersistentEntity {
     public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
     }
+
+    @Override
+    public String toString() {
+        return "NewsBean{" +
+                "content='" + content + '\'' +
+                ", title='" + title + '\'' +
+                ", publishPeople='" + publishPeople + '\'' +
+                ", publishDate=" + publishDate +
+                '}';
+    }
 }

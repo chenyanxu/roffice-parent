@@ -16,7 +16,7 @@
         <maven-bundle-plugin.version>2.5.4</maven-bundle-plugin.version>
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
         <kalix.version>1.0.0-SNAPSHOT</kalix.version>
-        <karaf.version>4.0.2</karaf.version>
+        <karaf.version>4.0.3</karaf.version>
         <karaf.path>d:/java-develop/tools/apache-karaf-${karaf.version}/deploy</karaf.path>
         <bundle.symbolicName>define_in_child_module</bundle.symbolicName>
         <bundle.namespace>define_in_child_module</bundle.namespace>

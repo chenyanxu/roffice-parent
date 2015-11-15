@@ -6,6 +6,7 @@ package cn.com.rexen.roffice.core.web.app;
  */
 public class Const {
     public static final String APPLICATION_NAME = "roffice";
+    public static final String APPLICATION_ALIAS = "协同办公";
 
     //通用模块常量
     public static final String COMMONS_MODULE_ID = "commonsModule";
