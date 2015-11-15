@@ -3,15 +3,27 @@
 <!-- default-activation="lazy" -->
 <blueprint xmlns:jpa="http://aries.apache.org/xmlns/jpa/v2.0.0"
            xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
-           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           default-activation="eager" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://aries.apache.org/xmlns/transactions/v1.2.0 ">
     <jpa:enable/>
-    <tx:enable-annotations/>
-
+    <!--<tx:enable-annotations/>-->
     <bean id="contractBeanDaoImpl" class="cn.com.rexen.roffice.cm.jpa.ContractBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
-
     <service id="contractBeanDao" interface="cn.com.rexen.roffice.cm.api.dao.IContractBeanDao"
              ref="contractBeanDaoImpl"/>
+
+    <bean id="invoiceBeanDaoImpl" class="cn.com.rexen.roffice.cm.jpa.InvoiceBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service id="invoiceBeanDao" interface="cn.com.rexen.roffice.cm.api.dao.IInvoiceBeanDao"
+             ref="invoiceBeanDaoImpl"/>
+
+    <bean id="contractDetailBeanDaoImpl" class="cn.com.rexen.roffice.cm.jpa.ContractDetailBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service id="contractDetailBeanDao" interface="cn.com.rexen.roffice.cm.api.dao.IContractDetailBeanDao"
+             ref="contractDetailBeanDaoImpl"/>
 </blueprint>
 

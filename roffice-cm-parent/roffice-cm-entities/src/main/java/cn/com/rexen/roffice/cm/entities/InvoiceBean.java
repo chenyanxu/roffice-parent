@@ -23,7 +23,7 @@ public class InvoiceBean extends PersistentEntity {
     /**
      * 开发票日期.
      */
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone ="GMT+8")
     private Date invoiceDate;
     /**
      * 发票金额.
@@ -38,7 +38,7 @@ public class InvoiceBean extends PersistentEntity {
      */
     private String invoiceNo;
     /**
-     * 合同编号
+     * 合同ID
      */
     private Integer contractId;
 

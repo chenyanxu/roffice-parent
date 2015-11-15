@@ -12,6 +12,10 @@
     <bean id="contractMenuImpl" class="cn.com.rexen.roffice.cm.web.menu.ContractMenuImpl"/>
     <service interface="cn.com.rexen.core.api.web.IMenu" ref="contractMenuImpl"/>
     <!--项目合同发票菜单-->
-    <bean id="billMenuImpl" class="cn.com.rexen.roffice.cm.web.menu.InvoiceMenuImpl"/>
-    <service interface="cn.com.rexen.core.api.web.IMenu" ref="billMenuImpl"/>
+    <bean id="invoiceMenuImpl" class="cn.com.rexen.roffice.cm.web.menu.InvoiceMenuImpl"/>
+    <service interface="cn.com.rexen.core.api.web.IMenu" ref="invoiceMenuImpl"/>
+    <!--项目合同清单菜单-->
+    <bean id="contractDetailMenuImpl" class="cn.com.rexen.roffice.cm.web.menu.ContractDetailMenuImpl"/>
+    <service interface="cn.com.rexen.core.api.web.IMenu" ref="contractDetailMenuImpl"/>
+
 </blueprint>

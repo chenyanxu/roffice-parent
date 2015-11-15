@@ -8,7 +8,7 @@
            http://camel.apache.org/schema/blueprint
            http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
     <reference id="contractBeanService" interface="cn.com.rexen.roffice.cm.api.biz.IContractBeanService"/>
-    <camelContext id="cm-rest-camel" xmlns="http://camel.apache.org/schema/blueprint">
+    <camelContext id="cm-rest-contract" xmlns="http://camel.apache.org/schema/blueprint">
         <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
                            port="8181">
         </restConfiguration>

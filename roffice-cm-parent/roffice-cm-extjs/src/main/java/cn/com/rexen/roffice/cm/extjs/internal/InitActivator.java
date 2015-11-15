@@ -12,6 +12,8 @@ import org.osgi.service.http.HttpService;
  */
 public class InitActivator implements BundleActivator {
     public static final String KALIX_APP_ROFFICE_CONTRACT = "/kalix/app/roffice/contract";
+    public static final String KALIX_APP_ROFFICE_INVOICE = "/kalix/app/roffice/invoice";
+    public static final String KALIX_APP_ROFFICE_CONTRACTDETAIL = "/kalix/app/roffice/contractDetail";
     public static final String KALIX_ROFFICE_CM_RESOURCES_IMAGES = "/kalix/roffice/cm/resources/images";
     private ServiceReference reference;
     private HttpService httpService;
@@ -28,6 +30,8 @@ public class InitActivator implements BundleActivator {
 
         if (httpService != null) {
             httpService.registerResources(KALIX_APP_ROFFICE_CONTRACT, "/roffice/contract", null);
+            httpService.registerResources(KALIX_APP_ROFFICE_INVOICE, "/roffice/invoice", null);
+            httpService.registerResources(KALIX_APP_ROFFICE_CONTRACTDETAIL, "/roffice/contractDetail", null);
             httpService.registerResources(KALIX_ROFFICE_CM_RESOURCES_IMAGES, "/resources/images", null);
         }
     }
@@ -38,6 +42,8 @@ public class InitActivator implements BundleActivator {
 
         if (httpService != null) {
             httpService.unregister(KALIX_APP_ROFFICE_CONTRACT);
+            httpService.unregister(KALIX_APP_ROFFICE_INVOICE);
+            httpService.unregister(KALIX_APP_ROFFICE_CONTRACTDETAIL);
             httpService.unregister(KALIX_ROFFICE_CM_RESOURCES_IMAGES);
         }
 
