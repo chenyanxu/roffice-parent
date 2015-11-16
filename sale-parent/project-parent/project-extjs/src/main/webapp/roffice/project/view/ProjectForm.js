@@ -13,7 +13,8 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         'kalix.roffice.project.controller.ProjectFormController',
         'kalix.admin.user.component.UserComboBox',
         'kalix.roffice.chance.store.ChanceStore',
-        'kalix.admin.dict.component.DictCombobox'
+        'kalix.admin.dict.component.DictCombobox',
+        'kalix.roffice.contract.component.ContractComboBox'
     ],
     alias: 'widget.ProjectForm',
     viewModel: 'projectViewModel',
@@ -109,6 +110,14 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             bind: {
                 //activeError: '{validation.level}',
                 value: '{rec.level}'
+            }
+        }, {
+            fieldLabel: '合同编号',
+            labelAlign: 'right',
+            //allowBlank: false,
+            xtype: 'contractComboBox',
+            bind: {
+                value: '{rec.contractId}'
             }
         }, {
             fieldLabel: '项目描述',

@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
     requires: [
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.purchaseinvoice.viewModel.PurchaseInvoiceViewModel',
-        'kalix.roffice.purchaseinvoice.controller.PurchaseInvoiceFormController'
+        'kalix.roffice.purchaseinvoice.controller.PurchaseInvoiceFormController',
+        'kalix.roffice.contract.component.ContractComboBox'
     ],
     alias: 'widget.PurchaseInvoiceForm',
     viewModel: 'purchaseinvoiceViewModel',
@@ -62,6 +63,8 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
                 fieldLabel: '采购编号',
                 labelAlign: 'right',
                 //allowBlank: false,
+                xtype: 'contractComboBox',
+                forceSelection: false,
                 bind: {
                     //activeError: '{validation.contractId}',
                     value: '{rec.purchaseId}'

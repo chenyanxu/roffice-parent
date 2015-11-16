@@ -53,11 +53,11 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
                 out = '￥' + out + '万元';
                 return out;
             },
-        }, {
+        }, /*{
             text: '合同id',
             dataIndex: 'contractId',
             flex: 1
-        },
+         },*/
         {
             text: '备注',
             dataIndex: 'comment',

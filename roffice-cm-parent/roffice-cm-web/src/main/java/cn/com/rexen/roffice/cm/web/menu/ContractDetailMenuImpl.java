@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.cm.web.menu;
 
 import cn.com.rexen.core.api.web.IMenu;
+import cn.com.rexen.roffice.core.web.app.Const;
 
 /**
  * @author chenyanxu
@@ -13,7 +14,7 @@ public class ContractDetailMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return "cmModule";
+        return Const.CM_MODULE_ID;
     }
 
     @Override
@@ -22,23 +23,13 @@ public class ContractDetailMenuImpl implements IMenu {
     }
 
     @Override
-    public String getIconCls() {
-        return "x-fa fa-credit-card";
-    }
-
-    @Override
     public String getId() {
-        return "contractDetailMenu";
-    }
-
-    @Override
-    public String getText() {
-        return "合同清单";
+        return Const.CONTRACT_DETAIL_MENU_ID;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return Const.CONTRACT_DETAIL_MENU_TEXT;
     }
 
     @Override
@@ -47,19 +38,28 @@ public class ContractDetailMenuImpl implements IMenu {
     }
 
     @Override
-    public String getRouteId() {
-        return "roffice/ContractDetail";
+    public int getIndex() {
+        return Const.CONTRACT_DETAIL_MENU_INDEX;
+    }
+
+
+    @Override
+    public String getIconCls() {
+        return Const.CONTRACT_DETAIL_MENU_ICON_CLASS;
     }
 
     @Override
-    public int getIndex() {
-        return 2;
+    public String getText() {
+        return Const.CONTRACT_DETAIL_MENU_TEXT;
+    }
+
+    @Override
+    public String getRouteId() {
+        return Const.CONTRACT_DETAIL_MENU_ROUTE_ID;
     }
 
     @Override
     public String getPermission() {
-        return null;
+        return Const.CONTRACT_DETAIL_MENU_PERMISSION;
     }
-
-
 }

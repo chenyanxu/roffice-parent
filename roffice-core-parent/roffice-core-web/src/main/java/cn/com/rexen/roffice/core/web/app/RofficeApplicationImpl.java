@@ -53,6 +53,6 @@ public class RofficeApplicationImpl implements IApplication {
 
     @Override
     public String getPermission() {
-        return null;
+        return Const.APPLICATION_NAME;
     }
 }
