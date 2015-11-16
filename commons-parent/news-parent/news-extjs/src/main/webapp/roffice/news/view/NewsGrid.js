@@ -93,7 +93,7 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
                 }
             },
             {
-                text: '新增',
+                text: '添加',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:newsMenu:add',
                 handler: 'onAdd',
@@ -102,7 +102,7 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
                 }
             },
             {
-                text: '修改',
+                text: '编辑',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:newsMenu:update',
                 handler: 'onEdit',

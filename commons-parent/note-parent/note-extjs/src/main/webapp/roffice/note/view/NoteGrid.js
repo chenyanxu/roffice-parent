@@ -118,7 +118,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
                 }
             },
             {
-                text: '新增',
+                text: '添加',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:noteMenu:add',
                 handler: 'onAdd',
@@ -127,7 +127,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
                 }
             },
             {
-                text: '修改',
+                text: '编辑',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:noteMenu:update',
                 handler: 'onEdit',

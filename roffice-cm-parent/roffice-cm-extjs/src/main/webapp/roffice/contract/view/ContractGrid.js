@@ -175,14 +175,14 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
                 handler: 'onView'
             },
             {
-                text: '新增',
+                text: '添加',
                 xtype: 'button',
                 //permission: 'admin:sysModule:permissionControl:userMenu:add',
                 bind: {icon: '{add_image_path}'},
                 handler: 'onAdd'
             },
             {
-                text: '修改',
+                text: '编辑',
                 xtype: 'button',
                 // permission: 'admin:sysModule:permissionControl:userMenu:update',
                 bind: {icon: '{edit_image_path}'},
@@ -200,14 +200,14 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         //需要验证权限后添加的按钮
         //verifyItems: [
         //    {
-        //        text: '新增',
+        //        text: '添加',
         //        xtype: 'button',
         //        permission: 'admin:sysModule:permissionControl:userMenu:add',
         //        icon: 'admin/resources/images/user_add.png',
         //        handler: 'onAdd'
         //    },
         //    {
-        //        text: '修改',
+        //        text: '编辑',
         //        xtype: 'button',
         //        permission: 'admin:sysModule:permissionControl:userMenu:update',
         //        icon: "admin/resources/images/user_edit.png",
