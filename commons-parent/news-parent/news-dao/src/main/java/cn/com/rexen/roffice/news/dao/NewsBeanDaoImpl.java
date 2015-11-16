@@ -15,6 +15,7 @@ import javax.persistence.PersistenceContext;
  * @修改时间：
  * @修改备注：
  */
+//@Transactional
 public class NewsBeanDaoImpl extends GenericDao<NewsBean, Long> implements INewsBeanDao {
     @Override
     @PersistenceContext(unitName = "news-cm")

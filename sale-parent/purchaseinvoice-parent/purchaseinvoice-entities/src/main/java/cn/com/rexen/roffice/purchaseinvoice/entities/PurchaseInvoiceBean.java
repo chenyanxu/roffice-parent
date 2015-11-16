@@ -23,7 +23,7 @@ import java.util.Date;
 @DynamicUpdate
 @Table(name = "roffice_purchaseinvoice")
 public class PurchaseInvoiceBean extends PersistentEntity {
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date invoiceDate;//开发票日期.
     private Float money;//回款金额
     private Float rate; //税率.

@@ -102,7 +102,7 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
                 }
             },
             {
-                text: '新增',
+                text: '添加',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:purchaseinvoiceMenu:add',
                 handler: 'onAdd',
@@ -111,7 +111,7 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
                 }
             },
             {
-                text: '修改',
+                text: '编辑',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:purchaseinvoiceMenu:update',
                 handler: 'onEdit',

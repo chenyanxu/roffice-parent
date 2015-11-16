@@ -105,7 +105,7 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
                 }
             },
             {
-                text: '新增',
+                text: '添加',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:chanceMenu:add',
                 handler: 'onAdd',
@@ -114,7 +114,7 @@ Ext.define('kalix.roffice.chance.view.ChanceGrid', {
                 }
             },
             {
-                text: '修改',
+                text: '编辑',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:chanceMenu:update',
                 handler: 'onEdit',

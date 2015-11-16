@@ -22,7 +22,7 @@ import java.util.Date;
 @DynamicUpdate
 @Table(name = "roffice_pay")
 public class PayBean extends PersistentEntity {
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date receiveDate;//回款日期
     private Float money;//回款金额
     private long purchaseId;//采购设备.
