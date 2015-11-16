@@ -9,6 +9,7 @@ import cn.com.rexen.roffice.news.api.dao.INewsBeanDao;
 import cn.com.rexen.roffice.news.entities.NewsBean;
 import org.apache.commons.lang.StringUtils;
 
+import javax.transaction.TransactionScoped;
 import java.util.Date;
 
 /**
@@ -24,15 +25,18 @@ public class NewsBeanServiceImpl extends AuditBizServiceImpl<INewsBeanDao, NewsB
 //    private IShiroService shiroService;
 
     @Override
-    public void afterSaveEntity(NewsBean entity, JsonStatus status) {
+    @TransactionScoped
+    public void beforeSaveEntity(NewsBean entity, JsonStatus status) {
         //新增时候，记录操作人和时间
 //        if (entity.getId() == -1) {
-            String userName = shiroService.getCurrentUserName();
-            Assert.notNull(userName, "用户名不能为空.");
-            if (StringUtils.isNotEmpty(userName)) {
-                entity.setPublishPeople(userName);
-                entity.setPublishDate(new Date());
-            }
+        String userName = shiroService.getCurrentUserName();
+        Assert.notNull(userName, "用户名不能为空.");
+        if (StringUtils.isNotEmpty(userName)) {
+            entity.setPublishPeople(userName);
+            entity.setPublishDate(new Date());
+        }
+        super.beforeSaveEntity(entity, status);
+//        throw new RuntimeException("test");
 //        }
     }
 
