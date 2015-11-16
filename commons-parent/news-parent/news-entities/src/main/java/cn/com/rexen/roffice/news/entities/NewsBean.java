@@ -29,7 +29,7 @@ public class NewsBean extends PersistentEntity {
     private String content; //内容
     private String publishPeople;//发布人
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date publishDate;//发布时间
 
     public String getTitle() {

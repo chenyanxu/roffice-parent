@@ -19,7 +19,7 @@ import java.util.Date;
 @Table(name = "roffice_receive")
 public class ReceiveBean extends PersistentEntity {
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date receiveDate;//回款日期
     private Float money;//回款金额
     private long contractId;//合同id

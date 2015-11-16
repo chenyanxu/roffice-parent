@@ -20,47 +20,12 @@ Ext.define('kalix.roffice.contract.component.ContractComboBox', {
     queryParam: 'contractNumber',
     minChars: 0,
     forceSelection: true,
-    selectOnFocus: true,
-    typeAhead: true,
     store: {
-        type: 'contractStore'
-    },
-
-});
-Ext.override(Ext.form.field.ComboBox, {
-    onLoad: function () {
-        var me = this,
-            value = me.value;
-
-        if (me.ignoreSelection > 0) {
-            --me.ignoreSelection;
-        }
-
-        if (me.rawQuery) {
-            me.rawQuery = false;
-            me.syncSelection();
-            if (me.picker && !me.picker.getSelectionModel().hasSelection()) {
-                me.doAutoSelect();
-            }
-        }
-
-        else {
-
-            if (me.value || me.value === 0) {
-                if (me.pageSize === 0) { // added for paging; do not execute on page change
-                    me.setValue(me.value);
-                }
-            } else {
-
-
-                if (me.store.getCount()) {
-                    me.doAutoSelect();
-                } else {
-
-                    me.setValue(me.value);
-                }
+        type: 'contractStore',
+        listeners: {
+            beforeload: function (store, operation, eOpts) {
+                alert(1);
             }
         }
     }
-});
-
+})

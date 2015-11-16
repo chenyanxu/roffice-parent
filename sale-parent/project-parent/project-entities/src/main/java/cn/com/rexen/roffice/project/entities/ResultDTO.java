@@ -17,9 +17,9 @@ public class ResultDTO extends BaseDTO {
     private String name;//项目名称
     private String level; //    优先级
     private String budget;    //预算额度
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date setupDate;//    立项时间
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date deployDate;//    交付时间
     private String deployPerson; //    交付负责人
     private String client; //    客户负责人

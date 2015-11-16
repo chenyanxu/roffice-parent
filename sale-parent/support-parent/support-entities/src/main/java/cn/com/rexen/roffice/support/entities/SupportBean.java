@@ -25,9 +25,9 @@ public class SupportBean extends PersistentEntity {
     private String industry;    //所属行业（数据字典）
     private String level;    //优先级
     private String budget;    //预算额度
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date billDate;    //预计交付时间
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date startDate;    //预计开始时间
     private String supporter;    //售前支持负责人
     private String supportPerson;    //售前支持人员
@@ -35,7 +35,7 @@ public class SupportBean extends PersistentEntity {
     private String comment;    //备注
     private long chanceId; //项目机会id
 
-    //    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone ="GMT+8")
     public Date getBillDate() {
         return billDate;
     }
@@ -105,7 +105,7 @@ public class SupportBean extends PersistentEntity {
         this.saler = saler;
     }
 
-    //    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    //    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone ="GMT+8")
     public Date getStartDate() {
         return startDate;
     }
