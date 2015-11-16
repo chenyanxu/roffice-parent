@@ -88,7 +88,7 @@ Ext.define('kalix.roffice.travel.view.TravelGrid', {
                 }
             },
             {
-                text: '新增',
+                text: '添加',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:travelMenu:add',
                 handler: 'onAdd',
@@ -97,7 +97,7 @@ Ext.define('kalix.roffice.travel.view.TravelGrid', {
                 }
             },
             {
-                text: '修改',
+                text: '编辑',
                 xtype: 'button',
                 permission: 'admin:sysModule:permissionControl:travelMenu:update',
                 handler: 'onEdit',
