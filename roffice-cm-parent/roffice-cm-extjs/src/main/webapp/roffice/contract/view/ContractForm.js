@@ -23,6 +23,12 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
     items: [{
         items: [
             {
+                fieldLabel: '合同编号',
+                bind: {
+                    value: '{rec.contractNumber}'
+                }
+            },
+            {
                 fieldLabel: '项目名称',
                 bind: {
                     value: '{rec.projectName}'
