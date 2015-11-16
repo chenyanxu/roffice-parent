@@ -17,7 +17,7 @@ public class Const {
     public static final String CM_MODULE_ICON_CLASS = "right-icon x-fa fa-folder";
     public static final String CM_MODULE_PERMISSION = APPLICATION_NAME + ":" + CM_MODULE_ID;
 
-    //项目合同模块常量
+    //项目合同菜单常量
     public static final String CONTRACT_MENU_ID = "contractMenu";
     public static final String CONTRACT_MENU_TEXT = "项目合同";
     public static final String CONTRACT_MENU_ROUTE_ID = "roffice/Contract";
@@ -25,7 +25,7 @@ public class Const {
     public static final String CONTRACT_MENU_ICON_CLASS = "x-fa fa-file-text";
     public static final String CONTRACT_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + CONTRACT_MENU_ID;
 
-    //合同清单模块常量
+    //合同清单菜单常量
     public static final String CONTRACT_DETAIL_MENU_ID = "contractDetailMenu";
     public static final String CONTRACT_DETAIL_MENU_TEXT = "合同清单";
     public static final String CONTRACT_DETAIL_MENU_ROUTE_ID = "roffice/ContractDetail";
@@ -33,7 +33,7 @@ public class Const {
     public static final String CONTRACT_DETAIL_MENU_ICON_CLASS = "x-fa fa-credit-card";
     public static final String CONTRACT_DETAIL_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + CONTRACT_DETAIL_MENU_ID;
 
-    //合同发票模块常量
+    //合同发票菜单常量
     public static final String INVOICE_MENU_ID = "contractMenu";
     public static final String INVOICE_MENU_TEXT = "合同发票";
     public static final String INVOICE_MENU_ROUTE_ID = "roffice/Contract";
@@ -50,7 +50,7 @@ public class Const {
     public static final String COMMONS_MODULE_ICON_CLASS = "right-icon x-fa fa-tag";
     public static final String COMMONS_MODULE_PERMISSION = APPLICATION_NAME + ":" + COMMONS_MODULE_ID;
 
-    //公司新闻模块常量
+    //公司新闻菜单常量
     public static final String NEWS_MENU_ID = "newsMenu";
     public static final String NEWS_MENU_TEXT = "公司新闻";
     public static final String NEWS_MENU_ROUTE_ID = "roffice/News";
@@ -58,7 +58,7 @@ public class Const {
     public static final String NEWS_MENU_ICON_CLASS = "x-fa fa-newspaper-o";
     public static final String NEWS_MENU_PERMISSION = COMMONS_MODULE_PERMISSION + ":" + NEWS_MENU_ID;
 
-    //公司公告模块常量
+    //公司公告菜单常量
     public static final String NOTE_MENU_ID = "noteMenu";
     public static final String NOTE_MENU_TEXT = "公司公告";
     public static final String NOTE_MENU_ROUTE_ID = "roffice/Note";

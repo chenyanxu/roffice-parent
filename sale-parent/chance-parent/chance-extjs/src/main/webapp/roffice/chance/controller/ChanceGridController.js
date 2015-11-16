@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.chance.controller.ChanceGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.chance.view.ChanceForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.chance.model.ChanceModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增项目机会');
+        viewModel.set('title', '添加项目机会');
         view.show();
     },
     /**

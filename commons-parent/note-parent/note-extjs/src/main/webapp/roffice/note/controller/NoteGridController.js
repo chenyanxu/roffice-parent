@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.note.controller.NoteGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.note.view.NoteForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.note.model.NoteModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增公司公告');
+        viewModel.set('title', '添加公司公告');
         view.show();
     },
     /**

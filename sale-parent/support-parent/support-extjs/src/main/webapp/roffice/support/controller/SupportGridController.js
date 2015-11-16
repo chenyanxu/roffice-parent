@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.support.controller.SupportGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.support.view.SupportForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.support.model.SupportModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增项目支持');
+        viewModel.set('title', '添加项目支持');
         view.show();
     },
     /**

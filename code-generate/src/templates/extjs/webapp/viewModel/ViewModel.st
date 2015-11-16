@@ -13,7 +13,7 @@ Ext.define('Kalix.<pomName>.viewModel.<beanName>ViewModel', {
     ],
     alias: 'viewmodel.<pomName>ViewModel',
     data: {
-        addTitle: '新增公告',
+        addTitle: '添加公告',
         editTitle: '编辑公告',
         url: '/kalix/camel/rest/<pomName>s',
     },

@@ -25,7 +25,7 @@ Ext.define('kalix.roffice.invoice.controller.InvoiceGridController', {
         }
     },
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var grid = this.getView();
@@ -37,7 +37,7 @@ Ext.define('kalix.roffice.invoice.controller.InvoiceGridController', {
         viewModel.set('sel', false);
         vm.set('rec', Ext.create('kalix.roffice.invoice.model.InvoiceModel'));
         vm.set('icon', viewModel.get('add_image_path'));
-        vm.set('title', '新增发票');
+        vm.set('title', '添加发票');
         view.show();
     },
     /**
