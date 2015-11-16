@@ -21,6 +21,11 @@ Ext.define('kalix.roffice.contract.component.ContractComboBox', {
     minChars: 0,
     forceSelection: true,
     store: {
-        type: 'contractStore'
+        type: 'contractStore',
+        listeners: {
+            beforeload: function (store, operation, eOpts) {
+                alert(1);
+            }
+        }
     }
 })

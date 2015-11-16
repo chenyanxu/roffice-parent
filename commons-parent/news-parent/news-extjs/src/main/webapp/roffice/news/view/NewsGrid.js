@@ -59,7 +59,7 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
             text: '发布时间',
             dataIndex: 'publishDate',
             xtype: 'datecolumn',      // the column type
-            format: 'Y-m-d h:i:s',
+            format: 'Y-m-d H:i:s',
             flex: 1
         },
     ],

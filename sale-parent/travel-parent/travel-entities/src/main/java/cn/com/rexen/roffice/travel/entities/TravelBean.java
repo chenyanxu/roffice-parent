@@ -22,9 +22,9 @@ public class TravelBean extends PersistentEntity {
     private String name;//任务名称
     private String person;//出差人员
     private String target;//任务目标
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date startDate;//出发时间
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date endDate;//回程时间
     private String resultPerson;//结果评定人
     private String result;//完成情况

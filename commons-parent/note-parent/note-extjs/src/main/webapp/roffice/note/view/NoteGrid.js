@@ -82,7 +82,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             dataIndex: 'publishDate',
             flex: 1,
             xtype: 'datecolumn',
-            formatter: 'date("Y-m-d h:i:s")'
+            formatter: 'date("Y-m-d H:i:s")'
         },
     ],
     plugins: [
