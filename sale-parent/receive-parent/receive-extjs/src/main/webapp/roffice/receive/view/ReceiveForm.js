@@ -1,5 +1,5 @@
 /**
- * 项目回款新增和修改表单
+ * 项目回款添加和修改表单
  *
  * @author
  * @version 1.0.0
@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.receive.view.ReceiveForm', {
     requires: [
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.receive.viewModel.ReceiveViewModel',
-        'kalix.roffice.receive.controller.ReceiveFormController'
+        'kalix.roffice.receive.controller.ReceiveFormController',
+        'kalix.roffice.contract.component.ContractComboBox'
     ],
     alias: 'widget.ReceiveForm',
     viewModel: 'receiveViewModel',
@@ -50,9 +51,10 @@ Ext.define('kalix.roffice.receive.view.ReceiveForm', {
                 }
             },
             {
-                fieldLabel: '合同ID',
+                fieldLabel: '合同编号',
                 labelAlign: 'right',
                 //allowBlank: false,
+                xtype: 'contractComboBox',
                 bind: {
                     //activeError: '{validation.contractId}',
                     value: '{rec.contractId}'

@@ -25,7 +25,7 @@ Ext.define('kalix.roffice.contractDetail.controller.ContractDetailGridController
         }
     },
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var grid = this.getView();
@@ -37,7 +37,7 @@ Ext.define('kalix.roffice.contractDetail.controller.ContractDetailGridController
         viewModel.set('sel', false);
         vm.set('rec', Ext.create('kalix.roffice.contractDetail.model.ContractDetailModel'));
         vm.set('icon', viewModel.get('add_image_path'));
-        vm.set('title', '新增清单');
+        vm.set('title', '添加清单');
         view.show();
     },
     /**

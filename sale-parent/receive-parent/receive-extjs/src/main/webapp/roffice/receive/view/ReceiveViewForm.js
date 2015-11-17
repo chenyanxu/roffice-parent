@@ -9,7 +9,8 @@ Ext.define('kalix.roffice.receive.view.ReceiveViewForm', {
     extend: 'Ext.window.Window',
     requires: [
         'kalix.roffice.receive.viewModel.ReceiveViewModel',
-        'kalix.roffice.receive.controller.ReceiveFormController'
+        'kalix.roffice.receive.controller.ReceiveFormController',
+        'kalix.roffice.contract.component.ContractComboBox'
     ],
     alias: 'widget.receiveViewForm',
     viewModel: 'receiveViewModel',
@@ -50,8 +51,10 @@ Ext.define('kalix.roffice.receive.view.ReceiveViewForm', {
                 }
             },
             {
-                fieldLabel: '合同Id',
+                fieldLabel: '合同编号',
                 labelAlign: 'right',
+                //allowBlank: false,
+                xtype: 'contractComboBox',
                 bind: {
                     value: '{rec.contractId}'
                 }

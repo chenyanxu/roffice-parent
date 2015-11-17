@@ -9,7 +9,8 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
     extend: 'Ext.window.Window',
     requires: [
         'kalix.roffice.pay.viewModel.PayViewModel',
-        'kalix.roffice.pay.controller.PayFormController'
+        'kalix.roffice.pay.controller.PayFormController',
+        'kalix.roffice.contract.component.ContractComboBox'
     ],
     alias: 'widget.payViewForm',
     viewModel: 'payViewModel',
@@ -54,7 +55,8 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
             {
                 fieldLabel: '采购编号',
                 labelAlign: 'right',
-                allowBlank: false,
+                //allowBlank: false,
+                xtype: 'contractComboBox',
                 bind: {
                     //activeError: '{validation.contractId}',
                     value: '{rec.purchaseId}'

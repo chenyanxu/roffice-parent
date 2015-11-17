@@ -32,7 +32,7 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var grid = this.getView();
@@ -44,7 +44,7 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
         viewModel.set('sel', false);
         vm.set('rec', Ext.create('kalix.roffice.news.model.NewsModel'));
         vm.set('icon', viewModel.get('add_image_path'));
-        vm.set('title', '新增公司新闻');
+        vm.set('title', '添加公司新闻');
         view.show();
     },
     /**

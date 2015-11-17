@@ -23,33 +23,38 @@ public class CmModuleImpl implements IModule {
     }
 
     @Override
-    public String getIconCls() {
-        return "x-fa fa-folder";
-    }
-
-    @Override
     public String getId() {
-        return "cmModule";
+        return Const.CM_MODULE_ID;
     }
 
     @Override
     public String getText() {
-        return "合同管理";
+        return Const.CM_MODULE_TEXT;
     }
 
     @Override
     public String getDescription() {
-        return "";
+        return Const.CM_MODULE_TEXT;
     }
 
     @Override
     public String getIcon() {
-        return null;
+        return "resources/images/computer.png";
     }
 
     @Override
     public String getRouteId() {
-        return null;
+        return Const.CM_MODULE_ROUTE_ID;
+    }
+
+    @Override
+    public int getIndex() {
+        return Const.CM_MODULE_INDEX;
+    }
+
+    @Override
+    public String getIconCls() {
+        return Const.CM_MODULE_ICON_CLASS;
     }
 
     @Override
@@ -63,12 +68,7 @@ public class CmModuleImpl implements IModule {
     }
 
     @Override
-    public int getIndex() {
-        return 0;
-    }
-
-    @Override
     public String getPermission() {
-        return null;
+        return Const.CM_MODULE_PERMISSION;
     }
 }

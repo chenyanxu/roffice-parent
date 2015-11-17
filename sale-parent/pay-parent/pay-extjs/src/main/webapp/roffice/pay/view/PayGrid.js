@@ -53,11 +53,11 @@ Ext.define('kalix.roffice.pay.view.PayGrid', {
                 out = '￥' + out + '万元';
                 return out;
             },
-        }, {
+        }, /*{
             text: '采购编号',
             dataIndex: 'purchaseId',
             flex: 1
-        },
+         },*/
         {
             text: '备注',
             dataIndex: 'comment',

@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.travel.controller.TravelGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.travel.view.TravelForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.travel.model.TravelModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增出差记录');
+        viewModel.set('title', '添加出差记录');
         view.show();
     },
     /**

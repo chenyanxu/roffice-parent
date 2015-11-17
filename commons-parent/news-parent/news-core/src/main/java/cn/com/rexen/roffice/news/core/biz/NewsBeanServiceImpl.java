@@ -27,7 +27,7 @@ public class NewsBeanServiceImpl extends AuditBizServiceImpl<INewsBeanDao, NewsB
     @Override
     @TransactionScoped
     public void beforeSaveEntity(NewsBean entity, JsonStatus status) {
-        //新增时候，记录操作人和时间
+        //添加时候，记录操作人和时间
 //        if (entity.getId() == -1) {
         String userName = shiroService.getCurrentUserName();
         Assert.notNull(userName, "用户名不能为空.");

@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.project.controller.ProjectGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.project.view.ProjectForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.project.model.ProjectModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增项目管理');
+        viewModel.set('title', '添加项目管理');
         view.show();
     },
     /**

@@ -1,5 +1,5 @@
 /**
- * 采购付款新增和修改表单
+ * 采购付款添加和修改表单
  *
  * @author
  * @version 1.0.0
@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.pay.view.PayForm', {
     requires: [
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.pay.viewModel.PayViewModel',
-        'kalix.roffice.pay.controller.PayFormController'
+        'kalix.roffice.pay.controller.PayFormController',
+        'kalix.roffice.contract.component.ContractComboBox'
     ],
     alias: 'widget.PayForm',
     viewModel: 'payViewModel',
@@ -52,7 +53,8 @@ Ext.define('kalix.roffice.pay.view.PayForm', {
             {
                 fieldLabel: '采购编号',
                 labelAlign: 'right',
-                //allowBlank: false,
+                allowBlank: false,
+                xtype: 'contractComboBox',
                 bind: {
                     //activeError: '{validation.contractId}',
                     value: '{rec.purchaseId}'

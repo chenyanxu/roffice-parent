@@ -21,7 +21,7 @@ Ext.define('kalix.roffice.contract.controller.ContractGridController', {
         grid.setSelection(selModel);
     },
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var grid = this.getView();
@@ -33,7 +33,7 @@ Ext.define('kalix.roffice.contract.controller.ContractGridController', {
         viewModel.set('sel', false);
         vm.set('rec', Ext.create('kalix.roffice.contract.model.ContractModel'));
         vm.set('icon', viewModel.get('add_image_path'));
-        vm.set('title', '新增合同');
+        vm.set('title', '添加合同');
         view.show();
     },
     /**
