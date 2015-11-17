@@ -8,7 +8,8 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         'kalix.view.components.common.PagingToolBar',
         'kalix.roffice.contract.controller.ContractGridController',
         'kalix.roffice.contract.store.ContractStore',
-        'kalix.admin.dict.component.DictGridColumn'
+        'kalix.admin.dict.component.DictGridColumn',
+        'kalix.view.components.common.SecurityActionColumn'
     ],
     alias: 'widget.contractGrid',
     xtype: 'contractGrid',
@@ -101,35 +102,6 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             dictType: 'contractStatus',
             dataIndex: 'contractStatus',
             flex: 1
-
-            //listeners:{
-            //    beforerender:function(){
-            //        var store=kalix.getApplication().getStore('dictNoPageStore');
-            //
-            //        store.filter('type',this.dictType);
-            //
-            //        var data=store.getData().clone().items;
-            //
-            //        if(data.length>0){
-            //            var tplStr='';
-            //
-            //            for(var idx=0;idx<data.length;++idx){
-            //                var tempValue=data[idx].data.value;
-            //                var tempLabel=data[idx].data.label;
-            //
-            //                tplStr+='<tpl if="'+this.dictType+'=='+tempValue+'">'+tempLabel+'</tpl>'
-            //            }
-            //
-            //            var tpl = new Ext.XTemplate(tplStr);
-            //            this.tpl=tpl;
-            //        }
-            //        else{
-            //            this.tpl="<tpl>{"+this.dictType+"}</tpl>"
-            //        }
-            //
-            //        return true;
-            //    }
-            //}
         },
         {
             text: '签单日期',
@@ -161,65 +133,44 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             flex: 1,
             format: 'Y-m-d'
         }
+        ,
+        {
+            xtype: 'securityActionColumn',
+            permissions: [
+                'roffice:cmModule:contractMenu:read',
+                'roffice:cmModule:contractMenu:update1',
+                'roffice:cmModule:contractMenu:delete'
+            ]
+        },
+        {
+            xtype: 'securityActionColumn',
+            items: [
+                {
+                    icon: "resources/images/add.png",
+                    permission: 'roffice:cmModule:contractMenu:add1',
+                    tooltip: '增加',
+                    handler: 'onAdd'
+                },
+                {
+                    icon: "resources/images/edit.png",
+                    permission: 'roffice:cmModule:contractMenu:update',
+                    tooltip: '编辑',
+                    handler: 'onEdit'
+                }
+            ]
+        }
     ],
     tbar: {
         xtype: 'securityToolbar',
-
-        //无需授权的按钮
-        items: [
-            {
-                text: '查看',
-                xtype: 'button',
-                //permission: 'admin:sysModule:permissionControl:userMenu:view',
-                bind: {icon: '{view_image_path}'},
-                handler: 'onView'
-            },
+        verifyItems: [
             {
                 text: '添加',
                 xtype: 'button',
-                //permission: 'admin:sysModule:permissionControl:userMenu:add',
+                permission: 'roffice:cmModule:contractMenu:add',
                 bind: {icon: '{add_image_path}'},
                 handler: 'onAdd'
-            },
-            {
-                text: '编辑',
-                xtype: 'button',
-                // permission: 'admin:sysModule:permissionControl:userMenu:update',
-                bind: {icon: '{edit_image_path}'},
-                handler: 'onEdit'
-            }, {
-                text: '删除',
-                xtype: 'button',
-                // permission: 'admin:sysModule:permissionControl:userMenu:delete',
-                bind: {icon: '{delete_image_path}'},
-                handler: 'onDelete'
             }
         ]
-        //,
-
-        //需要验证权限后添加的按钮
-        //verifyItems: [
-        //    {
-        //        text: '添加',
-        //        xtype: 'button',
-        //        permission: 'admin:sysModule:permissionControl:userMenu:add',
-        //        icon: 'admin/resources/images/user_add.png',
-        //        handler: 'onAdd'
-        //    },
-        //    {
-        //        text: '编辑',
-        //        xtype: 'button',
-        //        permission: 'admin:sysModule:permissionControl:userMenu:update',
-        //        icon: "admin/resources/images/user_edit.png",
-        //        handler: 'onEdit'
-        //    }, {
-        //        text: '删除',
-        //        xtype: 'button',
-        //        permission: 'admin:sysModule:permissionControl:userMenu:delete',
-        //        icon: "admin/resources/images/user_delete.png",
-        //        handler: 'onDelete'
-        //    }
-        //]
     },
 
     /*
