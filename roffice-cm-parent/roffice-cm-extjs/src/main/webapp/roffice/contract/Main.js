@@ -24,7 +24,7 @@ Ext.define('kalix.roffice.contract.Main', {
             var store=kalix.getApplication().getStore('contractStore');
 
             store.on('beforeload', function (store, opts,target) {
-                Ext.apply(store.proxy.extraParams, target.items.getAt(0).getForm().getFieldValues());
+                store.proxy.extraParams = target.items.getAt(0).getForm().getFieldValues();
             },this,target);
         }
     }

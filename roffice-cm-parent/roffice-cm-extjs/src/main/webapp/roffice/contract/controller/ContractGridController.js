@@ -29,8 +29,6 @@ Ext.define('kalix.roffice.contract.controller.ContractGridController', {
         var view = Ext.create('kalix.roffice.contract.view.ContractForm');
         var vm = view.lookupViewModel();
 
-        grid.setSelection(null);
-        viewModel.set('sel', false);
         vm.set('rec', Ext.create('kalix.roffice.contract.model.ContractModel'));
         vm.set('icon', viewModel.get('add_image_path'));
         vm.set('title', '添加合同');

@@ -11,7 +11,6 @@ Ext.define('kalix.roffice.contract.viewModel.ContractViewModel', {
         title: '',
         add_image_path: '/kalix/roffice/cm/resources/images/contract_add.png',
         view_image_path: '/kalix/roffice/cm/resources/images/contract_view.png',
-        delete_image_path: '/kalix/roffice/cm/resources/images/contract_delete.png',
         edit_image_path: '/kalix/roffice/cm/resources/images/contract_edit.png'
     }
 });
