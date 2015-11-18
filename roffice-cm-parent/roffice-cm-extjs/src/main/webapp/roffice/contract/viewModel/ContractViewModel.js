@@ -5,9 +5,7 @@ Ext.define('kalix.roffice.contract.viewModel.ContractViewModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.contractViewModel',
     data: {
-        url: '/kalix/camel/rest/contracts',
         rec: null,
-        sel: false,
         validation: {},  //验证错误信息
         icon: '',
         title: '',

@@ -27,7 +27,7 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
     },
     fields: [
         {name: 'id'},
-        {name: 'contractNumber'},
+        //{name: 'contractNumber'},
         {name: 'projectId'},
         {name: 'projectName'},
         {name: 'partyA'},
