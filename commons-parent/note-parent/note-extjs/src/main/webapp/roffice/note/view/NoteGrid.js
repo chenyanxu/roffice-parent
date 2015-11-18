@@ -11,7 +11,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
         'kalix.roffice.note.controller.NoteGridController',
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
-        'kalix.view.components.common.SecurityActionColumn'
+        'kalix.view.components.common.SecurityGridColumnRUD'
     ],
     alias: 'widget.noteGrid',
     xtype: 'noteGridPanel',
@@ -86,7 +86,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             formatter: 'date("Y-m-d H:i:s")'
         },
         {
-            xtype: 'securityActionColumn',
+            xtype: 'securityGridColumnRUD',
             permissions: [
                 'roffice:commonsModule:noteMenu:view',
                 'roffice:commonsModule:noteMenu:edit',

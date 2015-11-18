@@ -11,7 +11,7 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
         'kalix.roffice.news.store.NewsStore',
-        'kalix.view.components.common.SecurityActionColumn'
+        'kalix.view.components.common.SecurityGridColumnRUD'
     ],
     alias: 'widget.newsGrid',
     xtype: 'newsGridPanel',
@@ -64,7 +64,7 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
             formatter: 'date("Y-m-d H:i:s")'
         },
         {
-            xtype: 'securityActionColumn',
+            xtype: 'securityGridColumnRUD',
             permissions: [
                 'roffice:commonsModule:newsMenu:view',
                 'roffice:commonsModule:newsMenu:edit',
