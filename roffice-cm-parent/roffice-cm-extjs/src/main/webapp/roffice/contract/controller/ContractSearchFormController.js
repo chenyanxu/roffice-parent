@@ -9,9 +9,6 @@ Ext.define('kalix.roffice.contract.controller.ContractSearchFormController', {
         var store = kalix.getApplication().getStore('contractStore');
 
         store.currentPage=1;
-        //store.on('beforeload', function (store, options) {
-        //    Ext.apply(store.proxy.extraParams, form.getFieldValues());
-        //});
         store.load();
     }
 });

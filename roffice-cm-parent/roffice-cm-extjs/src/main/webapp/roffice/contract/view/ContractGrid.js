@@ -9,7 +9,8 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         'kalix.roffice.contract.controller.ContractGridController',
         'kalix.roffice.contract.store.ContractStore',
         'kalix.admin.dict.component.DictGridColumn',
-        'kalix.view.components.common.SecurityActionColumn'
+        'kalix.view.components.common.SecurityGridColumnCommon',
+        'kalix.view.components.common.SecurityGridColumnRUD'
     ],
     alias: 'widget.contractGrid',
     xtype: 'contractGrid',
@@ -21,14 +22,6 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
     stripeRows: true,
     store: {
         type: 'contractStore'
-    },
-    listeners: {
-        select: function (target, record, index, eOpts) {
-            var vm = this.lookupViewModel();
-
-            vm.set('rec', record);
-            vm.set('sel', true);
-        }
     },
     columns: [
         {
@@ -43,11 +36,11 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             hidden: true,
             flex: 1
         },
-        {
-            text: '合同编号',
-            dataIndex: 'contractNumber',
-            flex: 1
-        },
+        //{
+        //    text: '合同编号',
+        //    dataIndex: 'contractNumber',
+        //    flex: 1
+        //},
         {
             text: '项目名称',
             dataIndex: 'projectName',
@@ -135,28 +128,11 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         }
         ,
         {
-            xtype: 'securityActionColumn',
+            xtype: 'securityGridColumnRUD',
             permissions: [
-                'roffice:cmModule:contractMenu:read',
-                'roffice:cmModule:contractMenu:update1',
+                'roffice:cmModule:contractMenu:view',
+                'roffice:cmModule:contractMenu:update',
                 'roffice:cmModule:contractMenu:delete'
-            ]
-        },
-        {
-            xtype: 'securityActionColumn',
-            items: [
-                {
-                    icon: "resources/images/add.png",
-                    permission: 'roffice:cmModule:contractMenu:add1',
-                    tooltip: '增加',
-                    handler: 'onAdd'
-                },
-                {
-                    icon: "resources/images/edit.png",
-                    permission: 'roffice:cmModule:contractMenu:update',
-                    tooltip: '编辑',
-                    handler: 'onEdit'
-                }
             ]
         }
     ],
