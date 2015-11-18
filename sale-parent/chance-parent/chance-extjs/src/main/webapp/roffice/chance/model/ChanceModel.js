@@ -8,8 +8,14 @@
 
 Ext.define('kalix.roffice.chance.model.ChanceModel', {
     extend: 'Ext.data.Model',
+    constructor: function () {
+        this.callParent(arguments);
 
-    idProperty: '_id',
+        if (arguments.length == 0) {
+            this.set('id', 0);
+        }
+    },
+    //idProperty: '_id',
 
     fields: [{
         name: 'id',

@@ -145,7 +145,7 @@ public class Const {
     //设备发票菜单常量
     public static final String PURCHASE_INVOICE_MENU_ID = "purchaseInvoiceMenu";
     public static final String PURCHASE_INVOICE_MENU_TEXT = "设备发票";
-    public static final String PURCHASE_INVOICE_MENU_ROUTE_ID = "roffice/PurchaseInvoice";
+    public static final String PURCHASE_INVOICE_MENU_ROUTE_ID = "roffice/purchaseinvoice";
     public static final String PURCHASE_INVOICE_MENU_ICON_CLASS = "x-fa fa-copy";
     public static final String PURCHASE_INVOICE_MENU_PERMISSION = DEPLOY_MODULE_PERMISSION + ":" + PURCHASE_INVOICE_MENU_ID;
     public static final int PURCHASE_INVOICE_MENU_INDEX = 30;
