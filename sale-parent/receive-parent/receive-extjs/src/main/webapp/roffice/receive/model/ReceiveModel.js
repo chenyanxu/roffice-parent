@@ -7,9 +7,7 @@
 
 
 Ext.define('kalix.roffice.receive.model.ReceiveModel', {
-    extend: 'Ext.data.Model',
-
-    idProperty: '_id',
+    extend: 'kalix.model.BaseModel',
 
     fields: [{
         name: 'id',
@@ -32,17 +30,7 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
     }, {
         name: 'endDate',
         type: 'date'
-    }, {
-        name: 'updateBy',
-        type: 'string'
-    }, {
-        name: 'updateDate',
-        type: 'int'
-    }, {
-        name: 'version',
-        type: 'int'
-    }
-    ],
+    }],
     validators: {
         comment: [{
             type: 'presence',
