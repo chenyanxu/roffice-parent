@@ -24,7 +24,7 @@
             </post>
 
             <!-- this is a rest PUT to update a chance -->
-            <put id="route-updateChance" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
+            <put id="route-updateChance" uri="/{id}" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a Chance</description>
                 <to uri="bean:chanceService?method=updateEntity"/>

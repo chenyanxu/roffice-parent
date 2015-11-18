@@ -16,19 +16,14 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
     /**
      * 查看操作.
      */
-    onView: function (target, event) {
-        var viewModel = this.getViewModel();
-
-        if (viewModel.get('sel')) {
-            var view = Ext.create('kalix.roffice.news.view.NewsViewForm');
-
-            view.lookupViewModel().set('rec', viewModel.get('rec'));
-            view.lookupViewModel().set('view_image_path', viewModel.get('view_image_path'))
-            view.show();
-        }
-        else {
-            Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要查看的记录！");
-        }
+    onView: function (grid, rowIndex, colIndex) {
+        var selModel = grid.getStore().getData().items[rowIndex];
+        var view = Ext.create('kalix.roffice.news.view.NewsViewForm');
+        var viewModel = view.lookupViewModel();
+        viewModel.set('rec', selModel);
+        viewModel.set('view_image_path', viewModel.get('view_image_path'))
+        view.show();
+        grid.setSelection(selModel);
     },
 
     /**
@@ -46,6 +41,8 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
         vm.set('icon', viewModel.get('add_image_path'));
         vm.set('title', '添加公司新闻');
         view.show();
+        grid.setSelection(selModel);
+
     },
     /**
      * 打开编辑操作.
@@ -53,24 +50,16 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
      * @param rowIndex
      * @param colIndex
      */
-    onEdit: function (target, event) {
-        var grid = this.getView();
+    onEdit: function (grid, rowIndex, colIndex) {
+        var selModel = grid.getStore().getData().items[rowIndex];
         var viewModel = this.getViewModel();
-
-        if (viewModel.get('sel')) {
-            var view = Ext.create('kalix.roffice.news.view.NewsForm');
-            var vm = view.lookupViewModel();
-
-            grid.setSelection(null);
-            viewModel.set('sel', false);
-            vm.set('rec', viewModel.get('rec'));
-            vm.set('icon', viewModel.get('edit_image_path'));
-            vm.set('title', '修改公司新闻');
-            view.show();
-        }
-        else {
-            Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要编辑的记录！");
-        }
+        var view = Ext.create('kalix.roffice.news.view.NewsForm');
+        var vm = view.lookupViewModel();
+        vm.set('rec', selModel);
+        vm.set('icon', viewModel.get('edit_image_path'));
+        vm.set('title', '修改公司新闻');
+        view.show();
+        grid.setSelection(selModel);
     },
 
     /**
@@ -79,42 +68,35 @@ Ext.define('kalix.roffice.news.controller.NewsGridController', {
      * @param rowIndex
      * @param colIndex
      */
-    onDelete: function (target, event) {
-        var grid = this.getView();
+    onDelete: function (grid, rowIndex, colIndex) {
         var viewModel = this.getViewModel();
+        var model = grid.getStore().getData().items[rowIndex];
 
-        if (viewModel.get('sel')) {
-            var model = viewModel.get('rec');
-            Ext.Msg.confirm("警告", "确定要删除吗？", function (button) {
-                if (button == "yes") {
-                    model.erase({
-                        failure: function (record, operation) {
-                            // do something if the erase failed
-                        },
-                        success: function (record, operation) {
-                            kalix.getApplication().getStore('newsStore').reload();
-                        },
-                        callback: function (record, operation, success) {
-                            var res = Ext.JSON.decode(operation.getResponse().responseText);
+        Ext.Msg.confirm("警告", "确定要删除吗？", function (button) {
+            if (button == "yes") {
+                model.erase({
+                    failure: function (record, operation) {
+                        // do something if the erase failed
+                    },
+                    success: function (record, operation) {
+                        kalix.getApplication().getStore('newsStore').reload();
+                    },
+                    callback: function (record, operation, success) {
+                        var res = Ext.JSON.decode(operation.getResponse().responseText);
 
-                            if (success) {
-                                kalix.core.Notify.success(res.msg, CONFIG.ALTER_TITLE_SUCCESS);
-                            }
-                            else {
-                                Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
-                            }
+                        if (success) {
+                            kalix.core.Notify.success(res.msg, CONFIG.ALTER_TITLE_SUCCESS);
                         }
-                    });
-                }
-            });
+                        else {
+                            Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
+                        }
+                    }
+                });
+            }
+        });
 
-
-            grid.setSelection(null);
-            viewModel.set('sel', false);
-
-        } else {
-            Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要删除的记录！");
-        }
+        grid.setSelection(null);
+        viewModel.set('sel', false);
     }
 });
 

@@ -45,7 +45,7 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
     }, {
         name: 'publishDate',
         type: 'date',
-        dateFormat: 'Y-m-d'
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'version',
         type: 'int'

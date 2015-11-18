@@ -49,7 +49,7 @@ Ext.define('kalix.roffice.chance.controller.ChanceGridController', {
         var grid = target.findParentByType('grid');
         var selModel = grid.getSelectionModel();
         if (selModel.hasSelection()) {
-            var rec = selModel.getSelection()[0].clone();
+            var rec = selModel.getSelection()[0];
             var view = Ext.create('kalix.roffice.chance.view.ChanceForm');
             var viewModel = view.lookupViewModel();
 
