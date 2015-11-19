@@ -7,18 +7,17 @@
 Ext.define('kalix.roffice.travel.viewModel.TravelViewModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.travelViewModel',
-    requires: [
-        'kalix.roffice.travel.model.TravelModel'
-    ],
     data: {
-        url: '/kalix/camel/rest/travels',
-        rec: Ext.create('kalix.roffice.travel.model.TravelModel'),
+        rec: null,
         validation: {},  //验证错误信息
         icon: '',
         title: '',
+        add_operation: true,
+        view_title: '查看出差记录',
+        add_title: '添加出差记录',
+        edit_title: '修改出差记录',
         add_image_path: '/kalix/roffice/travel/resources/images/travel_add.png',
         view_image_path: '/kalix/roffice/travel/resources/images/travel_view.png',
-        delete_image_path: '/kalix/roffice/travel/resources/images/travel_delete.png',
         edit_image_path: '/kalix/roffice/travel/resources/images/travel_edit.png',
     }
 });

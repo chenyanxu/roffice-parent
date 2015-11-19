@@ -26,7 +26,7 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
         type: 'date'
     }, {
         name: 'beginDate',
-        type: 'date'
+        type: 'date',
     }, {
         name: 'endDate',
         type: 'date'

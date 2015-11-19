@@ -6,26 +6,20 @@
  */
 
 Ext.define('kalix.roffice.travel.view.TravelForm', {
-    extend: 'Ext.window.Window',
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.travel.viewModel.TravelViewModel',
-        'kalix.roffice.travel.controller.TravelFormController',
+        'kalix.controller.BaseFormController',
         'kalix.admin.user.store.UserStore'
     ],
     alias: 'widget.TravelForm',
     viewModel: 'travelViewModel',
-    controller: 'travelFormController',
+    controller: {
+        type: 'baseFormController',
+        storeId: 'travelStore'
+    },
     xtype: "travelForm",
 
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
-    },
     items: [{
         xtype: 'baseForm',
         items: [{
@@ -118,16 +112,6 @@ Ext.define('kalix.roffice.travel.view.TravelForm', {
                 //activeError: '{validation.person}',
                 value: '{rec.comment}'
             }
-        },
-        ],
-        buttons: [{
-            text: '保存',
-            glyph: 'xf0c7@FontAwesome',
-            handler: 'onSave'
-        }, {
-            text: '重置',
-            glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
         }]
     }]
 });

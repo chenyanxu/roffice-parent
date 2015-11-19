@@ -6,25 +6,14 @@
  */
 
 Ext.define('kalix.roffice.travel.view.TravelViewForm', {
-    extend: 'Ext.window.Window',
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
         'kalix.roffice.travel.viewModel.TravelViewModel',
-        'kalix.roffice.travel.controller.TravelFormController'
     ],
     alias: 'widget.travelViewForm',
     viewModel: 'travelViewModel',
-    controller: 'travelFormController',
     xtype: "travelViewForm",
 
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    title: '查看出差记录',
-    bind: {
-        icon: '{view_image_path}'
-    },
-    //todo 在此修改查看字段
     items: [{
         xtype: 'form',
         defaultType: 'displayfield',
@@ -86,16 +75,6 @@ Ext.define('kalix.roffice.travel.view.TravelViewForm', {
             bind: {
                 value: '{rec.comment}'
             }
-        }
-        ],
-        buttons: [{
-            text: '关闭',
-            glyph: 'xf00d@FontAwesome',
-            handler: function () {
-                this.up('.window').close();
-            }
-        }
-        ]
-    }
-    ]
+        }]
+    }]
 });

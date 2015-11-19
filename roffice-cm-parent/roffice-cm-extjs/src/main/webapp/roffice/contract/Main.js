@@ -1,7 +1,7 @@
 /**
  */
 Ext.define('kalix.roffice.contract.Main', {
-    extend: 'kalix.contanier.BaseContanier',
+    extend: 'kalix.container.BaseContainer',
     requires: [
         'kalix.roffice.contract.view.ContractGrid',
         'kalix.roffice.contract.view.ContractSearchForm',

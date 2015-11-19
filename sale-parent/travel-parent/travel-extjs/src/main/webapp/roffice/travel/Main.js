@@ -5,12 +5,14 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.travel.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
-        'kalix.roffice.travel.store.TravelStore',  //用户模型集合
         'kalix.roffice.travel.view.TravelGrid',
-        'kalix.roffice.travel.view.TravelSearchForm'
+        'kalix.roffice.travel.view.TravelSearchForm',
+        'kalix.roffice.travel.viewModel.TravelViewModel'
     ],
+    storeId: 'travelStore',
+    viewModel: 'travelViewModel',
     items: [
         {
             title: '出差记录查询',
@@ -21,10 +23,7 @@ Ext.define('kalix.roffice.travel.Main', {
             id: 'travelGridPanel',
             title: '出差记录列表',
             iconCls: 'x-fa fa-car',
-            margin: 10,
-            store: {
-                type: 'travelStore'
-            }
+            margin: 10
         }
     ]
 });
