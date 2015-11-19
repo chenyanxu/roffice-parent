@@ -2,8 +2,6 @@ package cn.com.rexen.roffice.purchaseinvoice.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,10 +15,7 @@ import java.util.Date;
  * @修改时间：
  * @修改备注：
  */
-//todo 修改模型定义
 @Entity
-@DynamicInsert
-@DynamicUpdate
 @Table(name = "roffice_purchaseinvoice")
 public class PurchaseInvoiceBean extends PersistentEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
