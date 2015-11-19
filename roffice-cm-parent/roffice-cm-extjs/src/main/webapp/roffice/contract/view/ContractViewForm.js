@@ -154,13 +154,5 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
             }
         ]
     }
-    ],
-    buttons: [{
-        text: '关闭',
-        glyph: 'xf00d@FontAwesome',
-        handler: function () {
-            this.up('.window').close();
-        }
-    }
     ]
 });

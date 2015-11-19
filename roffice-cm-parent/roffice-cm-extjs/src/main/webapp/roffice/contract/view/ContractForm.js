@@ -163,19 +163,4 @@ Ext.define('kalix.roffice.contract.view.ContractForm', {
         ]
     }
     ]
-    ,
-    buttons: [{
-        text: '保存',
-        glyph: 'xf0c7@FontAwesome',
-        handler: 'onSave'
-    }, {
-        text: '重置',
-        glyph: 'xf0e2@FontAwesome',
-        handler: 'onReset'
-    }
-    ]
-    ,
-    listeners: {
-        close: 'onClose'
-    }
 });
