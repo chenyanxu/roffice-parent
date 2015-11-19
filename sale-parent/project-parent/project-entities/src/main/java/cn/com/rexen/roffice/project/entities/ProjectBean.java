@@ -3,7 +3,8 @@ package cn.com.rexen.roffice.project.entities;
 import cn.com.rexen.core.api.persistence.PersistentEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Date;
  * @修改时间：
  * @修改备注：
  */
-@SqlResultSetMapping(
+/*@SqlResultSetMapping(
         name = "cn.com.rexen.roffice.project.entities.ResultDTO",
         classes = {
                 @ConstructorResult(
@@ -48,7 +49,7 @@ import java.util.Date;
                         }
                 )
         }
-)
+)*/
 @Entity
 @Table(name = "roffice_project")
 public class ProjectBean extends PersistentEntity {
