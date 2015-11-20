@@ -1,17 +1,17 @@
 /**
- * 用户组件
+ * 公司新闻首页
  *
- * @author majian <br/>
- *         date:2015-6-18
+ * @author
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.news.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
         'kalix.roffice.news.view.NewsGrid',
         'kalix.roffice.news.view.NewsSearchForm',
         'kalix.roffice.news.viewModel.NewsViewModel'
     ],
+    storeId: 'newsStore',
     viewModel: 'newsViewModel',
     items: [
         {
@@ -22,7 +22,7 @@ Ext.define('kalix.roffice.news.Main', {
             xtype: 'newsGridPanel',
             id: 'newsGridPanel',
             title: '公司新闻列表',
-            iconCls: 'x-fa fa-newspaper-o',
+            iconCls: 'x-fa fa-search',
             margin: 10
         }
     ]

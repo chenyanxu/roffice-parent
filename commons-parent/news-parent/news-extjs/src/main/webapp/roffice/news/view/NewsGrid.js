@@ -5,30 +5,25 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.news.view.NewsGrid', {
-    extend: 'Ext.grid.Panel',
+    extend: 'kalix.view.components.common.BaseGrid',
     requires: [
         'kalix.roffice.news.controller.NewsGridController',
-        'kalix.view.components.common.SecurityToolbar',
-        'kalix.view.components.common.PagingToolBar',
-        'kalix.roffice.news.store.NewsStore',
-        'kalix.view.components.common.SecurityGridColumnRUD'
+        'kalix.roffice.news.store.NewsStore'
     ],
     alias: 'widget.newsGrid',
     xtype: 'newsGridPanel',
-    controller: 'newsGridController',
-    //viewModel: 'newsViewModel',
-    autoLoad: true,
-    stripeRows: true,
-    store:{type:'newsStore'},
-    listeners:{
-        select:function(target,record,index,eOpts){
-            var vm=this.lookupViewModel();
-
-            vm.set('rec',record);
-            vm.set('sel',true);
-        }
+    controller: {
+        type: 'newsGridController',
+        storeId: 'newsStore',
+        cfgForm: 'kalix.roffice.news.view.NewsWindow',
+        cfgViewForm: 'kalix.roffice.news.view.NewsViewWindow',
+        cfgModel: 'kalix.roffice.news.model.NewsModel'
     },
-    columns: [
+    store: {
+        type: 'newsStore'
+    },
+    columns: {
+        items: [
         /*{
             xtype: "rownumberer",
             text: "行号",
@@ -44,34 +39,29 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
         }, {
             text: '标题',
             dataIndex: 'title',
-            flex: 1
-            //width: 80
-        }, /*{
-            text: '内容',
-            dataIndex: 'content',
-            flex: 3
-            //width: 60
-         },*/ {
+                flex: 1
+            }, {
             text: '发布人',
             dataIndex: 'publishPeople',
-            flex: 1
-            //width: 60
+                flex: 1
         }, {
             text: '发布时间',
             dataIndex: 'publishDate',
             xtype: 'datecolumn',      // the column type
-            flex: 1,
+                flex: 1,
             formatter: 'date("Y-m-d H:i:s")'
         },
         {
             xtype: 'securityGridColumnRUD',
+            flex: 1,
             permissions: [
                 'roffice:commonsModule:newsMenu:view',
                 'roffice:commonsModule:newsMenu:edit',
                 'roffice:commonsModule:newsMenu:delete'
             ]
         }
-    ],
+        ]
+    },
     plugins: [{
         ptype: 'rowexpander',
         rowBodyTpl: new Ext.XTemplate(
@@ -88,34 +78,13 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
 
     tbar: {
         xtype: 'securityToolbar',
-
-        //需要验证权限后添加的按钮
-        verifyItems: [{
-            text: '添加',
-            xtype: 'button',
-            permission: 'roffice:commonsModule:newsMenu:add',
-            handler: 'onAdd',
-            bind: {
-                icon: '{add_image_path}'
-            }
-        }]
-    },
-
-    /*
-     grid 组件不自动绑定与 grid 相关的翻页工具条的 store 配置项
-     需要手动指定工具条的 store
-     */
-    bbar: [{
-        id: 'news-pagingtoolbar',
-        xtype: 'pagingToolBarComponent',
-        border: false,
-        padding: 0,
-        listeners: {
-            afterrender: function (c, obj) {
-                this.setConfig('store', kalix.getApplication().getStore('newsStore'));
-            }
-        }
+        verifyItems: [
+            {
+                text: '添加',
+                xtype: 'button',
+                permission: 'roffice:commonsModule:newsMenu:add',
+                bind: {icon: '{add_image_path}'},
+                handler: 'onAdd'
+            }]
     }
-    ],
-
 });

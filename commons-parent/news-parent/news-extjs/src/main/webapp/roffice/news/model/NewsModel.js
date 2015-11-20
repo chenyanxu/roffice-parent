@@ -5,35 +5,9 @@
  *         date:2015-7-3
  * @version 1.0.0
  */
-
-
 Ext.define('kalix.roffice.news.model.NewsModel', {
-    extend: 'Ext.data.Model',
-    constructor: function () {
-        this.callParent(arguments);
-
-        if (arguments.length == 0) {
-            this.set('id', '0');
-        }
-    },
-    proxy: {
-        type: "ajax",
-        url: '/kalix/camel/rest/newses',
-        paramsAsJson: true,
-        actionMethods: {
-            create: 'POST',
-            read: 'GET',
-            update: 'PUT',
-            destroy: 'DELETE'
-        },
-        reader: {
-            type: 'json'
-        }
-    },
+    extend: 'kalix.model.BaseModel',
     fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
         name: 'title',
         type: 'string'
     }, {
@@ -46,11 +20,7 @@ Ext.define('kalix.roffice.news.model.NewsModel', {
         name: 'publishDate',
         type: 'date',
         dateFormat: 'Y-m-d H:i:s'
-    }, {
-        name: 'version',
-        type: 'int'
-    }
-    ],
+    }],
 
     validators: {
         title: [

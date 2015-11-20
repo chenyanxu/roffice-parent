@@ -6,6 +6,6 @@
  */
 Ext.define('kalix.roffice.receive.controller.ReceiveGridController', {
     extend: 'kalix.controller.BaseGridController',
-    alias: 'controller.receiveGridController',
+    alias: 'controller.receiveGridController'
 
 });
