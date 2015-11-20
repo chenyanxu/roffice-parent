@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.pay.controller.PayGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.pay.view.PayForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.pay.model.PayModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增采购付款');
+        viewModel.set('title', '添加采购付款');
         view.show();
     },
     /**

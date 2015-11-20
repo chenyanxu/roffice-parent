@@ -7,13 +7,9 @@
 
 
 Ext.define('kalix.roffice.travel.model.TravelModel', {
-    extend: 'Ext.data.Model',
+    extend: "kalix.model.BaseModel",
 
-    idProperty: '_id',
     fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
         name: 'name',
         type: 'string'
     }, {
@@ -24,10 +20,12 @@ Ext.define('kalix.roffice.travel.model.TravelModel', {
         type: 'string'
     }, {
         name: 'startDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'endDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'resultPerson',
         type: 'string'
@@ -50,26 +48,6 @@ Ext.define('kalix.roffice.travel.model.TravelModel', {
         person: [{
             type: 'presence',
             message: '出差人员不能为空!'
-        }
-        ],
-    },
-
-    //需要提交给服务端的模型 key
-    serverKeys: [
-        'id',
-        'name',
-        'person',
-        'target',
-        'startDate',
-        'endDate',
-        'resultPerson',
-        'result',
-        'comment',
-        'version'
-    ],
-
-    //需要提交给服务端的 JSON 数据
-    toServerJSON: function () {
-        return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
+        }]
     }
 });

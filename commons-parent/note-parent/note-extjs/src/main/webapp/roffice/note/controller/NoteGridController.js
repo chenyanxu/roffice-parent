@@ -15,28 +15,25 @@ Ext.define('kalix.roffice.note.controller.NoteGridController', {
     /**
      * 查看操作.
      */
-    onView: function (target, event) {
-        var grid = target.findParentByType('grid');
-        var selModel = grid.getSelectionModel();
-        if (selModel.hasSelection()) {
-            var view = Ext.create('kalix.roffice.note.view.NoteViewForm');
-            var viewModel = view.lookupViewModel();
-            viewModel.set('rec', selModel.getSelection()[0]);
-            view.show();
-        } else {
-            Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要查看的记录！");
-        }
+    onView: function (grid, rowIndex, colIndex) {
+        var selModel = grid.getStore().getData().items[rowIndex];
+        var view = Ext.create('kalix.roffice.note.view.NoteViewForm');
+        var viewModel = view.lookupViewModel();
+        viewModel.set('rec', selModel);
+        viewModel.set('view_image_path', viewModel.get('view_image_path'))
+        view.show();
+        grid.setSelection(selModel);
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.note.view.NoteForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.note.model.NoteModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增公司公告');
+        viewModel.set('title', '添加公司公告');
         view.show();
     },
     /**
@@ -45,21 +42,16 @@ Ext.define('kalix.roffice.note.controller.NoteGridController', {
      * @param rowIndex
      * @param colIndex
      */
-    onEdit: function (target, event) {
-        var grid = target.findParentByType('grid');
-        var selModel = grid.getSelectionModel();
-        if (selModel.hasSelection()) {
-            var rec = selModel.getSelection()[0].clone();
-            var view = Ext.create('kalix.roffice.note.view.NoteForm');
-            var viewModel = view.lookupViewModel();
-
-            viewModel.set('rec', rec);
-            viewModel.set('icon', viewModel.get('edit_image_path'));
-            viewModel.set('title', '修改公司公告');
-            view.show();
-        } else {
-            Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要编辑的记录！");
-        }
+    onEdit: function (grid, rowIndex, colIndex) {
+        var selModel = grid.getStore().getData().items[rowIndex];
+        var viewModel = this.getViewModel();
+        var view = Ext.create('kalix.roffice.note.view.NoteForm');
+        var vm = view.lookupViewModel();
+        vm.set('rec', selModel);
+        vm.set('icon', viewModel.get('edit_image_path'));
+        vm.set('title', '修改公司公告');
+        view.show();
+        grid.setSelection(selModel);
     },
 
     /**
@@ -68,39 +60,37 @@ Ext.define('kalix.roffice.note.controller.NoteGridController', {
      * @param rowIndex
      * @param colIndex
      */
-    onDelete: function (target, event) {
-        var grid = target.findParentByType('grid');
-        var selModel = grid.getSelectionModel();
-        if (selModel.hasSelection()) {
-            var deleteUrl = this.getViewModel().get("url");
-            var ids = _.reduce(selModel.getSelection(), function (memo, rec) {
-                memo.push(rec.get('id'));
-                return memo;
-            }, []).join('_');
 
-            Ext.Msg.confirm("警告", "确定要删除吗？", function (button) {
-                if (button == "yes") {
-                    Ext.Ajax.request({
-                        url: deleteUrl + "?id=" + ids,
-                        method: 'DELETE',
-                        success: function (response, opts) {
-                            var res = Ext.JSON.decode(response.responseText);
-                            if (res.success) {
-                                kalix.getApplication().getStore('noteStore').reload();
-                                kalix.core.Notify.success(res.msg, CONFIG.ALTER_TITLE_SUCCESS);
-                            } else {
-                                Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
-                            }
-                        },
-                        failure: function (response, opts) {
+    onDelete: function (grid, rowIndex, colIndex) {
+        var viewModel = this.getViewModel();
+        var model = grid.getStore().getData().items[rowIndex];
+
+        Ext.Msg.confirm("警告", "确定要删除吗？", function (button) {
+            if (button == "yes") {
+                model.erase({
+                    failure: function (record, operation) {
+                        // do something if the erase failed
+                    },
+                    success: function (record, operation) {
+                        kalix.getApplication().getStore('noteStore').reload();
+                    },
+                    callback: function (record, operation, success) {
+                        var res = Ext.JSON.decode(operation.getResponse().responseText);
+
+                        if (success) {
+                            kalix.core.Notify.success(res.msg, CONFIG.ALTER_TITLE_SUCCESS);
+                        }
+                        else {
                             Ext.Msg.alert(CONFIG.ALTER_TITLE_FAILURE, res.msg);
                         }
-                    });
-                }
-            });
-        } else {
-            Ext.Msg.alert(CONFIG.ALTER_TITLE_ERROR, "请选择要删除的记录！");
-        }
+                    }
+                });
+            }
+        });
+
+        grid.setSelection(null);
+        viewModel.set('sel', false);
+
     },
     exportToExcel: function () {
         this.getView().saveDocumentAs({

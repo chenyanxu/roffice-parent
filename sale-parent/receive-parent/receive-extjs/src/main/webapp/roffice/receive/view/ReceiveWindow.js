@@ -1,36 +1,30 @@
 /**
- * 项目回款新增和修改表单
+ * 项目回款添加和修改表单
  *
  * @author
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.receive.view.ReceiveForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.receive.view.ReceiveWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.receive.viewModel.ReceiveViewModel',
-        'kalix.roffice.receive.controller.ReceiveFormController'
+        'kalix.controller.BaseWindowController',
+        'kalix.admin.user.store.UserStore'
     ],
-    alias: 'widget.ReceiveForm',
+    alias: 'widget.teceiveWindow',
     viewModel: 'receiveViewModel',
-    controller: 'receiveFormController',
-    xtype: "receiveForm",
-
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'receiveStore'
     },
+    xtype: "receiveWindow",
+    width: 400,
     items: [{
         xtype: 'baseForm',
         items: [
             {
                 fieldLabel: '回款日期',
-                labelAlign: 'right',
                 allowBlank: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
@@ -41,7 +35,6 @@ Ext.define('kalix.roffice.receive.view.ReceiveForm', {
             },
             {
                 fieldLabel: '回款金额(万元)',
-                labelAlign: 'right',
                 xtype: 'numberfield',
                 allowBlank: false,
                 bind: {
@@ -50,31 +43,21 @@ Ext.define('kalix.roffice.receive.view.ReceiveForm', {
                 }
             },
             {
-                fieldLabel: '合同ID',
-                labelAlign: 'right',
+                fieldLabel: '合同编号',
                 //allowBlank: false,
+                xtype: 'contractComboBox',
                 bind: {
                     //activeError: '{validation.contractId}',
                     value: '{rec.contractId}'
                 }
             }, {
                 fieldLabel: '备注',
-                labelAlign: 'right',
                 allowBlank: false,
                 xtype: 'textarea',
                 bind: {
                     activeError: '{validation.comment}',
                     value: '{rec.comment}'
                 }
-            }],
-        buttons: [{
-            text: '保存',
-            glyph: 'xf0c7@FontAwesome',
-            handler: 'onSave'
-        }, {
-            text: '重置',
-            glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
-        }]
+            }]
     }]
 });

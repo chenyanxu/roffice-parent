@@ -8,8 +8,7 @@
 
     <camelContext id="travelCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
-        <restConfiguration component="servlet" bindingMode="json"
-                           contextPath="/kalix/camel/rest" host="localhost"
+        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
                            port="8181">
             <dataFormatProperty key="prettyPrint" value="true"/>
         </restConfiguration>
@@ -18,44 +17,38 @@
         <rest path="/travels" consumes="application/json" produces="application/json">
             <description>travel rest service</description>
 
-            <!-- this is a rest PUT to create an travel -->
+            <!-- this is a rest GET to find all travel -->
+            <get id="route-getAllTravel" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Travels</description>
+                <to uri="bean:travelService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
+            </get>
+
+            <!-- this is a rest POST to create a travel -->
             <post id="route-addTravel" type="cn.com.rexen.roffice.travel.entities.TravelBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a Travel</description>
                 <to uri="bean:travelService?method=saveEntity"/>
             </post>
 
+            <!-- this is a rest GET to view a travel by the given id -->
+            <get uri="/{id}" id="route-getTravel" outType="cn.com.rexen.roffice.travel.entities.TravelBean">
+                <description>Find Travel by id</description>
+                <to uri="bean:travelService?method=getEntity(${header.id})"/>
+            </get>
+
             <!-- this is a rest PUT to update a travel -->
-            <put id="route-updateTravel" type="cn.com.rexen.roffice.travel.entities.TravelBean"
+            <put uri="/{id}" id="route-updateTravel" type="cn.com.rexen.roffice.travel.entities.TravelBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a Travel</description>
                 <to uri="bean:travelService?method=updateEntity"/>
             </put>
 
             <!-- this is a rest DELETE to delete a travel -->
-            <delete id="route-deleteTravel" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <delete uri="/{id}" id="route-deleteTravel" type="cn.com.rexen.roffice.travel.entities.TravelBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Travel</description>
-                <to uri="bean:travelService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:travelService?method=removeEntity"/>
             </delete>
-
-            <!-- this is a rest GET to find all travel -->
-            <get id="route-getAllTravel" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all Travels</description>
-                <to uri="bean:travelService?method=getAllEntity(${header.page},${header.limit})"/>
-            </get>
-
-            <!-- this is a rest GET to view a travel by the given id -->
-            <get id="route-getTravel" uri="/{id}" outType="cn.com.rexen.roffice.travel.entities.TravelBean">
-                <description>Find Travel by id</description>
-                <to uri="bean:travelService?method=getEntity(${header.id})"/>
-            </get>
-
-            <!-- this is a rest GET to find all travel by name -->
-            <post id="route-getAllTravelByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.travel.api.query.TravelDto">
-                <description>Find all Travel by Name</description>
-                <to uri="bean:travelService?method=getAllEntityByQuery"/>
-            </post>
 
         </rest>
     </camelContext>

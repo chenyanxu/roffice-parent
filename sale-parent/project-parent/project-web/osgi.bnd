@@ -3,5 +3,6 @@
 #-----------------------------------------------------------------
 
 Bundle-Activator: ${bundle.namespace}.internal.InitActivator
-Import-Package:cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,*
+Import-Package:cn.com.rexen.roffice.project.entities,\
+cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,*
 Bundle-Category: Rexen  Roffice Project

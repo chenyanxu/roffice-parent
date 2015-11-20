@@ -14,7 +14,7 @@ Ext.define('Kalix.<pomName>.controller.<beanName>GridController', {
         console.log(record);
     },
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      * @returns {Ext.panel.Panel}
      */
     onAdd: function () {

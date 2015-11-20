@@ -20,7 +20,7 @@ Ext.define('kalix.roffice.note.store.NoteStore', {
             create: 'POST',
             read: 'POST',
             update: 'POST',
-            destroy: 'POST'
+            destroy: 'DELETE'
         },
         reader: {
             type: "json",

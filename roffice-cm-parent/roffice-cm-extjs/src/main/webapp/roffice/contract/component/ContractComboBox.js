@@ -1,9 +1,6 @@
 /**
  * 合同选择下拉comboBox
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
+ * @author chenyanxu
  */
 Ext.define('kalix.roffice.contract.component.ContractComboBox', {
     extend: 'Ext.form.field.ComboBox',
@@ -24,7 +21,7 @@ Ext.define('kalix.roffice.contract.component.ContractComboBox', {
         type: 'contractStore',
         listeners: {
             beforeload: function (store, operation, eOpts) {
-                alert(1);
+                //alert(1);
             }
         }
     }

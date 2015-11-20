@@ -1,22 +1,22 @@
 /**
- * 用户新增表单
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
+ * @author chenyanxu
  */
 
-Ext.define('kalix.roffice.contract.view.ContractViewForm', {
+Ext.define('kalix.roffice.contract.view.ContractWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
+        'kalix.controller.BaseWindowController',
         'kalix.roffice.contract.viewModel.ContractViewModel',
         'kalix.admin.dict.component.DictCombobox'
-    ],
-    alias: 'widget.contractViewForm',
-    xtype: "contractViewForm",
+        ],
+    alias: 'widget.contractWindow',
+    xtype: "contractWindow",
     viewModel: 'contractViewModel',
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'contractStore'
+    },
     items: [{
-        defaults: {readOnly: true},
         items: [
             {
                 fieldLabel: '合同编号',
@@ -80,7 +80,6 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
             }
         ]
     }, {
-        defaults: {readOnly: true},
         items: [
             {
                 fieldLabel: '质保期(年)',
@@ -99,8 +98,10 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
             },
             {
                 fieldLabel: '是否归档',
+                allowBlank: false,
                 
                 xtype: 'combobox',
+                editable: false,
                 valueField: 'key',
                 displayField: 'name',
                 store: {
@@ -117,17 +118,19 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
             {
                 fieldLabel: '合同归档日期',
                 
+                editable: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
                     value: '{rec.archive_date}',
+                    disabled: '{!rec.archive}'
                 }
             },
             {
                 fieldLabel: '签单日期',
                 
+                editable: false,
                 xtype: 'datefield',
-                editable:false,
                 format: 'Y-m-d',
                 bind: {
                     value: '{rec.contractDate}'
@@ -137,6 +140,7 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
             {
                 fieldLabel: '过期日期',
                 
+                editable: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -153,14 +157,6 @@ Ext.define('kalix.roffice.contract.view.ContractViewForm', {
                 }
             }
         ]
-    }
-    ],
-    buttons: [{
-        text: '关闭',
-        glyph: 'xf00d@FontAwesome',
-        handler: function () {
-            this.up('.window').close();
-        }
     }
     ]
 });

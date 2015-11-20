@@ -3,6 +3,7 @@ package cn.com.rexen.roffice.project.entities;
 import cn.com.rexen.core.api.web.model.BaseDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,12 +11,12 @@ import java.util.Date;
  * 组合查询返回结果类
  */
 
-public class ResultDTO extends BaseDTO {
+public class ResultDTO extends BaseDTO implements Serializable {
     private String no;//项目编号
     private String salePerson; //    营销负责人
     private String industry; //    所属行业
     private String name;//项目名称
-    private String level; //    优先级
+
     private String budget;    //预算额度
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date setupDate;//    立项时间
@@ -29,32 +30,16 @@ public class ResultDTO extends BaseDTO {
     private long chanceId; //    项目机会
     private long contractId;// 合同id
     private String manager; //    项目经理
+    private String level; //    优先级
     private String status; //    项目实施状态
     //join name
     private String chanceName;
     private String contractName;
+    private long version_;
 
-    public ResultDTO(Long id, String createBy, Date creationDate, String updateBy, Date updateDate, Long version, String budget, Long chanceId, String client, String clientPhone, String comment, Long contractId, Date deployDate, String deployPerson, String description, String industry, String level, String manager, String name, String no, String salePerson, Date setupDate, String status, String chanceName) {
-        super(String.valueOf(id), createBy, creationDate, updateBy, updateDate, version);
-        this.budget = budget;
-        this.chanceId = chanceId;
-        this.chanceName = chanceName;
-        this.client = client;
-        this.clientPhone = clientPhone;
-        this.comment = comment;
-        this.contractId = contractId;
-        this.deployDate = deployDate;
-        this.deployPerson = deployPerson;
-        this.description = description;
-        this.industry = industry;
-        this.level = level;
-        this.manager = manager;
-        this.name = name;
-        this.no = no;
-        this.salePerson = salePerson;
-        this.setupDate = setupDate;
-        this.status = status;
+    public ResultDTO() {
     }
+
 
     public String getBudget() {
         return budget;
@@ -206,5 +191,13 @@ public class ResultDTO extends BaseDTO {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public long getVersion_() {
+        return version_;
+    }
+
+    public void setVersion_(long version_) {
+        this.version_ = version_;
     }
 }

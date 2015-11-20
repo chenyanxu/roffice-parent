@@ -1,7 +1,7 @@
 /**
  * 出差记录数据仓库
  *
- * @author
+ * @author  sunlf
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.travel.store.TravelStore', {
@@ -10,22 +10,5 @@ Ext.define('kalix.roffice.travel.store.TravelStore', {
     alias: 'store.travelStore',
     xtype: 'travelStore',
     storeId: "travelStore",
-    autoLoad: true,
-    pageSize: 10,
-    proxy: {
-        type: "ajax",
-        url: '/kalix/camel/rest/travels/list',
-        paramsAsJson: true,
-        actionMethods: {
-            create: 'POST',
-            read: 'POST',
-            update: 'POST',
-            destroy: 'POST'
-        },
-        reader: {
-            type: "json",
-            rootProperty: "data",
-            totalProperty: 'totalCount'
-        }
-    }
+    proxyUrl: '/kalix/camel/rest/travels'
 });

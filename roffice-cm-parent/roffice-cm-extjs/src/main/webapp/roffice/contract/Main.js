@@ -1,12 +1,14 @@
 /**
+ * @author chenyanxu
  */
 Ext.define('kalix.roffice.contract.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
         'kalix.roffice.contract.view.ContractGrid',
         'kalix.roffice.contract.view.ContractSearchForm',
         'kalix.roffice.contract.viewModel.ContractViewModel'
     ],
+    storeId:'contractStore',
     viewModel: 'contractViewModel',
     items: [
         {
@@ -18,14 +20,5 @@ Ext.define('kalix.roffice.contract.Main', {
             title: '合同列表',
             margin: 10
         }
-    ],
-    listeners:{
-        render:function(target,eOpts){
-            var store=kalix.getApplication().getStore('contractStore');
-
-            store.on('beforeload', function (store, opts,target) {
-                Ext.apply(store.proxy.extraParams, target.items.getAt(0).getForm().getFieldValues());
-            },this,target);
-        }
-    }
+    ]
 });

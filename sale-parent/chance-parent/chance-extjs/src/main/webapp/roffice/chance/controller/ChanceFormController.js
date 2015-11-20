@@ -1,11 +1,11 @@
 /**
- * 项目机会新增和修改表单控制器
+ * 项目机会添加和修改表单控制器
  *
  * @author
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.chance.controller.ChanceFormController', {
-    extend: 'Ext.app.ViewController',
+    extend: 'kalix.controller.BaseFormController',
     alias: 'controller.chanceFormController',
     requires: ['kalix.core.Notify'],
     /**
@@ -27,7 +27,7 @@ Ext.define('kalix.roffice.chance.controller.ChanceFormController', {
      * 保存/更新操作.
      *
      */
-    onSave: function () {
+    /*onSave: function () {
         var viewModel = this.getViewModel();
         var model = viewModel.get('rec');
         var view = this.getView();
@@ -57,5 +57,5 @@ Ext.define('kalix.roffice.chance.controller.ChanceFormController', {
                 return value !== true;
             }));
         }
-    },
+     },*/
 });

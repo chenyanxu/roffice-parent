@@ -5,5 +5,9 @@
     <service interface="cn.com.rexen.core.api.web.IMenu">
         <bean class="cn.com.rexen.roffice.project.web.impl.ProjectMenuImpl"/>
     </service>
+    <reference id="service" interface="cn.com.rexen.roffice.project.api.biz.IProjectBeanService"/>
+    <!--<bean id="test" class="cn.com.rexen.roffice.project.web.impl.TestDto" init-method="test">
+        <property name="service" ref="service"/>
+    </bean>-->
 
 </blueprint>

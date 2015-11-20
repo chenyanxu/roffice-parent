@@ -1,36 +1,29 @@
 /**
- * 出差记录新增和修改表单
+ * 出差记录添加和修改表单
  *
  * @author
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.travel.view.TravelForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.travel.view.TravelWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.travel.viewModel.TravelViewModel',
-        'kalix.roffice.travel.controller.TravelFormController',
+        'kalix.controller.BaseWindowController',
         'kalix.admin.user.store.UserStore'
     ],
-    alias: 'widget.TravelForm',
+    alias: 'widget.travelWindow',
     viewModel: 'travelViewModel',
-    controller: 'travelFormController',
-    xtype: "travelForm",
-
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'travelStore'
     },
+    xtype: "travelWindow",
+    width: 400,
     items: [{
         xtype: 'baseForm',
         items: [{
             fieldLabel: '任务名称',
-            labelAlign: 'right',
             allowBlank: false,
             bind: {
                 activeError: '{validation.name}',
@@ -38,7 +31,6 @@ Ext.define('kalix.roffice.travel.view.TravelForm', {
             }
         }, {
             fieldLabel: '出差人员',
-            labelAlign: 'right',
             allowBlank: false,
             xtype: 'combobox',
             queryMode: 'remote',
@@ -56,7 +48,6 @@ Ext.define('kalix.roffice.travel.view.TravelForm', {
             }
         }, {
             fieldLabel: '任务目标',
-            labelAlign: 'right',
             //allowBlank: false,
             bind: {
                 //activeError: '{validation.person}',
@@ -74,7 +65,6 @@ Ext.define('kalix.roffice.travel.view.TravelForm', {
             }
         }, {
             fieldLabel: '回程时间',
-            labelAlign: 'right',
             xtype: 'datefield',
             format: 'Y-m-d',
             //allowBlank: false,
@@ -84,7 +74,6 @@ Ext.define('kalix.roffice.travel.view.TravelForm', {
             }
         }, {
             fieldLabel: '结果评定人',
-            labelAlign: 'right',
             //allowBlank: false,
             xtype: 'combobox',
             queryMode: 'remote',
@@ -102,7 +91,6 @@ Ext.define('kalix.roffice.travel.view.TravelForm', {
             }
         }, {
             fieldLabel: '完成情况',
-            labelAlign: 'right',
             xtype: 'textarea',
             //allowBlank: false,
             bind: {
@@ -111,23 +99,12 @@ Ext.define('kalix.roffice.travel.view.TravelForm', {
             }
         }, {
             fieldLabel: '备注',
-            labelAlign: 'right',
             xtype: 'textarea',
             //allowBlank: false,
             bind: {
                 //activeError: '{validation.person}',
                 value: '{rec.comment}'
             }
-        },
-        ],
-        buttons: [{
-            text: '保存',
-            glyph: 'xf0c7@FontAwesome',
-            handler: 'onSave'
-        }, {
-            text: '重置',
-            glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
         }]
     }]
 });

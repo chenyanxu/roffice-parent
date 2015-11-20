@@ -5,12 +5,14 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.receive.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
-        'kalix.roffice.receive.store.ReceiveStore',  //用户模型集合
         'kalix.roffice.receive.view.ReceiveGrid',
-        'kalix.roffice.receive.view.ReceiveSearchForm'
+        'kalix.roffice.receive.view.ReceiveSearchForm',
+        'kalix.roffice.receive.viewModel.ReceiveViewModel'
     ],
+    storeId: 'receiveStore',
+    viewModel: 'receiveViewModel',
     items: [
         {
             title: '项目回款查询',
@@ -21,10 +23,7 @@ Ext.define('kalix.roffice.receive.Main', {
             id: 'receiveGridPanel',
             title: '项目回款列表',
             iconCls: 'x-fa fa-repeat',
-            margin: 10,
-            store: {
-                type: 'receiveStore'
-            }
+            margin: 10
         }
     ]
 });

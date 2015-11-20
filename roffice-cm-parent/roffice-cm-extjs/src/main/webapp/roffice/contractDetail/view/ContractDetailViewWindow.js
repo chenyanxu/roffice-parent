@@ -1,19 +1,14 @@
 /**
- * 用户新增表单
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
+ * @author chenyanxu
  */
-
-Ext.define('kalix.roffice.contractDetail.view.ContractDetailViewForm', {
+Ext.define('kalix.roffice.contractDetail.view.ContractDetailViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
         'kalix.roffice.contractDetail.viewModel.ContractDetailViewModel',
         'kalix.roffice.contract.component.ContractComboBox'
     ],
-    alias: 'widget.contractDetailViewForm',
-    xtype: "contractDetailViewForm",
+    alias: 'widget.contractDetailViewWindow',
+    xtype: "contractDetailViewWindow",
     viewModel: 'contractDetailViewModel',
     width:400,
     items: [{
@@ -97,14 +92,6 @@ Ext.define('kalix.roffice.contractDetail.view.ContractDetailViewForm', {
                 }
             }
         ]
-    }
-    ],
-    buttons: [{
-        text: '关闭',
-        glyph: 'xf00d@FontAwesome',
-        handler: function () {
-            this.up('.window').close();
-        }
     }
     ]
 });

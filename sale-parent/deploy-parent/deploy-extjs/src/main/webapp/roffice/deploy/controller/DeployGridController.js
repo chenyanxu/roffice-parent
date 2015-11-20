@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.deploy.controller.DeployGridController', {
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.deploy.view.DeployForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.deploy.model.DeployModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增实施项目');
+        viewModel.set('title', '添加实施项目');
         view.show();
     },
     /**

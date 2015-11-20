@@ -1,5 +1,5 @@
 /**
- * 项目机会新增和修改表单
+ * 项目机会添加和修改表单
  *
  * @author
  * @version 1.0.0
@@ -11,11 +11,15 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         'kalix.view.components.common.FormPanel',
         'kalix.roffice.chance.viewModel.ChanceViewModel',
         'kalix.roffice.chance.controller.ChanceFormController',
-        'kalix.admin.user.component.UserComboBox'
+        'kalix.admin.user.component.UserComboBox',
+        'kalix.controller.BaseFormController',
     ],
     alias: 'widget.ChanceForm',
     viewModel: 'chanceViewModel',
-    controller: 'chanceFormController',
+    controller: {
+        type: 'baseFormController',
+        storeId: 'chanceStore'
+    },
     xtype: "chanceForm",
     layout: {
         type: 'hbox',
@@ -170,5 +174,8 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         text: '重置',
         glyph: 'xf0e2@FontAwesome',
         handler: 'onReset'
-    }]
+    }],
+    listeners: {
+        close: 'onClose'
+    }
 });

@@ -29,14 +29,14 @@ Ext.define('kalix.roffice.purchaseinvoice.controller.PurchaseInvoiceGridControll
     },
 
     /**
-     * 打开新增操作.
+     * 打开添加操作.
      */
     onAdd: function () {
         var view = Ext.create('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm');
         var viewModel = view.lookupViewModel();
         viewModel.set('rec', Ext.create('kalix.roffice.purchaseinvoice.model.PurchaseInvoiceModel'));
         viewModel.set('icon', viewModel.get('add_image_path'));
-        viewModel.set('title', '新增设备发票');
+        viewModel.set('title', '添加设备发票');
         view.show();
     },
     /**

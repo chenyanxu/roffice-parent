@@ -61,11 +61,11 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
             text: '发票号',
             dataIndex: 'invoiceNo',
             flex: 1
-        }, {
+        }, /* {
             text: '采购编号',
             dataIndex: 'purchaseId',
             flex: 1
-        },
+         },*/
         {
             text: '备注',
             dataIndex: 'comment',

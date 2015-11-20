@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
         'kalix.roffice.news.controller.NewsGridController',
         'kalix.view.components.common.SecurityToolbar',
         'kalix.view.components.common.PagingToolBar',
-        'kalix.roffice.news.store.NewsStore'
+        'kalix.roffice.news.store.NewsStore',
+        'kalix.view.components.common.SecurityGridColumnRUD'
     ],
     alias: 'widget.newsGrid',
     xtype: 'newsGridPanel',
@@ -59,9 +60,17 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
             text: '发布时间',
             dataIndex: 'publishDate',
             xtype: 'datecolumn',      // the column type
-            format: 'Y-m-d H:i:s',
-            flex: 1
+            flex: 1,
+            formatter: 'date("Y-m-d H:i:s")'
         },
+        {
+            xtype: 'securityGridColumnRUD',
+            permissions: [
+                'roffice:commonsModule:newsMenu:view',
+                'roffice:commonsModule:newsMenu:edit',
+                'roffice:commonsModule:newsMenu:delete'
+            ]
+        }
     ],
     plugins: [{
         ptype: 'rowexpander',
@@ -80,48 +89,16 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
     tbar: {
         xtype: 'securityToolbar',
 
-        //无需授权的按钮
-        items: [
-            {
-                text: '查看',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:newsMenu:view',
-                //icon: this.getViewModel().get("view_image_path"),
-                handler: 'onView',
-                bind: {
-                    icon: '{view_image_path}'
-                }
-            },
-            {
-                text: '添加',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:newsMenu:add',
-                handler: 'onAdd',
-                bind: {
-                    icon: '{add_image_path}'
-                }
-            },
-            {
-                text: '编辑',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:newsMenu:update',
-                handler: 'onEdit',
-                bind: {
-                    icon: '{edit_image_path}'
-                }
-            }, {
-                text: '删除',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:newsMenu:delete',
-                handler: 'onDelete',
-                bind: {
-                    icon: '{delete_image_path}'
-                }
-            }
-        ]
-
         //需要验证权限后添加的按钮
-        //verifyItems: []
+        verifyItems: [{
+            text: '添加',
+            xtype: 'button',
+            permission: 'roffice:commonsModule:newsMenu:add',
+            handler: 'onAdd',
+            bind: {
+                icon: '{add_image_path}'
+            }
+        }]
     },
 
     /*

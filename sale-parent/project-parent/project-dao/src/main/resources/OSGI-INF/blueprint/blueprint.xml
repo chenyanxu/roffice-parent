@@ -9,6 +9,7 @@
     <tx:enable-annotations/>
 
     <bean id="projectBeanDaoImpl" class="cn.com.rexen.roffice.project.dao.ProjectBeanDaoImpl">
+        <!--<jpa:context property="entityManager" unitname="project-cm"/>-->
         <tx:transaction method="*" value="Required"/>
     </bean>
 
