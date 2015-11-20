@@ -12,7 +12,7 @@ Ext.define('kalix.roffice.travel.viewModel.TravelViewModel', {
         validation: {},  //验证错误信息
         icon: '',
         title: '',
-        add_operation: true,
+        view_operation: false,
         view_title: '查看出差记录',
         add_title: '添加出差记录',
         edit_title: '修改出差记录',

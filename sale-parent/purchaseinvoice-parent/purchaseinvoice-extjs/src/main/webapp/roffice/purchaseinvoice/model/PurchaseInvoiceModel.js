@@ -30,13 +30,16 @@ Ext.define('kalix.roffice.purchaseinvoice.model.PurchaseInvoiceModel', {
         type: 'int'
     }, {
         name: 'invoiceDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'beginDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'endDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'updateBy',
         type: 'string'

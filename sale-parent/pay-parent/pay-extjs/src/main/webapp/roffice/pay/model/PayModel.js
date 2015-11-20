@@ -24,13 +24,16 @@ Ext.define('kalix.roffice.pay.model.PayModel', {
         type: 'int'
     }, {
         name: 'receiveDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'beginDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'endDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'updateBy',
         type: 'string'

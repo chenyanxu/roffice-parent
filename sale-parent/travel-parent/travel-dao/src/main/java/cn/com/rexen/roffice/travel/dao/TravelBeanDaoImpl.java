@@ -1,21 +1,11 @@
 package cn.com.rexen.roffice.travel.dao;
 
-import cn.com.rexen.core.api.web.model.QueryDTO;
 import cn.com.rexen.core.impl.persistence.GenericDao;
 import cn.com.rexen.roffice.travel.api.dao.ITravelBeanDao;
-import cn.com.rexen.roffice.travel.api.query.TravelDto;
 import cn.com.rexen.roffice.travel.entities.TravelBean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.EntityType;
-import javax.persistence.metamodel.SingularAttribute;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @类描述：
@@ -32,7 +22,7 @@ public class TravelBeanDaoImpl extends GenericDao<TravelBean, Long> implements I
         super.setEntityManager(em);
     }
 
-    @Override
+    /*@Override
     public CriteriaQuery buildCriteriaQuery(QueryDTO queryDTO) {
         TravelDto travelDto = (TravelDto) queryDTO;
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -48,5 +38,5 @@ public class TravelBeanDaoImpl extends GenericDao<TravelBean, Long> implements I
         criteriaQuery.where(predicatesList.toArray(new Predicate[predicatesList.size()]));
         CriteriaQuery select = criteriaQuery.select(from);
         return select;
-    }
+    }*/
 }

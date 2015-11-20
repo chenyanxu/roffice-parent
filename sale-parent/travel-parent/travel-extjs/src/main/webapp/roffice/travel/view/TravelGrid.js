@@ -14,8 +14,8 @@ Ext.define('kalix.roffice.travel.view.TravelGrid', {
     controller: {
         type: 'travelGridController',
         storeId: 'travelStore',
-        cfgForm: 'kalix.roffice.travel.view.TravelForm',
-        cfgViewForm: 'kalix.roffice.travel.view.TravelViewForm',
+        cfgForm: 'kalix.roffice.travel.view.TravelWindow',
+        cfgViewForm: 'kalix.roffice.travel.view.TravelViewWindow',
         cfgModel: 'kalix.roffice.travel.model.TravelModel'
     },
     store: {
