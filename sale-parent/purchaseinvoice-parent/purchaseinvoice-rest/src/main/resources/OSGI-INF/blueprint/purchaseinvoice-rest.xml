@@ -9,8 +9,7 @@
 
     <camelContext id="purchaseinvoiceCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
-        <restConfiguration component="servlet" bindingMode="json"
-                           contextPath="/kalix/camel/rest" host="localhost"
+        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
                            port="8181">
             <dataFormatProperty key="prettyPrint" value="true"/>
         </restConfiguration>
@@ -25,7 +24,7 @@
                 <to uri="bean:purchaseinvoiceService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
             </get>
 
-            <!-- this is a rest POST to create an purchaseinvoice -->
+            <!-- this is a rest POST to create a purchaseinvoice -->
             <post id="route-addPurchaseInvoice" type="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a PurchaseInvoice</description>

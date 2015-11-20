@@ -5,26 +5,17 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.pay.view.PayViewForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.pay.view.PayViewWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
         'kalix.roffice.pay.viewModel.PayViewModel',
-        'kalix.roffice.pay.controller.PayFormController',
+        'kalix.admin.user.store.UserStore',
         'kalix.roffice.contract.component.ContractComboBox'
     ],
-    alias: 'widget.payViewForm',
+    alias: 'widget.payViewWindow',
     viewModel: 'payViewModel',
-    controller: 'payFormController',
-    xtype: "payViewForm",
-
+    xtype: "payViewWindow",
     width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    title: '查看采购付款',
-    bind: {
-        icon: '{view_image_path}'
-    },
     items: [{
         xtype: 'baseForm',
         defaults: {
@@ -33,8 +24,6 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
         items: [
             {
                 fieldLabel: '回款日期',
-                labelAlign: 'right',
-                allowBlank: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -44,9 +33,7 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
             },
             {
                 fieldLabel: '回款金额(万元)',
-                labelAlign: 'right',
                 xtype: 'numberfield',
-                allowBlank: false,
                 bind: {
                     activeError: '{validation.money}',
                     value: '{rec.money}'
@@ -54,8 +41,6 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
             },
             {
                 fieldLabel: '采购编号',
-                labelAlign: 'right',
-                //allowBlank: false,
                 xtype: 'contractComboBox',
                 bind: {
                     //activeError: '{validation.contractId}',
@@ -64,7 +49,6 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
             }, {
                 fieldLabel: '备注',
                 labelAlign: 'right',
-                allowBlank: false,
                 xtype: 'textarea',
                 bind: {
                     activeError: '{validation.comment}',
@@ -73,14 +57,12 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
             }, {
                 fieldLabel: '最后修改人',
                 xtype: 'displayfield',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.updateBy}'
                 }
             }, {
                 fieldLabel: '最后修改时间',
                 xtype: 'displayfield',
-                labelAlign: 'right',
                 bind: {
                     value: '{rec.updateDate}'
                 },
@@ -88,15 +70,6 @@ Ext.define('kalix.roffice.pay.view.PayViewForm', {
                     var createDate = new Date(value);
                     return createDate.format("yyyy-MM-dd hh:mm:ss");
                 }
-            }],
-        buttons: [{
-            text: '关闭',
-            glyph: 'xf00d@FontAwesome',
-            handler: function () {
-                this.up('.window').close();
-            }
-        }
-        ]
-    }
-    ]
+            }]
+    }]
 });

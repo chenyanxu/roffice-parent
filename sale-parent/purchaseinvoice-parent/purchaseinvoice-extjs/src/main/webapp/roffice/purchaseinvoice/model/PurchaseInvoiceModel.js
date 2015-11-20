@@ -7,13 +7,9 @@
 
 
 Ext.define('kalix.roffice.purchaseinvoice.model.PurchaseInvoiceModel', {
-    extend: 'Ext.data.Model',
+    extend: 'kalix.model.BaseModel',
 
-    idProperty: '_id',
     fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
         name: 'money',
         type: 'float'
     }, {
@@ -32,23 +28,6 @@ Ext.define('kalix.roffice.purchaseinvoice.model.PurchaseInvoiceModel', {
         name: 'invoiceDate',
         type: 'date',
         dateFormat: 'Y-m-d H:i:s'
-    }, {
-        name: 'beginDate',
-        type: 'date',
-        dateFormat: 'Y-m-d H:i:s'
-    }, {
-        name: 'endDate',
-        type: 'date',
-        dateFormat: 'Y-m-d H:i:s'
-    }, {
-        name: 'updateBy',
-        type: 'string'
-    }, {
-        name: 'updateDate',
-        type: 'int'
-    }, {
-        name: 'version',
-        type: 'int'
     }
     ],
     validators: {
@@ -65,25 +44,6 @@ Ext.define('kalix.roffice.purchaseinvoice.model.PurchaseInvoiceModel', {
             type: 'presence',
             message: '日期不能为空!'
         }
-        ],
-    },
-
-    //需要提交给服务端的模型 key
-    serverKeys: [
-        'id',
-        'money',
-        'invoiceDate',
-        'purchaseId',
-        //'beginDate',
-        //'endDate',
-        'rate',
-        'invoiceNo',
-        'comment',
-        'version'
-    ],
-
-    //需要提交给服务端的 JSON 数据
-    toServerJSON: function () {
-        return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
+        ]
     }
 });

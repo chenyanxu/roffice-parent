@@ -5,12 +5,14 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.purchaseinvoice.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
-        'kalix.roffice.purchaseinvoice.store.PurchaseInvoiceStore',  //用户模型集合
         'kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid',
-        'kalix.roffice.purchaseinvoice.view.PurchaseInvoiceSearchForm'
+        'kalix.roffice.purchaseinvoice.view.PurchaseInvoiceSearchForm',
+        'kalix.roffice.purchaseinvoice.viewModel.PurchaseInvoiceViewModel'
     ],
+    storeId: 'purchaseinvoiceStore',
+    viewModel: 'purchaseinvoiceViewModel',
     items: [
         {
             title: '设备发票查询',

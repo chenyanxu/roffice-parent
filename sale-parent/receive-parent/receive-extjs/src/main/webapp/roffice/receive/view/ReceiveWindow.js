@@ -10,7 +10,8 @@ Ext.define('kalix.roffice.receive.view.ReceiveWindow', {
     requires: [
         'kalix.roffice.receive.viewModel.ReceiveViewModel',
         'kalix.controller.BaseWindowController',
-        'kalix.admin.user.store.UserStore'
+        'kalix.admin.user.store.UserStore',
+        'kalix.roffice.contract.component.ContractComboBox'
     ],
     alias: 'widget.teceiveWindow',
     viewModel: 'receiveViewModel',

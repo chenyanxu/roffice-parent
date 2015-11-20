@@ -22,7 +22,7 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
         name: 'receiveDate',
         type: 'date',
         dateFormat: 'Y-m-d H:i:s'
-    }, {
+    }, /*{
         name: 'beginDate',
         type: 'date',
         dateFormat: 'Y-m-d H:i:s'
@@ -30,7 +30,7 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
         name: 'endDate',
         type: 'date',
         dateFormat: 'Y-m-d H:i:s'
-    }],
+     }*/],
 
     validators: {
         comment: [{

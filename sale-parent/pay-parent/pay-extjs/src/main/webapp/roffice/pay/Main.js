@@ -5,12 +5,14 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.pay.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
-        'kalix.roffice.pay.store.PayStore',  //用户模型集合
         'kalix.roffice.pay.view.PayGrid',
-        'kalix.roffice.pay.view.PaySearchForm'
+        'kalix.roffice.pay.view.PaySearchForm',
+        'kalix.roffice.pay.viewModel.PayViewModel'
     ],
+    storeId: 'payStore',
+    viewModel: 'payViewModel',
     items: [
         {
             title: '采购付款查询',
@@ -25,6 +27,5 @@ Ext.define('kalix.roffice.pay.Main', {
             store: {
                 type: 'payStore'
             }
-        }
-    ]
+        }]
 });

@@ -10,22 +10,5 @@ Ext.define('kalix.roffice.purchaseinvoice.store.PurchaseInvoiceStore', {
     alias: 'store.purchaseinvoiceStore',
     xtype: 'purchaseinvoiceStore',
     storeId: "purchaseinvoiceStore",
-    autoLoad: true,
-    pageSize: 10,
-    proxy: {
-        type: "ajax",
-        url: '/kalix/camel/rest/purchaseinvoices/list',
-        paramsAsJson: true,
-        actionMethods: {
-            create: 'POST',
-            read: 'POST',
-            update: 'POST',
-            destroy: 'POST'
-        },
-        reader: {
-            type: "json",
-            rootProperty: "data",
-            totalProperty: 'totalCount'
-        }
-    }
+    proxyUrl: '/kalix/camel/rest/purchaseinvoices'
 });

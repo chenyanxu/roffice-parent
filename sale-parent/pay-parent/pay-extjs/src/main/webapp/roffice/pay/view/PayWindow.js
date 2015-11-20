@@ -5,27 +5,22 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.pay.view.PayForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.pay.view.PayWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.pay.viewModel.PayViewModel',
-        'kalix.roffice.pay.controller.PayFormController',
+        'kalix.controller.BaseWindowController',
+        'kalix.admin.user.store.UserStore',
         'kalix.roffice.contract.component.ContractComboBox'
     ],
-    alias: 'widget.PayForm',
+    alias: 'widget.payWindow',
     viewModel: 'payViewModel',
-    controller: 'payFormController',
-    xtype: "payForm",
-
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'payStore'
     },
+    xtype: "payWindow",
+    width: 400,
     items: [{
         xtype: 'baseForm',
         items: [
@@ -68,16 +63,7 @@ Ext.define('kalix.roffice.pay.view.PayForm', {
                     activeError: '{validation.comment}',
                     value: '{rec.comment}'
                 }
-            }],
-        buttons: [{
-            text: '保存',
-            glyph: 'xf0c7@FontAwesome',
-            handler: 'onSave'
-        }, {
-            text: '重置',
-            glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
-        }]
+            }]
     }]
 
 });

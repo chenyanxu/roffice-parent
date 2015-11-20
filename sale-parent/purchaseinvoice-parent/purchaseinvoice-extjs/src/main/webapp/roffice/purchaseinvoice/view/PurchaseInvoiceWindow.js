@@ -5,33 +5,27 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.purchaseinvoice.viewModel.PurchaseInvoiceViewModel',
-        'kalix.roffice.purchaseinvoice.controller.PurchaseInvoiceFormController',
+        'kalix.controller.BaseWindowController',
+        'kalix.admin.user.store.UserStore',
         'kalix.roffice.contract.component.ContractComboBox'
     ],
-    alias: 'widget.PurchaseInvoiceForm',
+    alias: 'widget.purchaseinvoiceWindow',
     viewModel: 'purchaseinvoiceViewModel',
-    controller: 'purchaseinvoiceFormController',
-    xtype: "purchaseinvoiceForm",
-
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'purchaseinvoiceStore'
     },
+    xtype: "purchaseinvoiceWindow",
+    width: 400,
     items: [{
         xtype: 'baseForm',
         items: [
             {
                 fieldLabel: '开发票日期',
-                labelAlign: 'right',
                 allowBlank: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
@@ -42,7 +36,6 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
             },
             {
                 fieldLabel: '发票金额(万元)',
-                labelAlign: 'right',
                 xtype: 'numberfield',
                 allowBlank: false,
                 bind: {
@@ -51,7 +44,6 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
                 }
             }, {
                 fieldLabel: '税率',
-                labelAlign: 'right',
                 xtype: 'numberfield',
                 allowBlank: false,
                 bind: {
@@ -61,8 +53,7 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
             },
             {
                 fieldLabel: '采购编号',
-                labelAlign: 'right',
-                //allowBlank: false,
+                allowBlank: false,
                 xtype: 'contractComboBox',
                 forceSelection: false,
                 bind: {
@@ -71,8 +62,7 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
                 }
             }, {
                 fieldLabel: '发票号',
-                labelAlign: 'right',
-                //allowBlank: false,
+                allowBlank: false,
                 bind: {
                     //activeError: '{validation.contractId}',
                     value: '{rec.invoiceNo}'
@@ -80,22 +70,13 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceForm', {
             }, {
                 fieldLabel: '备注',
                 labelAlign: 'right',
-                allowBlank: false,
+                //allowBlank: false,
                 xtype: 'textarea',
                 bind: {
                     activeError: '{validation.comment}',
                     value: '{rec.comment}'
                 }
-            }],
-        buttons: [{
-            text: '保存',
-            glyph: 'xf0c7@FontAwesome',
-            handler: 'onSave'
-        }, {
-            text: '重置',
-            glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
-        }]
+            }]
     }]
 
 });

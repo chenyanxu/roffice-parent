@@ -4,23 +4,26 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
-    extend: 'Ext.grid.Panel',
+    extend: 'kalix.view.components.common.BaseGrid',
     requires: [
-        'kalix.roffice.purchaseinvoice.viewModel.PurchaseInvoiceViewModel',
         'kalix.roffice.purchaseinvoice.controller.PurchaseInvoiceGridController',
-        'kalix.view.components.common.SecurityToolbar',
-        'kalix.view.components.common.PagingToolBar'
+        'kalix.roffice.purchaseinvoice.store.PurchaseInvoiceStore',
     ],
     alias: 'widget.purchaseinvoiceGrid',
     xtype: 'purchaseinvoiceGridPanel',
-    controller: 'purchaseinvoiceGridController',
-    viewModel: 'purchaseinvoiceViewModel',
-    autoLoad: true,
-    stripeRows: true,
-    /*viewConfig: {
-     forceFit: true,
-     },*/
-    columns: [
+    controller: {
+        type: 'purchaseinvoiceGridController',
+        storeId: 'purchaseinvoiceStore',
+        cfgForm: 'kalix.roffice.purchaseinvoice.view.PurchaseInvoiceWindow',
+        cfgViewForm: 'kalix.roffice.purchaseinvoice.view.PurchaseInvoiceViewWindow',
+        cfgModel: 'kalix.roffice.purchaseinvoice.model.PurchaseInvoiceModel'
+    },
+    store: {
+        type: 'purchaseinvoiceStore'
+    },
+    columns: {
+        defaults: {flex: 1},
+        items: [
         {
             xtype: "rownumberer",
             text: "行号",
@@ -31,11 +34,9 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
             text: '编号',
             dataIndex: 'id',
             hidden: true,
-            flex: 1
         }, {
             text: '开发票日期',
             dataIndex: 'invoiceDate',
-            flex: 1,
             xtype: 'datecolumn',
             //format: 'Y-m-d'
 
@@ -46,7 +47,6 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
         }, {
             text: '发票金额',
             dataIndex: 'money',
-            flex: 1,
             //formatter: 'usMoney',
             renderer: function (val) {
                 var out = Ext.util.Format.number(val, '0.00');
@@ -56,11 +56,9 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
         }, {
             text: '税率',
             dataIndex: 'rate',
-            flex: 1
         }, {
             text: '发票号',
             dataIndex: 'invoiceNo',
-            flex: 1
         }, /* {
             text: '采购编号',
             dataIndex: 'purchaseId',
@@ -84,70 +82,29 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
                 var createDate = new Date(value);
                 return createDate.format("yyyy-MM-dd hh:mm:ss");
             }
-        }],
+        },
+            {
+                xtype: 'securityGridColumnRUD',
+                //todo change permission
+                permissions: [
+                    'roffice:deployModule:purchaseinvoiceMenu:view',
+                    'roffice:deployModule:purchaseinvoiceMenu:edit',
+                    'roffice:deployModule:purchaseinvoiceMenu:delete'
+                ]
+            }]
+    },
 
     tbar: {
         xtype: 'securityToolbar',
-
-        //无需授权的按钮
-        items: [
-            {
-                text: '查看',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:purchaseinvoiceMenu:view',
-                //icon: this.getViewModel().get("view_image_path"),
-                handler: 'onView',
-                bind: {
-                    icon: '{view_image_path}'
-                }
-            },
+        verifyItems: [
             {
                 text: '添加',
                 xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:purchaseinvoiceMenu:add',
-                handler: 'onAdd',
-                bind: {
-                    icon: '{add_image_path}'
-                }
-            },
-            {
-                text: '编辑',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:purchaseinvoiceMenu:update',
-                handler: 'onEdit',
-                bind: {
-                    icon: '{edit_image_path}'
-                }
-            }, {
-                text: '删除',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:purchaseinvoiceMenu:delete',
-                handler: 'onDelete',
-                bind: {
-                    icon: '{delete_image_path}'
-                }
+                permission: 'roffice:deployModule:purchaseinvoiceMenu:add',
+                bind: {icon: '{add_image_path}'},
+                handler: 'onAdd'
             }
         ]
-
-        //需要验证权限后添加的按钮
-        //verifyItems: []
-    },
-
-    /*
-     grid 组件不自动绑定与 grid 相关的翻页工具条的 store 配置项
-     需要手动指定工具条的 store
-     */
-    bbar: [{
-        id: 'purchaseinvoice-pagingtoolbar',
-        xtype: 'pagingToolBarComponent',
-        border: false,
-        padding: 0,
-        listeners: {
-            afterrender: function (c, obj) {
-                this.setConfig('store', kalix.getApplication().getStore('purchaseinvoiceStore'));
-            }
-        }
     }
-    ],
 
 });

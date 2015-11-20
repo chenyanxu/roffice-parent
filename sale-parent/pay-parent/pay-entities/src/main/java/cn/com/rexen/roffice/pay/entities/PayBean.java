@@ -4,6 +4,8 @@ import cn.com.rexen.core.api.persistence.PersistentEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -17,6 +19,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "roffice_pay")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class PayBean extends PersistentEntity {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date receiveDate;//回款日期
