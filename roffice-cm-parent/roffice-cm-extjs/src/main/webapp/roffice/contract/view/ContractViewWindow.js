@@ -1,22 +1,18 @@
 /**
- * 用户添加表单
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
+ * @author chenyanxu
  */
 
 Ext.define('kalix.roffice.contract.view.ContractViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.controller.BaseWindowController',
+       // 'kalix.controller.BaseWindowController',
         'kalix.roffice.contract.viewModel.ContractViewModel',
         'kalix.admin.dict.component.DictCombobox'
     ],
     alias: 'widget.contractViewWindow',
     xtype: "contractViewWindow",
     viewModel: 'contractViewModel',
-    controller:'baseWindowController',
+    //controller:'baseWindowController',
     items: [{
         defaults: {readOnly: true},
         items: [

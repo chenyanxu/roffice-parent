@@ -1,19 +1,15 @@
 /**
- * 用户添加表单
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
+ * @author chenyanxu
  */
 
-Ext.define('kalix.roffice.invoice.view.InvoiceViewForm', {
+Ext.define('kalix.roffice.invoice.view.InvoiceViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
         'kalix.roffice.invoice.viewModel.InvoiceViewModel',
         'kalix.roffice.contract.component.ContractComboBox'
     ],
-    alias: 'widget.invoiceViewForm',
-    xtype: "invoiceViewForm",
+    alias: 'widget.invoiceViewWindow',
+    xtype: "invoiceViewWindow",
     viewModel: 'invoiceViewModel',
     width:400,
     items: [{
@@ -54,14 +50,6 @@ Ext.define('kalix.roffice.invoice.view.InvoiceViewForm', {
                 }
             }
         ]
-    }
-    ],
-    buttons: [{
-        text: '关闭',
-        glyph: 'xf00d@FontAwesome',
-        handler: function () {
-            this.up('.window').close();
-        }
     }
     ]
 });

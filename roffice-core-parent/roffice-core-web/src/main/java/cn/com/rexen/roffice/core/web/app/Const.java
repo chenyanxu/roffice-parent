@@ -36,9 +36,9 @@ public class Const {
     //合同发票菜单常量
     public static final String INVOICE_MENU_ID = "contractMenu";
     public static final String INVOICE_MENU_TEXT = "合同发票";
-    public static final String INVOICE_MENU_ROUTE_ID = "roffice/Contract";
+    public static final String INVOICE_MENU_ROUTE_ID = "roffice/Invoice";
     public static final int INVOICE_MENU_INDEX = 20;
-    public static final String INVOICE_MENU_ICON_CLASS = "x-fa fa-credit-card";
+    public static final String INVOICE_MENU_ICON_CLASS = "x-fa fa-copy";
     public static final String INVOICE_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + INVOICE_MENU_ID;
 
     //#################################################################################
