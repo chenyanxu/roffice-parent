@@ -1,22 +1,11 @@
 package cn.com.rexen.roffice.receive.dao;
 
-import cn.com.rexen.core.api.web.model.QueryDTO;
 import cn.com.rexen.core.impl.persistence.GenericDao;
 import cn.com.rexen.roffice.receive.api.dao.IReceiveBeanDao;
-import cn.com.rexen.roffice.receive.api.query.ReceiveDTO;
 import cn.com.rexen.roffice.receive.entities.ReceiveBean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.EntityType;
-import javax.persistence.metamodel.SingularAttribute;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 /**
  * @类描述：
@@ -33,7 +22,7 @@ public class ReceiveBeanDaoImpl extends GenericDao<ReceiveBean, Long> implements
         super.setEntityManager(em);
     }
 
-    @Override
+    /*@Override
     public CriteriaQuery buildCriteriaQuery(QueryDTO queryDTO) {
         ReceiveDTO receiveDto = (ReceiveDTO) queryDTO;
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
@@ -42,10 +31,10 @@ public class ReceiveBeanDaoImpl extends GenericDao<ReceiveBean, Long> implements
         EntityType<ReceiveBean> bean_ = root.getModel(); //实体元数据
         List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-        /*if (receiveDto.getComment() != null && !receiveDto.getComment().trim().isEmpty()) {
+        *//*if (receiveDto.getComment() != null && !receiveDto.getComment().trim().isEmpty()) {
             SingularAttribute<ReceiveBean, String> comment = (SingularAttribute<ReceiveBean, String>) bean_.getSingularAttribute("comment");
             predicatesList.add(criteriaBuilder.like(root.get(comment), "%" + receiveDto.getComment() + "%"));
-        }*/
+        }*//*
         if (receiveDto.getBeginDate() != null) {
             SingularAttribute<ReceiveBean, Date> comment = (SingularAttribute<ReceiveBean, Date>) bean_.getSingularAttribute("receiveDate");
 //            ParameterExpression<Date> param = criteriaBuilder.parameter(Date.class, "receiveDate");
@@ -61,5 +50,5 @@ public class ReceiveBeanDaoImpl extends GenericDao<ReceiveBean, Long> implements
         criteriaQuery.where(predicatesList.toArray(new Predicate[predicatesList.size()]));
         CriteriaQuery select = criteriaQuery.select(root);
         return select;
-    }
+    }*/
 }

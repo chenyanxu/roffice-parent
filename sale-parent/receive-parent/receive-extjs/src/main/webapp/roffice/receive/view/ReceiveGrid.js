@@ -41,7 +41,6 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
                 flex: 1,
                 xtype: 'datecolumn',
                 //format: 'Y-m-d'
-
                 renderer: function (value) {
                     var createDate = new Date(value);
                     return createDate.format("yyyy-MM-dd");

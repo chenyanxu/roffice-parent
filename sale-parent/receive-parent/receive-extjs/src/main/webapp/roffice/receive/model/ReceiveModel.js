@@ -45,7 +45,6 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
         receiveDate: [{
             type: 'presence',
             message: '日期不能为空!'
-        }
-        ]
+        }]
     }
 });
