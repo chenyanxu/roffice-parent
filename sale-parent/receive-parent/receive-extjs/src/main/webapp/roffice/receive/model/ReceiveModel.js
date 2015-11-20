@@ -10,9 +10,6 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
     extend: 'kalix.model.BaseModel',
 
     fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
         name: 'money',
         type: 'float'
     }, {
@@ -34,6 +31,7 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
         type: 'date',
         dateFormat: 'Y-m-d H:i:s'
     }],
+
     validators: {
         comment: [{
             type: 'presence',
@@ -48,23 +46,6 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
             type: 'presence',
             message: '日期不能为空!'
         }
-        ],
-    },
-
-    //需要提交给服务端的模型 key
-    serverKeys: [
-        'id',
-        'money',
-        'receiveDate',
-        'contractId',
-        //'beginDate',
-        //'endDate',
-        'comment',
-        'version'
-    ],
-
-    //需要提交给服务端的 JSON 数据
-    toServerJSON: function () {
-        return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
+        ]
     }
 });

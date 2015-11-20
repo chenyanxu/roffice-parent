@@ -12,7 +12,7 @@ Ext.define('kalix.roffice.travel.view.TravelWindow', {
         'kalix.controller.BaseWindowController',
         'kalix.admin.user.store.UserStore'
     ],
-    alias: 'widget.TravelWindow',
+    alias: 'widget.travelWindow',
     viewModel: 'travelViewModel',
     controller: {
         type: 'baseWindowController',

@@ -10,22 +10,5 @@ Ext.define('kalix.roffice.receive.store.ReceiveStore', {
     alias: 'store.receiveStore',
     xtype: 'receiveStore',
     storeId: "receiveStore",
-    autoLoad: true,
-    pageSize: 10,
-    proxy: {
-        type: "ajax",
-        url: '/kalix/camel/rest/receives/list',
-        paramsAsJson: true,
-        actionMethods: {
-            create: 'POST',
-            read: 'POST',
-            update: 'POST',
-            destroy: 'POST'
-        },
-        reader: {
-            type: "json",
-            rootProperty: "data",
-            totalProperty: 'totalCount'
-        }
-    }
+    proxyUrl: '/kalix/camel/rest/receives'
 });

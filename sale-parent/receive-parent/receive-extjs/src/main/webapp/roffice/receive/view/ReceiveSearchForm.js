@@ -4,16 +4,10 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.receive.view.ReceiveSearchForm', {
-    extend: 'Ext.form.Panel',
-    requires: [
-        'kalix.roffice.receive.controller.ReceiveSearchFormController'
-    ],
+    extend: 'kalix.view.components.common.BaseSearchForm',
     alias: 'widget.receiveSearchForm',
     xtype: 'receiveSearchForm',
-    controller: 'receiveSearchFormController',
-    bodyPadding: 10,
-    layout: 'column',
-    margin: 10,
+    storeId: 'receiveStore',
     items: [
         {
             xtype: 'datefield',
