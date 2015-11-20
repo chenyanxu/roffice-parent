@@ -4,7 +4,7 @@
  * @author
  * @version 1.0.0
  */
-Ext.define('kalix.roffice.travel.controller.ReceiveGridController', {
+Ext.define('kalix.roffice.receive.controller.ReceiveGridController', {
     extend: 'kalix.controller.BaseGridController',
     alias: 'controller.receiveGridController',
 
