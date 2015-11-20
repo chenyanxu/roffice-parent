@@ -10,5 +10,5 @@ import cn.com.rexen.roffice.cm.entities.InvoiceBean;
  * @author ：Chenyanxu
  */
 public interface IInvoiceBeanService extends IBizService<InvoiceBean> {
-    JsonData getAllEntityByCustomQuery(int page, int limit, String contractNumber);
+
 }

@@ -6,20 +6,20 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.contract.view.ContractForm', {
+Ext.define('kalix.roffice.contract.view.ContractWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.controller.BaseFormController',
+        'kalix.controller.BaseWindowController',
         'kalix.roffice.contract.viewModel.ContractViewModel',
         'kalix.admin.dict.component.DictCombobox'
         ],
-    alias: 'widget.contractForm',
+    alias: 'widget.contractWindow',
+    xtype: "contractWindow",
     viewModel: 'contractViewModel',
     controller: {
-        type: 'baseFormController',
+        type: 'baseWindowController',
         storeId: 'contractStore'
     },
-    xtype: "contractForm",
     items: [{
         items: [
             {

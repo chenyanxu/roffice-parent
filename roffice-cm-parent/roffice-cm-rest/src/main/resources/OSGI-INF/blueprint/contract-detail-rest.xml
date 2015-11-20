@@ -15,7 +15,7 @@
         <rest path="/contractDetails" consumes="application/json" produces="application/json">
             <get id="route-getAllContractDetail" outType="cn.com.rexen.core.api.persistence.JsonData">
                 <description>Find all contractDetails</description>
-                <to uri="bean:contractDetailBeanService?method=getAllEntityByCustomQuery(${header.page},${header.limit},${header.name})"/>
+                <to uri="bean:contractDetailBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
             </get>
             <!-- this is a rest POST to add a contractDetail-->
             <post id="route-addContractDetail" type="cn.com.rexen.roffice.cm.entities.ContractDetailBean"

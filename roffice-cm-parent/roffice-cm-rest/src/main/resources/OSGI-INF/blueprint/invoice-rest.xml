@@ -15,7 +15,7 @@
         <rest path="/invoices" consumes="application/json" produces="application/json">
             <get id="route-getAllInvoice" outType="cn.com.rexen.core.api.persistence.JsonData">
                 <description>Find all invoices</description>
-                <to uri="bean:invoiceBeanService?method=getAllEntityByCustomQuery(${header.page},${header.limit},${header.invoiceNo})"/>
+                <to uri="bean:invoiceBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr)"/>
             </get>
             <!-- this is a rest POST to add a invoice-->
             <post id="route-addInvoice" type="cn.com.rexen.roffice.cm.entities.InvoiceBean"

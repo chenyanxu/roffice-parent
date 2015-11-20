@@ -13,8 +13,8 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
     controller: {
         type: 'contractGridController',
         storeId: 'contractStore',
-        cfgForm: 'kalix.roffice.contract.view.ContractForm',
-        cfgViewForm: 'kalix.roffice.contract.view.ContractViewForm',
+        cfgForm: 'kalix.roffice.contract.view.ContractWindow',
+        cfgViewForm: 'kalix.roffice.contract.view.ContractViewWindow',
         cfgModel: 'kalix.roffice.contract.model.ContractModel'
     },
     store: {
