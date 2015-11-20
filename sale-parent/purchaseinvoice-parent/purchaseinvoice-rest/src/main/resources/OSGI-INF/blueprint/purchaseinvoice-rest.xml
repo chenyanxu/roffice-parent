@@ -19,15 +19,28 @@
         <rest path="/purchaseinvoices" consumes="application/json" produces="application/json">
             <description>purchaseinvoice rest service</description>
 
-            <!-- this is a rest PUT to create an purchaseinvoice -->
+            <!-- this is a rest GET to find all purchaseinvoice -->
+            <get id="route-getAllPurchaseInvoice" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all PurchaseInvoices</description>
+                <to uri="bean:purchaseinvoiceService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
+            </get>
+
+            <!-- this is a rest POST to create an purchaseinvoice -->
             <post id="route-addPurchaseInvoice" type="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a PurchaseInvoice</description>
                 <to uri="bean:purchaseinvoiceService?method=saveEntity"/>
             </post>
 
+            <!-- this is a rest GET to view a purchaseinvoice by the given id -->
+            <get uri="/{id}" id="route-getPurchaseInvoice"
+                 outType="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean">
+                <description>Find PurchaseInvoice by id</description>
+                <to uri="bean:purchaseinvoiceService?method=getEntity(${header.id})"/>
+            </get>
+
             <!-- this is a rest PUT to update a purchaseinvoice -->
-            <put id="route-updatePurchaseInvoice"
+            <put uri="/{id}" id="route-updatePurchaseInvoice"
                  type="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a PurchaseInvoice</description>
@@ -35,31 +48,12 @@
             </put>
 
             <!-- this is a rest DELETE to delete a purchaseinvoice -->
-            <delete id="route-deletePurchaseInvoice" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <delete uri="/{id}" id="route-deletePurchaseInvoice"
+                    type="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a PurchaseInvoice</description>
-                <to uri="bean:purchaseinvoiceService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:purchaseinvoiceService?method=removeEntity"/>
             </delete>
-
-            <!-- this is a rest GET to find all purchaseinvoice -->
-            <get id="route-getAllPurchaseInvoice" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all PurchaseInvoices</description>
-                <to uri="bean:purchaseinvoiceService?method=getAllEntity(${header.page},${header.limit})"/>
-            </get>
-
-            <!-- this is a rest GET to view a purchaseinvoice by the given id -->
-            <get id="route-getPurchaseInvoice" uri="/{id}"
-                 outType="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean">
-                <description>Find PurchaseInvoice by id</description>
-                <to uri="bean:purchaseinvoiceService?method=getEntity(${header.id})"/>
-            </get>
-
-            <!-- this is a rest GET to find all purchaseinvoice by name -->
-            <post id="route-getAllPurchaseInvoiceByName" uri="/list"
-                  outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.purchaseinvoice.api.query.PurchaseInvoiceDTO">
-                <description>Find all PurchaseInvoice by Name</description>
-                <to uri="bean:purchaseinvoiceService?method=getAllEntityByQuery"/>
-            </post>
 
         </rest>
     </camelContext>
