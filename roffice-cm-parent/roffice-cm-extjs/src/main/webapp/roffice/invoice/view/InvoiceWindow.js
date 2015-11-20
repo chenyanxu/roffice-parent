@@ -1,25 +1,21 @@
 /**
- * 用户添加表单
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
+ * @author chenyanxu
  */
 
-Ext.define('kalix.roffice.invoice.view.InvoiceForm', {
+Ext.define('kalix.roffice.invoice.view.InvoiceWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.controller.BaseFormController',
+        'kalix.controller.BaseWindowController',
         'kalix.roffice.invoice.viewModel.InvoiceViewModel',
         'kalix.roffice.contract.component.ContractComboBox'
         ],
-    alias: 'widget.invoiceForm',
+    alias: 'widget.invoiceWindow',
+    xtype: "invoiceWindow",
     viewModel: 'invoiceViewModel',
     controller: {
-        type: 'baseFormController',
+        type: 'baseWindowController',
         storeId: 'invoiceStore'
     },
-    xtype: "invoiceForm",
     width:400,
     items: [{
         items: [
@@ -60,19 +56,4 @@ Ext.define('kalix.roffice.invoice.view.InvoiceForm', {
         ]
     }
     ]
-    ,
-    buttons: [{
-        text: '保存',
-        glyph: 'xf0c7@FontAwesome',
-        handler: 'onSave'
-    }, {
-        text: '重置',
-        glyph: 'xf0e2@FontAwesome',
-        handler: 'onReset'
-    }
-    ]
-    ,
-    listeners: {
-        close: 'onClose'
-    }
 });

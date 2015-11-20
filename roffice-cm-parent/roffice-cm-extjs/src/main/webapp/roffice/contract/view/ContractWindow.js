@@ -1,9 +1,5 @@
 /**
- * 用户添加表单
- *
- * @author majian <br/>
- *         date:2015-6-18
- * @version 1.0.0
+ * @author chenyanxu
  */
 
 Ext.define('kalix.roffice.contract.view.ContractWindow', {
