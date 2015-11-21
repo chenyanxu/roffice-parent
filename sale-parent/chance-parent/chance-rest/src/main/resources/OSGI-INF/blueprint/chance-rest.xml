@@ -15,46 +15,35 @@
         <!-- defines the rest services using the context-path /chance -->
         <rest path="/chances" consumes="application/json" produces="application/json">
             <description>chance rest service</description>
-
+            <!-- this is a rest GET to find all chance -->
+            <get id="route-getAllChance" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Chances</description>
+                <to uri="bean:chanceService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
+            </get>
             <!-- this is a rest PUT to create an chance -->
             <post id="route-addChance" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a Chance</description>
                 <to uri="bean:chanceService?method=saveEntity"/>
             </post>
-
+        </rest>
+        <rest path="/chances/{id}" consumes="application/json" produces="application/json">
+            <get id="route-getChance"  outType="cn.com.rexen.roffice.chance.entities.ChanceBean">
+                <description>Find Chance by id</description>
+                <to uri="bean:chanceService?method=getEntity(${header.id})"/>
+            </get>
             <!-- this is a rest PUT to update a chance -->
-            <put id="route-updateChance" uri="/{id}" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
+            <put id="route-updateChance" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a Chance</description>
                 <to uri="bean:chanceService?method=updateEntity"/>
             </put>
-
             <!-- this is a rest DELETE to delete a chance -->
-            <delete id="route-deleteChance" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <delete id="route-deleteChance" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Chance</description>
-                <to uri="bean:chanceService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:chanceService?method=removeEntity"/>
             </delete>
-
-            <!-- this is a rest GET to find all chance -->
-            <get id="route-getAllChance" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all Chances</description>
-                <to uri="bean:chanceService?method=getAllEntity(${header.page},${header.limit})"/>
-            </get>
-
-            <!-- this is a rest GET to view a chance by the given id -->
-            <get id="route-getChance" uri="/{id}" outType="cn.com.rexen.roffice.chance.entities.ChanceBean">
-                <description>Find Chance by id</description>
-                <to uri="bean:chanceService?method=getEntity(${header.id})"/>
-            </get>
-
-            <!-- this is a rest GET to find all chance by name -->
-            <post id="route-getAllChanceByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.chance.api.query.ChanceDTO">
-                <description>Find all Chance by Name</description>
-                <to uri="bean:chanceService?method=getAllEntityByQuery"/>
-            </post>
-
         </rest>
     </camelContext>
 </blueprint>

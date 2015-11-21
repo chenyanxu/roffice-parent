@@ -99,7 +99,6 @@ Ext.define('kalix.roffice.contract.view.ContractWindow', {
             {
                 fieldLabel: '是否归档',
                 allowBlank: false,
-                
                 xtype: 'combobox',
                 editable: false,
                 valueField: 'key',

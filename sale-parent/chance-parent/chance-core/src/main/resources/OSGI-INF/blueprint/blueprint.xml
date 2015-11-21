@@ -2,13 +2,14 @@
            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
 ">
-
+    <reference id="shiroService" interface="cn.com.rexen.core.api.security.IShiroService"/>
     <service id="chanceBeanService" interface="cn.com.rexen.roffice.chance.api.biz.IChanceBeanService"
              ref="beanServiceImpl">
     </service>
 
     <bean id="beanServiceImpl" class="cn.com.rexen.roffice.chance.core.biz.ChanceBeanServiceImpl">
         <property name="dao" ref="chanceBeanDao"/>
+        <property name="shiroService" ref="shiroService"/>
     </bean>
 
     <reference id="chanceBeanDao" interface="cn.com.rexen.roffice.chance.api.dao.IChanceBeanDao"/>

@@ -5,51 +5,24 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.chance.view.ChanceForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.chance.view.ChanceWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
+        'kalix.controller.BaseWindowController',
         'kalix.roffice.chance.viewModel.ChanceViewModel',
-        'kalix.roffice.chance.controller.ChanceFormController',
-        'kalix.admin.user.component.UserComboBox',
-        'kalix.controller.BaseFormController',
+        'kalix.admin.user.component.UserComboBox'
     ],
-    alias: 'widget.ChanceForm',
+    alias: 'widget.chanceWindow',
+    xtype: "chanceWindow",
     viewModel: 'chanceViewModel',
     controller: {
-        type: 'baseFormController',
+        type: 'baseWindowController',
         storeId: 'chanceStore'
     },
-    xtype: "chanceForm",
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
-    },
-    frame: true,
-    width: 800,
-    border: false,
-    modal: true,
-    resizable: true,
-    padding: 10,
-    buttonAlign: 'center',
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
-    },
-    defaults: {
-        layout: 'form',
-        xtype: 'baseForm',
-        defaultType: 'textfield',
-        flex: 1
-        //columnWidth: 0.5,
-        //border:false
-    },
     items: [{
-
         items: [{
             fieldLabel: '项目名称',
             allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 activeError: '{validation.name}',
                 value: '{rec.name}'
@@ -64,27 +37,20 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             }
         }, {
             fieldLabel: '项目类型',
-            //allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 //activeError: '{validation.type}',
                 value: '{rec.type}'
             }
         }, {
             fieldLabel: '所属行业',
-
-            //allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 //activeError: '{validation.industry}',
                 value: '{rec.industry}'
             }
         }, {
             fieldLabel: '优先级',
-            //allowBlank: false,
             xtype: 'combobox',
             id: 'level',
-            labelAlign: 'right',
             name: 'level',
             store: [
                 ['高', '高'],
@@ -94,16 +60,9 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
             bind: {
                 //activeError: '{validation.level}',
                 value: '{rec.level}'
-            }/*,
-            listeners: {
-                afterrender: function (rec) {
-                    Ext.getCmp('level').setValue("中");
-                }
-             }*/
+            }
         }, {
             fieldLabel: '项目机会描述',
-            //allowBlank: false,
-            labelAlign: 'right',
             xtype: 'textarea',
             bind: {
                 //activeError: '{validation.description}',
@@ -114,8 +73,6 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
         {
             items: [{
                 fieldLabel: '预算额度(万元)',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'numberfield',
                 bind: {
                     //activeError: '{validation.budget}',
@@ -123,8 +80,6 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
                 }
             }, {
                 fieldLabel: '预计签单时间',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -141,41 +96,23 @@ Ext.define('kalix.roffice.chance.view.ChanceForm', {
                 }
             }, {
                 fieldLabel: '客户联系人姓名',
-                //allowBlank: false,
-                labelAlign: 'right',
                 bind: {
                     //activeError: '{validation.clientName}',
                     value: '{rec.clientName}'
                 }
             }, {
                 fieldLabel: '客户联系人电话',
-                //allowBlank: false,
-                labelAlign: 'right',
                 bind: {
                     //activeError: '{validation.clientPhone}',
                     value: '{rec.clientPhone}'
                 }
             }, {
                 fieldLabel: '备注',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'textarea',
                 bind: {
                     //activeError: '{validation.comment}',
                     value: '{rec.comment}'
                 }
             }]
-        }],
-    buttons: [{
-        text: '保存',
-        glyph: 'xf0c7@FontAwesome',
-        handler: 'onSave'
-    }, {
-        text: '重置',
-        glyph: 'xf0e2@FontAwesome',
-        handler: 'onReset'
-    }],
-    listeners: {
-        close: 'onClose'
-    }
+        }]
 });

@@ -3,5 +3,5 @@
 #-----------------------------------------------------------------
 
 Bundle-Activator: ${bundle.namespace}.internal.InitActivator
-Import-Package:cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,cn.com.rexen.roffice.chance.entities,cn.com.rexen.roffice.chance.api.query,*
+Import-Package:cn.com.rexen.core.api.biz,cn.com.rexen.core.api.persistence,cn.com.rexen.roffice.chance.entities,*
 Bundle-Category: Rexen  Roffice Chance

@@ -15,14 +15,24 @@
         <!-- defines the rest services using the context-path /support -->
         <rest path="/supports" consumes="application/json" produces="application/json">
             <description>support rest service</description>
-
+            <!-- this is a rest GET to find all support -->
+            <get id="route-getAllSupport" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Supports</description>
+                <to uri="bean:supportService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
+            </get>
             <!-- this is a rest PUT to create an support -->
             <post id="route-addSupport" type="cn.com.rexen.roffice.support.entities.SupportBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a Support</description>
                 <to uri="bean:supportService?method=saveEntity"/>
             </post>
-
+        </rest>
+        <rest path="/supports/{id}" consumes="application/json" produces="application/json">
+            <!-- this is a rest GET to view a support by the given id -->
+            <get id="route-getSupport" outType="cn.com.rexen.roffice.support.entities.SupportBean">
+                <description>Find Support by id</description>
+                <to uri="bean:supportService?method=getEntity(${header.id})"/>
+            </get>
             <!-- this is a rest PUT to update a support -->
             <put id="route-updateSupport" type="cn.com.rexen.roffice.support.entities.SupportBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
@@ -31,30 +41,11 @@
             </put>
 
             <!-- this is a rest DELETE to delete a support -->
-            <delete id="route-deleteSupport" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <delete id="route-deleteSupport" type="cn.com.rexen.roffice.support.entities.SupportBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Support</description>
-                <to uri="bean:supportService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:supportService?method=removeEntity"/>
             </delete>
-
-            <!-- this is a rest GET to find all support -->
-            <get id="route-getAllSupport" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all Supports</description>
-                <to uri="bean:supportService?method=getAllEntity(${header.page},${header.limit})"/>
-            </get>
-
-            <!-- this is a rest GET to view a support by the given id -->
-            <get id="route-getSupport" uri="/{id}" outType="cn.com.rexen.roffice.support.entities.SupportBean">
-                <description>Find Support by id</description>
-                <to uri="bean:supportService?method=getEntity(${header.id})"/>
-            </get>
-
-            <!-- this is a rest GET to find all support by name -->
-            <post id="route-getAllSupportByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.support.api.query.SupportDTO">
-                <description>Find all Support by Name</description>
-                <to uri="bean:supportService?method=getAllEntityByQuery"/>
-            </post>
-
         </rest>
     </camelContext>
 </blueprint>
