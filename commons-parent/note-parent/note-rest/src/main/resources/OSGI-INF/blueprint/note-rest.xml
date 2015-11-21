@@ -8,8 +8,7 @@
 
     <camelContext id="noteCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
-        <restConfiguration component="servlet" bindingMode="json"
-                           contextPath="/kalix/camel/rest" host="localhost"
+        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
                            port="8181">
             <dataFormatProperty key="prettyPrint" value="true"/>
         </restConfiguration>
@@ -18,44 +17,38 @@
         <rest path="/notes" consumes="application/json" produces="application/json">
             <description>note rest service</description>
 
-            <!-- this is a rest PUT to create an note -->
+            <!-- this is a rest GET to find all note -->
+            <get id="route-getAllNote" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Notes</description>
+                <to uri="bean:noteService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
+            </get>
+
+            <!-- this is a rest POST to create a note -->
             <post id="route-addNote" type="cn.com.rexen.roffice.note.entities.NoteBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a Note</description>
                 <to uri="bean:noteService?method=saveEntity"/>
             </post>
 
+            <!-- this is a rest GET to view a note by the given id -->
+            <get uri="/{id}" id="route-getNote" outType="cn.com.rexen.roffice.note.entities.NoteBean">
+                <description>Find Note by id</description>
+                <to uri="bean:noteService?method=getEntity(${header.id})"/>
+            </get>
+
             <!-- this is a rest PUT to update a note -->
-            <put id="route-updateNote" type="cn.com.rexen.roffice.note.entities.NoteBean"
+            <put uri="/{id}" id="route-updateNote" type="cn.com.rexen.roffice.note.entities.NoteBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a Note</description>
                 <to uri="bean:noteService?method=updateEntity"/>
             </put>
 
             <!-- this is a rest DELETE to delete a note -->
-            <delete id="route-deleteNote" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <delete uri="/{id}" id="route-deleteNote" type="cn.com.rexen.roffice.note.entities.NoteBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Note</description>
-                <to uri="bean:noteService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:noteService?method=removeEntity"/>
             </delete>
-
-            <!-- this is a rest GET to find all note -->
-            <get id="route-getAllNote" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all Notes</description>
-                <to uri="bean:noteService?method=getAllEntity(${header.page},${header.limit})"/>
-            </get>
-
-            <!-- this is a rest GET to view a note by the given id -->
-            <get id="route-getNote" uri="/{id}" outType="cn.com.rexen.roffice.note.entities.NoteBean">
-                <description>Find Note by id</description>
-                <to uri="bean:noteService?method=getEntity(${header.id})"/>
-            </get>
-
-            <!-- this is a rest GET to find all note by name -->
-            <post id="route-getAllNoteByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.note.api.query.NoteDTO">
-                <description>Find all Note by Name</description>
-                <to uri="bean:noteService?method=getAllEntityByQuery"/>
-            </post>
 
         </rest>
     </camelContext>

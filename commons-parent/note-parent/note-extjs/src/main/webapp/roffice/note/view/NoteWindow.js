@@ -5,32 +5,25 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.note.view.NoteForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.note.view.NoteWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.note.viewModel.NoteViewModel',
-        'kalix.roffice.note.controller.NoteFormController',
-        'Ext.ux.rating.Picker'
+        'kalix.controller.BaseWindowController',
+        'kalix.admin.user.store.UserStore'
     ],
-    alias: 'widget.NoteForm',
+    alias: 'widget.noteWindow',
     viewModel: 'noteViewModel',
-    controller: 'noteFormController',
-    xtype: "noteForm",
-
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'noteStore'
     },
+    xtype: "noteWindow",
+    width: 400,
     items: [{
         xtype: 'baseForm',
         items: [{
             fieldLabel: '标题',
-            labelAlign: 'right',
             allowBlank: false,
             bind: {
                 activeError: '{validation.name}',
@@ -38,7 +31,6 @@ Ext.define('kalix.roffice.note.view.NoteForm', {
             }
         }, {
             fieldLabel: '星级',
-            labelAlign: 'right',
             xtype: 'fieldcontainer',
             allowBlank: false,
             bind: {
@@ -52,24 +44,12 @@ Ext.define('kalix.roffice.note.view.NoteForm', {
             }]
         }, {
             fieldLabel: '内容',
-            labelAlign: 'right',
             allowBlank: false,
             xtype: 'textarea',
             bind: {
                 activeError: '{validation.content}',
                 value: '{rec.content}'
             }
-        }],
-        buttons: [{
-            text: '保存',
-            glyph: 'xf0c7@FontAwesome',
-            handler: 'onSave'
-        }, {
-            text: '重置',
-            glyph: 'xf0e2@FontAwesome',
-            handler: 'onReset'
-        }
-        ]
-    }
-    ]
+        }]
+    }]
 });

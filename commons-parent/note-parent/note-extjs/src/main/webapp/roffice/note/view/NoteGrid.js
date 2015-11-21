@@ -4,26 +4,27 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.note.view.NoteGrid', {
-    extend: 'Ext.grid.Panel',
+    extend: 'kalix.view.components.common.BaseGrid',
     requires: [
-        'Ext.grid.plugin.Exporter',
-        'kalix.roffice.note.viewModel.NoteViewModel',
         'kalix.roffice.note.controller.NoteGridController',
-        'kalix.view.components.common.SecurityToolbar',
-        'kalix.view.components.common.PagingToolBar',
-        'kalix.view.components.common.SecurityGridColumnRUD'
+        'kalix.roffice.note.store.NoteStore',
+        'Ext.grid.plugin.Exporter'
     ],
     alias: 'widget.noteGrid',
     xtype: 'noteGridPanel',
-    controller: 'noteGridController',
-    viewModel: 'noteViewModel',
-    autoLoad: true,
-    stripeRows: true,
-    //reference: 'employeeGrid',
-    /*viewConfig: {
-     forceFit: true,
-     },*/
-    columns: [
+    controller: {
+        type: 'noteGridController',
+        storeId: 'noteStore',
+        cfgForm: 'kalix.roffice.note.view.NoteWindow',
+        cfgViewForm: 'kalix.roffice.note.view.NoteViewWindow',
+        cfgModel: 'kalix.roffice.note.model.NoteModel'
+    },
+    store: {
+        type: 'noteStore'
+    },
+    columns: {
+        //defaults: {flex: 1},
+        items: [
         /*{
          xtype: "rownumberer",
          text: "行号",
@@ -35,7 +36,8 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
             dataIndex: 'id',
             hidden: true,
             flex: 1
-        }, {
+        },
+            /*{
             text: '星级',
             xtype: 'widgetcolumn',
             flex: 1,
@@ -47,9 +49,9 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
                 xtype: 'rating',
                 style: 'color: orange;',
                 overStyle: 'color: red;',
-                /*bind: {
+             /!*bind: {
                  disabled:'{!employeeGrid.selection}'
-                 }*/
+             }*!/
                 focusable: false,
                 listeners: {
                     change: function (picker, value) {
@@ -65,7 +67,7 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
                 }
             },
 
-        }, {
+             },*/ {
             text: '标题',
             dataIndex: 'name',
             flex: 1
@@ -108,54 +110,22 @@ Ext.define('kalix.roffice.note.view.NoteGrid', {
                     return '<span style="color: ' + color + ';">' + Ext.util.Format.usMoney(v) + '</span>';
                 }
             })
-    }],
+        }]
+    },
     collapsible: true,
     animCollapse: true,
 
     tbar: {
         xtype: 'securityToolbar',
-
-        //无需授权的按钮
-        /*items: [
-
-         ]*/
-
-        //需要验证权限后添加的按钮
-        verifyItems: [{
+        verifyItems: [
+            {
                 text: '添加',
                 xtype: 'button',
-            permission: 'roffice:commonsModule:noteMenu:add',
-                handler: 'onAdd',
-                bind: {
-                    icon: '{add_image_path}'
-                }
-        }]
-    },
-
-    /*
-     grid 组件不自动绑定与 grid 相关的翻页工具条的 store 配置项
-     需要手动指定工具条的 store
-     */
-    bbar: [{
-        id: 'note-pagingtoolbar',
-        xtype: 'pagingToolBarComponent',
-        border: false,
-        padding: 0,
-        listeners: {
-            afterrender: function (c, obj) {
-                this.setConfig('store', kalix.getApplication().getStore('noteStore'));
+                permission: 'roffice:commonsModule:noteMenu:add',
+                bind: {icon: '{add_image_path}'},
+                handler: 'onAdd'
             }
-        }
-    }
-    ],
-    header: {
-        itemPosition: 1, // after title before collapse tool
-        items: [{
-            ui: 'default-toolbar',
-            xtype: 'button',
-            text: 'Export to Excel',
-            handler: 'exportToExcel'
-        }]
+        ]
     }
 
 });

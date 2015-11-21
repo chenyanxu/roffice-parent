@@ -5,26 +5,18 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.note.view.NoteViewForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.note.view.NoteViewWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
         'kalix.roffice.note.viewModel.NoteViewModel',
-        'kalix.roffice.note.controller.NoteFormController'
+        'kalix.admin.user.store.UserStore'
     ],
-    alias: 'widget.noteViewForm',
+    alias: 'widget.noteViewWindow',
     viewModel: 'noteViewModel',
-    controller: 'noteFormController',
-    xtype: "noteViewForm",
-
+    xtype: "noteViewWindow",
     width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    title: '查看公司公告',
-    bind: {
-        icon: '{view_image_path}'
-    },
     items: [{
+        defaults: {readOnly: true},
         xtype: 'form',
         defaultType: 'displayfield',
         bodyPadding: 10,
@@ -70,15 +62,6 @@ Ext.define('kalix.roffice.note.view.NoteViewForm', {
                     var createDate = new Date(value);
                     return createDate.format("yyyy-MM-dd hh:mm:ss");
                 }
-            }],
-        buttons: [{
-            text: '关闭',
-            glyph: 'xf00d@FontAwesome',
-            handler: function () {
-                this.up('.window').close();
-            }
-        }
-        ]
-    }
-    ]
+            }]
+    }]
 });
