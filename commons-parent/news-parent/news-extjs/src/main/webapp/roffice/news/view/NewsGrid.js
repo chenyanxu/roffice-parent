@@ -59,8 +59,7 @@ Ext.define('kalix.roffice.news.view.NewsGrid', {
                 'roffice:commonsModule:newsMenu:edit',
                 'roffice:commonsModule:newsMenu:delete'
             ]
-        }
-        ]
+        }]
     },
     plugins: [{
         ptype: 'rowexpander',

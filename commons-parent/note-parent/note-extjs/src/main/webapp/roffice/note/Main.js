@@ -5,12 +5,14 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.note.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
-        'kalix.roffice.note.store.NoteStore',  //用户模型集合
         'kalix.roffice.note.view.NoteGrid',
-        'kalix.roffice.note.view.NoteSearchForm'
+        'kalix.roffice.note.view.NoteSearchForm',
+        'kalix.roffice.note.viewModel.NoteViewModel'
     ],
+    storeId: 'noteStore',
+    viewModel: 'noteViewModel',
     items: [
         {
             title: '公司公告查询',
@@ -21,10 +23,6 @@ Ext.define('kalix.roffice.note.Main', {
             id: 'noteGridPanel',
             title: '公司公告列表',
             iconCls: 'x-fa fa-comment',
-            margin: 10,
-            store: {
-                type: 'noteStore'
-            }
-        }
-    ]
+            margin: 10
+        }]
 });

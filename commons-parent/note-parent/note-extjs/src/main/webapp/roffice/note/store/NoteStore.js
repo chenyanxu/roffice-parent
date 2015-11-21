@@ -10,22 +10,5 @@ Ext.define('kalix.roffice.note.store.NoteStore', {
     alias: 'store.noteStore',
     xtype: 'noteStore',
     storeId: "noteStore",
-    autoLoad: true,
-    pageSize: 10,
-    proxy: {
-        type: "ajax",
-        url: '/kalix/camel/rest/notes/list',
-        paramsAsJson: true,
-        actionMethods: {
-            create: 'POST',
-            read: 'POST',
-            update: 'POST',
-            destroy: 'DELETE'
-        },
-        reader: {
-            type: "json",
-            rootProperty: "data",
-            totalProperty: 'totalCount'
-        }
-    }
+    proxyUrl: '/kalix/camel/rest/notes'
 });
