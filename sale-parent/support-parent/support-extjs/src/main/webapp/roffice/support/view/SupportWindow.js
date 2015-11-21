@@ -5,44 +5,25 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.support.view.SupportForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.support.view.SupportWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
+        'kalix.controller.BaseWindowController',
         'kalix.roffice.support.viewModel.SupportViewModel',
-        'kalix.roffice.support.controller.SupportFormController',
-        'kalix.admin.user.store.UserStore'
+        'kalix.admin.user.store.UserStore',
+        'kalix.roffice.chance.store.ChanceStore'
     ],
-    alias: 'widget.SupportForm',
+    alias: 'widget.SupportWindow',
+    xtype: "supportWindow",
     viewModel: 'supportViewModel',
-    controller: 'supportFormController',
-    xtype: "supportForm",
-
-    layout: 'column',
-    frame: true,
-    width: 800,
-    border: false,
-    modal: true,
-    resizable: true,
-    padding: 10,
-    buttonAlign: 'center',
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
-    },
-    defaults: {
-        layout: 'form',
-        xtype: 'baseForm',
-        defaultType: 'textfield',
-        columnWidth: 0.5,
-        //border:false
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'supportStore'
     },
     items: [{
-
         items: [{
             fieldLabel: '项目名称',
             allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 activeError: '{validation.name}',
                 value: '{rec.name}'
@@ -50,7 +31,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
         }, {
             fieldLabel: '营销负责人',
             allowBlank: false,
-            labelAlign: 'right',
             xtype: 'combobox',
             queryMode: 'remote',
             valueField: 'name',
@@ -67,23 +47,18 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
             }
         }, {
             fieldLabel: '项目类型',
-            //allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 //activeError: '{validation.type}',
                 value: '{rec.type}'
             }
         }, {
             fieldLabel: '所属行业',
-            //allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 //activeError: '{validation.industry}',
                 value: '{rec.industry}'
             }
         }, {
             fieldLabel: '优先级',
-            //allowBlank: false,
             xtype: 'combobox',
             labelAlign: 'right',
             name: 'level',
@@ -99,7 +74,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
         }, {
             fieldLabel: '项目机会',
             allowBlank: false,
-            labelAlign: 'right',
             xtype: 'combobox',
             queryMode: 'remote',
             valueField: 'id',
@@ -116,7 +90,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
             }
         }, {
             fieldLabel: '包含子系统',
-            //allowBlank: false,
             labelAlign: 'right',
             xtype: 'textarea',
             bind: {
@@ -128,8 +101,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
         {
             items: [{
                 fieldLabel: '预算额度(万元)',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'numberfield',
                 bind: {
                     //activeError: '{validation.budget}',
@@ -137,8 +108,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
                 }
             }, {
                 fieldLabel: '预计签单时间',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -147,8 +116,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
                 }
             }, {
                 fieldLabel: '预计开始时间',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -157,8 +124,6 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
                 }
             }, {
                 fieldLabel: '售前支持负责人',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'combobox',
                 queryMode: 'remote',
                 valueField: 'name',
@@ -175,30 +140,17 @@ Ext.define('kalix.roffice.support.view.SupportForm', {
                 }
             }, {
                 fieldLabel: '售前支持人员',
-                //allowBlank: false,
-                labelAlign: 'right',
                 bind: {
                     //activeError: '{validation.type}',
                     value: '{rec.supportPerson}'
                 }
             }, {
                 fieldLabel: '备注',
-                //allowBlank: false,
-                labelAlign: 'right',
                 xtype: 'textarea',
                 bind: {
                     //activeError: '{validation.comment}',
                     value: '{rec.comment}'
                 }
             }]
-        }],
-    buttons: [{
-        text: '保存',
-        glyph: 'xf0c7@FontAwesome',
-        handler: 'onSave'
-    }, {
-        text: '重置',
-        glyph: 'xf0e2@FontAwesome',
-        handler: 'onReset'
-    }]
+        }]
 });

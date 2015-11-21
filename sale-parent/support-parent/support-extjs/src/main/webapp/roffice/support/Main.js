@@ -5,12 +5,14 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.support.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
-        'kalix.roffice.support.store.SupportStore',  //用户模型集合
         'kalix.roffice.support.view.SupportGrid',
-        'kalix.roffice.support.view.SupportSearchForm'
+        'kalix.roffice.support.view.SupportSearchForm',
+        'kalix.roffice.support.viewModel.SupportViewModel'
     ],
+    storeId:'supportStore',
+    viewModel:'supportViewModel',
     items: [
         {
             title: '项目支持查询',
@@ -18,13 +20,9 @@ Ext.define('kalix.roffice.support.Main', {
             xtype: 'supportSearchForm'
         }, {
             xtype: 'supportGridPanel',
-            id: 'supportGridPanel',
             title: '项目支持列表',
             iconCls: 'x-fa fa-support',
-            margin: 10,
-            store: {
-                type: 'supportStore'
-            }
+            margin: 10
         }
     ]
 });
