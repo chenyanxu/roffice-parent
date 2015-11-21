@@ -4,16 +4,10 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.support.view.SupportSearchForm', {
-    extend: 'Ext.form.Panel',
-    requires: [
-        'kalix.roffice.support.controller.SupportSearchFormController'
-    ],
+    extend: 'kalix.view.components.common.BaseSearchForm',
     alias: 'widget.supportSearchForm',
     xtype: 'supportSearchForm',
-    controller: 'supportSearchFormController',
-    bodyPadding: 10,
-    layout: 'column',
-    margin: 10,
+    storeId:'supportStore',
     items: [
         {
             xtype: 'textfield',
@@ -22,24 +16,6 @@ Ext.define('kalix.roffice.support.view.SupportSearchForm', {
             labelWidth: 60,
             width: 200,
             name: 'name'
-        },
-        {
-            xtype: 'button',
-            text: '查询',
-            margin: '0 0 0 10',
-            handler: 'onSearch',
-            glyph: 'xf002@FontAwesome',
-        },
-        {
-            xtype: 'button',
-            text: '重置',
-            margin: '0 0 0 10',
-            glyph: 'xf0e2@FontAwesome',
-            listeners: {
-                click: function () {
-                    this.up('form').getForm().reset();
-                }
-            }
         }
     ]
 });

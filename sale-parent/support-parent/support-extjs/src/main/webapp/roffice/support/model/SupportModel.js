@@ -7,13 +7,9 @@
 
 
 Ext.define('kalix.roffice.support.model.SupportModel', {
-    extend: 'Ext.data.Model',
-
-    idProperty: '_id',
-    fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
+    extend: "kalix.model.BaseModel",
+    fields: [
+        {
         name: 'name',//项目名称
         type: 'string'
     }, {
@@ -34,12 +30,12 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
         type: 'string'
     }, {
         name: 'billDate',//预计交付时间
-        type: 'date'
-        //format: 'Y-m-d'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'startDate',//预计开始时间
-        type: 'date'
-        //format: 'Y-m-d'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'supporter',//售前支持负责人
         type: 'string'
@@ -54,9 +50,6 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
         type: 'int'
     }, {
         name: 'comment',//备注
-        type: 'string'
-    }, {
-        name: 'version',
         type: 'string'
     }
     ],
@@ -76,29 +69,5 @@ Ext.define('kalix.roffice.support.model.SupportModel', {
             type: 'presence',
             message: '项目机会不能为空!'
         }]
-    },
-
-    //需要提交给服务端的模型 key
-    serverKeys: [
-        'id',
-        'name',
-        'saler',
-        'type',
-        'industry',
-        'level',
-        'budget',
-        'billDate',
-        'startDate',
-        'supporter',
-        'supportPerson',
-        'subSystem',
-        'chanceId',
-        'comment',
-        'version'
-    ],
-
-    //需要提交给服务端的 JSON 数据
-    toServerJSON: function () {
-        return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
     }
 });
