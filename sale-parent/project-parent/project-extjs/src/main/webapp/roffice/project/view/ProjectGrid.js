@@ -4,25 +4,28 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.project.view.ProjectGrid', {
-    extend: 'Ext.grid.Panel',
+    extend: 'kalix.view.components.common.BaseGrid',
     requires: [
-        'kalix.roffice.project.viewModel.ProjectViewModel',
         'kalix.roffice.project.controller.ProjectGridController',
-        'kalix.view.components.common.SecurityToolbar',
-        'kalix.view.components.common.PagingToolBar',
+        'kalix.roffice.project.store.ProjectStore',
         'kalix.roffice.chance.store.ChanceStore',
         'kalix.admin.dict.component.DictGridColumn'
     ],
     alias: 'widget.projectGrid',
     xtype: 'projectGridPanel',
-    controller: 'projectGridController',
-    viewModel: 'projectViewModel',
-    autoLoad: true,
-    stripeRows: true,
-    /*viewConfig: {
-     forceFit: true,
-     },*/
-    columns: [
+    controller: {
+        type: 'projectGridController',
+        storeId: 'projectStore',
+        cfgForm: 'kalix.roffice.project.view.ProjectWindow',
+        cfgViewForm: 'kalix.roffice.project.view.ProjectViewWindow',
+        cfgModel: 'kalix.roffice.project.model.ProjectModel'
+    },
+    store: {
+        type: 'projectStore'
+    },
+    columns: {
+        defaults: {flex: 1},
+        items: [
         {
             xtype: "rownumberer",
             text: "行号",
@@ -85,72 +88,29 @@ Ext.define('kalix.roffice.project.view.ProjectGrid', {
                 return store.getById(chanceId).get('name');
                 //return "￥"+chanceId;
              }*/
-        }
-
-    ],
+            },
+            {
+                xtype: 'securityGridColumnRUD',
+                permissions: [
+                    'roffice:saleModule:projectMenu:view',
+                    'roffice:saleModule:projectMenu:edit',
+                    'roffice:saleModule:projectMenu:delete'
+                ]
+            }
+        ]
+    },
 
     tbar: {
         xtype: 'securityToolbar',
-
-        //无需授权的按钮
-        items: [
-            {
-                text: '查看',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:projectMenu:view',
-                //icon: this.getViewModel().get("view_image_path"),
-                handler: 'onView',
-                bind: {
-                    icon: '{view_image_path}'
-                }
-            },
+        verifyItems: [
             {
                 text: '添加',
                 xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:projectMenu:add',
-                handler: 'onAdd',
-                bind: {
-                    icon: '{add_image_path}'
-                }
-            },
-            {
-                text: '编辑',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:projectMenu:update',
-                handler: 'onEdit',
-                bind: {
-                    icon: '{edit_image_path}'
-                }
-            }, {
-                text: '删除',
-                xtype: 'button',
-                permission: 'admin:sysModule:permissionControl:projectMenu:delete',
-                handler: 'onDelete',
-                bind: {
-                    icon: '{delete_image_path}'
-                }
+                permission: 'roffice:saleModule:projectMenu:add',
+                bind: {icon: '{add_image_path}'},
+                handler: 'onAdd'
             }
         ]
-
-        //需要验证权限后添加的按钮
-        //verifyItems: []
-    },
-
-    /*
-     grid 组件不自动绑定与 grid 相关的翻页工具条的 store 配置项
-     需要手动指定工具条的 store
-     */
-    bbar: [{
-        id: 'project-pagingtoolbar',
-        xtype: 'pagingToolBarComponent',
-        border: false,
-        padding: 0,
-        listeners: {
-            afterrender: function (c, obj) {
-                this.setConfig('store', kalix.getApplication().getStore('projectStore'));
-            }
-        }
     }
-    ],
 
 });

@@ -5,49 +5,27 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.project.view.ProjectForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.project.view.ProjectWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.project.viewModel.ProjectViewModel',
-        'kalix.roffice.project.controller.ProjectFormController',
+        'kalix.controller.BaseWindowController',
         'kalix.admin.user.component.UserComboBox',
         'kalix.roffice.chance.store.ChanceStore',
         'kalix.admin.dict.component.DictCombobox',
         'kalix.roffice.contract.component.ContractComboBox'
     ],
-    alias: 'widget.ProjectForm',
+    alias: 'widget.projectWindow',
     viewModel: 'projectViewModel',
-    controller: 'projectFormController',
-    xtype: "projectForm",
-
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
+    controller: {
+        type: 'baseWindowController',
+        storeId: 'projectStore'
     },
-    frame: true,
-    width: 800,
-    border: false,
-    modal: true,
-    resizable: true,
-    padding: 10,
-    buttonAlign: 'center',
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
-    },
-    defaults: {
-        layout: 'form',
-        xtype: 'baseForm',
-        defaultType: 'textfield',
-        flex: 1
-        //border:false
-    },
+    xtype: "projectWindow",
     items: [{
         items: [{
             fieldLabel: '项目名称',
             allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 activeError: '{validation.name}',
                 value: '{rec.name}'
@@ -56,7 +34,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             fieldLabel: '项目经理',
             xtype: 'userCombobox',
             //valueField: 'name',
-            name: 'manager',
+            //name: 'manager',
             bind: {
                 activeError: '{validation.manager}',
                 value: '{rec.manager}'
@@ -65,21 +43,19 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             fieldLabel: '营销负责人',
             xtype: 'userCombobox',
             //valueField: 'name',
-            name: 'salePerson',
+            //name: 'salePerson',
             bind: {
                 //activeError: '{validation.salePerson}',
                 value: '{rec.salePerson}'
             }
         }, {
             fieldLabel: '所属行业',
-            labelAlign: 'right',
             bind: {
                 value: '{rec.industry}'
             }
         }, {
             fieldLabel: '交付时间',
             //allowBlank: false,
-            labelAlign: 'right',
             xtype: 'datefield',
             format: 'Y-m-d',
             bind: {
@@ -89,7 +65,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         }, {
             fieldLabel: '客户联系人',
             //allowBlank: false,
-            labelAlign: 'right',
             bind: {
                 //activeError: '{validation.clientName}',
                 value: '{rec.client}'
@@ -98,9 +73,7 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             fieldLabel: '优先级',
             //allowBlank: false,
             xtype: 'combobox',
-            id: 'level',
-            labelAlign: 'right',
-            name: 'level',
+            //id: 'level',
             forceSelection: true,
             store: [
                 ['高', '高'],
@@ -113,7 +86,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
             }
         }, {
             fieldLabel: '合同编号',
-            labelAlign: 'right',
             //allowBlank: false,
             xtype: 'contractComboBox',
             bind: {
@@ -122,7 +94,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
         }, {
             fieldLabel: '项目描述',
             //allowBlank: false,
-            labelAlign: 'right',
             xtype: 'textarea',
             bind: {
                 //activeError: '{validation.description}',
@@ -135,7 +106,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 {
                     fieldLabel: '项目编号',
                     allowBlank: false,
-                    labelAlign: 'right',
                     bind: {
                         activeError: '{validation.no}',
                         value: '{rec.no}'
@@ -152,7 +122,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 }, {
                     fieldLabel: '预算额度(万元)',
                     //allowBlank: false,
-                    labelAlign: 'right',
                     xtype: 'numberfield',
                     bind: {
                         //activeError: '{validation.budget}',
@@ -161,7 +130,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 }, {
                     fieldLabel: '立项时间',
                     //allowBlank: false,
-                    labelAlign: 'right',
                     xtype: 'datefield',
                     format: 'Y-m-d',
                     bind: {
@@ -179,7 +147,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 }, {
                     fieldLabel: '客户联系人电话',
                     //allowBlank: false,
-                    labelAlign: 'right',
                     bind: {
                         //activeError: '{validation.clientPhone}',
                         value: '{rec.clientPhone}'
@@ -187,7 +154,6 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 }, {
                     fieldLabel: '项目机会',
                     //allowBlank: false,
-                    labelAlign: 'right',
                     forceSelection: true,
                     xtype: 'combobox',
                     queryMode: 'remote',
@@ -206,27 +172,11 @@ Ext.define('kalix.roffice.project.view.ProjectForm', {
                 }, {
                     fieldLabel: '备注',
                     //allowBlank: false,
-                    labelAlign: 'right',
                     xtype: 'textarea',
                     bind: {
                         //activeError: '{validation.comment}',
                         value: '{rec.comment}'
                     }
                 }]
-        }],
-    buttons: [{
-        text: '保存',
-        glyph: 'xf0c7@FontAwesome',
-        handler: 'onSave'
-    }, {
-        text: '重置',
-        glyph: 'xf0e2@FontAwesome',
-        handler: 'onReset'
-    }],
-
-    listeners: {
-        beforeclose: function (button) {
-
-        }
-    }
+        }]
 });

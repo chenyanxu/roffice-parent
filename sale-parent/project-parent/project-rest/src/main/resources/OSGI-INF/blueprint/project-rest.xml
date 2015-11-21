@@ -8,8 +8,7 @@
 
     <camelContext id="projectCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
-        <restConfiguration component="servlet" bindingMode="json"
-                           contextPath="/kalix/camel/rest" host="localhost"
+        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
                            port="8181">
             <dataFormatProperty key="prettyPrint" value="true"/>
         </restConfiguration>
@@ -18,44 +17,38 @@
         <rest path="/projects" consumes="application/json" produces="application/json">
             <description>project rest service</description>
 
-            <!-- this is a rest PUT to create an project -->
+            <!-- this is a rest GET to find all project -->
+            <get id="route-getAllProject" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Projects</description>
+                <to uri="bean:projectService?method=getAllByNativeQuery(${header.page},${header.limit},${header.jsonStr})"/>
+            </get>
+
+            <!-- this is a rest POST to create a project -->
             <post id="route-addProject" type="cn.com.rexen.roffice.project.entities.ProjectBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a Project</description>
                 <to uri="bean:projectService?method=saveEntity"/>
             </post>
 
+            <!-- this is a rest GET to view a project by the given id -->
+            <get uri="/{id}" id="route-getProject" outType="cn.com.rexen.roffice.project.entities.ProjectBean">
+                <description>Find Project by id</description>
+                <to uri="bean:projectService?method=getEntity(${header.id})"/>
+            </get>
+
             <!-- this is a rest PUT to update a project -->
-            <put id="route-updateProject" type="cn.com.rexen.roffice.project.entities.ProjectBean"
+            <put uri="/{id}" id="route-updateProject" type="cn.com.rexen.roffice.project.entities.ProjectBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a Project</description>
                 <to uri="bean:projectService?method=updateEntity"/>
             </put>
 
             <!-- this is a rest DELETE to delete a project -->
-            <delete id="route-deleteProject" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <delete uri="/{id}" id="route-deleteProject" type="cn.com.rexen.roffice.project.entities.ProjectBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Project</description>
-                <to uri="bean:projectService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:projectService?method=removeEntity"/>
             </delete>
-
-            <!-- this is a rest GET to find all project -->
-            <get id="route-getAllProject" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all Projects</description>
-                <to uri="bean:projectService?method=getAllEntity(${header.page},${header.limit})"/>
-            </get>
-
-            <!-- this is a rest GET to view a project by the given id -->
-            <get id="route-getProject" uri="/{id}" outType="cn.com.rexen.roffice.project.entities.ProjectBean">
-                <description>Find Project by id</description>
-                <to uri="bean:projectService?method=getEntity(${header.id})"/>
-            </get>
-
-            <!-- this is a rest GET to find all project by name -->
-            <post id="route-getAllProjectByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.project.api.query.ProjectDTO">
-                <description>Find all Project by Name</description>
-                <to uri="bean:projectService?method=getAllByNativeQuery"/>
-            </post>
 
         </rest>
     </camelContext>

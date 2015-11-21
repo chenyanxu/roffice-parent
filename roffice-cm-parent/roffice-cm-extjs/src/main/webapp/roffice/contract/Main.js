@@ -12,13 +12,15 @@ Ext.define('kalix.roffice.contract.Main', {
     viewModel: 'contractViewModel',
     items: [
         {
-            title: '合同记录查询',
-            xtype: 'contractSearchForm'
+            title: '项目合同查询',
+            xtype: 'contractSearchForm',
+            iconCls: 'x-fa fa-search',
         },
         {
             xtype: 'contractGrid',
-            title: '合同列表',
-            margin: 10
+            title: '项目合同列表',
+            margin: 10,
+            iconCls: 'x-fa fa-file-text'
         }
     ]
 });

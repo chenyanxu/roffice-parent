@@ -12,12 +12,14 @@ Ext.define('kalix.roffice.contractDetail.Main', {
     storeId:'contractDetailStore',
     items: [
         {
-            title: '清单记录查询',
-            xtype: 'contractDetailSearchForm'
+            title: '合同清单查询',
+            xtype: 'contractDetailSearchForm',
+            iconCls: 'x-fa fa-search'
         },
         {
             xtype: 'contractDetailGrid',
-            title: '清单列表',
+            title: '合同清单列表',
+            iconCls: 'x-fa fa-calendar',
             margin: 10
         }
     ]

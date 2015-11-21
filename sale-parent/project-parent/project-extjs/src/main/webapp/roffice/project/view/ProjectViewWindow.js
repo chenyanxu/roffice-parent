@@ -5,39 +5,19 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.project.view.ProjectViewForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.project.view.ProjectViewWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
         'kalix.roffice.project.viewModel.ProjectViewModel',
-        'kalix.roffice.project.controller.ProjectFormController',
+        'kalix.controller.BaseWindowController',
+        'kalix.admin.user.component.UserComboBox',
+        'kalix.roffice.chance.store.ChanceStore',
         'kalix.admin.dict.component.DictCombobox',
         'kalix.roffice.contract.component.ContractComboBox'
     ],
-    alias: 'widget.projectViewForm',
+    alias: 'widget.projectViewWindow',
     viewModel: 'projectViewModel',
-    controller: 'projectFormController',
-    xtype: "projectViewForm",
-
-    title: '查看项目管理',
-    bind: {
-        icon: '{view_image_path}'
-    },
-    layout: 'column',
-    frame: true,
-    width: 800,
-    border: false,
-    modal: true,
-    resizable: true,
-    padding: 10,
-    buttonAlign: 'center',
-    defaults: {
-        layout: 'form',
-        xtype: 'baseForm',
-        defaultType: 'textfield',
-        columnWidth: 0.5,
-        //readOnly: true
-        //border:false
-    },
+    xtype: "projectViewWindow",
 
     items: [{
         defaults: {readOnly: true},
@@ -45,7 +25,6 @@ Ext.define('kalix.roffice.project.view.ProjectViewForm', {
             {
                 fieldLabel: '项目名称',
                 allowBlank: false,
-                labelAlign: 'right',
                 bind: {
                     activeError: '{validation.name}',
                     value: '{rec.name}'
@@ -113,9 +92,7 @@ Ext.define('kalix.roffice.project.view.ProjectViewForm', {
                 fieldLabel: '优先级',
                 //allowBlank: false,
                 xtype: 'combobox',
-                id: 'level',
-                labelAlign: 'right',
-                name: 'level',
+                //id: 'level',
                 store: [
                     ['高', '高'],
                     ['中', '中'],
@@ -237,14 +214,5 @@ Ext.define('kalix.roffice.project.view.ProjectViewForm', {
                         value: '{rec.comment}'
                     }
                 }]
-        }],
-    buttons: [{
-        text: '关闭',
-        glyph: 'xf00d@FontAwesome',
-        handler: function () {
-            this.up('.window').close();
-
-        }
-    }]
-
+        }]
 });

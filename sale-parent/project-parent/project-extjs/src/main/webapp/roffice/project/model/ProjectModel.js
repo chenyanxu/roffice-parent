@@ -7,13 +7,9 @@
 
 
 Ext.define('kalix.roffice.project.model.ProjectModel', {
-    extend: 'Ext.data.Model',
+    extend: 'kalix.model.BaseModel',
 
-    idProperty: '_id',
     fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
         name: 'no',
         type: 'string'
     }, {
@@ -33,10 +29,12 @@ Ext.define('kalix.roffice.project.model.ProjectModel', {
         type: 'float'
     }, {
         name: 'setupDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'deployDate',
-        type: 'date'
+        type: 'date',
+        dateFormat: 'Y-m-d H:i:s'
     }, {
         name: 'deployPerson',
         type: 'string'
@@ -56,17 +54,13 @@ Ext.define('kalix.roffice.project.model.ProjectModel', {
         name: 'chanceId',
         type: 'int',
     }, {
-        name: 'chanceName',
-        type: 'string',
+        name: 'chanceName'
     }, {
         name: 'manager',
         type: 'string'
     }, {
         name: 'status',
         type: 'string'
-    }, {
-        name: 'version',
-        type: 'int'
     }],
     validators: {
         no: [{
@@ -81,32 +75,5 @@ Ext.define('kalix.roffice.project.model.ProjectModel', {
             type: 'presence',
             message: '项目经理不能为空!'
         }]
-    },
-
-    //需要提交给服务端的模型 key
-    serverKeys: [
-        'id',
-        'no',
-        'name',
-        'salePerson',
-        'industry',
-        'level',
-        'budget',
-        'setupDate',
-        'deployDate',
-        'deployPerson',
-        'client',
-        'clientPhone',
-        'description',
-        'comment',
-        'chanceId',
-        'manager',
-        'status',
-        'version'
-    ],
-
-    //需要提交给服务端的 JSON 数据
-    toServerJSON: function () {
-        return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
     }
 });
