@@ -7,15 +7,15 @@
 Ext.define('kalix.roffice.chance.viewModel.ChanceViewModel', {
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.chanceViewModel',
-    requires: [
-        'kalix.roffice.chance.model.ChanceModel'
-    ],
     data: {
-        url: '/kalix/camel/rest/chances',
-        rec: Ext.create('kalix.roffice.chance.model.ChanceModel'),
+        rec:null,
         validation: {},  //验证错误信息
         icon: '',
         title: '',
+        view_operation:false,
+        view_title:'查看项目机会',
+        add_title:'添加项目机会',
+        edit_title:'修改项目机会',
         add_image_path: '/kalix/roffice/chance/resources/images/chance_add.png',
         view_image_path: '/kalix/roffice/chance/resources/images/chance_view.png',
         delete_image_path: '/kalix/roffice/chance/resources/images/chance_delete.png',

@@ -1,7 +1,6 @@
 package cn.com.rexen.roffice.support.core.biz;
 
-import cn.com.rexen.core.api.biz.JsonStatus;
-import cn.com.rexen.core.impl.biz.GenericBizServiceImpl;
+import cn.com.rexen.core.security.impl.ShiroGenericBizServiceImpl;
 import cn.com.rexen.roffice.support.api.biz.ISupportBeanService;
 import cn.com.rexen.roffice.support.api.dao.ISupportBeanDao;
 import cn.com.rexen.roffice.support.entities.SupportBean;
@@ -14,9 +13,7 @@ import cn.com.rexen.roffice.support.entities.SupportBean;
  * @修改时间：
  * @修改备注：
  */
-public class SupportBeanServiceImpl extends GenericBizServiceImpl<ISupportBeanDao, SupportBean> implements ISupportBeanService {
-    private JsonStatus jsonStatus = new JsonStatus();
-
+public class SupportBeanServiceImpl extends ShiroGenericBizServiceImpl<ISupportBeanDao, SupportBean> implements ISupportBeanService {
     public SupportBeanServiceImpl() {
         super.init(SupportBean.class.getName());
     }
