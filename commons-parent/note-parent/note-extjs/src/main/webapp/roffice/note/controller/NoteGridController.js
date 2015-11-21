@@ -6,6 +6,12 @@
  */
 Ext.define('kalix.roffice.note.controller.NoteGridController', {
     extend: 'kalix.controller.BaseGridController',
-    alias: 'controller.noteGridController'
+    alias: 'controller.noteGridController',
+    exportToExcel: function () {
+        this.getView().saveDocumentAs({
+            title: '公司公告',
+            fileName: 'excelExport.xls'
+        });
+    }
 });
 
