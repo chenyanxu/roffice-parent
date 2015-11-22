@@ -30,7 +30,7 @@ public class Const {
     public static final String CONTRACT_DETAIL_MENU_TEXT = "合同清单";
     public static final String CONTRACT_DETAIL_MENU_ROUTE_ID = "roffice/ContractDetail";
     public static final int CONTRACT_DETAIL_MENU_INDEX = 10;
-    public static final String CONTRACT_DETAIL_MENU_ICON_CLASS = "x-fa fa-copy";
+    public static final String CONTRACT_DETAIL_MENU_ICON_CLASS = "x-fa fa-calendar  ";
     public static final String CONTRACT_DETAIL_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + CONTRACT_DETAIL_MENU_ID;
 
     //合同发票菜单常量

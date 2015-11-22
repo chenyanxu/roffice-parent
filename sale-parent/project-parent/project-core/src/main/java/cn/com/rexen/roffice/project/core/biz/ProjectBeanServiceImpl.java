@@ -1,13 +1,10 @@
 package cn.com.rexen.roffice.project.core.biz;
 
 import cn.com.rexen.core.api.biz.JsonStatus;
-import cn.com.rexen.core.api.persistence.JsonData;
-import cn.com.rexen.core.api.web.model.QueryDTO;
+import cn.com.rexen.core.api.web.model.BaseDTO;
 import cn.com.rexen.core.impl.biz.GenericBizServiceImpl;
-import cn.com.rexen.core.util.StringUtils;
 import cn.com.rexen.roffice.project.api.biz.IProjectBeanService;
 import cn.com.rexen.roffice.project.api.dao.IProjectBeanDao;
-import cn.com.rexen.roffice.project.api.query.ProjectDTO;
 import cn.com.rexen.roffice.project.entities.ProjectBean;
 import cn.com.rexen.roffice.project.entities.ResultDTO;
 
@@ -27,13 +24,19 @@ public class ProjectBeanServiceImpl extends GenericBizServiceImpl<IProjectBeanDa
     }
 
     @Override
-    public JsonData getAllByNativeQuery(QueryDTO queryDTO) {
-        String sql = "select a.*,b.name chanceName from roffice_project a,roffice_chance b where 1=1";
-        String posSql = " and a.chanceid=b.id order by a.creationDate desc";
-        ProjectDTO projectDTO = (ProjectDTO) queryDTO;
-        if (StringUtils.isNotEmpty(projectDTO.getName())) {
-            sql = sql + " and a.name like '%" + projectDTO.getName() + "%'";
-        }
-        return dao.findByNativeSql(sql + posSql, queryDTO.getPage(), queryDTO.getLimit(), ResultDTO.class, null);
+    protected String getNativeQueryStr() {
+        String sql = "select a.*,b.name chanceName from roffice_project a,roffice_chance b where 1=1 and a.chanceid=b.id";
+        return sql;
     }
+
+    /**
+     * 需要重写该类实现getAllByNativeQuery
+     *
+     * @return
+     */
+    @Override
+    protected Class<? extends BaseDTO> getResultClass() {
+        return ResultDTO.class;
+    }
+
 }

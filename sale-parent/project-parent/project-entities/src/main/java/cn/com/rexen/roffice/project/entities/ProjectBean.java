@@ -2,6 +2,7 @@ package cn.com.rexen.roffice.project.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -52,6 +53,7 @@ import java.util.Date;
 )*/
 @Entity
 @Table(name = "roffice_project")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProjectBean extends PersistentEntity {
 
     private String no;//项目编号
@@ -203,5 +205,13 @@ public class ProjectBean extends PersistentEntity {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public long getContractId() {
+        return contractId;
+    }
+
+    public void setContractId(long contractId) {
+        this.contractId = contractId;
     }
 }

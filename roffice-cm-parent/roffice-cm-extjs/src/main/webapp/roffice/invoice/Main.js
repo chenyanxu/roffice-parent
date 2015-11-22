@@ -12,12 +12,14 @@ Ext.define('kalix.roffice.invoice.Main', {
     viewModel: 'invoiceViewModel',
     items: [
         {
-            title: '发票记录查询',
-            xtype: 'invoiceSearchForm'
+            title: '合同发票查询',
+            xtype: 'invoiceSearchForm',
+            iconCls: 'x-fa fa-search'
         },
         {
             xtype: 'invoiceGrid',
-            title: '发票列表',
+            title: '合同发票列表',
+            iconCls: 'x-fa fa-credit-card',
             margin: 10
         }
     ]
