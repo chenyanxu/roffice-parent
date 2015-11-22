@@ -6,7 +6,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
     requires: [
         'kalix.roffice.contract.controller.ContractGridController',
         'kalix.roffice.contract.store.ContractStore',
-        'kalix.admin.dict.component.DictGridColumn',
+        'kalix.admin.dict.component.DictGridColumn'
     ],
     alias: 'widget.contractGrid',
     xtype: 'contractGrid',
@@ -58,6 +58,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         ,
         {
             xtype: 'securityGridColumnRUD',
+            //iconPath:'/kalix/roffice/cm/resources/images/contract',
             permissions: [
                 'roffice:cmModule:contractMenu:view',
                 'roffice:cmModule:contractMenu:edit',
