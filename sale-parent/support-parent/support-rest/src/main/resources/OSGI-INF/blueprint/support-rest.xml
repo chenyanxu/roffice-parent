@@ -13,7 +13,7 @@
         </restConfiguration>
 
         <!-- defines the rest services using the context-path /support -->
-        <rest path="/supports" consumes="application/json" produces="application/json">
+        <rest path="/supports" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <description>support rest service</description>
             <!-- this is a rest GET to find all support -->
             <get id="route-getAllSupport" outType="cn.com.rexen.core.api.persistence.JsonData">
@@ -27,7 +27,7 @@
                 <to uri="bean:supportService?method=saveEntity"/>
             </post>
         </rest>
-        <rest path="/supports/{id}" consumes="application/json" produces="application/json">
+        <rest path="/supports/{id}" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <!-- this is a rest GET to view a support by the given id -->
             <get id="route-getSupport" outType="cn.com.rexen.roffice.support.entities.SupportBean">
                 <description>Find Support by id</description>

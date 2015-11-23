@@ -12,10 +12,11 @@
                            contextPath="/kalix/camel/rest" host="localhost"
                            port="8181">
             <dataFormatProperty key="prettyPrint" value="true"/>
+            <corsHeaders key="" value=""/>
         </restConfiguration>
 
         <!-- defines the rest services using the context-path /deploy -->
-        <rest path="/deploys" consumes="application/json" produces="application/json">
+        <rest path="/deploys" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <description>deploy rest service</description>
 
             <!-- this is a rest PUT to create an deploy -->

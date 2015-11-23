@@ -12,7 +12,7 @@
         <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
                            port="8181">
         </restConfiguration>
-        <rest path="/contractDetails" consumes="application/json" produces="application/json">
+        <rest path="/contractDetails" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <get id="route-getAllContractDetail" outType="cn.com.rexen.core.api.persistence.JsonData">
                 <description>Find all contractDetails</description>
                 <to uri="bean:contractDetailBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
@@ -24,7 +24,7 @@
                 <to uri="bean:contractDetailBeanService?method=saveEntity"/>
             </post>
         </rest>
-        <rest path="/contractDetails/{id}" consumes="application/json" produces="application/json">
+        <rest path="/contractDetails/{id}" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <get id="route-getContractDetail" outType="cn.com.rexen.roffice.cm.entities.ContractDetailBean">
                 <description>Find News by id</description>
                 <to uri="bean:contractDetailBeanService?method=getEntity(${header.id})"/>
