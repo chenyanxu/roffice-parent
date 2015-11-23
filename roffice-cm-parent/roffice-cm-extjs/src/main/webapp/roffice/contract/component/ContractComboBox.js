@@ -21,7 +21,7 @@ Ext.define('kalix.roffice.contract.component.ContractComboBox', {
         type: 'contractStore',
         listeners: {
             beforeload: function (store, operation, eOpts) {
-                //alert(1);
+                store.proxy.extraParams = {'jsonStr':Ext.JSON.encode(operation.getParams())};
             }
         }
     }
