@@ -22,6 +22,8 @@ Ext.define('kalix.roffice.invoice.view.InvoiceWindow', {
             {
                 fieldLabel: '合同编号',
                 xtype:'contractComboBox',
+                forceSelection: true,
+                allowBlank: false,
                 bind: {
                     value: '{rec.contractId}'
                 }
