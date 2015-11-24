@@ -5,35 +5,21 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.deploy.view.DeployForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.deploy.view.DeployWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
-        'kalix.view.components.common.FormPanel',
         'kalix.roffice.deploy.viewModel.DeployViewModel',
-        'kalix.roffice.deploy.controller.DeployFormController',
+        'kalix.roffice.deploy.controller.DeployWindowController',
         'kalix.admin.user.component.UserComboBox',
         'kalix.roffice.project.store.ProjectStore'
     ],
-    alias: 'widget.DeployForm',
+    alias: 'widget.deployWindow',
     viewModel: 'deployViewModel',
-    controller: 'deployFormController',
-    xtype: "deployForm",
-
-    layout: {
-        type: 'hbox',
-        align: 'stretch'
+    controller: {
+        type: 'deployWindowController',
+        storeId: 'deployStore'
     },
-    frame: true,
-    width: 800,
-    border: false,
-    modal: true,
-    resizable: true,
-    padding: 10,
-    buttonAlign: 'center',
-    bind: {
-        icon: '{icon}',
-        title: '{title}'
-    },
+    xtype: "deployWindow",
     defaults: {
         layout: 'form',
         xtype: 'baseForm',
@@ -174,20 +160,5 @@ Ext.define('kalix.roffice.deploy.view.DeployForm', {
                         value: '{rec.comment}'
                     }
                 }]
-        }],
-    buttons: [{
-        text: '保存',
-        glyph: 'xf0c7@FontAwesome',
-        handler: 'onSave'
-    }, {
-        text: '重置',
-        glyph: 'xf0e2@FontAwesome',
-        handler: 'onReset'
-    }],
-
-    listeners: {
-        beforeclose: function (button) {
-
-        }
-    }
+        }]
 });
