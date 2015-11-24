@@ -13,7 +13,7 @@
         </restConfiguration>
 
         <!-- defines the rest services using the context-path /chance -->
-        <rest path="/chances" consumes="application/json" produces="application/json">
+        <rest path="/chances" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <description>chance rest service</description>
             <!-- this is a rest GET to find all chance -->
             <get id="route-getAllChance" outType="cn.com.rexen.core.api.persistence.JsonData">
@@ -27,7 +27,7 @@
                 <to uri="bean:chanceService?method=saveEntity"/>
             </post>
         </rest>
-        <rest path="/chances/{id}" consumes="application/json" produces="application/json">
+        <rest path="/chances/{id}" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <get id="route-getChance"  outType="cn.com.rexen.roffice.chance.entities.ChanceBean">
                 <description>Find Chance by id</description>
                 <to uri="bean:chanceService?method=getEntity(${header.id})"/>
