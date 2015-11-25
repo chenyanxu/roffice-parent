@@ -27,6 +27,7 @@
         <module>roffice-core-parent</module>
         <module>sale-parent</module>
         <module>commons-parent</module>
+        <module>report-parent</module>
         <module>code-generate</module>
     </modules>
 

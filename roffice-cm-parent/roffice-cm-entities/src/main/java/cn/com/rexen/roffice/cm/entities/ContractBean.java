@@ -15,6 +15,14 @@ import java.util.Date;
 @Table(name = "roffice_contract")
 public class ContractBean extends PersistentEntity {
     /**
+     * 客户经理
+     */
+    private String manager;
+    /**
+     * 项目类型
+     */
+    private String projectType;
+    /**
      * 合同编号.
      */
     private String contractNumber;
@@ -89,6 +97,22 @@ public class ContractBean extends PersistentEntity {
      * 备注.
      */
     private String remark;
+
+    public String getProjectType() {
+        return projectType;
+    }
+
+    public void setProjectType(String projectType) {
+        this.projectType = projectType;
+    }
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
 
     public String getProjectId() {
         return projectId;

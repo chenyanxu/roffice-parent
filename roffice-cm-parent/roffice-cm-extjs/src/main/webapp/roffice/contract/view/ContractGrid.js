@@ -36,6 +36,11 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
                 hidden: true
             },
             {
+                text: '客户经理',
+                dataIndex: 'manager',
+                flex:0.5
+            },
+            {
                 text: '合同编号',
                 dataIndex: 'contractNumber'
             },
@@ -47,16 +52,18 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
                 dataIndex: 'partyA'
             }, {
                 text: '乙方',
-                dataIndex: 'partyB'
+                dataIndex: 'partyB',
+                flex:0.5
             },
-            {
+            /*{
                 text: '合同状态',
                 xtype: 'dictGridColumn',
                 dictType: 'contractStatus',
                 dataIndex: 'contractStatus'
             }
-            ,
+            ,*/
             {
+                flex:0.5,
                 xtype: 'securityGridColumnCommon',
                 items: [
                     {

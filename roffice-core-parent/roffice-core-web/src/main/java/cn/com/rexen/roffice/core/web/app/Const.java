@@ -152,4 +152,21 @@ public class Const {
     public static final String PURCHASE_INVOICE_MENU_PERMISSION = DEPLOY_MODULE_PERMISSION + ":" + PURCHASE_INVOICE_MENU_ID;
     public static final int PURCHASE_INVOICE_MENU_INDEX = 30;
 
+    //#################################################################################
+    // 报表模块常量
+    public static final String REPORT_MODULE_ID = "reportModule";
+    public static final String REPORT_MODULE_TEXT = "统计报表";
+    public static final String REPORT_MODULE_ROUTE_ID = "pages-parent";
+    public static final int REPORT_MODULE_INDEX = 30;
+    public static final String REPORT_MODULE_ICON_CLASS = "right-icon x-fa fa-tag";
+    public static final String REPORT_MODULE_PERMISSION = "";//APPLICATION_NAME + ":" + REPORT_MODULE_ID;
+
+    //合同报表菜单常量
+    public static final String CONTACT_REPORT_MENU_ID = "contactReportMenu";
+    public static final String CONTACT_REPORT_MENU_TEXT = "合同报表";
+    public static final String CONTACT_REPORT_MENU_ROUTE_ID = "roffice/contactreport";
+    public static final String CONTACT_REPORT_MENU_ICON_CLASS = "x-fa fa-copy";
+    public static final String CONTACT_REPORT_MENU_PERMISSION = "";//REPORT_MODULE_ID + ":" + CONTACT_REPORT_MENU_ID;
+    public static final int CONTACT_REPORT_MENU_INDEX = 10;
+
 }

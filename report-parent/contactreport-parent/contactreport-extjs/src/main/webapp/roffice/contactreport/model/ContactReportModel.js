@@ -1,12 +1,18 @@
-/**model of contract
- *  @author chenyanxu
+/**
+ * 合同报表模型
  *
+ * @author
+ * @version 1.0.0
  */
-Ext.define("kalix.roffice.contract.model.ContractModel", {
-    extend: "kalix.model.BaseModel",
+
+
+Ext.define('kalix.roffice.contactreport.model.ContactReportModel', {
+    extend: 'kalix.model.BaseModel',
+
     fields: [
         {name:'manager'},
         {name: 'contractNumber'},
+        {name: 'projectType'},
         {name: 'projectId'},
         {name: 'projectName'},
         {name: 'partyA'},

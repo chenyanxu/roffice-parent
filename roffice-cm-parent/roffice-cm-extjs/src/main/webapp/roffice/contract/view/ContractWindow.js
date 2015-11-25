@@ -82,6 +82,12 @@ Ext.define('kalix.roffice.contract.view.ContractWindow', {
     }, {
         items: [
             {
+                fieldLabel: '客户经理',
+                bind: {
+                    value: '{rec.manager}'
+                }
+            },
+            {
                 fieldLabel: '质保期(年)',
                 bind: {
                     value: '{rec.guarantee}'
