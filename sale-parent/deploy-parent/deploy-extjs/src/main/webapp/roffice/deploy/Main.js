@@ -5,12 +5,14 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.deploy.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
-        'kalix.roffice.deploy.store.DeployStore',  //用户模型集合
         'kalix.roffice.deploy.view.DeployGrid',
-        'kalix.roffice.deploy.view.DeploySearchForm'
+        'kalix.roffice.deploy.view.DeploySearchForm',
+        'kalix.roffice.deploy.viewModel.DeployViewModel'
     ],
+    storeId: 'deployStore',
+    viewModel: 'deployViewModel',
     items: [
         {
             title: '实施项目查询',
@@ -21,10 +23,7 @@ Ext.define('kalix.roffice.deploy.Main', {
             id: 'deployGridPanel',
             title: '实施项目列表',
             iconCls: 'x-fa fa-indent',
-            margin: 10,
-            store: {
-                type: 'deployStore'
-            }
+            margin: 10
         }
     ]
 });

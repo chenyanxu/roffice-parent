@@ -8,55 +8,46 @@
 
     <camelContext id="deployCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
-        <restConfiguration component="servlet" bindingMode="json"
-                           contextPath="/kalix/camel/rest" host="localhost"
-                           port="8181">
+        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost" port="8181">
             <dataFormatProperty key="prettyPrint" value="true"/>
-            <corsHeaders key="" value=""/>
         </restConfiguration>
 
         <!-- defines the rest services using the context-path /deploy -->
-        <rest path="/deploys" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
+        <rest path="/deploys" consumes="application/json" produces="application/json">
             <description>deploy rest service</description>
 
-            <!-- this is a rest PUT to create an deploy -->
+            <!-- this is a rest GET to find all deploy -->
+            <get id="route-getAllDeploy" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all Deploys</description>
+                <to uri="bean:deployService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
+            </get>
+
+            <!-- this is a rest POST to create a deploy -->
             <post id="route-addDeploy" type="cn.com.rexen.roffice.deploy.entities.DeployBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a Deploy</description>
                 <to uri="bean:deployService?method=saveEntity"/>
             </post>
 
+            <!-- this is a rest GET to view a deploy by the given id -->
+            <get uri="/{id}" id="route-getDeploy" outType="cn.com.rexen.roffice.deploy.entities.DeployBean">
+                <description>Find Deploy by id</description>
+                <to uri="bean:deployService?method=getEntity(${header.id})"/>
+            </get>
+
             <!-- this is a rest PUT to update a deploy -->
-            <put id="route-updateDeploy" type="cn.com.rexen.roffice.deploy.entities.DeployBean"
+            <put uri="/{id}" id="route-updateDeploy" type="cn.com.rexen.roffice.deploy.entities.DeployBean"
                  outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Updates a Deploy</description>
                 <to uri="bean:deployService?method=updateEntity"/>
             </put>
 
             <!-- this is a rest DELETE to delete a deploy -->
-            <delete id="route-deleteDeploy" outType="cn.com.rexen.core.api.biz.JsonStatus">
+            <delete uri="/{id}" id="route-deleteDeploy" type="cn.com.rexen.roffice.deploy.entities.DeployBean"
+                    outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Deploy</description>
-                <to uri="bean:deployService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:deployService?method=removeEntity"/>
             </delete>
-
-            <!-- this is a rest GET to find all deploy -->
-            <get id="route-getAllDeploy" outType="cn.com.rexen.core.api.persistence.JsonData">
-                <description>Find all Deploys</description>
-                <to uri="bean:deployService?method=getAllEntity(${header.page},${header.limit})"/>
-            </get>
-
-            <!-- this is a rest GET to view a deploy by the given id -->
-            <get id="route-getDeploy" uri="/{id}" outType="cn.com.rexen.roffice.deploy.entities.DeployBean">
-                <description>Find Deploy by id</description>
-                <to uri="bean:deployService?method=getEntity(${header.id})"/>
-            </get>
-
-            <!-- this is a rest GET to find all deploy by name -->
-            <post id="route-getAllDeployByName" uri="/list" outType="cn.com.rexen.core.api.persistence.JsonData"
-                  type="cn.com.rexen.roffice.deploy.api.query.DeployDTO">
-                <description>Find all Deploy by Name</description>
-                <to uri="bean:deployService?method=getAllEntityByQuery"/>
-            </post>
 
         </rest>
     </camelContext>

@@ -10,22 +10,5 @@ Ext.define('kalix.roffice.deploy.store.DeployStore', {
     alias: 'store.deployStore',
     xtype: 'deployStore',
     storeId: "deployStore",
-    autoLoad: true,
-    pageSize: 10,
-    proxy: {
-        type: "ajax",
-        url: '/kalix/camel/rest/deploys/list',
-        paramsAsJson: true,
-        actionMethods: {
-            create: 'POST',
-            read: 'POST',
-            update: 'POST',
-            destroy: 'POST'
-        },
-        reader: {
-            type: "json",
-            rootProperty: "data",
-            totalProperty: 'totalCount'
-        }
-    }
+    proxyUrl: '/kalix/camel/rest/deploys'
 });

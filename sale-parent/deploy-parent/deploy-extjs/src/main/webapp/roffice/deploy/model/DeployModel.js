@@ -7,13 +7,9 @@
 
 
 Ext.define('kalix.roffice.deploy.model.DeployModel', {
-    extend: 'Ext.data.Model',
+    extend: 'kalix.model.BaseModel',
 
-    idProperty: '_id',
     fields: [{
-        name: 'id',
-        type: 'string'
-    }, {
         name: 'no',
         type: 'string'
     }, {
@@ -55,9 +51,6 @@ Ext.define('kalix.roffice.deploy.model.DeployModel', {
     }, {
         name: 'comment',
         type: 'string',
-    }, {
-        name: 'version',
-        type: 'int'
     }],
     validators: {
         no: [{
@@ -68,30 +61,5 @@ Ext.define('kalix.roffice.deploy.model.DeployModel', {
             type: 'presence',
             message: '名称不能为空!'
         }]
-    },
-
-    //需要提交给服务端的模型 key
-    serverKeys: [
-        'id',
-        'no',
-        'name',
-        'status',
-        'deployPerson',
-        'budget',
-        'receiveInfo',
-        'salePerson',
-        'member',
-        'plan',
-        'finishInfo',
-        'problem',
-        'measure',
-        'projectId',
-        'comment',
-        'version'
-    ],
-
-    //需要提交给服务端的 JSON 数据
-    toServerJSON: function () {
-        return Ext.JSON.encode(_.pick(this.getData(), this.serverKeys));
     }
 });

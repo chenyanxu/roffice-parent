@@ -5,39 +5,22 @@
  * @version 1.0.0
  */
 
-Ext.define('kalix.roffice.deploy.view.DeployViewForm', {
-    extend: 'Ext.window.Window',
+Ext.define('kalix.roffice.deploy.view.DeployViewWindow', {
+    extend: 'kalix.view.components.common.BaseWindow',
     requires: [
         'kalix.roffice.deploy.viewModel.DeployViewModel',
-        'kalix.roffice.deploy.controller.DeployFormController'
+        'kalix.admin.user.component.UserComboBox',
+        'kalix.admin.user.store.UserStore',
+        'kalix.roffice.project.store.ProjectStore'
     ],
-    alias: 'widget.deployViewForm',
+    alias: 'widget.deployViewWindow',
     viewModel: 'deployViewModel',
-    controller: 'deployFormController',
-    xtype: "deployViewForm",
-
-    width: 400,
-    border: false,
-    modal: true,
-    resizable: false,
-    title: '查看实施项目',
-    bind: {
-        icon: '{view_image_path}'
-    },
-    layout: 'column',
-    frame: true,
-    width: 800,
-    border: false,
-    modal: true,
-    resizable: true,
-    padding: 10,
-    buttonAlign: 'center',
+    xtype: "deployViewWindow",
     defaults: {
         layout: 'form',
         xtype: 'baseForm',
         defaultType: 'textfield',
         columnWidth: 0.5,
-        readOnly: true
         //border:false
     },
 

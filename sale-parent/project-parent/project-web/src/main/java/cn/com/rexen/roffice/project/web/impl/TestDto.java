@@ -1,6 +1,5 @@
 package cn.com.rexen.roffice.project.web.impl;
 
-import cn.com.rexen.core.api.persistence.JsonData;
 import cn.com.rexen.roffice.project.api.biz.IProjectBeanService;
 import cn.com.rexen.roffice.project.api.query.ProjectDTO;
 
@@ -20,7 +19,7 @@ public class TestDto {
         dto.setLimit(10);
         dto.setPage(1);
 //        JsonData jsonData=service.getAllEntity(1,10);
-        JsonData jsonData = service.getAllByNativeQuery(dto);
-        System.out.println(jsonData);
+//        JsonData jsonData = service.getAllByNativeQuery(dto);
+//        System.out.println(jsonData);
     }
 }
