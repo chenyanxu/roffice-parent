@@ -75,10 +75,8 @@ Ext.define('kalix.roffice.pay.view.PayGrid', {
             text: '最后修改时间',
             dataIndex: 'updateDate',
             flex: 2,
-            renderer: function (value) {
-                var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd hh:mm:ss");
-            }
+            xtype: 'datecolumn',
+            format: 'Y-m-d H:i:s'
         },
             {
                 xtype: 'securityGridColumnRUD',

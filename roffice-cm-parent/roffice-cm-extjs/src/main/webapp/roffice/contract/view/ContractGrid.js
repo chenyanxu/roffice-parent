@@ -46,13 +46,20 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             },
             {
                 text: '项目名称',
-                dataIndex: 'projectName'
+                dataIndex: 'projectName',
+                renderer: 'addTooltip'
             }, {
                 text: '甲方',
                 dataIndex: 'partyA'
             }, {
                 text: '乙方',
                 dataIndex: 'partyB',
+                flex:0.5
+            },
+            {
+                text: '备注',
+                dataIndex: 'remark',
+                renderer: 'addTooltip',
                 flex:0.5
             },
             /*{

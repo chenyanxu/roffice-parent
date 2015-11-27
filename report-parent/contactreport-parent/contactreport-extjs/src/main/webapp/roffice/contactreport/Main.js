@@ -23,7 +23,7 @@ Ext.define('kalix.roffice.contactreport.Main', {
             xtype: 'contactreportGridPanel',
             id: 'contactreportGridPanel',
             title: '合同统计报表',
-            iconCls: 'x-fa fa-search',
+            iconCls: 'x-fa fa-list-alt',
             margin: 10
         }
     ]

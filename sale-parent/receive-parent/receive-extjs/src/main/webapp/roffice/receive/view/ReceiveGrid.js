@@ -74,10 +74,8 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
                 text: '最后修改时间',
                 dataIndex: 'updateDate',
                 flex: 2,
-                renderer: function (value) {
-                    var createDate = new Date(value);
-                    return createDate.format("yyyy-MM-dd hh:mm:ss");
-                }
+                xtype: 'datecolumn',
+                formatter: 'date("Y-m-d H:i:s")'
             },
             {
                 xtype: 'securityGridColumnRUD',

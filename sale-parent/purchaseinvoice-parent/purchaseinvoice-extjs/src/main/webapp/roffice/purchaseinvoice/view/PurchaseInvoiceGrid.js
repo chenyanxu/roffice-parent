@@ -78,18 +78,15 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
             text: '最后修改时间',
             dataIndex: 'updateDate',
             flex: 2,
-            renderer: function (value) {
-                var createDate = new Date(value);
-                return createDate.format("yyyy-MM-dd hh:mm:ss");
-            }
+            xtype: 'datecolumn',
+            formatter: 'date("Y-m-d H:i:s")'
         },
             {
                 xtype: 'securityGridColumnRUD',
-                //todo change permission
                 permissions: [
-                    'roffice:deployModule:purchaseinvoiceMenu:view',
-                    'roffice:deployModule:purchaseinvoiceMenu:edit',
-                    'roffice:deployModule:purchaseinvoiceMenu:delete'
+                    'roffice:deployModule:purchaseInvoiceMenu:view',
+                    'roffice:deployModule:purchaseInvoiceMenu:edit',
+                    'roffice:deployModule:purchaseInvoiceMenu:delete'
                 ]
             }]
     },
@@ -100,7 +97,7 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
             {
                 text: '添加',
                 xtype: 'button',
-                permission: 'roffice:deployModule:purchaseinvoiceMenu:add',
+                permission: 'roffice:deployModule:purchaseInvoiceMenu:add',
                 bind: {icon: '{add_image_path}'},
                 handler: 'onAdd'
             }
