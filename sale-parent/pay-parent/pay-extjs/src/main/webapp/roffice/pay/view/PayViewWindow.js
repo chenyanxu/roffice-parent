@@ -32,7 +32,7 @@ Ext.define('kalix.roffice.pay.view.PayViewWindow', {
                 }
             },
             {
-                fieldLabel: '回款金额(万元)',
+                fieldLabel: '回款金额(元)',
                 xtype: 'numberfield',
                 bind: {
                     activeError: '{validation.money}',

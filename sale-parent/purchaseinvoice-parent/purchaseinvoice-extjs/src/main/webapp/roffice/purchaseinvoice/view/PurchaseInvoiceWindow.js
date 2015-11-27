@@ -35,7 +35,7 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceWindow', {
                 }
             },
             {
-                fieldLabel: '发票金额(万元)',
+                fieldLabel: '发票金额(元)',
                 xtype: 'numberfield',
                 allowBlank: false,
                 bind: {

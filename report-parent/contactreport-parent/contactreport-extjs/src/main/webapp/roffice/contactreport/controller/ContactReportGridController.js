@@ -38,5 +38,10 @@ Ext.define('kalix.roffice.contactreport.controller.ContactReportGridController',
 
     collapseAll: function(){
         this.getView().collapseAll();
+    },
+    addTooltip: function (value, metadata, record, rowIndex, colIndex, store) {
+        metadata.tdAttr = 'data-qtip="' + value + '"';
+        return value;
     }
+
 });

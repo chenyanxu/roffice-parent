@@ -122,7 +122,7 @@ Ext.define('kalix.roffice.deploy.view.DeployViewWindow', {
                         value: '{rec.status}'
                     }
                 }, {
-                    fieldLabel: '合同金额(万元)',
+                    fieldLabel: '合同金额(元)',
                     //allowBlank: false,
                     labelAlign: 'right',
                     xtype: 'numberfield',

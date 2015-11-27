@@ -11,7 +11,7 @@ public class Const {
     //#################################################################################
     // 合同管理模块常量
     public static final String CM_MODULE_ID = "cmModule";
-    public static final String CM_MODULE_TEXT = "合同管理";
+    public static final String CM_MODULE_TEXT = "销售管理";
     public static final String CM_MODULE_ROUTE_ID = "pages-parent";
     public static final int CM_MODULE_INDEX = 5;
     public static final String CM_MODULE_ICON_CLASS = "right-icon x-fa fa-folder";
@@ -21,7 +21,7 @@ public class Const {
     public static final String CONTRACT_MENU_ID = "contractMenu";
     public static final String CONTRACT_MENU_TEXT = "项目合同";
     public static final String CONTRACT_MENU_ROUTE_ID = "roffice/Contract";
-    public static final int CONTRACT_MENU_INDEX = 0;
+    public static final int CONTRACT_MENU_INDEX = 10;
     public static final String CONTRACT_MENU_ICON_CLASS = "x-fa fa-file-text";
     public static final String CONTRACT_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + CONTRACT_MENU_ID;
 
@@ -29,7 +29,7 @@ public class Const {
     public static final String CONTRACT_DETAIL_MENU_ID = "contractDetailMenu";
     public static final String CONTRACT_DETAIL_MENU_TEXT = "合同清单";
     public static final String CONTRACT_DETAIL_MENU_ROUTE_ID = "roffice/ContractDetail";
-    public static final int CONTRACT_DETAIL_MENU_INDEX = 10;
+    public static final int CONTRACT_DETAIL_MENU_INDEX = 20;
     public static final String CONTRACT_DETAIL_MENU_ICON_CLASS = "x-fa fa-calendar  ";
     public static final String CONTRACT_DETAIL_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + CONTRACT_DETAIL_MENU_ID;
 
@@ -37,9 +37,17 @@ public class Const {
     public static final String INVOICE_MENU_ID = "contractMenu";
     public static final String INVOICE_MENU_TEXT = "合同发票";
     public static final String INVOICE_MENU_ROUTE_ID = "roffice/Invoice";
-    public static final int INVOICE_MENU_INDEX = 20;
+    public static final int INVOICE_MENU_INDEX = 30;
     public static final String INVOICE_MENU_ICON_CLASS = "x-fa fa-credit-card";
     public static final String INVOICE_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + INVOICE_MENU_ID;
+
+    //任务目标菜单常量
+    public static final String TASK_MENU_ID = "taskMenu";
+    public static final String TASK_MENU_TEXT = "任务目标";
+    public static final String TASK_MENU_ROUTE_ID = "roffice/task";
+    public static final int TASK_MENU_INDEX = 0;
+    public static final String TASK_MENU_ICON_CLASS = "x-fa fa-tasks";
+    public static final String TASK_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + TASK_MENU_ID;
 
     //#################################################################################
     // 通用模块常量

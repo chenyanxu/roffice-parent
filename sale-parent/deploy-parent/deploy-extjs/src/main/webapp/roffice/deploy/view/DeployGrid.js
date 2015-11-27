@@ -51,11 +51,7 @@ Ext.define('kalix.roffice.deploy.view.DeployGrid', {
             text: '合同金额',
             dataIndex: 'budget',
             flex: 1,
-            renderer: function (val) {
-                var out = Ext.util.Format.number(val, '0.00');
-                out = '￥' + out + '万元';
-                return out;
-            },
+            renderer: 'renderMoney'
         }, {
             text: '回款情况',
             dataIndex: 'receiveInfo',

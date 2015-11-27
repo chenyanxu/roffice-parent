@@ -48,11 +48,7 @@ Ext.define('kalix.roffice.purchaseinvoice.view.PurchaseInvoiceGrid', {
             text: '发票金额',
             dataIndex: 'money',
             //formatter: 'usMoney',
-            renderer: function (val) {
-                var out = Ext.util.Format.number(val, '0.00');
-                out = '￥' + out + '万元';
-                return out;
-            },
+            renderer: 'renderMoney'
         }, {
             text: '税率',
             dataIndex: 'rate',

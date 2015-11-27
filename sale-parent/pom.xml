@@ -23,6 +23,7 @@
         <module>project-parent</module>
         <module>receive-parent</module>
         <module>pay-parent</module>
+        <module>task-parent</module>
         <module>purchaseinvoice-parent</module>
     </modules>
 </project>

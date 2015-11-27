@@ -115,7 +115,16 @@ Ext.define('kalix.roffice.contactreport.view.ContactReportGrid', {
         }
     }],
 
-
+    listeners:{
+        /*itemmouseenter:function( target, record, item, index, e, eOpts ){
+            var clickedColumnName = record.getFields()[index-1].getName();
+            var clickedCellValue = record.get(clickedColumnName);
+            item.setAttribute('data-qtip',clickedCellValue);
+        },
+        pivotitemcellclick:function( params, e, eOpts ){
+            alert(params.cellEl);
+        }*/
+    },
     initComponent: function () {
         var me = this;
 

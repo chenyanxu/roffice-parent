@@ -35,7 +35,7 @@ Ext.define('kalix.roffice.receive.view.ReceiveWindow', {
                 }
             },
             {
-                fieldLabel: '回款金额(万元)',
+                fieldLabel: '回款金额(元)',
                 xtype: 'numberfield',
                 allowBlank: false,
                 bind: {

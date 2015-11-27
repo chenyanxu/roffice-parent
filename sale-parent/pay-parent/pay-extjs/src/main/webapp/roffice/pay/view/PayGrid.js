@@ -50,12 +50,7 @@ Ext.define('kalix.roffice.pay.view.PayGrid', {
             text: '回款金额',
             dataIndex: 'money',
             flex: 1,
-            //formatter: 'usMoney',
-            renderer: function (val) {
-                var out = Ext.util.Format.number(val, '0.00');
-                out = '￥' + out + '万元';
-                return out;
-            }
+            renderer: 'renderMoney'
         }, /*{
             text: '采购编号',
             dataIndex: 'purchaseId',

@@ -21,14 +21,17 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
         type: 'contractStore'
     },
     columns: {
-        defaults: {flex: 1},
+        defaults: {
+            flex: 1,
+            renderer: 'addTooltip'},
         items: [
             {
                 xtype: "rownumberer",
                 text: "行号",
                 width: 50,
                 flex: 0,
-                align: 'center'
+                align: 'center',
+                renderer:this.update
             },
             {
                 text: '编号',
@@ -47,7 +50,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             {
                 text: '项目名称',
                 dataIndex: 'projectName',
-                renderer: 'addTooltip'
+
             }, {
                 text: '甲方',
                 dataIndex: 'partyA'
@@ -59,7 +62,6 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             {
                 text: '备注',
                 dataIndex: 'remark',
-                renderer: 'addTooltip',
                 flex:0.5
             },
             /*{
