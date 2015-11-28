@@ -21,6 +21,10 @@ public class TaskBean extends PersistentEntity {
     private String taskType;   //分类
     private float contactNo;  //合同额
     private float targetNo;  //目标毛利
+    private float finishContactNo;  //完成合同额
+    private float finishTargetNo;  //完成目标毛利
+    private float contactPercent; //合同完成率
+    private float targetPercent; //合同完成率
     private String year;  //年度
 
     public float getContactNo() {
@@ -61,5 +65,37 @@ public class TaskBean extends PersistentEntity {
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public float getContactPercent() {
+        return contactPercent;
+    }
+
+    public void setContactPercent(float contactPercent) {
+        this.contactPercent = contactPercent;
+    }
+
+    public float getFinishContactNo() {
+        return finishContactNo;
+    }
+
+    public void setFinishContactNo(float finishContactNo) {
+        this.finishContactNo = finishContactNo;
+    }
+
+    public float getFinishTargetNo() {
+        return finishTargetNo;
+    }
+
+    public void setFinishTargetNo(float finishTargetNo) {
+        this.finishTargetNo = finishTargetNo;
+    }
+
+    public float getTargetPercent() {
+        return targetPercent;
+    }
+
+    public void setTargetPercent(float targetPercent) {
+        this.targetPercent = targetPercent;
     }
 }

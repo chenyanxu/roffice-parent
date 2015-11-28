@@ -13,7 +13,7 @@ Ext.define('kalix.roffice.task.view.TaskSearchForm', {
             xtype: 'textfield',
             fieldLabel: '销售负责人',
             labelAlign: 'right',
-            labelWidth: 60,
+            labelWidth: 80,
             width: 200,
             name: 'name'
         }]

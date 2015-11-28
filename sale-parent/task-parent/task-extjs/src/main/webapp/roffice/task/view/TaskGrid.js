@@ -21,7 +21,14 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
     store: {
         type: 'taskStore'
     },
-
+    features: [{
+        id: 'group',
+        ftype: 'groupingsummary',
+        groupHeaderTpl: '{name}',
+        hideGroupedHeader: false,
+        enableGroupingMenu: true,
+        startCollapsed: false
+    }],
     columns: {
         defaults: {flex: 1,
             renderer: 'addTooltip'},
@@ -39,14 +46,19 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                 dataIndex: 'id',
                 hidden: true,
                 flex: 1
-            }, {
+            },
+             {
                 text: '销售负责人',
                 dataIndex: 'name',
-                flex: 1
-            }, {
+                flex: 1,
+                summaryType: 'count',
+                summaryRenderer: function(value, summaryData, dataIndex) {
+                    return ((value === 0 || value > 1) ? '(' + value + ' 任务)' : '(1 任务)');
+                }
+            },{
                 text: '年度',
                 dataIndex: 'year',
-                flex: 1
+                flex: 1,
             }, {
                 text: '任务分类',
                 dataIndex: 'taskType',
@@ -56,12 +68,98 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                 text: '合同额',
                 dataIndex: 'contactNo',
                 flex: 2,
-                renderer: 'renderMoney'
+                renderer: 'renderMoney',
+                summaryType: 'sum',
+                summaryRenderer: function(val, summaryData, dataIndex) {
+                    var out = Ext.util.Format.currency(val);
+                    return out + '元';
+                }
+            }, {
+                text: '完成合同额',
+                dataIndex: 'finishContactNo',
+                flex: 2,
+                renderer: 'renderMoney',
+                summaryType: 'sum',
+                summaryRenderer: function(val, summaryData, dataIndex) {
+                    var out = Ext.util.Format.currency(val);
+                    return out + '元';
+                }
+            },{
+                text     : '合同额进度',
+                xtype    : 'widgetcolumn',
+                width    : 120,
+                flex:0,
+                dataIndex: 'contactPercent',
+                widget: {
+                    xtype: 'progressbarwidget',
+                    textTpl: [
+                        '{percent:number("0")}% 完成'
+                    ]
+                },
+                summaryRenderer: function(val, summaryData, dataIndex) {
+                    var finishContactNoTotal = this.up('grid').getStore().sum('finishContactNo');
+                    var contactNoTotal = this.up('grid').getStore().sum('contactNo');
+                    var percentage = (( finishContactNoTotal / contactNoTotal ) * 100).toFixed(2);
+                    return percentage.toString() + '%';
+                }
             }, {
                 text: '目标毛利',
                 dataIndex: 'targetNo',
                 flex: 2,
-                renderer: 'renderMoney'
+                renderer: 'renderMoney',
+                summaryType: 'sum',
+                summaryRenderer: function(val, summaryData, dataIndex) {
+                    var out = Ext.util.Format.currency(val);
+                    return out + '元';;
+                }
+            },
+            {
+                text: '完成毛利',
+                dataIndex: 'finishTargetNo',
+                flex: 2,
+                renderer: 'renderMoney',
+                summaryType: 'sum',
+                summaryRenderer: function(val, summaryData, dataIndex) {
+                    var out = Ext.util.Format.currency(val);
+                    return out + '元';;
+                }
+            },
+            {
+                text     : '毛利进度',
+                xtype    : 'widgetcolumn',
+                width    : 120,
+                flex:0,
+                dataIndex: 'targetPercent',
+                widget: {
+                    xtype: 'progressbarwidget',
+                    textTpl: [
+                        '{percent:number("0")}% 完成'
+                    ]
+                },
+                summaryType: 'sum',
+                /*summaryType: function(records, values) {
+                    var i = 0,
+                        length = records.length,
+                        total = 0,
+                        totalFinish= 0,
+                        record;
+
+                    for (; i < length; ++i) {
+                        record = records[i];
+                        total += record.get('targetNo');
+                        totalFinish+=   record.get('finishTargetNo');
+                    }
+                    var percentage = (( totalFinish / total ) * 100).toFixed(2);
+                    return percentage.toString() + '%';
+                },*/
+                summaryRenderer: function(val, summaryData, dataIndex) {
+                    var finishTargetNoTotal = this.up('grid').getStore().sum('finishTargetNo',true);
+                    console.log('Sum >> ', finishTargetNoTotal);
+                    var targetNoTotal = this.up('grid').getStore().sum('targetNo');
+                    var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2);
+
+                    return percentage.toString() + '%';
+                }
             },
             {
                 xtype: 'securityGridColumnRUD',
