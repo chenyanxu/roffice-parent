@@ -97,9 +97,11 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                     ]
                 },
                 summaryRenderer: function(val, summaryData, dataIndex) {
-                    var finishContactNoTotal = this.up('grid').getStore().sum('finishContactNo');
-                    var contactNoTotal = this.up('grid').getStore().sum('contactNo');
-                    var percentage = (( finishContactNoTotal / contactNoTotal ) * 100).toFixed(2);
+                    var finishTargetNoTotal =summaryData['gridcolumn-1025']; //this.up('grid').getStore().sum('finishTargetNo',true);
+                    console.log('Sum >> ', finishTargetNoTotal);
+                    var targetNoTotal = summaryData['gridcolumn-1024'];
+                    var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2);
+
                     return percentage.toString() + '%';
                 }
             }, {
@@ -153,9 +155,9 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                     return percentage.toString() + '%';
                 },*/
                 summaryRenderer: function(val, summaryData, dataIndex) {
-                    var finishTargetNoTotal = this.up('grid').getStore().sum('finishTargetNo',true);
+                    var finishTargetNoTotal =summaryData['gridcolumn-1027']; //this.up('grid').getStore().sum('finishTargetNo',true);
                     console.log('Sum >> ', finishTargetNoTotal);
-                    var targetNoTotal = this.up('grid').getStore().sum('targetNo');
+                    var targetNoTotal = summaryData['gridcolumn-1026'];
                     var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2);
 
                     return percentage.toString() + '%';
