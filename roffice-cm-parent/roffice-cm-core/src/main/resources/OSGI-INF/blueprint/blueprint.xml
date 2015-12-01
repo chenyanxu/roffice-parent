@@ -27,6 +27,7 @@
     <bean id="contractDetailBeanServiceImpl" class="cn.com.rexen.roffice.cm.core.ContractDetailBeanServiceImpl">
         <property name="dao" ref="contractDetailBeanDao"/>
         <property name="shiroService" ref="shiroService"/>
+        <property name="bundleContext" ref="blueprintBundleContext"/>
     </bean>
     <service id="contractDetailBeanService" ref="contractDetailBeanServiceImpl"
              interface="cn.com.rexen.roffice.cm.api.biz.IContractDetailBeanService"/>

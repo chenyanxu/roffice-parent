@@ -9,13 +9,12 @@ Ext.define('kalix.roffice.task.view.TaskViewWindow', {
     extend: 'kalix.view.components.common.BaseWindow',
         requires: [
             'kalix.roffice.task.viewModel.TaskViewModel',
-            'kalix.admin.user.store.UserStore'
+            'kalix.admin.user.component.UserComboBox'
         ],
         alias: 'widget.taskViewWindow',
         viewModel: 'taskViewModel',
         xtype: "taskViewWindow",
         width: 400,
-    //todo 在此修改查看字段
     items: [{
         xtype: 'baseForm',
         defaults: {readOnly: true},

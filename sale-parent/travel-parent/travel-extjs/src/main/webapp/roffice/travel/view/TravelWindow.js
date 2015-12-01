@@ -10,7 +10,7 @@ Ext.define('kalix.roffice.travel.view.TravelWindow', {
     requires: [
         'kalix.roffice.travel.viewModel.TravelViewModel',
         'kalix.controller.BaseWindowController',
-        'kalix.admin.user.store.UserStore'
+        'kalix.admin.user.component.UserComboBox'
     ],
     alias: 'widget.travelWindow',
     viewModel: 'travelViewModel',
@@ -32,15 +32,7 @@ Ext.define('kalix.roffice.travel.view.TravelWindow', {
         }, {
             fieldLabel: '出差人员',
             allowBlank: false,
-            xtype: 'combobox',
-            queryMode: 'remote',
-            valueField: 'name',
-            displayField: 'name',
-            queryParam: 'name',
-            minChars: 0,
-            store: {
-                type: 'userStore'
-            },
+            xtype: 'userCombobox',
             name: 'person',
             bind: {
                 activeError: '{validation.person}',
@@ -75,15 +67,7 @@ Ext.define('kalix.roffice.travel.view.TravelWindow', {
         }, {
             fieldLabel: '结果评定人',
             //allowBlank: false,
-            xtype: 'combobox',
-            queryMode: 'remote',
-            valueField: 'name',
-            displayField: 'name',
-            queryParam: 'name',
-            minChars: 0,
-            store: {
-                type: 'userStore'
-            },
+            xtype: 'userCombobox',
             name: 'resultPerson',
             bind: {
                 //activeError: '{validation.person}',

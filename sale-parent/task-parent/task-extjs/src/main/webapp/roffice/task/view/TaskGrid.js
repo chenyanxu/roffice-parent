@@ -28,6 +28,13 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
         hideGroupedHeader: false,
         enableGroupingMenu: true,
         startCollapsed: false
+    },{
+        id: 'group',
+        ftype: 'summary',
+        dock: 'bottom',
+        hideGroupedHeader: false,
+        enableGroupingMenu: true,
+        startCollapsed: false
     }],
     columns: {
         defaults: {flex: 1,
@@ -97,9 +104,10 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                     ]
                 },
                 summaryRenderer: function(val, summaryData, dataIndex) {
-                    var finishTargetNoTotal =summaryData['gridcolumn-1025']; //this.up('grid').getStore().sum('finishTargetNo',true);
+
+                    var finishTargetNoTotal =Ext.JSON.toArray(summaryData)[6].value; //this.up('grid').getStore().sum('finishTargetNo',true);
                     console.log('Sum >> ', finishTargetNoTotal);
-                    var targetNoTotal = summaryData['gridcolumn-1024'];
+                    var targetNoTotal = Ext.JSON.toArray(summaryData)[5].value;
                     var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2);
 
                     return percentage.toString() + '%';
@@ -138,26 +146,10 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                         '{percent:number("0")}% 完成'
                     ]
                 },
-                summaryType: 'sum',
-                /*summaryType: function(records, values) {
-                    var i = 0,
-                        length = records.length,
-                        total = 0,
-                        totalFinish= 0,
-                        record;
-
-                    for (; i < length; ++i) {
-                        record = records[i];
-                        total += record.get('targetNo');
-                        totalFinish+=   record.get('finishTargetNo');
-                    }
-                    var percentage = (( totalFinish / total ) * 100).toFixed(2);
-                    return percentage.toString() + '%';
-                },*/
                 summaryRenderer: function(val, summaryData, dataIndex) {
-                    var finishTargetNoTotal =summaryData['gridcolumn-1027']; //this.up('grid').getStore().sum('finishTargetNo',true);
+                    var finishTargetNoTotal =Ext.JSON.toArray(summaryData)[9].value; //this.up('grid').getStore().sum('finishTargetNo',true);
                     console.log('Sum >> ', finishTargetNoTotal);
-                    var targetNoTotal = summaryData['gridcolumn-1026'];
+                    var targetNoTotal = Ext.JSON.toArray(summaryData)[8].value;
                     var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2);
 
                     return percentage.toString() + '%';

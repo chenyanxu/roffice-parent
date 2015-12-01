@@ -9,8 +9,8 @@
            http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
     <reference id="contractDetailBeanService" interface="cn.com.rexen.roffice.cm.api.biz.IContractDetailBeanService"/>
     <camelContext id="cm-rest-contractDetail" xmlns="http://camel.apache.org/schema/blueprint">
-        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
-                           port="8181">
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="true"/>
         </restConfiguration>
         <rest path="/contractDetails" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <get id="route-getAllContractDetail" outType="cn.com.rexen.core.api.persistence.JsonData">

@@ -9,8 +9,8 @@
            http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
     <reference id="invoiceBeanService" interface="cn.com.rexen.roffice.cm.api.biz.IInvoiceBeanService"/>
     <camelContext id="cm-rest-invoice" xmlns="http://camel.apache.org/schema/blueprint">
-        <restConfiguration component="servlet" bindingMode="json" contextPath="/kalix/camel/rest" host="localhost"
-                           port="8181">
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="true"/>
         </restConfiguration>
         <rest path="/invoices" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <get id="route-getAllInvoice" outType="cn.com.rexen.core.api.persistence.JsonData">
