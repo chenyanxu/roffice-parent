@@ -14,7 +14,7 @@
     <packaging>bundle</packaging>
     <name>Roffice :: Core - Web</name>
     <properties>
-        <bundle.symbolicName>cn.com.rexen.roffice.core.web</bundle.symbolicName>
+        <bundle.symbolicName>cn.com.rexen.roffice.web</bundle.symbolicName>
         <bundle.namespace>${bundle.symbolicName}</bundle.namespace>
     </properties>
 </project>
