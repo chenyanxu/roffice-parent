@@ -10,23 +10,11 @@ Ext.define('kalix.roffice.contactreport.store.ContactReportStore', {
     alias: 'store.contactreportStore',
     xtype: 'contactreportStore',
     storeId: "contactreportStore",
-    proxyUrl:'/kalix/camel/rest/contracts',
-    pageSize:100
-
-    /*extend: 'Ext.data.Store',
-    alias: 'store.contactreportStore',
-
-    model: 'kalix.roffice.contactreport.model.ContactReportModel',
-
-    proxy: {
-        // load using HTTP
-        type: 'ajax',
-        limitParam: null,
-        url: '/kalix/camel/rest/contracts',
-        // the return will be JSON, so lets set up a reader
-        reader: {
-            type: 'json'
-        }
-    },
-    autoLoad: true*/
+    proxyUrl:'/kalix/camel/rest/contracts/report',
+    pageSize:0,
+    /*listeners:{
+    beforeload: function (store, opts, target) {
+        var jsonStr = Ext.JSON.encode(target.items.getAt(0).getForm().getFieldValues());
+        store.proxy.extraParams = {'jsonStr': jsonStr};
+    }}*/
 });

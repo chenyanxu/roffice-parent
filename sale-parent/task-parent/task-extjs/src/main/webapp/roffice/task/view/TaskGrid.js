@@ -27,14 +27,14 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
         groupHeaderTpl: '{name}',
         hideGroupedHeader: false,
         enableGroupingMenu: true,
-        startCollapsed: false
+        startCollapsed: true
     }, {
         id: 'group',
         ftype: 'summary',
         dock: 'bottom',
         hideGroupedHeader: false,
         enableGroupingMenu: true,
-        startCollapsed: false
+        startCollapsed: true
     }],
     columns: {
         defaults: {

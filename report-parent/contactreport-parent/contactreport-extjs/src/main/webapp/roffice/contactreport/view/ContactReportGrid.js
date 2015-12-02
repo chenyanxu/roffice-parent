@@ -18,10 +18,7 @@ Ext.define('kalix.roffice.contactreport.view.ContactReportGrid', {
     //height: 350,
     controller: {
         type: 'contactreportGridController',
-        storeId: 'contactreportStore',
-        cfgForm: 'kalix.roffice.contactreport.view.ContactReportWindow',
-        cfgViewForm: 'kalix.roffice.contactreport.view.ContactReportViewWindow',
-        cfgModel: 'kalix.roffice.contactreport.model.ContactReportModel'
+        storeId: 'contactreportStore'
     },
     store: {
         type: 'contactreportStore'

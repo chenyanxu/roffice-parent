@@ -44,20 +44,37 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
                 flex:0.5
             },
             {
-                text: '合同编号',
-                dataIndex: 'contractNumber'
+                text: '甲方',
+                dataIndex: 'partyA'
+            },
+            {
+                text: '乙方',
+                dataIndex: 'partyB',
+                flex:0.5
             },
             {
                 text: '项目名称',
                 dataIndex: 'projectName',
-
-            }, {
-                text: '甲方',
-                dataIndex: 'partyA'
-            }, {
-                text: '乙方',
-                dataIndex: 'partyB',
-                flex:0.5
+            },
+            {
+                text: '金额',
+                dataIndex: 'summoney',
+                renderer: 'renderMoney'
+            },
+            {
+                text: '毛利',
+                dataIndex: 'grossProfit',
+                renderer: 'renderMoney'
+            },
+            {
+                text: '利润率',
+                dataIndex: 'grossProfitRate',
+                renderer: 'renderPercent',
+                flex:0.8
+            },
+            {
+                text: '合同编号',
+                dataIndex: 'contractNumber'
             },
             {
                 text: '备注',
@@ -72,7 +89,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             }
             ,*/
             {
-                flex:0.5,
+                flex:1,
                 xtype: 'securityGridColumnCommon',
                 items: [
                     {

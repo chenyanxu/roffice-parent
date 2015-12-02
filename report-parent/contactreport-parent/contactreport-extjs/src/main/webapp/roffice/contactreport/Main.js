@@ -5,12 +5,11 @@
  * @version 1.0.0
  */
 Ext.define('kalix.roffice.contactreport.Main', {
-    extend: 'Ext.container.Container',
+    extend: 'kalix.container.BaseContainer',
     requires: [
         'kalix.roffice.contactreport.view.ContactReportGrid',
         'kalix.roffice.contactreport.view.ContactReportSearchForm',
-        'kalix.roffice.contactreport.viewModel.ContactReportViewModel',
-        'kalix.roffice.contactreport.store.ContactReportStore'
+        'kalix.roffice.contactreport.viewModel.ContactReportViewModel'
     ],
     storeId: 'contactreportStore',
     viewModel: 'contactreportViewModel',

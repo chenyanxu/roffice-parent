@@ -23,18 +23,15 @@ Ext.define('kalix.roffice.receive.view.ReceiveViewWindow', {
             items: [
                 {
                     fieldLabel: '回款日期',
-                    allowBlank: false,
                     xtype: 'datefield',
                     format: 'Y-m-d',
                     bind: {
-                        activeError: '{validation.receiveDate}',
                         value: '{rec.receiveDate}'
                     }
                 },
                 {
                     fieldLabel: '回款金额(元)',
                     xtype: 'numberfield',
-                    allowBlank: false,
                     bind: {
                         activeError: '{validation.money}',
                         value: '{rec.money}'
@@ -42,18 +39,13 @@ Ext.define('kalix.roffice.receive.view.ReceiveViewWindow', {
                 },
                 {
                     fieldLabel: '合同编号',
-                    //allowBlank: false,
-                    xtype: 'contractComboBox',
                     bind: {
-                        //activeError: '{validation.contractId}',
-                        value: '{rec.contractId}'
+                        value: '{rec.contractNumber}'
                     }
                 }, {
                     fieldLabel: '备注',
-                    allowBlank: false,
                     xtype: 'textarea',
                     bind: {
-                        activeError: '{validation.comment}',
                         value: '{rec.comment}'
                     }
                 }]

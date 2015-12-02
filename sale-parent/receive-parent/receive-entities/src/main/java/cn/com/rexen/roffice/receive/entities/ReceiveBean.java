@@ -24,6 +24,10 @@ public class ReceiveBean extends PersistentEntity {
     private Float money;//回款金额
     private long contractId;//合同id
     private String comment; //备注
+    /**
+     * 合同编号.
+     */
+    private String contractNumber;
 
     public String getComment() {
         return comment;
@@ -55,5 +59,13 @@ public class ReceiveBean extends PersistentEntity {
 
     public void setReceiveDate(Date receiveDate) {
         this.receiveDate = receiveDate;
+    }
+
+    public String getContractNumber() {
+        return contractNumber;
+    }
+
+    public void setContractNumber(String contractNumber) {
+        this.contractNumber = contractNumber;
     }
 }

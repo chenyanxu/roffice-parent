@@ -19,6 +19,9 @@ Ext.define('kalix.roffice.task.model.TaskModel', {
         name: 'contactNo',
         type: 'float'
     }, {
+        name: 'grossProfitRate',
+        type: 'float'
+    },{
         name: 'targetNo',
         type: 'float'
     },{

@@ -26,7 +26,7 @@ Ext.define('kalix.roffice.receive.view.ReceiveWindow', {
         items: [
             {
                 fieldLabel: '回款日期',
-                allowBlank: false,
+                //allowBlank: false,
                 xtype: 'datefield',
                 format: 'Y-m-d',
                 bind: {
@@ -45,11 +45,11 @@ Ext.define('kalix.roffice.receive.view.ReceiveWindow', {
             },
             {
                 fieldLabel: '合同编号',
-                //allowBlank: false,
+                allowBlank: false,
                 xtype: 'contractComboBox',
                 bind: {
                     //activeError: '{validation.contractId}',
-                    value: '{rec.contractId}'
+                    value: '{rec.contractNumber}'
                 }
             }, {
                 fieldLabel: '备注',

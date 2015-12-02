@@ -23,6 +23,11 @@
                 <description>Create a contract</description>
                 <to uri="bean:contractBeanService?method=saveEntity"/>
             </post>
+
+            <get uri="/report" id="route-getAllContractReport" outType="cn.com.rexen.core.api.persistence.JsonData">
+                <description>Find all contracts for report</description>
+                <to uri="bean:contractBeanService?method=getAllEntityforReport(${header.jsonStr})"/>
+            </get>
         </rest>
         <rest path="/contracts/{id}" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <get id="route-getContract" outType="cn.com.rexen.roffice.cm.entities.ContractBean">

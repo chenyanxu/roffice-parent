@@ -179,4 +179,12 @@ public class Const {
     public static final String CONTACT_REPORT_MENU_PERMISSION = REPORT_MODULE_PERMISSION + ":" + CONTACT_REPORT_MENU_ID;
     public static final int CONTACT_REPORT_MENU_INDEX = 10;
 
+    //合同回款情况常量
+    public static final String RECEIVE_REPORT_MENU_ID = "receiveReportMenu";
+    public static final String RECEIVE_REPORT_MENU_TEXT = "合同回款情况";
+    public static final String RECEIVE_REPORT_MENU_ROUTE_ID = "roffice/receivereport";
+    public static final String RECEIVE_REPORT_MENU_ICON_CLASS = "x-fa fa-list-alt";
+    public static final String RECEIVE_REPORT_MENU_PERMISSION = REPORT_MODULE_PERMISSION + ":" + RECEIVE_REPORT_MENU_ID;
+    public static final int RECEIVE_REPORT_MENU_INDEX = 20;
+
 }

@@ -22,13 +22,17 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
         type: 'receiveStore'
     },
     columns: {
-        defaults: {flex: 1},
+        defaults: {
+            flex: 1,
+            renderer: 'addTooltip'},
         items: [
             {
                 xtype: "rownumberer",
                 text: "行号",
                 width: 50,
-                align: 'center'
+                flex:0,
+                align: 'center',
+                renderer:this.update
             },
             {
                 text: '编号',
@@ -36,9 +40,11 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
                 hidden: true,
                 flex: 1
             }, {
+                text: '合同编号',
+                dataIndex: 'contractNumber',
+            }, {
                 text: '回款日期',
                 dataIndex: 'receiveDate',
-                flex: 1,
                 xtype: 'datecolumn',
                 //format: 'Y-m-d'
                 renderer: function (value) {
@@ -48,7 +54,6 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
             }, {
                 text: '回款金额',
                 dataIndex: 'money',
-                flex: 1,
                 renderer: 'renderMoney'
             }, /*{
              text: '合同id',
@@ -59,7 +64,7 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
                 text: '备注',
                 dataIndex: 'comment',
                 flex: 3
-            },
+            }/*,
             {
                 text: '最后修改人',
                 dataIndex: 'updateBy',
@@ -71,7 +76,7 @@ Ext.define('kalix.roffice.receive.view.ReceiveGrid', {
                 flex: 2,
                 xtype: 'datecolumn',
                 formatter: 'date("Y-m-d H:i:s")'
-            },
+            }*/,
             {
                 xtype: 'securityGridColumnRUD',
                 permissions: [

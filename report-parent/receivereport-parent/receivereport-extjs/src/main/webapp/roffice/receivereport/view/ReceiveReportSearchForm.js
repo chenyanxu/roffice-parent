@@ -1,13 +1,13 @@
 /**
- * 合同报表查询表单
+ * 合同回款情况查询表单
  * @author
  * @version 1.0.0
  */
-Ext.define('kalix.roffice.contactreport.view.ContactReportSearchForm', {
+Ext.define('kalix.roffice.receivereport.view.ReceiveReportSearchForm', {
     extend: 'kalix.view.components.common.BaseSearchForm',
-    alias: 'widget.contactreportSearchForm',
-    xtype: 'contactreportSearchForm',
-    storeId: 'contactreportStore',
+    alias: 'widget.receivereportSearchForm',
+    xtype: 'receivereportSearchForm',
+    storeId: 'receivereportStore',
     items: [
         {
             xtype: 'textfield',

@@ -16,6 +16,9 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
         name: 'comment',
         type: 'string'
     }, {
+        name: 'contractNumber',
+        type: 'string'
+    },{
         name: 'contractId',
         type: 'int'
     }, {
@@ -42,9 +45,9 @@ Ext.define('kalix.roffice.receive.model.ReceiveModel', {
             type: 'presence',
             message: '金额不能为空!'
         }],
-        receiveDate: [{
+        /*receiveDate: [{
             type: 'presence',
             message: '日期不能为空!'
-        }]
+        }]*/
     }
 });
