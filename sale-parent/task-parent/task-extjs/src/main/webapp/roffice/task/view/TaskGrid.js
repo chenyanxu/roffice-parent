@@ -48,7 +48,17 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                 width: 50,
                 flex: 0,
                 align: 'center',
-                renderer: this.update
+                renderer: this.update,
+                summaryRenderer: function (val, summaryData, dataIndex) {
+                    var kvArray=Ext.JSON.toArray(summaryData);
+
+                    if(11==kvArray.length){
+                        return '<span style="color:red">合计</span>';
+                    }
+                    else{
+                        return '<span style="color:red">小计</span>';
+                    }
+                }
             },
             {
                 text: '编号',
