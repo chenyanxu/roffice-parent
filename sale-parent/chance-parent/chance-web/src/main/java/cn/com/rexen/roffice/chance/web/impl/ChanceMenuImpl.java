@@ -11,7 +11,7 @@ public class ChanceMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return Const.SALE_MODULE_ID;
+        return Const.CM_MODULE_ID;
     }
 
     @Override

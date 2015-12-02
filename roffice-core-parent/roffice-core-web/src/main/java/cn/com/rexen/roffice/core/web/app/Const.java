@@ -9,6 +9,31 @@ public class Const {
     public static final String APPLICATION_ALIAS = "协同办公";
 
     //#################################################################################
+    // 通用模块常量
+    public static final String COMMONS_MODULE_ID = "commonsModule";
+    public static final String COMMONS_MODULE_TEXT = "通用功能";
+    public static final String COMMONS_MODULE_ROUTE_ID = "pages-parent";
+    public static final int COMMONS_MODULE_INDEX = 0;
+    public static final String COMMONS_MODULE_ICON_CLASS = "right-icon x-fa fa-tag";
+    public static final String COMMONS_MODULE_PERMISSION = APPLICATION_NAME + ":" + COMMONS_MODULE_ID;
+
+    //公司新闻菜单常量
+    public static final String NEWS_MENU_ID = "newsMenu";
+    public static final String NEWS_MENU_TEXT = "公司新闻";
+    public static final String NEWS_MENU_ROUTE_ID = "roffice/News";
+    public static final int NEWS_MENU_INDEX = 0;
+    public static final String NEWS_MENU_ICON_CLASS = "x-fa fa-newspaper-o";
+    public static final String NEWS_MENU_PERMISSION = COMMONS_MODULE_PERMISSION + ":" + NEWS_MENU_ID;
+
+    //公司公告菜单常量
+    public static final String NOTE_MENU_ID = "noteMenu";
+    public static final String NOTE_MENU_TEXT = "公司公告";
+    public static final String NOTE_MENU_ROUTE_ID = "roffice/Note";
+    public static final int NOTE_MENU_INDEX = 10;
+    public static final String NOTE_MENU_ICON_CLASS = "x-fa fa-comment";
+    public static final String NOTE_MENU_PERMISSION = COMMONS_MODULE_PERMISSION + ":" + NOTE_MENU_ID;
+
+    //#################################################################################
     // 合同管理模块常量
     public static final String CM_MODULE_ID = "cmModule";
     public static final String CM_MODULE_TEXT = "销售管理";
@@ -16,6 +41,22 @@ public class Const {
     public static final int CM_MODULE_INDEX = 5;
     public static final String CM_MODULE_ICON_CLASS = "right-icon x-fa fa-folder";
     public static final String CM_MODULE_PERMISSION = APPLICATION_NAME + ":" + CM_MODULE_ID;
+
+    //任务目标菜单常量
+    public static final String TASK_MENU_ID = "taskMenu";
+    public static final String TASK_MENU_TEXT = "任务目标";
+    public static final String TASK_MENU_ROUTE_ID = "roffice/task";
+    public static final int TASK_MENU_INDEX = 0;
+    public static final String TASK_MENU_ICON_CLASS = "x-fa fa-tasks";
+    public static final String TASK_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + TASK_MENU_ID;
+
+    //项目机会菜单常量
+    public static final String CHANCE_MENU_ID = "chanceMenu";
+    public static final String CHANCE_MENU_TEXT = "项目机会";
+    public static final String CHANCE_MENU_ROUTE_ID = "roffice/Chance";
+    public static final String CHANCE_MENU_ICON_CLASS = "x-fa fa-cutlery";
+    public static final String CHANCE_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + CHANCE_MENU_ID;
+    public static final int CHANCE_MENU_INDEX = 5;
 
     //项目合同菜单常量
     public static final String CONTRACT_MENU_ID = "contractMenu";
@@ -41,38 +82,29 @@ public class Const {
     public static final String INVOICE_MENU_ICON_CLASS = "x-fa fa-credit-card";
     public static final String INVOICE_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + INVOICE_MENU_ID;
 
-    //任务目标菜单常量
-    public static final String TASK_MENU_ID = "taskMenu";
-    public static final String TASK_MENU_TEXT = "任务目标";
-    public static final String TASK_MENU_ROUTE_ID = "roffice/task";
-    public static final int TASK_MENU_INDEX = 0;
-    public static final String TASK_MENU_ICON_CLASS = "x-fa fa-tasks";
-    public static final String TASK_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + TASK_MENU_ID;
+    //项目回款菜单常量
+    public static final String RECEIVE_MENU_ID = "receiveMenu";
+    public static final String RECEIVE_MENU_TEXT = "项目回款";
+    public static final String RECEIVE_MENU_ROUTE_ID = "roffice/Receive";
+    public static final String RECEIVE_MENU_ICON_CLASS = "x-fa fa-repeat";
+    public static final String RECEIVE_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + RECEIVE_MENU_ID;
+    public static final int RECEIVE_MENU_INDEX = 40;
 
-    //#################################################################################
-    // 通用模块常量
-    public static final String COMMONS_MODULE_ID = "commonsModule";
-    public static final String COMMONS_MODULE_TEXT = "通用功能";
-    public static final String COMMONS_MODULE_ROUTE_ID = "pages-parent";
-    public static final int COMMONS_MODULE_INDEX = 0;
-    public static final String COMMONS_MODULE_ICON_CLASS = "right-icon x-fa fa-tag";
-    public static final String COMMONS_MODULE_PERMISSION = APPLICATION_NAME + ":" + COMMONS_MODULE_ID;
+    //采购设备付款菜单常量
+    public static final String PAY_MENU_ID = "payMenu";
+    public static final String PAY_MENU_TEXT = "采购付款";
+    public static final String PAY_MENU_ROUTE_ID = "roffice/Pay";
+    public static final String PAY_MENU_ICON_CLASS = "x-fa fa-cc-visa";
+    public static final String PAY_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + PAY_MENU_ID;
+    public static final int PAY_MENU_INDEX = 50;
 
-    //公司新闻菜单常量
-    public static final String NEWS_MENU_ID = "newsMenu";
-    public static final String NEWS_MENU_TEXT = "公司新闻";
-    public static final String NEWS_MENU_ROUTE_ID = "roffice/News";
-    public static final int NEWS_MENU_INDEX = 0;
-    public static final String NEWS_MENU_ICON_CLASS = "x-fa fa-newspaper-o";
-    public static final String NEWS_MENU_PERMISSION = COMMONS_MODULE_PERMISSION + ":" + NEWS_MENU_ID;
-
-    //公司公告菜单常量
-    public static final String NOTE_MENU_ID = "noteMenu";
-    public static final String NOTE_MENU_TEXT = "公司公告";
-    public static final String NOTE_MENU_ROUTE_ID = "roffice/Note";
-    public static final int NOTE_MENU_INDEX = 10;
-    public static final String NOTE_MENU_ICON_CLASS = "x-fa fa-comment";
-    public static final String NOTE_MENU_PERMISSION = COMMONS_MODULE_PERMISSION + ":" + NOTE_MENU_ID;
+    //设备发票菜单常量
+    public static final String PURCHASE_INVOICE_MENU_ID = "purchaseInvoiceMenu";
+    public static final String PURCHASE_INVOICE_MENU_TEXT = "设备发票";
+    public static final String PURCHASE_INVOICE_MENU_ROUTE_ID = "roffice/purchaseinvoice";
+    public static final String PURCHASE_INVOICE_MENU_ICON_CLASS = "x-fa fa-copy";
+    public static final String PURCHASE_INVOICE_MENU_PERMISSION = CM_MODULE_PERMISSION + ":" + PURCHASE_INVOICE_MENU_ID;
+    public static final int PURCHASE_INVOICE_MENU_INDEX = 60;
 
     //#################################################################################
 
@@ -99,14 +131,6 @@ public class Const {
     public static final String SUPPORT_MENU_ICON_CLASS = "x-fa fa-support";
     public static final String SUPPORT_MENU_PERMISSION = SALE_MODULE_PERMISSION + ":" + SUPPORT_MENU_ID;
     public static final int SUPPORT_MENU_INDEX = 20;
-
-    //项目机会菜单常量
-    public static final String CHANCE_MENU_ID = "chanceMenu";
-    public static final String CHANCE_MENU_TEXT = "项目机会";
-    public static final String CHANCE_MENU_ROUTE_ID = "roffice/Chance";
-    public static final String CHANCE_MENU_ICON_CLASS = "x-fa fa-cutlery";
-    public static final String CHANCE_MENU_PERMISSION = SALE_MODULE_PERMISSION + ":" + CHANCE_MENU_ID;
-    public static final int CHANCE_MENU_INDEX = 10;
 
 
 
@@ -136,29 +160,7 @@ public class Const {
     public static final String DEPLOY_MENU_PERMISSION = DEPLOY_MODULE_PERMISSION + ":" + DEPLOY_MENU_ID;
     public static final int DEPLOY_MENU_INDEX = 5;
 
-    //项目回款菜单常量
-    public static final String RECEIVE_MENU_ID = "receiveMenu";
-    public static final String RECEIVE_MENU_TEXT = "项目回款";
-    public static final String RECEIVE_MENU_ROUTE_ID = "roffice/Receive";
-    public static final String RECEIVE_MENU_ICON_CLASS = "x-fa fa-repeat";
-    public static final String RECEIVE_MENU_PERMISSION = DEPLOY_MODULE_PERMISSION + ":" + RECEIVE_MENU_ID;
-    public static final int RECEIVE_MENU_INDEX = 20;
 
-    //采购设备付款菜单常量
-    public static final String PAY_MENU_ID = "payMenu";
-    public static final String PAY_MENU_TEXT = "采购付款";
-    public static final String PAY_MENU_ROUTE_ID = "roffice/Pay";
-    public static final String PAY_MENU_ICON_CLASS = "x-fa fa-cc-visa";
-    public static final String PAY_MENU_PERMISSION = DEPLOY_MODULE_PERMISSION + ":" + PAY_MENU_ID;
-    public static final int PAY_MENU_INDEX = 30;
-
-    //设备发票菜单常量
-    public static final String PURCHASE_INVOICE_MENU_ID = "purchaseInvoiceMenu";
-    public static final String PURCHASE_INVOICE_MENU_TEXT = "设备发票";
-    public static final String PURCHASE_INVOICE_MENU_ROUTE_ID = "roffice/purchaseinvoice";
-    public static final String PURCHASE_INVOICE_MENU_ICON_CLASS = "x-fa fa-copy";
-    public static final String PURCHASE_INVOICE_MENU_PERMISSION = DEPLOY_MODULE_PERMISSION + ":" + PURCHASE_INVOICE_MENU_ID;
-    public static final int PURCHASE_INVOICE_MENU_INDEX = 30;
 
     //#################################################################################
     // 报表模块常量
@@ -167,14 +169,14 @@ public class Const {
     public static final String REPORT_MODULE_ROUTE_ID = "pages-parent";
     public static final int REPORT_MODULE_INDEX = 30;
     public static final String REPORT_MODULE_ICON_CLASS = "right-icon x-fa fa-pie-chart";
-    public static final String REPORT_MODULE_PERMISSION = "";//APPLICATION_NAME + ":" + REPORT_MODULE_ID;
+    public static final String REPORT_MODULE_PERMISSION = APPLICATION_NAME + ":" + REPORT_MODULE_ID;
 
     //合同报表菜单常量
     public static final String CONTACT_REPORT_MENU_ID = "contactReportMenu";
     public static final String CONTACT_REPORT_MENU_TEXT = "合同报表";
     public static final String CONTACT_REPORT_MENU_ROUTE_ID = "roffice/contactreport";
     public static final String CONTACT_REPORT_MENU_ICON_CLASS = "x-fa fa-list-alt";
-    public static final String CONTACT_REPORT_MENU_PERMISSION = "";//REPORT_MODULE_ID + ":" + CONTACT_REPORT_MENU_ID;
+    public static final String CONTACT_REPORT_MENU_PERMISSION = REPORT_MODULE_PERMISSION + ":" + CONTACT_REPORT_MENU_ID;
     public static final int CONTACT_REPORT_MENU_INDEX = 10;
 
 }
