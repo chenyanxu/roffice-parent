@@ -11,7 +11,7 @@ public class PurchaseInvoiceMenuImpl implements IMenu {
 
     @Override
     public String getModuleId() {
-        return Const.DEPLOY_MODULE_ID;
+        return Const.CM_MODULE_ID;
     }
 
     @Override
