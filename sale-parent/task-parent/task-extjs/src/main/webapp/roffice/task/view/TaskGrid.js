@@ -152,9 +152,18 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                     //var finishTargetNoTotal = Ext.JSON.toArray(summaryData)[6].value; //this.up('grid').getStore().sum('finishTargetNo',true);
                     //console.log('Sum >> ', finishTargetNoTotal);
                     //var targetNoTotal = Ext.JSON.toArray(summaryData)[5].value;
-                    var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2);
+                    var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2)+'%';
 
-                    return percentage.toString() + '%';
+                    var innerHtml= '<div  class="x-progress x-progress-default" style="width: 100px;">'+
+                        '<div  class="x-progress-text x-progress-text-back" style="width: 100px;">'+percentage+' 完成</div>'+
+                        '<div  class="x-progress-bar x-progress-bar-default" style="width: '+percentage+';">'+
+                        '<div  class="x-progress-text" style="width: 100px;">'+percentage+' 完成</div>'+
+                        '</div>'+
+                        '</div>';
+
+
+                    return innerHtml;
+                    //return percentage.toString() + '%';
                 }
             }, {
                 text: '目标毛利',
@@ -214,9 +223,17 @@ Ext.define('kalix.roffice.task.view.TaskGrid', {
                     //var finishTargetNoTotal = Ext.JSON.toArray(summaryData)[9].value; //this.up('grid').getStore().sum('finishTargetNo',true);
                     //console.log('Sum >> ', finishTargetNoTotal);
                     //var targetNoTotal = Ext.JSON.toArray(summaryData)[8].value;
-                    var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2);
+                    var percentage = (( finishTargetNoTotal / targetNoTotal ) * 100).toFixed(2)+'%';
 
-                    return percentage.toString() + '%';
+                    var innerHtml= '<div  class="x-progress x-progress-default" style="width: 100px;">'+
+                    '<div  class="x-progress-text x-progress-text-back" style="width: 100px;">'+percentage+' 完成</div>'+
+                    '<div  class="x-progress-bar x-progress-bar-default" style="width: '+percentage+';">'+
+                    '<div  class="x-progress-text" style="width: 100px;">'+percentage+' 完成</div>'+
+                    '</div>'+
+                    '</div>';
+
+                    return innerHtml;
+                    //return percentage.toString() + '%';
                 }
             },
             {
