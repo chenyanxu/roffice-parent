@@ -1,6 +1,6 @@
-SELECT  a.projectType,a.manager, sum(a.grossProfit) from roffice_contract a GROUP BY  a.manager,a.projectType order by a.manager;
+--SELECT  a.projectType,a.manager, sum(a.grossProfit) from roffice_contract a GROUP BY  a.manager,a.projectType order by a.manager;
 
-SELECT  a.projectType,a.manager, sum(a.summoney) summoney from roffice_contract a GROUP BY  a.manager,a.projectType order by a.manager;
+--SELECT  a.projectType,a.manager, sum(a.summoney) summoney from roffice_contract a GROUP BY  a.manager,a.projectType order by a.manager;
 
 --合同额更新
 

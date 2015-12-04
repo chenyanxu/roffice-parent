@@ -22,6 +22,11 @@
                 <to uri="bean:taskService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr})"/>
             </get>
 
+            <get id="route-calculate" uri="/calculate">
+                <description>Calculate all Tasks</description>
+                <to uri="bean:taskService?method=runTaskCaculate"/>
+            </get>
+
             <!-- this is a rest POST to create a task -->
             <post id="route-addTask" type="cn.com.rexen.roffice.task.entities.TaskBean"
                   outType="cn.com.rexen.core.api.biz.JsonStatus">

@@ -25,5 +25,16 @@ Ext.define('kalix.roffice.contactreport.Main', {
             iconCls: 'x-fa fa-list-alt',
             margin: 10
         }
-    ]
+    ],
+    /*listeners: {
+        render: function (target, eOpts) {
+            var store = kalix.getApplication().getStore(this.storeId);
+
+            store.on('beforeload', function (store, opts, target) {
+                var jsonStr = Ext.JSON.encode(target.items.getAt(0).getForm().getFieldValues());
+
+                store.proxy.extraParams = {'jsonStr': jsonStr};
+            }, this, target);
+        }
+    }*/
 });
