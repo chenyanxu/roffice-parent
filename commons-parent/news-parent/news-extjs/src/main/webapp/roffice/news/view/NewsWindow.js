@@ -21,7 +21,6 @@ Ext.define('kalix.roffice.news.view.NewsWindow', {
     xtype: "newsWindow",
     width: 950,
     height: 500,
-    //layout: 'fit',
     focusOnToFront: false,
     toFrontOnShow: false,
     preventFocusOnActivate: true,
