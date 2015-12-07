@@ -55,6 +55,7 @@ Ext.define('kalix.roffice.news.view.NewsViewWindow', {
             listeners: {
                 change: function (field, newValue, oldValue) {
                     console.log('change: ' + oldValue + ' -> ' + newValue);
+
                     this.findParentByType('window').viewModel.get('rec').set('content',newValue);
                 },
                 beforerender:function(){
