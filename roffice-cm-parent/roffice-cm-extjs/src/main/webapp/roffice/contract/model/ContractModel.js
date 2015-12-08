@@ -6,7 +6,7 @@ Ext.define("kalix.roffice.contract.model.ContractModel", {
     extend: "kalix.model.BaseModel",
     fields: [
         {name:'manager'},
-        {name: 'contractNumber'},
+        {name: 'contractNumber', validators:[{type:'presence'}]},
         {name: 'projectId'},
         {name: 'projectName'},
         {name: 'partyA'},
