@@ -23,5 +23,14 @@
             <groupId>cn.com.rexen.roffice.cm</groupId>
             <artifactId>roffice-cm-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.com.rexen.kalix.middleware</groupId>
+            <artifactId>excel-api</artifactId>
+            <version>${globle.version}</version>
+        </dependency>
     </dependencies>
 </project>
