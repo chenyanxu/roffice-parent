@@ -1,6 +1,7 @@
 package cn.com.rexen.roffice.cm.entities;
 
 import cn.com.rexen.core.api.persistence.PersistentEntity;
+import cn.com.rexen.core.delegate.Provide;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "roffice_contract")
+@Provide(context = {"cm"}, alias = "ContractBean")
 public class ContractBean extends PersistentEntity {
     /**
      * 客户经理
