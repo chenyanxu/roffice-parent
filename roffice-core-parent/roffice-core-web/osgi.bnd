@@ -3,3 +3,5 @@
 #-----------------------------------------------------------------
 
 Bundle-Activator: cn.com.rexen.roffice.core.web.internal.InitActivator
+Bundle-Classifier:IApplication
+Bundle-ApplicationId:roffice

@@ -6,7 +6,8 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
     requires: [
         'kalix.roffice.contract.controller.ContractGridController',
         'kalix.roffice.contract.store.ContractStore',
-        'kalix.admin.dict.component.DictGridColumn'
+        'kalix.admin.dict.component.DictGridColumn',
+        'kalix.attachment.view.AttachmentForm'
     ],
     alias: 'widget.contractGrid',
     xtype: 'contractGrid',
@@ -138,6 +139,14 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
                 permission: 'roffice:cmModule:contractMenu:add',
                 bind: {icon: '{add_image_path}'},
                 handler: 'onAdd'
+            },
+            {
+                xtype: 'attachmentForm',
+                filebutonIcon:"/kalix/resources/images/excel.png",
+                ConfigId:'ConfigContractColumnMap',
+                EntityName:'cn.com.rexen.roffice.cm.entities.ContractBean',
+                ServiceInterface:'cn.com.rexen.roffice.cm.api.biz.IContractBeanService',
+                permission: 'roffice:cmModule:contractMenu:view'
             }
         ]
     }

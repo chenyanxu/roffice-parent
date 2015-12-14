@@ -9,13 +9,13 @@
     <reference id="contractBeanService" interface="cn.com.rexen.roffice.cm.api.biz.IContractBeanService"/>
 
     <camelContext id="cm-rest-contract" xmlns="http://camel.apache.org/schema/blueprint" >
-        <onException>
-            <exception>java.lang.RuntimeException</exception>
-            <handled>
-                <constant>true</constant>
-            </handled>
-            <process ref="errorProcessor"/>
-        </onException>
+        <!--<onException>-->
+            <!--<exception>java.lang.RuntimeException</exception>-->
+            <!--<handled>-->
+                <!--<constant>true</constant>-->
+            <!--</handled>-->
+            <!--<process ref="errorProcessor"/>-->
+        <!--</onException>-->
         <restConfiguration component="servlet" bindingMode="json">
             <dataFormatProperty key="prettyPrint" value="true"/>
         </restConfiguration>
