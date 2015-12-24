@@ -47,11 +47,6 @@
             </dependency>
             <dependency>
                 <groupId>cn.com.rexen.kalix.core</groupId>
-                <artifactId>core-security</artifactId>
-                <version>${kalix.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.com.rexen.kalix.core</groupId>
                 <artifactId>core-impl</artifactId>
                 <version>${kalix.version}</version>
             </dependency>
@@ -89,10 +84,6 @@
         <dependency>
             <groupId>cn.com.rexen.kalix.core</groupId>
             <artifactId>core-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.com.rexen.kalix.core</groupId>
-            <artifactId>core-security</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,6 +1,6 @@
 package cn.com.rexen.roffice.support.core.biz;
 
-import cn.com.rexen.core.security.impl.ShiroGenericBizServiceImpl;
+import cn.com.rexen.core.impl.biz.ShiroGenericBizServiceImpl;
 import cn.com.rexen.roffice.support.api.biz.ISupportBeanService;
 import cn.com.rexen.roffice.support.api.dao.ISupportBeanDao;
 import cn.com.rexen.roffice.support.entities.SupportBean;

@@ -1,6 +1,6 @@
 package cn.com.rexen.roffice.chance.core.biz;
 
-import cn.com.rexen.core.security.impl.ShiroGenericBizServiceImpl;
+import cn.com.rexen.core.impl.biz.ShiroGenericBizServiceImpl;
 import cn.com.rexen.roffice.chance.api.biz.IChanceBeanService;
 import cn.com.rexen.roffice.chance.api.dao.IChanceBeanDao;
 import cn.com.rexen.roffice.chance.entities.ChanceBean;
