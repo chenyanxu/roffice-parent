@@ -2,8 +2,8 @@
  *  @author chenyanxu
  *
  */
-Ext.define("kalix.roffice.invoice.model.InvoiceModel", {
-    extend: "kalix.model.BaseModel",
+Ext.define('kalix.roffice.invoice.model.InvoiceModel', {
+    extend: 'kalix.model.BaseModel',
     fields: [
         {name: 'invoiceNo'},
         {name: 'money'},

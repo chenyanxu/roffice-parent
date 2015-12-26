@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.deploy.store.DeployStore', {
     alias: 'store.deployStore',
     xtype: 'deployStore',
     storeId: "deployStore",
-    proxyUrl: '/kalix/camel/rest/deploys'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/deploys'
 });

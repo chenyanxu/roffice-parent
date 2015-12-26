@@ -5,7 +5,7 @@
  *         date:2015-7-3
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.model.<beanName>Model', {
+Ext.define('kalix.<pomName>.model.<beanName>Model', {
     extend: 'Ext.data.Model',
     fields: [
         {name: 'id', type: 'string'},

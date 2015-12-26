@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.purchaseinvoice.store.PurchaseInvoiceStore', {
     alias: 'store.purchaseinvoiceStore',
     xtype: 'purchaseinvoiceStore',
     storeId: "purchaseinvoiceStore",
-    proxyUrl: '/kalix/camel/rest/purchaseinvoices'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/purchaseinvoices'
 });

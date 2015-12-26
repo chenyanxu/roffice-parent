@@ -13,8 +13,8 @@ Ext.define('kalix.roffice.invoice.viewModel.InvoiceViewModel', {
         add_title:'添加发票',
         edit_title:'修改发票',
         view_operation:false,
-        add_image_path: '/kalix/roffice/cm/resources/images/invoice_add.png',
-        view_image_path: '/kalix/roffice/cm/resources/images/invoice_view.png',
-        edit_image_path: '/kalix/roffice/cm/resources/images/invoice_edit.png'
+        add_image_path: CONFIG.restRoot+'/roffice/cm/resources/images/invoice_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/cm/resources/images/invoice_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/cm/resources/images/invoice_edit.png'
     }
 });

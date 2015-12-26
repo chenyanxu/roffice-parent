@@ -5,11 +5,11 @@
  *         date:2015-7-6
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.viewModel.<beanName>ViewModel', {
+Ext.define('kalix.<pomName>.viewModel.<beanName>ViewModel', {
     extend: 'Ext.app.ViewModel',
     requires: [
-        'Kalix.<pomName>.store.<beanName>Store',
-        'Kalix.<pomName>.model.<beanName>Model'
+        'kalix.<pomName>.store.<beanName>Store',
+        'kalix.<pomName>.model.<beanName>Model'
     ],
     alias: 'viewmodel.<pomName>ViewModel',
     data: {

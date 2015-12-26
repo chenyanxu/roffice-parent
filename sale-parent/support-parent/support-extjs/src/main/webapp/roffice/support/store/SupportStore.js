@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.support.store.SupportStore', {
     model: 'kalix.roffice.support.model.SupportModel',
     xtype: 'supportStore',
     storeId: "supportStore",
-    proxyUrl:'/kalix/camel/rest/supports'
+    proxyUrl:CONFIG.restRoot+'/camel/rest/supports'
 });

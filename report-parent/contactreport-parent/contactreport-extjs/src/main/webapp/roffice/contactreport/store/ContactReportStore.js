@@ -10,7 +10,7 @@ Ext.define('kalix.roffice.contactreport.store.ContactReportStore', {
     alias: 'store.contactreportStore',
     xtype: 'contactreportStore',
     storeId: "contactreportStore",
-    proxyUrl: '/kalix/camel/rest/contracts/report',
+    proxyUrl: CONFIG.restRoot+'/camel/rest/contracts/report',
     pageSize: 0,
     singleton: true
 });

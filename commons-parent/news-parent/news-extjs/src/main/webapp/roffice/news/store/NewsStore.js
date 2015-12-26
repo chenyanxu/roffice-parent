@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.news.store.NewsStore', {
     alias: 'store.newsStore',
     xtype: 'newsStore',
     storeId: "newsStore",
-    proxyUrl: '/kalix/camel/rest/newss'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/newss'
 });

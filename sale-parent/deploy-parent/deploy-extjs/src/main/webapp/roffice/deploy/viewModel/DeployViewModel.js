@@ -16,8 +16,8 @@ Ext.define('kalix.roffice.deploy.viewModel.DeployViewModel', {
         view_title: '查看实施项目',
         add_title: '添加实施项目',
         edit_title: '修改实施项目',
-        add_image_path: '/kalix/roffice/deploy/resources/images/deploy_add.png',
-        view_image_path: '/kalix/roffice/deploy/resources/images/deploy_view.png',
-        edit_image_path: '/kalix/roffice/deploy/resources/images/deploy_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/deploy/resources/images/deploy_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/deploy/resources/images/deploy_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/deploy/resources/images/deploy_edit.png',
     }
 });

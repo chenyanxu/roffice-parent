@@ -16,8 +16,8 @@ Ext.define('kalix.roffice.project.viewModel.ProjectViewModel', {
         view_title: '查看项目管理',
         add_title: '添加项目管理',
         edit_title: '修改项目管理',
-        add_image_path: '/kalix/roffice/project/resources/images/project_add.png',
-        view_image_path: '/kalix/roffice/project/resources/images/project_view.png',
-        edit_image_path: '/kalix/roffice/project/resources/images/project_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/project/resources/images/project_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/project/resources/images/project_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/project/resources/images/project_edit.png',
     }
 });

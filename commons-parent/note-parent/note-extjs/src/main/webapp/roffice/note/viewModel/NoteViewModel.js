@@ -16,8 +16,8 @@ Ext.define('kalix.roffice.note.viewModel.NoteViewModel', {
         view_title: '查看公司公告',
         add_title: '添加公司公告',
         edit_title: '修改公司公告',
-        add_image_path: '/kalix/roffice/note/resources/images/note_add.png',
-        view_image_path: '/kalix/roffice/note/resources/images/note_view.png',
-        edit_image_path: '/kalix/roffice/note/resources/images/note_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/note/resources/images/note_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/note/resources/images/note_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/note/resources/images/note_edit.png',
     }
 });

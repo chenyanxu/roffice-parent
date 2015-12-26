@@ -7,7 +7,7 @@
 
 
 Ext.define('kalix.roffice.travel.model.TravelModel', {
-    extend: "kalix.model.BaseModel",
+    extend: 'kalix.model.BaseModel',
 
     fields: [{
         name: 'name',

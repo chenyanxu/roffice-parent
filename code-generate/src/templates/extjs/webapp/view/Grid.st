@@ -4,11 +4,11 @@
  *         date:2015-7-3
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.view.<beanName>Grid', {
+Ext.define('kalix.<pomName>.view.<beanName>Grid', {
     extend: 'Ext.grid.Panel',
     requires: [
-        'Kalix.<pomName>.viewModel.<beanName>ViewModel',
-        'Kalix.<pomName>.controller.<beanName>GridController'
+        'kalix.<pomName>.viewModel.<beanName>ViewModel',
+        'kalix.<pomName>.controller.<beanName>GridController'
     ],
     alias: 'widget.<pomName>Grid',
     xtype: '<pomName>Grid',

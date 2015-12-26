@@ -5,13 +5,13 @@
  *         date:2015-6-18
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.controller.<beanName>Controller', {
+Ext.define('kalix.<pomName>.controller.<beanName>Controller', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.<pomName>Controller',
     requires: [
-        'Kalix.view.components.common.PagingToolBar',
-        'Kalix.<pomName>.view.<beanName>Grid',
-        'Kalix.<pomName>.store.<beanName>Store'
+        'kalix.view.components.common.PagingToolBar',
+        'kalix.<pomName>.view.<beanName>Grid',
+        'kalix.<pomName>.store.<beanName>Store'
     ],
     /**
      * 初始化面板.
@@ -106,7 +106,7 @@ Ext.define('Kalix.<pomName>.controller.<beanName>Controller', {
      * @returns {Ext.panel.Panel}
      */
     onInitDataGrid: function () {
-        var <pomName>Store = Ext.create('Kalix.<pomName>.store.<beanName>Store');
+        var <pomName>Store = Ext.create('kalix.<pomName>.store.<beanName>Store');
         var dataGird = Ext.create("Kalix.<pomName>.view.<beanName>Grid",
             {
                 store: <pomName>Store,

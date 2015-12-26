@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.receive.store.ReceiveStore', {
     alias: 'store.receiveStore',
     xtype: 'receiveStore',
     storeId: "receiveStore",
-    proxyUrl: '/kalix/camel/rest/receives'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/receives'
 });

@@ -16,8 +16,8 @@ Ext.define('kalix.roffice.purchaseinvoice.viewModel.PurchaseInvoiceViewModel', {
         view_title: '查看设备发票',
         add_title: '添加设备发票',
         edit_title: '修改设备发票',
-        add_image_path: '/kalix/roffice/purchaseinvoice/resources/images/purchaseinvoice_add.png',
-        view_image_path: '/kalix/roffice/purchaseinvoice/resources/images/purchaseinvoice_view.png',
-        edit_image_path: '/kalix/roffice/purchaseinvoice/resources/images/purchaseinvoice_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/purchaseinvoice/resources/images/purchaseinvoice_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/purchaseinvoice/resources/images/purchaseinvoice_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/purchaseinvoice/resources/images/purchaseinvoice_edit.png',
     }
 });

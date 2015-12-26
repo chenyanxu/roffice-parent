@@ -7,7 +7,7 @@
 
 
 Ext.define('kalix.roffice.chance.model.ChanceModel', {
-    extend: "kalix.model.BaseModel",
+    extend: 'kalix.model.BaseModel',
     fields: [
         {
             name: 'name',//项目名称

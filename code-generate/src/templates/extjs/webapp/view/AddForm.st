@@ -5,11 +5,11 @@
  *         date:2015-6-18
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.view.<beanName>AddForm', {
+Ext.define('kalix.<pomName>.view.<beanName>AddForm', {
     extend: 'Ext.FormPanel',
     requires: [
-        'Kalix.<pomName>.viewModel.<beanName>ViewModel',
-        'Kalix.<pomName>.controller.<beanName>FormController'
+        'kalix.<pomName>.viewModel.<beanName>ViewModel',
+        'kalix.<pomName>.controller.<beanName>FormController'
     ],
     alias: 'widget.<pomName>AddForm',
     viewModel: {

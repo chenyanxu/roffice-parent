@@ -1,6 +1,6 @@
 package cn.com.rexen.roffice.core.extjs.internal;
 
-import org.osgi.framework.BundleActivator;
+import cn.com.rexen.core.api.osgi.KalixBundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
@@ -10,9 +10,7 @@ import org.osgi.service.http.HttpService;
  *
  * @author ：Chenyanxu
  */
-public class InitActivator implements BundleActivator {
-    public static final String KALIX_APP_ROFFICE = "/kalix/app/roffice";
-    public static final String KALIX_ROFFICE_RESOURCES_IMAGES = "/kalix/roffice/resources/images";
+public class InitActivator extends KalixBundleActivator {
     private ServiceReference reference;
     private HttpService httpService;
 
@@ -27,8 +25,8 @@ public class InitActivator implements BundleActivator {
         }
 
         if (httpService != null) {
-            httpService.registerResources(KALIX_APP_ROFFICE, "/roffice", null);
-            httpService.registerResources(KALIX_ROFFICE_RESOURCES_IMAGES, "/resources/images", null);
+            httpService.registerResources(contextPath+ "/app/roffice", "/roffice", null);
+            httpService.registerResources(contextPath+ "/roffice/resources/images", "/resources/images", null);
         }
     }
 
@@ -37,8 +35,8 @@ public class InitActivator implements BundleActivator {
         System.out.println("STOP--BUNDLE->" + bundleContext.getBundle());
 
         if (httpService != null) {
-            httpService.unregister(KALIX_APP_ROFFICE);
-            httpService.unregister(KALIX_ROFFICE_RESOURCES_IMAGES);
+            httpService.unregister(contextPath+ "/app/roffice");
+            httpService.unregister(contextPath+ "/roffice/resources/images");
         }
 
         if (reference != null) {

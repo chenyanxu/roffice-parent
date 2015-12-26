@@ -5,11 +5,11 @@
  *         date:2015-6-18
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.view.<beanName>', {
+Ext.define('kalix.<pomName>.view.<beanName>', {
     extend: 'Ext.panel.Panel',
     requires: [
-        'Kalix.<pomName>.viewModel.<beanName>ViewModel',
-        'Kalix.<pomName>.controller.<beanName>Controller'
+        'kalix.<pomName>.viewModel.<beanName>ViewModel',
+        'kalix.<pomName>.controller.<beanName>Controller'
     ],
     controller: '<pomName>Controller',
     viewModel: {

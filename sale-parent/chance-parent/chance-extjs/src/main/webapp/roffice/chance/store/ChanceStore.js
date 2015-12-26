@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.chance.store.ChanceStore', {
     alias: 'store.chanceStore',
     xtype: 'chanceStore',
     storeId: "chanceStore",
-    proxyUrl:'/kalix/camel/rest/chances/'
+    proxyUrl:CONFIG.restRoot+'/camel/rest/chances/'
 });

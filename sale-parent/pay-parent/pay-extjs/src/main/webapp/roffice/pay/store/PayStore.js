@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.pay.store.PayStore', {
     alias: 'store.payStore',
     xtype: 'payStore',
     storeId: "payStore",
-    proxyUrl: '/kalix/camel/rest/pays'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/pays'
 });

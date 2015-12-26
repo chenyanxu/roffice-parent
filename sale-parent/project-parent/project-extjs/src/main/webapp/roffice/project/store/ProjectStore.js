@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.project.store.ProjectStore', {
     alias: 'store.projectStore',
     xtype: 'projectStore',
     storeId: "projectStore",
-    proxyUrl: '/kalix/camel/rest/projects'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/projects'
 });

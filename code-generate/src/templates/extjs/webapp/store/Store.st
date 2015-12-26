@@ -5,9 +5,9 @@
  *         date:2015-7-3
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.store.<beanName>Store', {
+Ext.define('kalix.<pomName>.store.<beanName>Store', {
     extend: 'kalix.store.BaseStore',
-    model: 'Kalix.<pomName>.model.<beanName>Model',
+    model: 'kalix.<pomName>.model.<beanName>Model',
     alias: 'store.<pomName>Store',
     xtype: '<pomName>Store',
     storeId: "<pomName>Store",

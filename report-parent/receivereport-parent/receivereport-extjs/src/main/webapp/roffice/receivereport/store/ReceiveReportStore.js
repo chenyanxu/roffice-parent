@@ -11,6 +11,6 @@ Ext.define('kalix.roffice.receivereport.store.ReceiveReportStore', {
     xtype: 'receivereportStore',
     storeId: "receivereportStore",
     groupField: 'manager',
-    proxyUrl:'/kalix/camel/rest/contracts/report',
+    proxyUrl:CONFIG.restRoot+'/camel/rest/contracts/report',
     pageSize:0
 });

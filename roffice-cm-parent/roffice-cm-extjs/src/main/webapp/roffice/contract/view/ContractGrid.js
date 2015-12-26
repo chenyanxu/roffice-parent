@@ -121,7 +121,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             //,
             //{
             //    xtype: 'securityGridColumnRUD',
-            //    //iconPath:'/kalix/roffice/cm/resources/images/contract',
+            //    //iconPath:CONFIG.restRoot+'/roffice/cm/resources/images/contract',
             //    permissions: [
             //        'roffice:cmModule:contractMenu:view',
             //        'roffice:cmModule:contractMenu:edit',
@@ -142,7 +142,7 @@ Ext.define('kalix.roffice.contract.view.ContractGrid', {
             },
             {
                 xtype: 'attachmentForm',
-                filebutonIcon:"/kalix/resources/images/excel.png",
+                filebutonIcon:CONFIG.restRoot+'/resources/images/excel.png',
                 ConfigId:'ConfigContractColumnMap',
                 EntityName:'cn.com.rexen.roffice.cm.entities.ContractBean',
                 ServiceInterface:'cn.com.rexen.roffice.cm.api.biz.IContractBeanService',

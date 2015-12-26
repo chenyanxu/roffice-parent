@@ -16,8 +16,8 @@ Ext.define('kalix.roffice.pay.viewModel.PayViewModel', {
         view_title: '查看采购付款',
         add_title: '添加采购付款',
         edit_title: '修改采购付款',
-        add_image_path: '/kalix/roffice/pay/resources/images/pay_add.png',
-        view_image_path: '/kalix/roffice/pay/resources/images/pay_view.png',
-        edit_image_path: '/kalix/roffice/pay/resources/images/pay_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/pay/resources/images/pay_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/pay/resources/images/pay_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/pay/resources/images/pay_edit.png',
     }
 });

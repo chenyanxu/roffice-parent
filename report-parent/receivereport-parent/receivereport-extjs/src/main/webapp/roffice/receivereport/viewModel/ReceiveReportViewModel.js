@@ -17,8 +17,8 @@ Ext.define('kalix.roffice.receivereport.viewModel.ReceiveReportViewModel', {
         view_title: '查看合同回款情况',
         add_title: '添加合同回款情况',
         edit_title: '修改合同回款情况',
-        add_image_path: '/kalix/roffice/receivereport/resources/images/receivereport_add.png',
-        view_image_path: '/kalix/roffice/receivereport/resources/images/receivereport_view.png',
-        edit_image_path: '/kalix/roffice/receivereport/resources/images/receivereport_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/receivereport/resources/images/receivereport_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/receivereport/resources/images/receivereport_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/receivereport/resources/images/receivereport_edit.png',
     }
 });

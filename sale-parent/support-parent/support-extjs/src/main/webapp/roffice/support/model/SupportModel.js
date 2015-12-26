@@ -7,7 +7,7 @@
 
 
 Ext.define('kalix.roffice.support.model.SupportModel', {
-    extend: "kalix.model.BaseModel",
+    extend: 'kalix.model.BaseModel',
     fields: [
         {
         name: 'name',//项目名称

@@ -7,5 +7,5 @@ Ext.define('kalix.roffice.invoice.store.InvoiceStore', {
     model:'kalix.roffice.invoice.model.InvoiceModel',
     xtype: 'invoiceStore',
     storeId: "invoiceStore",
-    proxyUrl:'/kalix/camel/rest/invoices'
+    proxyUrl:CONFIG.restRoot+'/camel/rest/invoices'
 });

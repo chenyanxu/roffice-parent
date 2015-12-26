@@ -16,8 +16,8 @@ Ext.define('kalix.roffice.travel.viewModel.TravelViewModel', {
         view_title: '查看出差记录',
         add_title: '添加出差记录',
         edit_title: '修改出差记录',
-        add_image_path: '/kalix/roffice/travel/resources/images/travel_add.png',
-        view_image_path: '/kalix/roffice/travel/resources/images/travel_view.png',
-        edit_image_path: '/kalix/roffice/travel/resources/images/travel_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/travel/resources/images/travel_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/travel/resources/images/travel_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/travel/resources/images/travel_edit.png',
     }
 });

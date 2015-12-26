@@ -24,7 +24,7 @@ Ext.define('kalix.roffice.contract.controller.ContractGridController', {
     //    scope={store:store};
     //
     //    form.submit({
-    //        url: '/kalix/camel/rest/excel/upload?' +
+    //        url: CONFIG.restRoot+'/camel/rest/excel/upload?' +
     //        'ConfigId=ConfigContractColumnMap&' +
     //        'EntityName=cn.com.rexen.roffice.cm.entities.ContractBean&' +
     //        'ServiceInterface=cn.com.rexen.roffice.cm.api.biz.IContractBeanService',

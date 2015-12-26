@@ -7,5 +7,5 @@ Ext.define('kalix.roffice.contract.store.ContractStore', {
     model: 'kalix.roffice.contract.model.ContractModel',
     xtype: 'contractStore',
     storeId: "contractStore",
-    proxyUrl:'/kalix/camel/rest/contracts'
+    proxyUrl:CONFIG.restRoot+'/camel/rest/contracts'
 });

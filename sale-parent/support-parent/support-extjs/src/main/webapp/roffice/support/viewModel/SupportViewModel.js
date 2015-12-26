@@ -16,9 +16,9 @@ Ext.define('kalix.roffice.support.viewModel.SupportViewModel', {
         view_title:'查看项目支持',
         add_title:'添加项目支持',
         edit_title:'修改项目支持',
-        add_image_path: '/kalix/roffice/support/resources/images/support_add.png',
-        view_image_path: '/kalix/roffice/support/resources/images/support_view.png',
-        delete_image_path: '/kalix/roffice/support/resources/images/support_delete.png',
-        edit_image_path: '/kalix/roffice/support/resources/images/support_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/support/resources/images/support_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/support/resources/images/support_view.png',
+        delete_image_path: CONFIG.restRoot+'/roffice/support/resources/images/support_delete.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/support/resources/images/support_edit.png',
     }
 });

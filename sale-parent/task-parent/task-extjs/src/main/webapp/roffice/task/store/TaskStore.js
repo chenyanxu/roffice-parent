@@ -10,7 +10,7 @@ Ext.define('kalix.roffice.task.store.TaskStore', {
     alias: 'store.taskStore',
     xtype: 'taskStore',
     storeId: "taskStore",
-    proxyUrl: '/kalix/camel/rest/tasks',
+    proxyUrl: CONFIG.restRoot+'/camel/rest/tasks',
     groupField: 'name',
     pageSize: 20
 });

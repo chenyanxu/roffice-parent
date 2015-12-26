@@ -5,7 +5,7 @@
  *         date:2015-6-18
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.controller.<beanName>GridController', {
+Ext.define('kalix.<pomName>.controller.<beanName>GridController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.<pomName>GridController',
 
@@ -18,7 +18,7 @@ Ext.define('Kalix.<pomName>.controller.<beanName>GridController', {
      * @returns {Ext.panel.Panel}
      */
     onAdd: function () {
-        var addFormPanel = Ext.create('Kalix.<pomName>.view.<beanName>AddForm', {
+        var addFormPanel = Ext.create('kalix.<pomName>.view.<beanName>AddForm', {
             url: this.getView().getViewModel().get("url")
         });
         var win = Ext.create('Ext.Window', {
@@ -53,7 +53,7 @@ Ext.define('Kalix.<pomName>.controller.<beanName>GridController', {
         console.log('fdfdfdf' + rec);
 
         /*var rec = grid.getStore().getAt(rowIndex);
-         var editFormPanel = Ext.create('Kalix.<pomName>.view.<beanName>EditForm', {
+         var editFormPanel = Ext.create('kalix.<pomName>.view.<beanName>EditForm', {
          url: this.getView().getViewModel().get("url")
          });
          var <pomName>Model = Ext.create("Kalix.<pomName>.model.<beanName>Model", {
@@ -64,7 +64,7 @@ Ext.define('Kalix.<pomName>.controller.<beanName>GridController', {
         //var grid = this.lookupReference('fooGrid');
         //this.setCurrent<beanName>(record);
 
-        var editFormPanel = Ext.create('Kalix.<pomName>.view.<beanName>EditForm', {
+        var editFormPanel = Ext.create('kalix.<pomName>.view.<beanName>EditForm', {
             url: this.getView().getViewModel().get("url"),
             //<pomName>Ref:this.lookupReference('<pomName>Ref'),
         });

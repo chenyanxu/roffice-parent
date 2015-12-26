@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.travel.store.TravelStore', {
     alias: 'store.travelStore',
     xtype: 'travelStore',
     storeId: "travelStore",
-    proxyUrl: '/kalix/camel/rest/travels'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/travels'
 });

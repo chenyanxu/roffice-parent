@@ -2,8 +2,8 @@
  *  @author chenyanxu
  *
  */
-Ext.define("kalix.roffice.contract.model.ContractModel", {
-    extend: "kalix.model.BaseModel",
+Ext.define('kalix.roffice.contract.model.ContractModel', {
+    extend: 'kalix.model.BaseModel',
     fields: [
         {name:'manager'},
         {name: 'contractNumber', validators:[{type:'presence'}]},

@@ -17,8 +17,8 @@ Ext.define('kalix.roffice.contactreport.viewModel.ContactReportViewModel', {
         view_title: '查看合同报表',
         add_title: '添加合同报表',
         edit_title: '修改合同报表',
-        add_image_path: '/kalix/roffice/contactreport/resources/images/contactreport_add.png',
-        view_image_path: '/kalix/roffice/contactreport/resources/images/contactreport_view.png',
-        edit_image_path: '/kalix/roffice/contactreport/resources/images/contactreport_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/contactreport/resources/images/contactreport_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/contactreport/resources/images/contactreport_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/contactreport/resources/images/contactreport_edit.png',
     }
 });

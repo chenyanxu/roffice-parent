@@ -5,7 +5,7 @@
  *         date:2015-6-18
  * @version 1.0.0
  */
-Ext.define('Kalix.<pomName>.controller.<beanName>FormController', {
+Ext.define('kalix.<pomName>.controller.<beanName>FormController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.<pomName>FormController',
 

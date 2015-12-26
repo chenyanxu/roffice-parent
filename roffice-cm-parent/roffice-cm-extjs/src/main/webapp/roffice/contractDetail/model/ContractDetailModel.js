@@ -2,8 +2,8 @@
  *  @author chenyanxu
  *
  */
-Ext.define("kalix.roffice.contractDetail.model.ContractDetailModel", {
-    extend: "kalix.model.BaseModel",
+Ext.define('kalix.roffice.contractDetail.model.ContractDetailModel', {
+    extend: 'kalix.model.BaseModel',
     fields: [
         {name: 'name'},
         {name: 'provider'},

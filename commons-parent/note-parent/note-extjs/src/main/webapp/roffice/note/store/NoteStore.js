@@ -10,5 +10,5 @@ Ext.define('kalix.roffice.note.store.NoteStore', {
     alias: 'store.noteStore',
     xtype: 'noteStore',
     storeId: "noteStore",
-    proxyUrl: '/kalix/camel/rest/notes'
+    proxyUrl: CONFIG.restRoot+'/camel/rest/notes'
 });

@@ -16,8 +16,8 @@ Ext.define('kalix.roffice.receive.viewModel.ReceiveViewModel', {
         view_title: '查看项目回款',
         add_title: '添加项目回款',
         edit_title: '修改项目回款',
-        add_image_path: '/kalix/roffice/receive/resources/images/receive_add.png',
-        view_image_path: '/kalix/roffice/receive/resources/images/receive_view.png',
-        edit_image_path: '/kalix/roffice/receive/resources/images/receive_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/receive/resources/images/receive_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/receive/resources/images/receive_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/receive/resources/images/receive_edit.png',
     }
 });

@@ -1,6 +1,6 @@
 package cn.com.rexen.roffice.cm.extjs.internal;
 
-import org.osgi.framework.BundleActivator;
+import cn.com.rexen.core.api.osgi.KalixBundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.http.HttpService;
@@ -10,11 +10,7 @@ import org.osgi.service.http.HttpService;
  *
  * @author ：Chenyanxu
  */
-public class InitActivator implements BundleActivator {
-    public static final String KALIX_APP_ROFFICE_CONTRACT = "/kalix/app/roffice/contract";
-    public static final String KALIX_APP_ROFFICE_INVOICE = "/kalix/app/roffice/invoice";
-    public static final String KALIX_APP_ROFFICE_CONTRACTDETAIL = "/kalix/app/roffice/contractDetail";
-    public static final String KALIX_ROFFICE_CM_RESOURCES_IMAGES = "/kalix/roffice/cm/resources/images";
+public class InitActivator extends KalixBundleActivator {
     private ServiceReference reference;
     private HttpService httpService;
 
@@ -29,10 +25,10 @@ public class InitActivator implements BundleActivator {
         }
 
         if (httpService != null) {
-            httpService.registerResources(KALIX_APP_ROFFICE_CONTRACT, "/roffice/contract", null);
-            httpService.registerResources(KALIX_APP_ROFFICE_INVOICE, "/roffice/invoice", null);
-            httpService.registerResources(KALIX_APP_ROFFICE_CONTRACTDETAIL, "/roffice/contractDetail", null);
-            httpService.registerResources(KALIX_ROFFICE_CM_RESOURCES_IMAGES, "/resources/images", null);
+            httpService.registerResources(contextPath+ "/app/roffice/contract", "/roffice/contract", null);
+            httpService.registerResources(contextPath+ "/app/roffice/invoice", "/roffice/invoice", null);
+            httpService.registerResources(contextPath+ "/app/roffice/contractDetail", "/roffice/contractDetail", null);
+            httpService.registerResources(contextPath+ "/roffice/cm/resources/images", "/resources/images", null);
         }
     }
 
@@ -41,10 +37,10 @@ public class InitActivator implements BundleActivator {
         System.out.println("STOP--BUNDLE->" + bundleContext.getBundle());
 
         if (httpService != null) {
-            httpService.unregister(KALIX_APP_ROFFICE_CONTRACT);
-            httpService.unregister(KALIX_APP_ROFFICE_INVOICE);
-            httpService.unregister(KALIX_APP_ROFFICE_CONTRACTDETAIL);
-            httpService.unregister(KALIX_ROFFICE_CM_RESOURCES_IMAGES);
+            httpService.unregister(contextPath+ "/app/roffice/contract");
+            httpService.unregister(contextPath+ "/app/roffice/invoice");
+            httpService.unregister(contextPath+ "/app/roffice/contractDetail");
+            httpService.unregister(contextPath+ "/roffice/cm/resources/images");
         }
 
         if (reference != null) {

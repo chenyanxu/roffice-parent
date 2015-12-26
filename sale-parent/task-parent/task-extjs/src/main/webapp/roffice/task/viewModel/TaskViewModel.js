@@ -17,8 +17,8 @@ Ext.define('kalix.roffice.task.viewModel.TaskViewModel', {
         view_title: '查看任务目标',
         add_title: '添加任务目标',
         edit_title: '修改任务目标',
-        add_image_path: '/kalix/roffice/task/resources/images/task_add.png',
-        view_image_path: '/kalix/roffice/task/resources/images/task_view.png',
-        edit_image_path: '/kalix/roffice/task/resources/images/task_edit.png',
+        add_image_path: CONFIG.restRoot+'/roffice/task/resources/images/task_add.png',
+        view_image_path: CONFIG.restRoot+'/roffice/task/resources/images/task_view.png',
+        edit_image_path: CONFIG.restRoot+'/roffice/task/resources/images/task_edit.png',
     }
 });
