@@ -28,17 +28,17 @@ Ext.define('kalix.roffice.note.view.NoteWindow', {
             fieldLabel: '标题',
             allowBlank: false,
             bind: {
-                activeError: '{validation.name}',
+                //activeError: '{validation.name}',
                 value: '{rec.name}'
             }
         }, {
             fieldLabel: '星级',
             xtype: 'fieldcontainer',
             allowBlank: false,
-            bind: {
-                activeError: '{validation.rating}',
-                //value: '{rec.rating}'
-            },
+            //bind: {
+            //    activeError: '{validation.rating}',
+            //    //value: '{rec.rating}'
+            //},
             items: [{
                 xtype: 'rating',
                 scale: '150%',
