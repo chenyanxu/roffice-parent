@@ -46,10 +46,10 @@
             </put>
 
             <!-- this is a rest DELETE to delete a note -->
-            <delete uri="/{id}" id="route-deleteNote" type="cn.com.rexen.roffice.note.entities.NoteBean"
+            <delete uri="/{id}" id="route-deleteNote"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Note</description>
-                <to uri="bean:noteService?method=removeEntity"/>
+                <to uri="bean:noteService?method=deleteEntity(${header.id})"/>
             </delete>
 
         </rest>

@@ -43,10 +43,10 @@
             </put>
 
             <!-- this is a rest DELETE to delete a deploy -->
-            <delete uri="/{id}" id="route-deleteDeploy" type="cn.com.rexen.roffice.deploy.entities.DeployBean"
+            <delete uri="/{id}" id="route-deleteDeploy"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Deploy</description>
-                <to uri="bean:deployService?method=removeEntity"/>
+                <to uri="bean:deployService?method=deleteEntity(${header.id})"/>
             </delete>
 
         </rest>

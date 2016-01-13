@@ -47,10 +47,9 @@
 
             <!-- this is a rest DELETE to delete a purchaseinvoice -->
             <delete uri="/{id}" id="route-deletePurchaseInvoice"
-                    type="cn.com.rexen.roffice.purchaseinvoice.entities.PurchaseInvoiceBean"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a PurchaseInvoice</description>
-                <to uri="bean:purchaseinvoiceService?method=removeEntity"/>
+                <to uri="bean:purchaseinvoiceService?method=deleteEntity(${header.id})"/>
             </delete>
 
         </rest>

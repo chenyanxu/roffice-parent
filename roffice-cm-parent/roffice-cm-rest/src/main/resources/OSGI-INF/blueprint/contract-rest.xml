@@ -47,10 +47,10 @@
                 <description>Updates a News</description>
                 <to uri="bean:contractBeanService?method=updateEntity"/>
             </put>
-            <delete id="route-removeContract" type="cn.com.rexen.roffice.cm.entities.ContractBean"
+            <delete id="route-removeContract"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a contract</description>
-                <to uri="bean:contractBeanService?method=removeEntity"/>
+                <to uri="bean:contractBeanService?method=deleteEntity(${header.id})"/>
             </delete>
         </rest>
     </camelContext>

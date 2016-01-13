@@ -34,10 +34,10 @@
                 <description>Updates a News</description>
                 <to uri="bean:invoiceBeanService?method=updateEntity"/>
             </put>
-            <delete id="route-removeInvoice" type="cn.com.rexen.roffice.cm.entities.InvoiceBean"
+            <delete id="route-removeInvoice"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Create a invoice</description>
-                <to uri="bean:invoiceBeanService?method=removeEntity"/>
+                <to uri="bean:invoiceBeanService?method=deleteEntity(${header.id})"/>
             </delete>
         </rest>
     </camelContext>

@@ -39,10 +39,10 @@
             </put>
 
             <!-- this is a rest DELETE to delete a support -->
-            <delete id="route-deleteSupport" type="cn.com.rexen.roffice.support.entities.SupportBean"
+            <delete id="route-deleteSupport"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Support</description>
-                <to uri="bean:supportService?method=removeEntity"/>
+                <to uri="bean:supportService?method=deleteEntity(${header.id})"/>
             </delete>
         </rest>
     </camelContext>

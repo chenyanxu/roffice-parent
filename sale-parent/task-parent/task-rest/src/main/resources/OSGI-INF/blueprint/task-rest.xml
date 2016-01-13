@@ -48,10 +48,10 @@
             </put>
 
             <!-- this is a rest DELETE to delete a task -->
-            <delete uri="/{id}" id="route-deleteTask" type="cn.com.rexen.roffice.task.entities.TaskBean"
+            <delete uri="/{id}" id="route-deleteTask"
                 outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Task</description>
-                <to uri="bean:taskService?method=removeEntity"/>
+                <to uri="bean:taskService?method=deleteEntity(${header.id})"/>
             </delete>
 
         </rest>

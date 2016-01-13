@@ -43,10 +43,10 @@
             </put>
 
             <!-- this is a rest DELETE to delete a travel -->
-            <delete uri="/{id}" id="route-deleteTravel" type="cn.com.rexen.roffice.travel.entities.TravelBean"
+            <delete uri="/{id}" id="route-deleteTravel"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Travel</description>
-                <to uri="bean:travelService?method=removeEntity"/>
+                <to uri="bean:travelService?method=deleteEntity(${header.id})"/>
             </delete>
 
         </rest>

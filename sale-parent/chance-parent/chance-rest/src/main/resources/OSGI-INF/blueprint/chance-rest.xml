@@ -37,10 +37,10 @@
                 <to uri="bean:chanceService?method=updateEntity"/>
             </put>
             <!-- this is a rest DELETE to delete a chance -->
-            <delete id="route-deleteChance" type="cn.com.rexen.roffice.chance.entities.ChanceBean"
+            <delete id="route-deleteChance"
                     outType="cn.com.rexen.core.api.biz.JsonStatus">
                 <description>Delete a Chance</description>
-                <to uri="bean:chanceService?method=removeEntity"/>
+                <to uri="bean:chanceService?method=deleteEntity(${header.id})"/>
             </delete>
         </rest>
     </camelContext>
