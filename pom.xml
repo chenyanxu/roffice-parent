@@ -28,8 +28,22 @@
         <module>sale-parent</module>
         <module>commons-parent</module>
         <module>report-parent</module>
-        <module>code-generate</module>
+        <!--<module>code-generate</module>-->
     </modules>
+
+    <distributionManagement>
+        <repository>
+            <id>private-nexus-library-releases</id>
+            <name>private-nexus-library-releases</name>
+            <url>http://172.18.82.10:8081/nexus/content/repositories/releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>private-nexus-library-snapshots</id>
+            <name>private-nexus-library-snapshots</name>
+            <url>http://172.18.82.10:8081/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencyManagement>
         <dependencies>
