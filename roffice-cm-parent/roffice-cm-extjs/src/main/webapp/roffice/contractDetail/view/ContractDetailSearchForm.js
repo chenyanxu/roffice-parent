@@ -15,6 +15,30 @@ Ext.define('kalix.roffice.contractDetail.view.ContractDetailSearchForm', {
             labelWidth: 60,
             width: 200,
             name: 'name'
+        },
+        {
+            xtype: 'numberfield',
+            fieldLabel: '数量',
+            labelAlign: 'right',
+            labelWidth: 60,
+            width: 200,
+            name: 'amount'
+        },
+        {
+            xtype: 'datefield',
+            fieldLabel: '追加日期开始',
+            labelAlign: 'right',
+            labelWidth: 100,
+            width: 250,
+            name: 'addDate__begin__gt'
+        },
+        {
+            xtype: 'datefield',
+            fieldLabel: '追加日期结束',
+            labelAlign: 'right',
+            labelWidth: 100,
+            width: 250,
+            name: 'addDate__end__lt'
         }
     ]
 });
